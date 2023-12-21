@@ -1,0 +1,45 @@
+{
+    "elements": [
+        {
+            "type": "SelectVariable",
+            "name": "Bewohner1",
+            "caption": "Bewohner 1",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Bewohner2",
+            "caption": "Bewohner 2",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Bewohner3",
+            "caption": "Bewohner 3",
+            "validVariableTypes": [0]
+        },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner1Image", 
+            "caption": "Foto Bewohner 1"
+        },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner2Image", 
+            "caption": "Foto Bewohner 2"
+        },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner3Image", 
+            "caption": "Foto Bewohner 3"
+        },
+        {   "type": "NumberSpinner",
+            "name": "Schriftgroesse", 
+            "caption": "Schriftgröße in em", 
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 2.0,
+            "suffix": "em"
+        }
+    ]
+}
