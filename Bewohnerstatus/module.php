@@ -140,6 +140,10 @@
                                 $imageContent .= IPS_GetMediaContent($imageID);
                                 $result['image1'] = $imageContent;
                             }
+                            else{
+                                $imageContent = 'data:image/png;base64,';
+                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
+                            }
                         }
                     }
                                         
@@ -191,7 +195,7 @@
                             }
                             else{
                                 $imageContent = 'data:image/png;base64,';
-                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'))
+                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
                             }
                         }
                     }
@@ -241,6 +245,10 @@
                                 // Hänge base64-codierten Inhalt des Bildes an
                                 $imageContent .= IPS_GetMediaContent($imageID);
                                 $result['image3'] = $imageContent;
+                            }
+                            else{
+                                $imageContent = 'data:image/png;base64,';
+                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
                             }
                         }
                     }
