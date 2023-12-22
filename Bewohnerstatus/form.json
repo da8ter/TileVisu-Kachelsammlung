@@ -4,12 +4,16 @@
             "caption": "Konfiguriere die gewünschte Anzahl an Bewohnern. Nicht konfigurierte Bewohner werden ausgeblendet. Fotos müssen als MedienObjekt angelegt werden. Fotos sollten ein Seitenverhältnis von 1:1 haben und eine größe von 150x150 Pixeln nicht überschreiten." 
         },
         {   "type": "Label", 
-            "caption": "Der Staus eines Bewphners muss über eine Bool-Variable abgebildet werden. true = anwesend, false = abwesend" 
+            "caption": "Je Bewohner wird eine Bool-Variable benötigt. true = anwesend, false = abwesend"
+        },
+        {   "type": "Label", 
+            "caption": "Bewohner 1",
+            "bold": true
         },
         {
             "type": "SelectVariable",
             "name": "Bewohner1",
-            "caption": "Bewohner 1",
+            "caption": "Status Bewohner 1",
             "validVariableTypes": [0]
         },
         { 
@@ -20,7 +24,7 @@
         {
             "type": "SelectVariable",
             "name": "Bewohner2",
-            "caption": "Bewohner 2",
+            "caption": "Status Bewohner 2",
             "validVariableTypes": [0]
         },
         { 
@@ -31,7 +35,7 @@
         {
             "type": "SelectVariable",
             "name": "Bewohner3",
-            "caption": "Bewohner 3",
+            "caption": "Status Bewohner 3",
             "validVariableTypes": [0]
         },
         { 
