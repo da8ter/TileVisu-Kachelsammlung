@@ -140,13 +140,13 @@
                                 $imageContent .= IPS_GetMediaContent($imageID);
                                 $result['image1'] = $imageContent;
                             }
-                            else{
-                                $imageContent = 'data:image/png;base64,';
-                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
-                            }
+
                         }
                     }
-                                        
+                    else{
+                        $imageContent = 'data:image/png;base64,';
+                        $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
+                    }                    
                     
 
                 }
