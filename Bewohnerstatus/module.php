@@ -19,6 +19,7 @@
             $this->RegisterPropertyInteger('Bewohner4Image', 0);
             $this->RegisterPropertyInteger('Bewohner5Image', 0);
             $this->RegisterPropertyFloat('Schriftgroesse', 1);
+            $this->RegisterPropertyFloat('Eckenradius', 50);
             // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
             $this->SetVisualizationType(1);
         }
@@ -108,7 +109,7 @@
                     'Bewohner5' => $Bewohner5Exists
                 ];
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
-
+                $result['eckenradius'] = $this->ReadPropertyFloat('Eckenradius');
                 if ($Bewohner1Exists) {
                     $result['name1'] = IPS_GetName($Bewohner1ID);
                     $result['value1'] = GetValueBoolean($Bewohner1ID);

@@ -106,6 +106,14 @@
             "minimum": 0.5,
             "maximum": 2.0,
             "suffix": "em"
-        }
+        },
+        {   "type": "NumberSpinner",
+            "name": "Eckenradius", 
+            "caption": "Eckenradius in %", 
+            "digits": 1,
+            "minimum": 0.0,
+            "maximum": 50,
+            "suffix": "%"
+    }
     ]
 }
