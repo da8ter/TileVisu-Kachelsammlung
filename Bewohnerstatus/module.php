@@ -11,9 +11,13 @@
             $this->RegisterPropertyInteger("Bewohner1", 0);
             $this->RegisterPropertyInteger('Bewohner2', 0);
             $this->RegisterPropertyInteger('Bewohner3', 0);
+            $this->RegisterPropertyInteger('Bewohner4', 0);
+            $this->RegisterPropertyInteger('Bewohner5', 0);
             $this->RegisterPropertyInteger("Bewohner1Image", 0);
             $this->RegisterPropertyInteger('Bewohner2Image', 0);
             $this->RegisterPropertyInteger('Bewohner3Image', 0);
+            $this->RegisterPropertyInteger('Bewohner4Image', 0);
+            $this->RegisterPropertyInteger('Bewohner5Image', 0);
             $this->RegisterPropertyFloat('Schriftgroesse', 1);
             // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
             $this->SetVisualizationType(1);
@@ -29,7 +33,7 @@
                 }
             }
 
-            foreach(['Bewohner1', 'Bewohner2', 'Bewohner3'] as $BewohnerProperty) {
+            foreach(['Bewohner1', 'Bewohner2', 'Bewohner3', 'Bewohner4', 'Bewohner5'] as $BewohnerProperty) {
                 $this->RegisterMessage($this->ReadPropertyInteger($BewohnerProperty), OM_CHANGENAME);
                 $this->RegisterMessage($this->ReadPropertyInteger($BewohnerProperty), VM_UPDATE);
             }
@@ -39,7 +43,7 @@
         }
 
         public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
-            foreach(['Bewohner1', 'Bewohner2', 'Bewohner3'] as $index => $BewohnerProperty) {
+            foreach(['Bewohner1', 'Bewohner2', 'Bewohner3', 'Bewohner4', 'Bewohner5'] as $index => $BewohnerProperty) {
                 if ($SenderID === $this->ReadPropertyInteger($BewohnerProperty)) {
                     switch ($Message) {
                         case OM_CHANGENAME:
@@ -89,13 +93,19 @@
                 $Bewohner1ID = $this->ReadPropertyInteger('Bewohner1');
                 $Bewohner2ID = $this->ReadPropertyInteger('Bewohner2');
                 $Bewohner3ID = $this->ReadPropertyInteger('Bewohner3');
+                $Bewohner4ID = $this->ReadPropertyInteger('Bewohner4');
+                $Bewohner5ID = $this->ReadPropertyInteger('Bewohner5');
                 $Bewohner1Exists = IPS_VariableExists($Bewohner1ID);
                 $Bewohner2Exists = IPS_VariableExists($Bewohner2ID);
                 $Bewohner3Exists = IPS_VariableExists($Bewohner3ID);
+                $Bewohner42Exists = IPS_VariableExists($Bewohner4ID);
+                $Bewohner5Exists = IPS_VariableExists($Bewohner5ID);
                 $result = [
                     'Bewohner1' => $Bewohner1Exists,
                     'Bewohner2' => $Bewohner2Exists,
                     'Bewohner3' => $Bewohner3Exists,
+                    'Bewohner4' => $Bewohner4Exists,
+                    'Bewohner5' => $Bewohner5Exists,
                 ];
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
 
@@ -194,13 +204,13 @@
                                 $imageContent .= IPS_GetMediaContent($imageID);
                                 $result['image2'] = $imageContent;
                             }
-                            else{
-                                $imageContent = 'data:image/png;base64,';
-                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
-                            }
                         }
                     }
-                                        
+                    else{
+                        $imageContent = 'data:image/png;base64,';
+                        $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                        $result['image2'] = $imageContent;
+                    }                   
                     
 
                 }
@@ -247,17 +257,118 @@
                                 $imageContent .= IPS_GetMediaContent($imageID);
                                 $result['image3'] = $imageContent;
                             }
-                            else{
-                                $imageContent = 'data:image/png;base64,';
-                                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/imgs/placeholder.png'));
-                            }
                         }
                     }
-                                        
+                    else{
+                        $imageContent = 'data:image/png;base64,';
+                        $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                        $result['image3'] = $imageContent;
+                    }                    
                     
 
                 }
+                if ($Bewohner3Exists) {
+                    $result['name4'] = IPS_GetName($Bewohner3ID);
+                    $result['value4'] = GetValueBoolean($Bewohner3ID);
+
+                    // Prüfe vorweg, ob ein Bild ausgewählt wurde
+                    $imageID = $this->ReadPropertyInteger('Bewohner4Image');
+                    if (IPS_MediaExists($imageID)) {
+                        $image = IPS_GetMedia($imageID);
+                        if ($image['MediaType'] === MEDIATYPE_IMAGE) {
+                            $imageFile = explode('.', $image['MediaFile']);
+                            $imageContent = '';
+                            // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
+                            switch (end($imageFile)) {
+                                case 'bmp':
+                                    $imageContent = 'data:image/bmp;base64,';
+                                    break;
             
+                                case 'jpg':
+                                case 'jpeg':
+                                    $imageContent = 'data:image/jpeg;base64,';
+                                    break;
+            
+                                case 'gif':
+                                    $imageContent = 'data:image/gif;base64,';
+                                    break;
+            
+                                case 'png':
+                                    $imageContent = 'data:image/png;base64,';
+                                    break;
+            
+                                case 'ico':
+                                    $imageContent = 'data:image/x-icon;base64,';
+                                    break;
+                            }
+
+                            // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
+                            if ($imageContent) {
+                                // Hänge base64-codierten Inhalt des Bildes an
+                                $imageContent .= IPS_GetMediaContent($imageID);
+                                $result['image4'] = $imageContent;
+                            }
+                        }
+                    }
+                    else{
+                        $imageContent = 'data:image/png;base64,';
+                        $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                        $result['image4'] = $imageContent;
+                    }                    
+                    
+
+                }
+                if ($Bewohner5Exists) {
+                    $result['name5'] = IPS_GetName($Bewohner5ID);
+                    $result['value5'] = GetValueBoolean($Bewohner5ID);
+
+                    // Prüfe vorweg, ob ein Bild ausgewählt wurde
+                    $imageID = $this->ReadPropertyInteger('Bewohner5Image');
+                    if (IPS_MediaExists($imageID)) {
+                        $image = IPS_GetMedia($imageID);
+                        if ($image['MediaType'] === MEDIATYPE_IMAGE) {
+                            $imageFile = explode('.', $image['MediaFile']);
+                            $imageContent = '';
+                            // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
+                            switch (end($imageFile)) {
+                                case 'bmp':
+                                    $imageContent = 'data:image/bmp;base64,';
+                                    break;
+            
+                                case 'jpg':
+                                case 'jpeg':
+                                    $imageContent = 'data:image/jpeg;base64,';
+                                    break;
+            
+                                case 'gif':
+                                    $imageContent = 'data:image/gif;base64,';
+                                    break;
+            
+                                case 'png':
+                                    $imageContent = 'data:image/png;base64,';
+                                    break;
+            
+                                case 'ico':
+                                    $imageContent = 'data:image/x-icon;base64,';
+                                    break;
+                            }
+
+                            // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
+                            if ($imageContent) {
+                                // Hänge base64-codierten Inhalt des Bildes an
+                                $imageContent .= IPS_GetMediaContent($imageID);
+                                $result['image5'] = $imageContent;
+                            }
+                        }
+                    }
+                    else{
+                        $imageContent = 'data:image/png;base64,';
+                        $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                        $result['image5'] = $imageContent;
+                    }                    
+                    
+
+                }
                 return json_encode($result);
                 
             }

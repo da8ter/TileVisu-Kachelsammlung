@@ -17,7 +17,7 @@
     gap: 15px;
 }
 
-.Bewohner1, .Bewohner2, .Bewohner3 {
+.Bewohner1, .Bewohner2, .Bewohner3, .Bewohner4, .Bewohner5 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,6 +67,8 @@
                     case 'Bewohner1':
                     case 'Bewohner2':
                     case 'Bewohner3':
+                    case 'Bewohner4':
+                    case 'Bewohner5':
                         console.log('Anpassung der Sichtbarkeit für', parameter);
                         element.className = decodedData[parameter] ? parameter : 'hidden';
                         break;
@@ -74,6 +76,8 @@
                     case 'image1':
                     case 'image2':
                     case 'image3':
+                    case 'image4':
+                    case 'image5':
                     element.src = decodedData[parameter];
                         break;
 
@@ -88,6 +92,14 @@
                     case 'value3':
                             image3.className = decodedData[parameter] ? 'color' : 'grey';
                         break;
+
+                    case 'value4':
+                        image4.className = decodedData[parameter] ? 'color' : 'grey';
+                    break;
+
+                    case 'value5':
+                        image45className = decodedData[parameter] ? 'color' : 'grey';
+                    break;
 
                     case 'fontsize':
                         // Wählen Sie alle Elemente mit der Klasse .name aus
@@ -133,4 +145,14 @@
         <img class="color" id="image3" onclick="requestAction('Bewohner3', 1);">
         <div class="name" id="name3">3</div>
     </div>
+
+    <div class="bewohner_div" id="Bewohner4">
+        <img class="color" id="image4" onclick="requestAction('Bewohner4', 1);">
+        <div class="name" id="name4">3</div>
+    </div>
+
+    <div class="bewohner_div" id="Bewohner5">
+        <img class="color" id="image5" onclick="requestAction('Bewohner5', 1);">
+        <div class="name" id="name5">3</div>
+    </div>    
 </div>
