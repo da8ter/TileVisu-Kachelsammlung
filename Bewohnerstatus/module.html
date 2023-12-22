@@ -115,10 +115,10 @@
                         });
                     case 'eckenradius':
                         // Wählen Sie alle Elemente mit der Klasse .name aus
-                        const nameElements = document.querySelectorAll('.color, .grey');
+                        const cornerElements = document.querySelectorAll('.color, .grey');
 
                         // Ändern Sie die font-size für jedes ausgewählte Element
-                        nameElements.forEach(element => {
+                        cornerElements.forEach(element => {
                             element.style.borderRadius = decodedData[parameter]+'%'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
                         });
 
