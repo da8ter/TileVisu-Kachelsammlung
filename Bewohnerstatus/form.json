@@ -9,27 +9,27 @@
             "caption": "Bewohner 1",
             "validVariableTypes": [0]
         },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner1Image", 
+            "caption": "Foto Bewohner 1"
+        },
         {
             "type": "SelectVariable",
             "name": "Bewohner2",
             "caption": "Bewohner 2",
             "validVariableTypes": [0]
         },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner2Image", 
+            "caption": "Foto Bewohner 2"
+        },
         {
             "type": "SelectVariable",
             "name": "Bewohner3",
             "caption": "Bewohner 3",
             "validVariableTypes": [0]
-        },
-        { 
-            "type": "SelectMedia", 
-            "name": "Bewohner1Image", 
-            "caption": "Foto Bewohner 1"
-        },
-        { 
-            "type": "SelectMedia", 
-            "name": "Bewohner2Image", 
-            "caption": "Foto Bewohner 2"
         },
         { 
             "type": "SelectMedia", 
