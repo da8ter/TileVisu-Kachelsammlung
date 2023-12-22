@@ -6,6 +6,9 @@
         {   "type": "Label", 
             "caption": "Je Bewohner wird eine Bool-Variable benötigt. true = anwesend, false = abwesend"
         },
+
+
+
         {   "type": "Label", 
             "caption": "Bewohner 1",
             "bold": true
@@ -21,6 +24,9 @@
             "name": "Bewohner1Image", 
             "caption": "Foto"
         },
+
+
+
         {   "type": "Label", 
             "caption": "Bewohner 2",
             "bold": true
@@ -36,6 +42,9 @@
             "name": "Bewohner2Image", 
             "caption": "Foto"
         },
+
+
+
         {   "type": "Label", 
             "caption": "Bewohner 3",
             "bold": true
@@ -51,7 +60,42 @@
             "name": "Bewohner3Image", 
             "caption": "Foto"
         },
+
+
+
         {   "type": "Label", 
+            "caption": "Bewohner 4",
+            "bold": true
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Bewohner4",
+            "caption": "Status",
+            "validVariableTypes": [0]
+        },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner4Image", 
+            "caption": "Foto"
+        },
+        {   
+            "type": "Label", 
+            "caption": "Bewohner 5",
+            "bold": true
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Bewohner5",
+            "caption": "Status",
+            "validVariableTypes": [0]
+        },
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner5Image", 
+            "caption": "Foto"
+        },
+        {   
+            "type": "Label", 
             "caption": "Optionen",
             "bold": true
         },
