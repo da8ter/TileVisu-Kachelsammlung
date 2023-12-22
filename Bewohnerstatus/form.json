@@ -1,5 +1,8 @@
 {
     "elements": [
+        {   "type": "Label", 
+            "caption": "Drücken Sie Einlernen, nachdem Sie das Gerät in den Lernmodus versetzt haben" 
+        },
         {
             "type": "SelectVariable",
             "name": "Bewohner1",
