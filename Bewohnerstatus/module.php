@@ -267,9 +267,10 @@
                     
 
                 }
-                if ($Bewohner3Exists) {
-                    $result['name4'] = IPS_GetName($Bewohner3ID);
-                    $result['value4'] = GetValueBoolean($Bewohner3ID);
+
+                if ($Bewohner4Exists) {
+                    $result['name4'] = IPS_GetName($Bewohner4ID);
+                    $result['value4'] = GetValueBoolean($Bewohner4ID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
                     $imageID = $this->ReadPropertyInteger('Bewohner4Image');
