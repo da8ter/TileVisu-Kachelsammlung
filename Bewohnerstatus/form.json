@@ -13,35 +13,43 @@
         {
             "type": "SelectVariable",
             "name": "Bewohner1",
-            "caption": "Status Bewohner 1",
+            "caption": "Status",
             "validVariableTypes": [0]
         },
         { 
             "type": "SelectMedia", 
             "name": "Bewohner1Image", 
-            "caption": "Foto Bewohner 1"
+            "caption": "Foto"
+        },
+        {   "type": "Label", 
+            "caption": "Bewohner 2",
+            "bold": true
         },
         {
             "type": "SelectVariable",
             "name": "Bewohner2",
-            "caption": "Status Bewohner 2",
+            "caption": "Status",
             "validVariableTypes": [0]
         },
         { 
             "type": "SelectMedia", 
             "name": "Bewohner2Image", 
-            "caption": "Foto Bewohner 2"
+            "caption": "Foto"
+        },
+        {   "type": "Label", 
+            "caption": "Bewohner 3",
+            "bold": true
         },
         {
             "type": "SelectVariable",
             "name": "Bewohner3",
-            "caption": "Status Bewohner 3",
+            "caption": "Status",
             "validVariableTypes": [0]
         },
         { 
             "type": "SelectMedia", 
             "name": "Bewohner3Image", 
-            "caption": "Foto Bewohner 3"
+            "caption": "Foto"
         },
         {   "type": "NumberSpinner",
             "name": "Schriftgroesse", 
