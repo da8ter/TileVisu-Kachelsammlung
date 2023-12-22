@@ -1,7 +1,7 @@
 {
     "elements": [
         {   "type": "Label", 
-            "caption": "Drücken Sie Einlernen, nachdem Sie das Gerät in den Lernmodus versetzt haben" 
+            "caption": "Konfiguriere die gewünschte Anzahl an Bewohnern. Nicht konfigurierte Bewohner werden ausgeblendet. Fotos müssen als MedienObjekt angelegt werden. Fotos sollten ein Seitenverhältnis von 1:1 haben und eine größe von 150x150 Pixeln nicht überschreiten." 
         },
         {
             "type": "SelectVariable",
