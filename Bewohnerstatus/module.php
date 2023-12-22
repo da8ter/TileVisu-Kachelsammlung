@@ -105,7 +105,7 @@
                     'Bewohner2' => $Bewohner2Exists,
                     'Bewohner3' => $Bewohner3Exists,
                     'Bewohner4' => $Bewohner4Exists,
-                    'Bewohner5' => $Bewohner5Exists,
+                    'Bewohner5' => $Bewohner5Exists
                 ];
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
 
