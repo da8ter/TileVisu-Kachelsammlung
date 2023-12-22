@@ -98,7 +98,7 @@
                 $Bewohner1Exists = IPS_VariableExists($Bewohner1ID);
                 $Bewohner2Exists = IPS_VariableExists($Bewohner2ID);
                 $Bewohner3Exists = IPS_VariableExists($Bewohner3ID);
-                $Bewohner42Exists = IPS_VariableExists($Bewohner4ID);
+                $Bewohner4Exists = IPS_VariableExists($Bewohner4ID);
                 $Bewohner5Exists = IPS_VariableExists($Bewohner5ID);
                 $result = [
                     'Bewohner1' => $Bewohner1Exists,
