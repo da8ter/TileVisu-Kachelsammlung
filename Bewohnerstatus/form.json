@@ -51,6 +51,10 @@
             "name": "Bewohner3Image", 
             "caption": "Foto"
         },
+        {   "type": "Label", 
+            "caption": "Optionen",
+            "bold": true
+        },
         {   "type": "NumberSpinner",
             "name": "Schriftgroesse", 
             "caption": "Schriftgröße in em", 
