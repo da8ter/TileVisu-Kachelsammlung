@@ -58,13 +58,13 @@
 </style>
 <script>
     function handleMessage(data) {
-        console.log('Rohdaten empfangen:', data);
+        //console.log('Rohdaten empfangen:', data);
 
         const decodedData = JSON.parse(data);
-        console.log('Decodierte Daten:', decodedData);
+        //console.log('Decodierte Daten:', decodedData);
 
         for (const parameter in decodedData) {
-            console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+            //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
             const element = document.getElementById(parameter);
 
@@ -128,7 +128,7 @@
                     break;
 
                     default:
-                        console.log('Setze innerHTML für', parameter);
+                        //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
                         element.innerHTML = decodedData[parameter];
                         break;
