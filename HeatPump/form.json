@@ -3,8 +3,122 @@
 
         {
             "type": "SelectVariable",
+            "name": "Status",
+            "caption": "Status",
+            "validVariableTypes": [1]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Mode",
+            "caption": "Mode",
+            "validVariableTypes": [1]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "OutdoorTemperature",
+            "caption": "OutdoorTemperature",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "WaterTemperature",
+            "caption": "WaterTemperature",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "FlowTemperature",
+            "caption": "FlowTemperature",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "ReturnTemperature",
+            "caption": "ReturnTemperature",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodBackupStatus",
+            "caption": "HeaterRodBackupStatus",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodPhase1",
+            "caption": "HeaterRodPhase1",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodPhase2",
+            "caption": "HeaterRodPhase2",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodPhase3",
+            "caption": "HeaterRodPhase3",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Flow",
+            "caption": "Flow",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "FanRotations",
+            "caption": "FanRotations",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
             "name": "CompressorPower",
             "caption": "Compressor Power (Hz)",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "COP",
+            "caption": "COP",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "SPF",
+            "caption": "SPF",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "SPFHeating",
+            "caption": "SPFHeating",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "SPFWater",
+            "caption": "SPFWater",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Power",
+            "caption": "Power",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Consumption",
+            "caption": "Consumption",
+            "validVariableTypes": [2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "ConsumptionToday",
+            "caption": "ConsumptionToday",
             "validVariableTypes": [2]
         }
         

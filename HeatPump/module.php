@@ -15,7 +15,7 @@
             //     IPS_SetVariableProfileAssociation('HeatingPump.Status', 5, 'Warmwasser', '', -1);
             // }
             
-            $this->RegisterVariableInteger('Status', 'Status', 'HeatingPump.Status');
+            $this->RegisterPropertyInteger('Status', 0);
 
             // if (!IPS_VariableProfileExists('HeatingPump.Mode')) {
             //     IPS_CreateVariableProfile('HeatingPump.Mode', 1);
@@ -24,22 +24,22 @@
             //     IPS_SetVariableProfileAssociation('HeatingPump.Mode', 2, 'Eco', '', -1);
             // }
             
-            $this->RegisterVariableInteger('Mode', 'Mode', 'HeatingPump.Mode');
-            $this->RegisterVariableFloat('OutdoorTemperature', 'Outdoor Temperature', '~Temperature');
-            $this->RegisterVariableFloat('WaterTemperature', 'Water Temperature', '~Temperature');
-            $this->RegisterVariableFloat('FlowTemperature', 'Flow Temperature', '~Temperature');
-            $this->RegisterVariableFloat('ReturnTemperature', 'Return Temperature', '~Temperature');
-            $this->RegisterVariableBoolean('HeaterRodBackupStatus', 'Heater Rod Backup active?', '~Switch');
-            $this->RegisterVariableBoolean('HeaterRodPhase1', 'Heater Rod Phase 1', '~Switch');
-            $this->RegisterVariableBoolean('HeaterRodPhase2', 'Heater Rod Phase 2', '~Switch');
-            $this->RegisterVariableBoolean('HeaterRodPhase3', 'Heater Rod Phase 3', '~Switch');
+            $this->RegisterPropertyInteger('Mode', 0);
+            $this->RegisterPropertyInteger('OutdoorTemperature', 0);
+            $this->RegisterPropertyInteger('WaterTemperature', 0);
+            $this->RegisterPropertyInteger('FlowTemperature', 0);
+            $this->RegisterPropertyInteger('ReturnTemperature', 0);
+            $this->RegisterPropertyInteger('HeaterRodBackupStatus', 0);
+            $this->RegisterPropertyInteger('HeaterRodPhase1', 0);
+            $this->RegisterPropertyInteger('HeaterRodPhase2', 0);
+            $this->RegisterPropertyInteger('HeaterRodPhase3', 0);
 
             // if (!IPS_VariableProfileExists('HeatingPump.Flow')) {
             //     IPS_CreateVariableProfile('HeatingPump.Flow', 2);
             //     IPS_SetVariableProfileValues('HeatingPump.Flow', 0, 1700, 100);
             //     IPS_SetVariableProfileText('HeatingPump.Flow', '', 'l/h');
             // }
-            $this->RegisterVariableFloat('Flow', 'Flow', 'HeatingPump.Flow');
+            $this->RegisterPropertyInteger('Flow', 0);
 
             // if (!IPS_VariableProfileExists('HeatingPump.Rotations')) {
             //     IPS_CreateVariableProfile('HeatingPump.Rotations', 2);
@@ -47,7 +47,7 @@
             //     IPS_SetVariableProfileText('HeatingPump.Rotations', '', 'rpm');
             // }
             
-            $this->RegisterVariableFloat('FanRotations', 'Fan Rotations', 'HeatingPump.Rotations');
+            $this->RegisterPropertyInteger('FanRotations', 0);
 
             // if (!IPS_VariableProfileExists('HeatingPump.Compressor')) {
             //     IPS_CreateVariableProfile('HeatingPump.Compressor', 2);
@@ -57,10 +57,10 @@
             
             $this->RegisterPropertyInteger('CompressorPower', 0);
             
-            $this->RegisterVariableFloat('COP', 'COP Value');
-            $this->RegisterVariableFloat('SPF', 'Seasonal Performance Factor (SPF)');
-            $this->RegisterVariableFloat('SPFHeating', 'SPF Heating');
-            $this->RegisterVariableFloat('SPFWater', 'SPF Water');
+            $this->RegisterPropertyInteger('COP', 0);
+            $this->RegisterPropertyInteger('SPF', 0);
+            $this->RegisterPropertyInteger('SPFHeating', 0);
+            $this->RegisterPropertyInteger('SPFWater', 0);
 
             // if (!IPS_VariableProfileExists('HeatingPump.Power')) {
             //     IPS_CreateVariableProfile('HeatingPump.Power', 2);
@@ -68,11 +68,11 @@
             //     IPS_SetVariableProfileText('HeatingPump.Power', '', 'kW');
             // }
             
-            $this->RegisterVariableFloat('Power', 'Power', 'HeatingPump.Power');
+            $this->RegisterPropertyInteger('Power', 0);
             
-            $this->RegisterVariableFloat('Consumption', 'Consumption', '~Watt');
+            $this->RegisterPropertyInteger('Consumption', 0);
 
-            $this->RegisterVariableFloat('ConsumptionToday', 'Consumption today', '~Electricity');
+            $this->RegisterPropertyInteger('ConsumptionToday', 0);
 
             // $this->EnableAction('Status');
             // $this->EnableAction('Mode');
