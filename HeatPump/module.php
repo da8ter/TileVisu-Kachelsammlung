@@ -1,6 +1,6 @@
 <?php
 
-    class HeatPump extends IPSModule
+    class HTMLVisuHeatPump extends IPSModule
     {
         
         public function Create() {
