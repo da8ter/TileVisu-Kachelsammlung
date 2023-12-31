@@ -1,0 +1,12 @@
+{
+    "elements": [
+
+        {
+            "type": "SelectVariable",
+            "name": "CompressorPower",
+            "caption": "Compressor Power (Hz)",
+            "validVariableTypes": [2]
+        }
+        
+    ]
+}
