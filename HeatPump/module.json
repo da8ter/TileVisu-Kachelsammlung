@@ -3,9 +3,7 @@
 	"name": "HTMLVisuHeatPump",
 	"type": 3,
 	"vendor": "",
-	"aliases": 
-	[
-	],
+	"aliases": [],
 	"parentRequirements": [],
 	"childRequirements": [],
 	"implemented": [],

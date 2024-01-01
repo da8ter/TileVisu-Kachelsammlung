@@ -114,7 +114,7 @@
                 $ReturnTemperatureID = $this->ReadPropertyInteger('ReturnTemperature');
                 $HeaterRodBackupStatusID = $this->ReadPropertyInteger('HeaterRodBackupStatus');
                 $HeaterRodPhase1ID = $this->ReadPropertyInteger('HeaterRodPhase1');
-                $HeaterRodPhase2ID$this->ReadPropertyInteger('HeaterRodPhase2');
+                $HeaterRodPhase2ID = $this->ReadPropertyInteger('HeaterRodPhase2');
                 $HeaterRodPhase3ID = $this->ReadPropertyInteger('HeaterRodPhase3');
                 $FlowID = $this->ReadPropertyInteger('Flow');
                 $FanRotationsID = $this->ReadPropertyInteger('FanRotations');
