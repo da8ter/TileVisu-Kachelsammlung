@@ -66,7 +66,7 @@
 
                         case VM_UPDATE:
                             // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                            $this->UpdateVisualizationValue(json_encode([$Data[0] => GetValue($this->ReadPropertyInteger($HeatPumpProperty))]));
+                            $this->UpdateVisualizationValue(json_encode([$Message => GetValue($this->ReadPropertyInteger($HeatPumpProperty))]));
                             break;
                     }
                 }
