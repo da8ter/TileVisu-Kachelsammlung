@@ -52,6 +52,8 @@
         }
 
         public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
+            error_log("Message: " . $Message);
+            error_log("Data: " . json_encode($Data));
             foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $index => $HeatPumpProperty) {
                 if ($SenderID === $this->ReadPropertyInteger($HeatPumpProperty)) {
                     switch ($Message) {
