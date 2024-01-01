@@ -52,21 +52,17 @@
         }
 
         public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
-            error_log("Message: " . $Message);
-            error_log("Data: " . json_encode($Data));
             foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $index => $HeatPumpProperty) {
                 if ($SenderID === $this->ReadPropertyInteger($HeatPumpProperty)) {
                     switch ($Message) {
                         case OM_CHANGENAME:
                             // Teile der HTML-Darstellung den neuen Namen mit
-                            $this->UpdateVisualizationValue(json_encode([
-                                'name' . ($index + 1) => $Data[0]
-                            ]));
+                            $this->UpdateVisualizationValue(json_encode(['name' . ($index + 1) => $Data[0]]));
                             break;
 
                         case VM_UPDATE:
                             // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                            $this->UpdateVisualizationValue(json_encode([$Message => GetValue($this->ReadPropertyInteger($HeatPumpProperty))]));
+                            $this->UpdateVisualizationValue(json_encode([$HeatPumpProperty => GetValue($this->ReadPropertyInteger($HeatPumpProperty))]));
                             break;
                     }
                 }
