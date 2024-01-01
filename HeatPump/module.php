@@ -95,7 +95,7 @@
             $assets .= 'window.assets.img_wp_heizen = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_heizen.webp')) . '";' . PHP_EOL;
             $assets .= 'window.assets.img_wp_ww = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_ww.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
-            
+
             // Füge statisches HTML aus Datei hinzu
             $module = file_get_contents(__DIR__ . '/module.html');
 
@@ -236,7 +236,6 @@
                 
             }
 
-    
     }
  
 ?>
