@@ -404,6 +404,7 @@
     </div>
     <script type="text/javascript" charset="UTF-8">
         function handleMessage(message) {
+            console.log('Rohdaten empfangen:', data);
             const data = JSON.parse(message);
             const divID = data.Ident.toLowerCase();
             const value = data.result;
