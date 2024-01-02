@@ -57,7 +57,7 @@
                     switch ($Message) {
                         case OM_CHANGENAME:
                             // Teile der HTML-Darstellung den neuen Namen mit
-                            $this->UpdateVisualizationValue(json_encode(['name' . ($index + 1) => $Data[0]]));
+                            // $this->UpdateVisualizationValue(json_encode([$HeatPumpProperty => $Data[0]]));
                             break;
 
                         case VM_UPDATE:
