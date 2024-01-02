@@ -262,41 +262,6 @@
     </style>
 
 
-<!-- <script>
-    function handleMessage(data) {
-        console.log('Rohdaten empfangen:', data);
-
-        const decodedData = JSON.parse(data);
-        console.log('Decodierte Daten:', decodedData);
-
-        for (const parameter in decodedData) {
-            console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
-
-            const element = document.getElementById(parameter);
-
-                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                switch (parameter) {
-
-                    case 'Power':
-                        const paragraph = document.getElementById("power_text");
-                        paragraph.textContent = decodedData[parameter];
-                    break;
-
-                    default:
-                        //console.log('Setze innerHTML für', parameter);
-                        // Setze innerHTML nur, wenn das Element gefunden wurde
-                        element.innerHTML = decodedData[parameter];
-                        break;
-                }
-
-        }
-    }
-</script> -->
-
-
-
-
-
 </head>
 
 <body>
@@ -444,17 +409,19 @@
 
 
 
-    <script type="text/javascript" charset="UTF-8">
-        function handleMessage(message) {
-            console.log('Rohdaten empfangen:', message);
-            const data = JSON.parse(message);
-            console.log('data:', data);
-            const divID = data.Ident.toLowerCase();
-            console.log('divid:', divID);
-            const value = data.result;
+<script>
+    function handleMessage(message) {
+        console.log('Rohdaten empfangen:', message);
+
+        const decodedData = JSON.parse(message);
+        console.log('Decodierte Daten:', decodedData);
+        
+        for (const parameter in decodedData) {
+            console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+            const divID = parameter.toLowerCase();
             const divElement = document.getElementById(divID);
-            if (divElement) {
-                switch (data.Ident) {
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter) {
                     case 'Status': {
                         const statusMapping = {
                             0: window.assets.img_wp_aus,
@@ -468,7 +435,74 @@
                             index = 0;
                         }
 
-                        divElement.className = 'status_' + data.Value;
+                        divElement .className = 'status_' + data.Value;
+                        document.getElementById('image').src = statusMapping[index];
+                        break;
+                    }
+
+                    case 'Mode':
+                        divElement.className = 'mode_' + data.Value;
+                        break;
+
+                    case 'HeaterRodBackupStatus':
+                    case 'HeaterRodPhase1':
+                    case 'HeaterRodPhase2':
+                    case 'HeaterRodPhase3':
+                        if (data.Value) {
+                            divElement.classList.remove('fa-regular');
+                            divElement.classList.add('fa-solid');
+                        }
+                        else {
+                            divElement.classList.remove('fa-solid');
+                            divElement.classList.add('fa-regular');
+                        }
+                        break;
+
+                    case 'Power':
+                    case 'CompressorPower':
+                    case 'Flow':
+                    case 'FanRotations':
+                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(2);
+                        divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
+                        break;
+
+                    default:
+                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(2);
+                        break;
+                }
+
+        }
+    }
+</script>
+
+
+
+
+    <!-- <script type="text/javascript" charset="UTF-8">
+        function handleMessage(message) {
+            console.log('Rohdaten empfangen:', message);
+            const data = JSON.parse(message);
+            console.log('data:', data);
+            const divID = data.Ident.toLowerCase();
+            console.log('divid:', divID);
+            const value = data.result;
+            const divElement = document.getElementById(divID);
+            if (divElement) {
+                switch (data.Ident){
+                    case 'Status': {
+                        const statusMapping = {
+                            0: window.assets.img_wp_aus,
+                            3: window.assets.img_wp_heizen,
+                            4: window.assets.img_wp_heizen,
+                            5: window.assets.img_wp_ww,
+                        };
+
+                        let index = data.Value;
+                        if (!statusMapping[index]) {
+                            index = 0;
+                        }
+
+                        divElement .className = 'status_' + data.Value;
                         document.getElementById('image').src = statusMapping[index];
                         break;
                     }
@@ -507,4 +541,4 @@
                 console.error('Ungültiges JSON-Format oder fehlende Daten.');
             }
         }
-    </script>
+    </script> -->
