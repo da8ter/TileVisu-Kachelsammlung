@@ -276,31 +276,7 @@
 
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter) {
-                    case 'Bewohner1':
-                    case 'Bewohner2':
-                    case 'Bewohner3':
-                    case 'Bewohner4':
-                    case 'Bewohner5':
-                        console.log('Anpassung der Sichtbarkeit für', parameter);
-                        element.className = decodedData[parameter] ? parameter : 'hidden';
-                        break;
 
-                    case 'image1':
-                    case 'image2':
-                    case 'image3':
-                    case 'image4':
-                    case 'image5':
-                    element.src = decodedData[parameter];
-                        break;
-
-                    case 'Powerztd':
-                        // Wählen Sie alle Elemente mit der Klasse .name aus
-                        const nameElements = document.querySelectorAll('.name');
-
-                        // Ändern Sie die font-size für jedes ausgewählte Element
-                        nameElements.forEach(element => {
-                            element.style.fontSize = decodedData[parameter]+'em'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
-                        });
                     case 'Power':
                         const paragraph = document.getElementById("power_text");
                         paragraph.textContent = decodedData[parameter];
