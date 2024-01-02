@@ -86,7 +86,7 @@
             // Obwohl die Rückgabe von GetFullUpdateMessage ja schon JSON-codiert ist wird dennoch ein weiteres mal json_encode ausgeführt
             // Damit wird dem String Anführungszeichen hinzugefügt und eventuelle Anführungszeichen innerhalb werden korrekt escaped
             $initialHandling = '<script>handleMessage(' . json_encode($this->GetFullUpdateMessage()) . ');</script>';
-
+            
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
             $assets .= 'window.assets.img_wp_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_aus.webp')) . '";' . PHP_EOL;
@@ -99,7 +99,7 @@
 
             // Gebe alles zurück. 
             // Wichtig: $initialHandling nach hinten, da die Funktion handleMessage ja erst im HTML definiert wird
-            return $module . $initialHandling;
+            return $module . $assets . $initialHandling;
         }
 
             // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
@@ -175,58 +175,58 @@
                 if ($ModeExists) {
                     $result['Mode'] = GetValueInteger($ModeID);
                 }
-                    if ($OutdoorTemperatureExists) {
+                if ($OutdoorTemperatureExists) {
                     $result['OutdoorTemperature'] = GetValueFloat($OutdoorTemperatureID);
                 }
-                    if ($WaterTemperatureExists) {
+                if ($WaterTemperatureExists) {
                     $result['WaterTemperature'] = GetValueFloat($WaterTemperatureID);
                 }
-                    if ($FlowTemperatureExists) {
+                if ($FlowTemperatureExists) {
                     $result['FlowTemperature'] = GetValueFloat($FlowTemperatureID);
                 }
-                    if ($ReturnTemperatureExists) {
+                if ($ReturnTemperatureExists) {
                     $result['ReturnTemperature'] = GetValueFloat($ReturnTemperatureID);
                 }
-                    if ($HeaterRodBackupStatusExists) {
+                if ($HeaterRodBackupStatusExists) {
                     $result['HeaterRodBackupStatus'] = GetValueBoolean($HeaterRodBackupStatusID);
                 }
-                    if ($HeaterRodPhase1Exists) {
+                if ($HeaterRodPhase1Exists) {
                     $result['HeaterRodPhase1'] = GetValueBoolean($HeaterRodPhase1ID);
                 }
-                    if ($HeaterRodPhase2Exists) {
+                if ($HeaterRodPhase2Exists) {
                     $result['HeaterRodPhase2'] = GetValueBoolean($HeaterRodPhase2ID);
                 }
-                    if ($HeaterRodPhase3Exists) {
+                if ($HeaterRodPhase3Exists) {
                     $result['HeaterRodPhase3'] = GetValueBoolean($HeaterRodPhase3ID);
                 }
-                    if ($FlowExists) {
+                if ($FlowExists) {
                     $result['Flow'] = GetValueFloat($FlowID);
                 }
-                    if ($FanRotationsExists) {
+                if ($FanRotationsExists) {
                     $result['FanRotations'] = GetValueFloat($FanRotationsID);
                 }
-                    if ($CompressorPowerExists) {
+                if ($CompressorPowerExists) {
                     $result['CompressorPower'] = GetValueFloat($CompressorPowerID);
                 }
-                    if ($COPExists) {
+                if ($COPExists) {
                     $result['COP'] = GetValueFloat($COPID);
                 }
-                    if ($SPFExists) {
+                if ($SPFExists) {
                     $result['SPF'] = GetValueFloat($SPFID);
                 }
-                    if ($SPFHeatingExists) {
+                if ($SPFHeatingExists) {
                     $result['SPFHeating'] = GetValueFloat($SPFHeatingID);
                 }
-                    if ($SPFWaterExists) {
+                if ($SPFWaterExists) {
                     $result['SPFWater'] = GetValueFloat($SPFWaterID);
                 }
-                    if ($PowerExists) {
+                if ($PowerExists) {
                     $result['Power'] = GetValueFloat($PowerID);
                 }
-                    if ($ConsumptionExists) {
+                if ($ConsumptionExists) {
                     $result['Consumption'] = GetValueFloat($ConsumptionID);
                 }
-                    if ($ConsumptionTodayExists) {
+                if ($ConsumptionTodayExists) {
                     $result['ConsumptionToday'] = GetValueFloat($ConsumptionTodayID);
                 }
 
