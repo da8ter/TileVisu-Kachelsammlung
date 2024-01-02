@@ -447,7 +447,7 @@
     <script type="text/javascript" charset="UTF-8">
         function handleMessage(message) {
             console.log('Rohdaten empfangen:', message);
-            const data = JSON.parse(data);
+            const data = JSON.parse(message);
             const divID = data.Ident.toLowerCase();
             const value = data.result;
             const divElement = document.getElementById(divID);
