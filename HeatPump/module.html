@@ -431,25 +431,25 @@
                             5: window.assets.img_wp_ww,
                         };
 
-                        let index = data.Value;
+                        let index = decodedData[parameter];
                         if (!statusMapping[index]) {
                             index = 0;
                         }
 
-                        divElement .className = 'status_' + data.Value;
+                        divElement .className = 'status_' + decodedData[parameter];
                         document.getElementById('image').src = statusMapping[index];
                         break;
                     }
 
                     case 'Mode':
-                        divElement.className = 'mode_' + data.Value;
+                        divElement.className = 'mode_' + decodedData[parameter];
                         break;
 
                     case 'HeaterRodBackupStatus':
                     case 'HeaterRodPhase1':
                     case 'HeaterRodPhase2':
                     case 'HeaterRodPhase3':
-                        if (data.Value) {
+                        if (decodedData[parameter]) {
                             divElement.classList.remove('fa-regular');
                             divElement.classList.add('fa-solid');
                         }
@@ -463,12 +463,12 @@
                     case 'CompressorPower':
                     case 'Flow':
                     case 'FanRotations':
-                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(2);
-                        divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
+                        divElement.textContent = Number.isInteger(decodedData[parameter]) ? decodedData[parameter].toString() : decodedData[parameter].toFixed(2);
+                        divElement.parentElement.parentElement.style.width = `${(decodedData[parameter] / data.Max) * 100}%`;
                         break;
 
                     default:
-                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(2);
+                        divElement.textContent = Number.isInteger(decodedData[parameter]) ? decodedData[parameter].toString() : decodedData[parameter].toFixed(2);
                         break;
                 }
 
