@@ -150,7 +150,7 @@
             $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
             return json_encode([
                 'Ident' => $variableIdent,
-                'Value' => $Value,  
+                'Value2' => $Value,  
                 'Min' => $p ? $p['MinValue'] : false,
                 'Max' => $p ? $p['MaxValue'] : false,
             ]);
