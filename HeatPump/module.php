@@ -152,7 +152,7 @@
                 'Ident' => $variableIdent,
                 'Value' => $Value,  
                 'Min' => $p ? $p['MinValue'] : false,
-                'Max' => $p ? $p['MaxValue'] : false
+                'Max' => $p ? $p['MaxValue'] : false,
             ]);
         }
     
