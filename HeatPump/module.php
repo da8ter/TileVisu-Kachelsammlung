@@ -139,7 +139,7 @@
 
             $variable = IPS_GetVariable($variableID);
             $Value = GetValue($variableID);
-            //print_r($variable);
+            print_r($variableIdent);
             $profile = $variable['VariableCustomProfile'];
             if ($profile === '') {
                 $profile = $variable['VariableProfile'];
