@@ -1,0 +1,12 @@
+{
+	"id": "{47031933-4E8B-206D-D42F-F408667AB3C3}",
+	"name": "HTMLVisuHeatPump",
+	"type": 3,
+	"vendor": "",
+	"aliases": 
+	[],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "HV"
+}
