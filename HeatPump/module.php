@@ -1,6 +1,6 @@
 <?php
 
-    class HTMLVisuTestHeatingPumpSSP extends IPSModule
+    class HTMLVisuHeatPump extends IPSModule
     {
         
         public function Create() {
