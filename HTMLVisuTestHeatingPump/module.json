@@ -1,0 +1,14 @@
+{
+	"id": "{47031933-4E8B-206D-D42F-F408667AB3C3}",
+	"name": "HTMLVisuTestHeatingPumpSSP",
+	"type": 3,
+	"vendor": "",
+	"aliases": 
+	[
+		"HTML Visu Test (Heating Pump)"
+	],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "HVT"
+}
