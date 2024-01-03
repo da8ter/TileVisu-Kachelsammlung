@@ -7,116 +7,112 @@
             //Never delete this line!
             parent::Create();
 
-            if (!IPS_VariableProfileExists('HeatingPump.Status')) {
-                IPS_CreateVariableProfile('HeatingPump.Status', 1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Status', 0, 'Aus', '', -1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Status', 3, 'Heizen', '', -1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Status', 4, 'Abtauen', '', -1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Status', 5, 'Warmwasser', '', -1);
-            }
-            
-            $this->RegisterVariableInteger('Status', 'Status', 'HeatingPump.Status');
-
-            if (!IPS_VariableProfileExists('HeatingPump.Mode')) {
-                IPS_CreateVariableProfile('HeatingPump.Mode', 1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Mode', 0, 'Normal', '', -1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Mode', 1, 'Silent', '', -1);
-                IPS_SetVariableProfileAssociation('HeatingPump.Mode', 2, 'Eco', '', -1);
-            }
-            
-            $this->RegisterVariableInteger('Mode', 'Mode', 'HeatingPump.Mode');
-            $this->RegisterVariableFloat('OutdoorTemperature', 'Outdoor Temperature', '~Temperature');
-            $this->RegisterVariableFloat('WaterTemperature', 'Water Temperature', '~Temperature');
-            $this->RegisterVariableFloat('FlowTemperature', 'Flow Temperature', '~Temperature');
-            $this->RegisterVariableFloat('ReturnTemperature', 'Return Temperature', '~Temperature');
-            $this->RegisterVariableBoolean('HeaterRodBackupStatus', 'Heater Rod Backup active?', '~Switch');
-            $this->RegisterVariableBoolean('HeaterRodPhase1', 'Heater Rod Phase 1', '~Switch');
-            $this->RegisterVariableBoolean('HeaterRodPhase2', 'Heater Rod Phase 2', '~Switch');
-            $this->RegisterVariableBoolean('HeaterRodPhase3', 'Heater Rod Phase 3', '~Switch');
-
-            if (!IPS_VariableProfileExists('HeatingPump.Flow')) {
-                IPS_CreateVariableProfile('HeatingPump.Flow', 2);
-                IPS_SetVariableProfileValues('HeatingPump.Flow', 0, 1700, 100);
-                IPS_SetVariableProfileText('HeatingPump.Flow', '', 'l/h');
-            }
-            $this->RegisterVariableFloat('Flow', 'Flow', 'HeatingPump.Flow');
-
-            if (!IPS_VariableProfileExists('HeatingPump.Rotations')) {
-                IPS_CreateVariableProfile('HeatingPump.Rotations', 2);
-                IPS_SetVariableProfileValues('HeatingPump.Rotations', 0, 650, 50);
-                IPS_SetVariableProfileText('HeatingPump.Rotations', '', 'rpm');
-            }
-            
-            $this->RegisterVariableFloat('FanRotations', 'Fan Rotations', 'HeatingPump.Rotations');
-
-            if (!IPS_VariableProfileExists('HeatingPump.Compressor')) {
-                IPS_CreateVariableProfile('HeatingPump.Compressor', 2);
-                IPS_SetVariableProfileValues('HeatingPump.Compressor', 0, 75, 5);
-                IPS_SetVariableProfileText('HeatingPump.Compressor', '', 'Hz');
-            }
-            
-            $this->RegisterVariableFloat('CompressorPower', 'Compressor Power', 'HeatingPump.Compressor');
-
-            $this->RegisterVariableFloat('COP', 'COP Value');
-            $this->RegisterVariableFloat('SPF', 'Seasonal Performance Factor (SPF)');
-            $this->RegisterVariableFloat('SPFHeating', 'SPF Heating');
-            $this->RegisterVariableFloat('SPFWater', 'SPF Water');
-
-            if (!IPS_VariableProfileExists('HeatingPump.Power')) {
-                IPS_CreateVariableProfile('HeatingPump.Power', 2);
-                IPS_SetVariableProfileValues('HeatingPump.Power', 0, 7, 0.5);
-                IPS_SetVariableProfileText('HeatingPump.Power', '', 'kW');
-            }
-            
-            $this->RegisterVariableFloat('Power', 'Power', 'HeatingPump.Power');
-            
-            $this->RegisterVariableFloat('Consumption', 'Consumption', '~Watt');
-
-            $this->RegisterVariableFloat('ConsumptionToday', 'Consumption today', '~Electricity');
-
-            $this->EnableAction('Status');
-            $this->EnableAction('Mode');
-            $this->EnableAction('OutdoorTemperature');
-            $this->EnableAction('WaterTemperature');
-            $this->EnableAction('FlowTemperature');
-            $this->EnableAction('ReturnTemperature');
-            $this->EnableAction('HeaterRodBackupStatus');
-            $this->EnableAction('HeaterRodPhase1');
-            $this->EnableAction('HeaterRodPhase2');
-            $this->EnableAction('HeaterRodPhase3');
-            $this->EnableAction('Flow');
-            $this->EnableAction('FanRotations');
-            $this->EnableAction('CompressorPower');
-            $this->EnableAction('COP');
-            $this->EnableAction('SPF');
-            $this->EnableAction('SPFHeating');
-            $this->EnableAction('SPFWater');
-            $this->EnableAction('Power');
-            $this->EnableAction('Consumption');
-            $this->EnableAction('ConsumptionToday');
-
+            $this->RegisterPropertyInteger('Status', 0);
+            $this->RegisterPropertyInteger('Mode', 0);
+            $this->RegisterPropertyInteger('OutdoorTemperature', 0);
+            $this->RegisterPropertyInteger('WaterTemperature', 0);
+            $this->RegisterPropertyInteger('FlowTemperature', 0);
+            $this->RegisterPropertyInteger('ReturnTemperature', 0);
+            $this->RegisterPropertyInteger('HeaterRodBackupStatus', 0);
+            $this->RegisterPropertyInteger('HeaterRodPhase1', 0);
+            $this->RegisterPropertyInteger('HeaterRodPhase2', 0);
+            $this->RegisterPropertyInteger('HeaterRodPhase3', 0);
+            $this->RegisterPropertyInteger('Flow', 0);
+            $this->RegisterPropertyInteger('FanRotations', 0);
+            $this->RegisterPropertyInteger('CompressorPower', 0);        
+            $this->RegisterPropertyInteger('COP', 0);
+            $this->RegisterPropertyInteger('SPF', 0);
+            $this->RegisterPropertyInteger('SPFHeating', 0);
+            $this->RegisterPropertyInteger('SPFWater', 0);
+            $this->RegisterPropertyInteger('Power', 0);
+            $this->RegisterPropertyInteger('Consumption', 0);
+            $this->RegisterPropertyInteger('ConsumptionToday', 0);
             $this->SetVisualizationType(1);
         }
+        public function ApplyChanges() {
+            parent::ApplyChanges();
+
+            // Aktualisiere registrierte Nachrichten
+            foreach ($this->GetMessageList() as $senderID => $messageIDs) {
+                foreach($messageIDs as $messageID) {
+                    $this->UnregisterMessage($senderID, $messageID);
+                }
+            }
+
+            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $HeatPumpProperty) {
+                $this->RegisterMessage($this->ReadPropertyInteger($HeatPumpProperty), VM_UPDATE);
+            }
+        }
+
+
+        public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
+            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $index => $HeatPumpProperty) {
+                if ($SenderID === $this->ReadPropertyInteger($HeatPumpProperty)) {
+                    switch ($Message) {
+                        case VM_UPDATE:
+                            // Holen Sie sich das aktualisierte Wert-Array für das HeatPumpProperty
+                            $updatedValue = $this->GetUpdatedValue($HeatPumpProperty, $this->ReadPropertyInteger($HeatPumpProperty));
+                            
+                            // Aktualisieren Sie die Visualisierung mit dem neuen Wert
+                            $this->UpdateVisualizationValue($updatedValue);
+                            break;
+                    }
+                }
+            }
+        }
+
+
+
+
 
         public function RequestAction($Ident, $Value) {
-            $this->SetValue($Ident, $Value);
+            $variableID = $this->ReadPropertyInteger($Ident);
+            SetValue($variableID, $Value);
 
-            $this->UpdateVisualizationValue($this->GetUpdatedValue($Ident));
+            // Holen Sie sich das aktualisierte Wert-Array für das HeatPumpProperty
+            $updatedValue = $this->GetUpdatedValue($Ident, $this->ReadPropertyInteger($Ident));
+
+            // Aktualisieren Sie die Visualisierung mit dem neuen Wert
+            //$this->UpdateVisualizationValue($updatedValue);
         }
         
         public function GetVisualizationTile() {
             // Inject current values using the message handling function
             $initialHandling = [];
-            foreach (IPS_GetChildrenIDs($this->InstanceID) as $variableID) {
+            $childs = array(
+                $this->ReadPropertyInteger('Status'), 
+                $this->ReadPropertyInteger('Mode'), 
+                $this->ReadPropertyInteger('OutdoorTemperature'), 
+                $this->ReadPropertyInteger('WaterTemperature'), 
+                $this->ReadPropertyInteger('FlowTemperature'), 
+                $this->ReadPropertyInteger('ReturnTemperature'), 
+                $this->ReadPropertyInteger('HeaterRodBackupStatus'), 
+                $this->ReadPropertyInteger('HeaterRodPhase1'), 
+                $this->ReadPropertyInteger('HeaterRodPhase2'), 
+                $this->ReadPropertyInteger('HeaterRodPhase3'), 
+                $this->ReadPropertyInteger('Flow'), 
+                $this->ReadPropertyInteger('FanRotations'), 
+                $this->ReadPropertyInteger('CompressorPower'), 
+                $this->ReadPropertyInteger('COP'), 
+                $this->ReadPropertyInteger('SPF'), 
+                $this->ReadPropertyInteger('SPFHeating'), 
+                $this->ReadPropertyInteger('SPFWater'), 
+                $this->ReadPropertyInteger('Power'), 
+                $this->ReadPropertyInteger('Consumption'), 
+                $this->ReadPropertyInteger('ConsumptionToday')
+            );
+            
+            foreach ($childs as $variableID) {
                 if (!IPS_VariableExists($variableID)) {
                     continue;
                 }
 
                 $ident = IPS_GetObject($variableID)['ObjectIdent'];
                 if (!$ident) {
+                    
                     continue;
                 }
-                $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident) . '\');';
+                $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident, $variableID) . '\');';
             }
             $messages = '<script>' . implode(' ', $initialHandling) . '</script>';
 
@@ -135,15 +131,15 @@
             return $module . $assets . $messages;
         }
 
-        private function GetUpdatedValue($variableIdent) {
-            $variableID = @$this->GetIDForIdent($variableIdent);
-
+        private function GetUpdatedValue($variableIdent, $variableID) {
+         
             if (($variableID === false) || (!IPS_VariableExists($variableID))) {
                 return false;
             }
 
             $variable = IPS_GetVariable($variableID);
-
+            $Value = GetValue($variableID);
+            //print_r($variable);
             $profile = $variable['VariableCustomProfile'];
             if ($profile === '') {
                 $profile = $variable['VariableProfile'];
@@ -154,7 +150,7 @@
             $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
             return json_encode([
                 'Ident' => $variableIdent,
-                'Value' => $this->GetValue($variableIdent),
+                'Value' => $Value,  
                 'Min' => $p ? $p['MinValue'] : false,
                 'Max' => $p ? $p['MaxValue'] : false,
             ]);

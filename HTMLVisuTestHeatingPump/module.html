@@ -405,6 +405,7 @@
     <script type="text/javascript" charset="UTF-8">
         function handleMessage(message) {
             const data = JSON.parse(message);
+            console.log(data);
             const divID = data.Ident.toLowerCase();
             const value = data.result;
             const divElement = document.getElementById(divID);
