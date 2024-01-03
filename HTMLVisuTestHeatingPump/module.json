@@ -4,11 +4,9 @@
 	"type": 3,
 	"vendor": "",
 	"aliases": 
-	[
-		"HTML Visu Test (Heating Pump)"
-	],
+	[],
 	"parentRequirements": [],
 	"childRequirements": [],
 	"implemented": [],
-	"prefix": "HVT"
+	"prefix": "HV"
 }
