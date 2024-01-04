@@ -80,40 +80,40 @@
             // Inject current values using the message handling function
             $initialHandling = [];
             $childs = array(
-                $this->ReadPropertyInteger('Status'), 
-                $this->ReadPropertyInteger('Mode'), 
-                $this->ReadPropertyInteger('OutdoorTemperature'), 
-                $this->ReadPropertyInteger('WaterTemperature'), 
-                $this->ReadPropertyInteger('FlowTemperature'), 
-                $this->ReadPropertyInteger('ReturnTemperature'), 
-                $this->ReadPropertyInteger('HeaterRodBackupStatus'), 
-                $this->ReadPropertyInteger('HeaterRodPhase1'), 
-                $this->ReadPropertyInteger('HeaterRodPhase2'), 
-                $this->ReadPropertyInteger('HeaterRodPhase3'), 
-                $this->ReadPropertyInteger('Flow'), 
-                $this->ReadPropertyInteger('FanRotations'), 
-                $this->ReadPropertyInteger('CompressorPower'), 
-                $this->ReadPropertyInteger('COP'), 
-                $this->ReadPropertyInteger('SPF'), 
-                $this->ReadPropertyInteger('SPFHeating'), 
-                $this->ReadPropertyInteger('SPFWater'), 
-                $this->ReadPropertyInteger('Power'), 
-                $this->ReadPropertyInteger('Consumption'), 
-                $this->ReadPropertyInteger('ConsumptionToday')
+                array('Name' => 'Status', 'VariableID' => $this->ReadPropertyInteger('Status')),
+                array('Name' => 'Mode', 'VariableID' => $this->ReadPropertyInteger('Mode')),
+                array('Name' => 'OutdoorTemperature', 'VariableID' => $this->ReadPropertyInteger('OutdoorTemperature')),
+                array('Name' => 'WaterTemperature', 'VariableID' => $this->ReadPropertyInteger('WaterTemperature')),
+                array('Name' => 'FlowTemperature', 'VariableID' => $this->ReadPropertyInteger('FlowTemperature')),
+                array('Name' => 'ReturnTemperature', 'VariableID' => $this->ReadPropertyInteger('ReturnTemperature')),
+                array('Name' => 'HeaterRodBackupStatus', 'VariableID' => $this->ReadPropertyInteger('HeaterRodBackupStatus')),
+                array('Name' => 'HeaterRodPhase1', 'VariableID' => $this->ReadPropertyInteger('HeaterRodPhase1')),
+                array('Name' => 'HeaterRodPhase2', 'VariableID' => $this->ReadPropertyInteger('HeaterRodPhase2')),
+                array('Name' => 'HeaterRodPhase3', 'VariableID' => $this->ReadPropertyInteger('HeaterRodPhase3')),
+                array('Name' => 'Flow', 'VariableID' => $this->ReadPropertyInteger('Flow')),
+                array('Name' => 'FanRotations', 'VariableID' => $this->ReadPropertyInteger('FanRotations')),
+                array('Name' => 'CompressorPower', 'VariableID' => $this->ReadPropertyInteger('CompressorPower')),
+                array('Name' => 'COP', 'VariableID' => $this->ReadPropertyInteger('COP')),
+                array('Name' => 'SPF', 'VariableID' => $this->ReadPropertyInteger('SPF')),
+                array('Name' => 'SPFHeating', 'VariableID' => $this->ReadPropertyInteger('SPFHeating')),
+                array('Name' => 'SPFWater', 'VariableID' => $this->ReadPropertyInteger('SPFWater')),
+                array('Name' => 'Power', 'VariableID' => $this->ReadPropertyInteger('Power')),
+                array('Name' => 'Consumption', 'VariableID' => $this->ReadPropertyInteger('Consumption')),
+                array('Name' => 'ConsumptionToday', 'VariableID' => $this->ReadPropertyInteger('ConsumptionToday'))
             );
             
-            foreach ($childs as $variableID) {
+            foreach ($childs as $child) {
+                $variableID = $child['VariableID'];  // Holt die VariableID aus dem Kind-Array
+                $ident = $child['Name'];  // Holt den Namen als Ident
+        
                 if (!IPS_VariableExists($variableID)) {
                     continue;
                 }
 
-                $ident = IPS_GetObject($variableID)['ObjectIdent'];
-                if (!$ident) {
-                    
-                    continue;
-                }
-                $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident, $variableID) . '\');';
+
+            $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident, $variableID) . '\');';
             }
+
             $messages = '<script>' . implode(' ', $initialHandling) . '</script>';
 
             // We need to include the assets directly as there is no way to load anything afterwards yet
@@ -139,7 +139,6 @@
 
             $variable = IPS_GetVariable($variableID);
             $Value = GetValue($variableID);
-            print_r($variableIdent);
             $profile = $variable['VariableCustomProfile'];
             if ($profile === '') {
                 $profile = $variable['VariableProfile'];
@@ -150,7 +149,7 @@
             $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
             return json_encode([
                 'Ident' => $variableIdent,
-                'Value2' => $Value,  
+                'Value' => $Value,  
                 'Min' => $p ? $p['MinValue'] : false,
                 'Max' => $p ? $p['MaxValue'] : false,
             ]);
