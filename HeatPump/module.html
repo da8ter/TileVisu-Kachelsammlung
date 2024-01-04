@@ -451,12 +451,12 @@
                     case 'CompressorPower':
                     case 'Flow':
                     case 'FanRotations':
-                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(2);
+                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(1);
                         divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
                         break;
 
                     default:
-                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(2);
+                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(1);
                         break;
                 }
             } else {
