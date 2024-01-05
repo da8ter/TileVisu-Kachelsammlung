@@ -25,6 +25,10 @@
             background: #555;
         }
 
+        .hidden {
+            display: none;
+        }
+
         .main_container {
             width: 100%;
             height: 100%;
@@ -65,7 +69,7 @@
             box-sizing: border-box;
         }
 
-        .balken_links_leistung,
+            .balken_links_leistung,
         .balken_links_durchfluss,
         .balken_links_luefterdrehzahl,
         .balken_links_kompressor,
@@ -297,7 +301,7 @@
                     </span>
                 </div>
             </div>
-            <div class="balkendiagramm">
+            <div class="hidden" id="power_div">
                 <div class="balken_rechts">
                     <div class="balken_links_leistung">
                         <span class="balken_links_text">
@@ -308,7 +312,7 @@
                     </div>
                 </div>
             </div>
-            <div class="balkendiagramm">
+            <div class="hidden" id="compressorpower_div">
                 <div class="balken_rechts">
                     <div class="balken_links_kompressor">
                         <span class="balken_links_text">
@@ -319,7 +323,7 @@
                     </div>
                 </div>
             </div>
-            <div class="balkendiagramm">
+            <div class="hidden" id="flow_div">
                 <div class="balken_rechts">
                     <div class="balken_links_durchfluss">
                         <span class="balken_links_text">
@@ -330,7 +334,7 @@
                     </div>
                 </div>
             </div>
-            <div class="balkendiagramm">
+            <div class="hidden" id="fanrotations_div">
                 <div class="balken_rechts">
                     <div class="balken_links_luefterdrehzahl">
                         <span class="balken_links_text">
@@ -406,6 +410,7 @@
             const divID = data.Ident.toLowerCase();
             const value = data.result;
             const divElement = document.getElementById(divID);
+            const divElementBalken = document.getElementById(divID + '_div');
             if (divElement) {
                 switch (data.Ident) {
                     case 'Status': {
@@ -450,6 +455,7 @@
                     case 'FanRotations':
                         divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(1);
                         divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
+                        divElementBalken.className = 'balkendiagramm';
                         break;
 
                     default:
