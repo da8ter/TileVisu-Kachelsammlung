@@ -449,7 +449,7 @@
                         break;
 
                     default:
-                        divElement.textContent = Number.isInteger(data.Value) ? data.Value.toString() : data.Value.toFixed(1);
+                        divElement.textContent = data.ValueFormatted;
                         break;
                 }
             } else {
