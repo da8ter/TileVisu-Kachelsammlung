@@ -272,22 +272,11 @@
         <div class="div2">
             <div class="row">
                 <b class="title right-space">Status:</b>
-                <div id="status">
-                </div>
+                <div id="status"></div>
             </div>
             <div class="row">
                 <b class="title right-space">Mode:</b>
-                <div id="mode">
-                    <span class="right-padding" onclick="requestAction('Mode', 0);">
-                        <span class="mode-normal clickable">Normal</span>
-                    </span>
-                    <span class="right-padding" onclick="requestAction('Mode', 1);">
-                        <span class="mode-silent clickable">Silent</span>
-                    </span>
-                    <span class="right-padding" onclick="requestAction('Mode', 2);">
-                        <span class="mode-eco clickable">Eco</span>
-                    </span>
-                </div>
+                <div id="mode"></div>
             </div>
             <div class="hidden" id="power_div">
                 <div class="balken_rechts">
@@ -295,7 +284,6 @@
                         <span class="balken_links_text">
                             <b class="right-space">Power:</b>
                             <span id="power"></span>
-                            <span>KW</span>
                         </span>
                     </div>
                 </div>
@@ -306,7 +294,6 @@
                         <span class="balken_links_text">
                             <b class="right-space">Compressor:</b>
                             <span id="compressorpower"></span>
-                            <span>Hz</span>
                         </span>
                     </div>
                 </div>
@@ -317,7 +304,6 @@
                         <span class="balken_links_text">
                             <b class="right-space">Flow:</b>
                             <span id="flow" ></span>
-                            <span>l/h</span>
                         </span>
                     </div>
                 </div>
@@ -328,7 +314,6 @@
                         <span class="balken_links_text">
                             <b class="right-space">Fan Rotations:</b>
                             <span id="fanrotations"></span>
-                            <span>rpm</span>
                         </span>
                     </div>
                 </div>
@@ -357,25 +342,19 @@
                     <div>
                         <i class="fa-solid fa-bolt fa-sm icon right-space"></i>
                         <span id="consumption" class="right-space"></span>
-                        <span class="right-padding">&nbsp;Watt</span>
                         <i class="fa-solid fa-bolt fa-sm icon right-space"></i>
                         <span class="right-space">Today:</span>
                         <span id="consumptiontoday" class="right-space"></span>
-                        <span>kWh</span>
                     </div>
                     <div>
                         <i class="fa-solid fa-tree fa-sm icon right-space"></i>
                         <span id="outdoortemperature" class="right-space"></span>
-                        <span class="right-padding">°C</span>
                         <i class="fa-solid fa-droplet fa-sm icon right-space"></i>
                         <span id="watertemperature" class="right-space"></span>
-                        <span class="right-padding">°C</span>
                         <i class="fa-solid fa-circle-down fa-sm icon right-space"></i>
                         <span id="returntemperature" class="right-space"></span>
-                        <span class="right-padding">°C</span>
                         <i class="fa-solid fa-circle-up fa-sm icon right-space"></i>
                         <span id="flowtemperature" class="right-space"></span>
-                        <span>°C</span>
                     </div>
                     <div>
                         <i class="fa-solid fa-fan fa-sm icon right-space"></i>
