@@ -151,7 +151,7 @@
             return json_encode([
                 'Ident' => $variableIdent,
                 'Value' => $Value,  
-                'ValueFormatted' => $Valueformatted, 
+                'ValueFormatted' => $ValueFormatted, 
                 'Min' => $p ? $p['MinValue'] : false,
                 'Max' => $p ? $p['MaxValue'] : false,
             ]);
