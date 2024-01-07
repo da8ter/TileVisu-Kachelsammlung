@@ -393,7 +393,8 @@
                         divElement.className = 'status_' + data.Value;
                         document.getElementById('image').src = statusMapping[index];
                         divElement.textContent = data.ValueFormatted;
-                        divElement.innerHTML = '<span class="status_'. + data.Value.'">'. data.ValueFormatted .' </span>';
+                        ddivElement.innerHTML = '<span class="status_' + data.Value + '">' + data.ValueFormatted + '</span>';
+
                         break;
                     }
 
