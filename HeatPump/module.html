@@ -393,6 +393,7 @@
                         divElement.className = 'status_' + data.Value;
                         document.getElementById('image').src = statusMapping[index];
                         divElement.textContent = data.ValueFormatted;
+                        divElement.innerHTML = '<span class="status_'. + data.Value.'">'. data.ValueFormatted .' </span>';
                         break;
                     }
 
@@ -419,7 +420,7 @@
                     case 'CompressorPower':
                     case 'Flow':
                     case 'FanRotations':
-                        divElement.textContent = data.ValueFormatted;
+                        divElement.textContent = 'data.ValueFormatted;
                         divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
                         divElementBalken.className = 'balkendiagramm';
                         break;
