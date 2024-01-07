@@ -139,6 +139,7 @@
 
             $variable = IPS_GetVariable($variableID);
             $Value = GetValue($variableID);
+            $ValueFormatted = GetValueFormatted($variableID);
             $profile = $variable['VariableCustomProfile'];
             if ($profile === '') {
                 $profile = $variable['VariableProfile'];
@@ -150,6 +151,7 @@
             return json_encode([
                 'Ident' => $variableIdent,
                 'Value' => $Value,  
+                'ValueFormatted' => $Valueformatted, 
                 'Min' => $p ? $p['MinValue'] : false,
                 'Max' => $p ? $p['MaxValue'] : false,
             ]);
