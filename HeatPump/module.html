@@ -224,7 +224,10 @@
             padding-right: 0.3em;
         }
 
-
+        #status,
+        #mode {
+            color: gray;
+        }
 
         .row {
             display: flex;
@@ -251,7 +254,7 @@
 
         .status_5 .status-warm-water {
             color: blue;
-            }
+        }
 
         .mode_0 .mode-normal,
         .mode_1 .mode-silent,
@@ -393,8 +396,6 @@
                         divElement.className = 'status_' + data.Value;
                         document.getElementById('image').src = statusMapping[index];
                         divElement.textContent = data.ValueFormatted;
-                        
-
                         break;
                     }
 
@@ -421,7 +422,7 @@
                     case 'CompressorPower':
                     case 'Flow':
                     case 'FanRotations':
-                        divElement.textContent = 'data.ValueFormatted;
+                        divElement.textContent = data.ValueFormatted;
                         divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
                         divElementBalken.className = 'balkendiagramm';
                         break;
