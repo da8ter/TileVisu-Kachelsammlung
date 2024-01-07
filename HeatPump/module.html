@@ -273,18 +273,6 @@
             <div class="row">
                 <b class="title right-space">Status:</b>
                 <div id="status">
-                    <span class="right-padding" onclick="requestAction('Status', 0);">
-                        <span class="status-off clickable">Off</span>
-                    </span>
-                    <span class="right-padding" onclick="requestAction('Status', 3);">
-                        <span class="status-heating clickable">Heating</span>
-                    </span>
-                    <span class="right-padding" onclick="requestAction('Status', 4);">
-                        <span class="status-defrost clickable">Defrost</span>
-                    </span>
-                    <span class="right-padding" onclick="requestAction('Status', 5);">
-                        <span class="status-warm-water clickable">Warm Water</span>
-                    </span>
                 </div>
             </div>
             <div class="row">
@@ -434,6 +422,7 @@
 
                     case 'Mode':
                         divElement.className = 'mode_' + data.Value;
+                        divElement.textContent = data.ValueFormatted;
                         break;
 
                     case 'HeaterRodBackupStatus':
