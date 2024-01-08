@@ -191,29 +191,9 @@
             }
         }
 
-        .container_daten {
-            display: flex;
-            flex-wrap: nowrap;
-            width: 100%;
-            font-size: 0.8em;
-        }
-
-        .daten_links {
-            margin-right: 20px;
-            border: 0px solid #000;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .daten_rechts {
-            border: 0px solid #000;
-            display: flex;
-            flex-direction: column;
-        }
-
         .icon {
             color: #26d4b9;
-            width: 13px;
+        
         }
 
         .right-space {
@@ -241,33 +221,38 @@
         }
 
         .status_0 .status-off {
-            color: #26d4b9 !important;;
+            color: #26d4b9 !important;
         }
 
         .status_3 .status-heating {
-            color: orangered !important;;
+            color: orangered !important;
         }
 
         .status_4 .status-defrost {
-            color: lightskyblue !important;;
+            color: lightskyblue !important;
         }
 
         .status_5 .status-warm-water {
-            color: blue !important;;
+            color: blue !important;
         }
 
         .mode_0 .mode-normal,
         .mode_1 .mode-silent,
         .mode_2 .mode-eco {
-            color: #26d4b9 !important;;
+            color: #26d4b9 !important;
         }
         th, td {
-            padding: 0px 0px 0px 0px; 
+            padding: 0 2 0 0;
             text-align: left;
             border: none;
             font-size: 0.9em;
         }
 
+
+/* Damit der Rand als durchgehende Linie erscheint, anstatt dass jede Zelle ihren eigenen Rahmen hat */
+table {
+    border-collapse: collapse;
+}
 
     </style>
 </head>
@@ -330,28 +315,28 @@
             <table>
                 <tr>
                     <td style="padding-right: 10px;">SPF:</td>
-                    <td style="text-align: center;"><i class="fa-solid fa-house fa-sm icon" ></i></td>
-                    <td><span id="spf"></span><span class="wp_jaz_heizen">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-fire-flame-curved fa-sm icon"></i> <span id="spfheating"></span></span><span class="wp_jaz_ww">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon"></i> <span id="spfwater"></span></span></td>
+                    <td style="text-align: center;"><i class="fa-solid fa-house fa-sm icon fa-fw" ></i></td>
+                    <td><span id="spf"></span><span class="wp_jaz_heizen">&nbsp;&nbsp;<i class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i> <span id="spfheating"></span></span><span class="wp_jaz_ww">&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> <span id="spfwater"></span></span></td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;">COP:</td>
-                    <td style="text-align: center;"><i class="fa-solid fa-fire-flame-curved fa-sm icon"></i></td>
+                    <td style="text-align: center;"><i class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i></td>
                     <td><span id="cop">0</span></td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;">Consumption:</td>
-                    <td style="text-align: center;"><i class="fa-solid fa-bolt fa-sm icon"></i></td>
-                    <td><span id="consumption"></span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bolt fa-sm icon"></i> Heute: <span id="consumptiontoday"></span></td>
+                    <td style="text-align: center;"><i class="fa-solid fa-bolt fa-sm icon fa-fw"></i></td>
+                    <td><span id="consumption"></span>&nbsp;&nbsp;<i class="fa-solid fa-bolt fa-sm icon fa-fw"></i> Heute: <span id="consumptiontoday"></span></td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;">Temp.:</td>
-                    <td style="text-align: center;"><i class="fa-solid fa-tree fa-sm icon"></i></td>
-                    <td><span id="outdoortemperature">0</span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon"></i>  <span id="watertemperature">0</span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-circle-down fa-sm icon"></i>  <span id="flowtemperature">0</span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-circle-up fa-sm icon"></i> <span id="returntemperature">0</span></td>
+                    <td style="text-align: center;"><i class="fa-solid fa-tree fa-sm icon fa-fw"></i></td>
+                    <td><span id="outdoortemperature">0</span>&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> <span id="watertemperature">0</span>&nbsp;&nbsp;<i class="fa-solid fa-circle-down fa-sm icon fa-fw"></i> <span id="flowtemperature">0</span>&nbsp;&nbsp;<i class="fa-solid fa-circle-up fa-sm icon fa-fw"></i> <span id="returntemperature">0</span></td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;"><span class="hz_alle">Heater Rods:</span></td>
-                    <td style="text-align: center;"><span class="hz_wp_backup"><i class="fa-solid fa-fan fa-sm icon"></i></span></td>
-                    <td><span class="hz_wp_backup">WP:&nbsp;<i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon right-padding"></i>&nbsp;&nbsp;&nbsp;</span><span class="hz_ww_alle"><i class="fa-solid fa-droplet fa-sm icon"></i> WW-Speicher:&nbsp;<i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon right-space"></i><i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon right-space"></i><i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon right-space"></i></span></td>
+                    <td style="text-align: center;"><span class="hz_wp_backup"><i class="fa-solid fa-fan fa-sm icon fa-fw"></i></span></td>
+                    <td><span class="hz_wp_backup">WP:&nbsp;<i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon fa-fw"></i>&nbsp;&nbsp;</span><span class="hz_ww_alle"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> WW-Speicher:&nbsp;<i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw"></i></span></td>
                 </tr>
         </table>
 
