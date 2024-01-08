@@ -241,26 +241,34 @@
         }
 
         .status_0 .status-off {
-            color: #26d4b9;
+            color: #26d4b9 !important;;
         }
 
         .status_3 .status-heating {
-            color: orangered;
+            color: orangered !important;;
         }
 
         .status_4 .status-defrost {
-            color: lightskyblue;
+            color: lightskyblue !important;;
         }
 
         .status_5 .status-warm-water {
-            color: blue;
+            color: blue !important;;
         }
 
         .mode_0 .mode-normal,
         .mode_1 .mode-silent,
         .mode_2 .mode-eco {
-            color: #26d4b9;
+            color: #26d4b9 !important;;
         }
+        th, td {
+            padding: 0px 0px 0px 0px; 
+            text-align: left;
+            border: none;
+            font-size: 0.9em;
+        }
+
+
     </style>
 </head>
 
@@ -318,56 +326,36 @@
                     </div>
                 </div>
             </div>
-            <div class="container_daten">
-                <div class="daten_links">
-                    <div>SPF:</div>
-                    <div>COP:</div>
-                    <div>Consumption:</div>
-                    <div>Temp.:</div>
-                    <div>Heater Rods:</div>
-                </div>
-                <div class="daten_rechts">
-                    <div>
-                        <i class="fa-solid fa-house fa-sm icon right-space"></i>
-                        <span id="spf" class="right-padding"></span>
-                        <i class="fa-solid fa-fire-flame-curved fa-sm icon right-space"></i>
-                        <span id="spfheating" class="right-padding"></span>
-                        <i class="fa-solid fa-droplet fa-sm icon right-space"></i>
-                        <span id="spfwater"></span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-fire-flame-curved fa-sm icon right-space"></i>
-                        <span id="cop"></span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-bolt fa-sm icon right-space"></i>
-                        <span id="consumption" class="right-space"></span>
-                        <i class="fa-solid fa-bolt fa-sm icon right-space"></i>
-                        <span class="right-space">Today:</span>
-                        <span id="consumptiontoday" class="right-space"></span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-tree fa-sm icon right-space"></i>
-                        <span id="outdoortemperature" class="right-space"></span>
-                        <i class="fa-solid fa-droplet fa-sm icon right-space"></i>
-                        <span id="watertemperature" class="right-space"></span>
-                        <i class="fa-solid fa-circle-down fa-sm icon right-space"></i>
-                        <span id="returntemperature" class="right-space"></span>
-                        <i class="fa-solid fa-circle-up fa-sm icon right-space"></i>
-                        <span id="flowtemperature" class="right-space"></span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-fan fa-sm icon right-space"></i>
-                        <span class="right-space">HP:</span>
-                        <i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon right-padding"></i></span>
-                        <i class="fa-solid fa-droplet fa-sm icon right-space"></i>
-                        <span class="right-space">WW-Storage:</span>
-                        <i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon right-space"></i>
-                        <i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon right-space"></i>
-                        <i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon right-space"></i>
-                    </div>
-                </div>
-            </div>
+
+            <table>
+                <tr>
+                    <td style="padding-right: 10px;">SPF:</td>
+                    <td style="text-align: center;"><i class="fa-solid fa-house fa-sm icon" ></i></td>
+                    <td><span id="spf"></span><span class="wp_jaz_heizen">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-fire-flame-curved fa-sm icon"></i> <span id="spfheating"></span></span><span class="wp_jaz_ww">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon"></i> <span id="spfwater"></span></span></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px;">COP:</td>
+                    <td style="text-align: center;"><i class="fa-solid fa-fire-flame-curved fa-sm icon"></i></td>
+                    <td><span id="cop">0</span></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px;">Consumption:</td>
+                    <td style="text-align: center;"><i class="fa-solid fa-bolt fa-sm icon"></i></td>
+                    <td><span id="consumption"></span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-bolt fa-sm icon"></i> Heute: <span id="consumptiontoday"></span></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px;">Temp.:</td>
+                    <td style="text-align: center;"><i class="fa-solid fa-tree fa-sm icon"></i></td>
+                    <td><span id="outdoortemperature">0</span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon"></i>  <span id="watertemperature">0</span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-circle-down fa-sm icon"></i>  <span id="flowtemperature">0</span>&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-circle-up fa-sm icon"></i> <span id="returntemperature">0</span></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px;"><span class="hz_alle">Heater Rods:</span></td>
+                    <td style="text-align: center;"><span class="hz_wp_backup"><i class="fa-solid fa-fan fa-sm icon"></i></span></td>
+                    <td><span class="hz_wp_backup">WP:&nbsp;<i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon right-padding"></i>&nbsp;&nbsp;&nbsp;</span><span class="hz_ww_alle"><i class="fa-solid fa-droplet fa-sm icon"></i> WW-Speicher:&nbsp;<i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon right-space"></i><i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon right-space"></i><i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon right-space"></i></span></td>
+                </tr>
+        </table>
+
+        
         </div>
     </div>
     <script type="text/javascript" charset="UTF-8">
@@ -396,6 +384,24 @@
                         divElement.className = 'status_' + data.Value;
                         document.getElementById('image').src = statusMapping[index];
                         divElement.textContent = data.ValueFormatted;
+                        
+                        if (data.Value == 0) 
+                        {
+                            divElement.style.color = "grey";  
+                        }
+                        else if (data.Value == 3) 
+                        {
+                            divElement.style.color = "orange";  
+                        }
+                        else if (data.Value == 5) 
+                        {
+                            divElement.style.color = "blue";  
+                        }
+                        else 
+                        {
+                            divElement.style.color = "grey";  
+                        }
+                        
                         break;
                     }
 
