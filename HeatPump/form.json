@@ -1,6 +1,10 @@
 {
     "elements": [
-
+        {
+            "type": "Label", 
+            "caption": "Statusanzeigen",
+            "bold": true
+        },
         {
             "type": "SelectVariable",
             "name": "Status",
@@ -12,6 +16,11 @@
             "name": "Mode",
             "caption": "Mode",
             "validVariableTypes": [1]
+        },
+        {
+            "type": "Label", 
+            "caption": "Temperaturen",
+            "bold": true
         },
         {
             "type": "SelectVariable",
@@ -38,6 +47,11 @@
             "validVariableTypes": [1, 2]
         },
         {
+            "type": "Label", 
+            "caption": "Heizstäbe",
+            "bold": true
+        },
+        {
             "type": "SelectVariable",
             "name": "HeaterRodBackupStatus",
             "caption": "HeaterRodBackupStatus",
@@ -62,6 +76,17 @@
             "validVariableTypes": [0]
         },
         {
+            "type": "Label", 
+            "caption": "Aktuelle Leistungen",
+            "bold": true
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Power",
+            "caption": "Power",
+            "validVariableTypes": [1, 2]
+        },
+        {
             "type": "SelectVariable",
             "name": "Flow",
             "caption": "Flow",
@@ -78,6 +103,11 @@
             "name": "CompressorPower",
             "caption": "Compressor Power (Hz)",
             "validVariableTypes": [1, 2]
+        },
+        {
+            "type": "Label", 
+            "caption": "Effizientwerte",
+            "bold": true
         },
         {
             "type": "SelectVariable",
@@ -104,10 +134,9 @@
             "validVariableTypes": [1, 2]
         },
         {
-            "type": "SelectVariable",
-            "name": "Power",
-            "caption": "Power",
-            "validVariableTypes": [1, 2]
+            "type": "Label", 
+            "caption": "Energieverbrauch",
+            "bold": true
         },
         {
             "type": "SelectVariable",
