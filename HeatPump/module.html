@@ -220,21 +220,6 @@
             cursor: pointer;
         }
 
-        .status_0 .status-off {
-            color: #26d4b9 !important;
-        }
-
-        .status_3 .status-heating {
-            color: orangered !important;
-        }
-
-        .status_4 .status-defrost {
-            color: lightskyblue !important;
-        }
-
-        .status_5 .status-warm-water {
-            color: blue !important;
-        }
 
         .mode_0 .mode-normal,
         .mode_1 .mode-silent,
@@ -247,12 +232,6 @@
             border: none;
             font-size: 0.9em;
         }
-
-
-/* Damit der Rand als durchgehende Linie erscheint, anstatt dass jede Zelle ihren eigenen Rahmen hat */
-table {
-    border-collapse: collapse;
-}
 
     </style>
 </head>
@@ -367,25 +346,11 @@ table {
                         }
 
                         divElement.className = 'status_' + data.Value;
+
                         document.getElementById('image').src = statusMapping[index];
                         divElement.textContent = data.ValueFormatted;
                         
-                        if (data.Value == 0) 
-                        {
-                            divElement.style.color = "grey";  
-                        }
-                        else if (data.Value == 3) 
-                        {
-                            divElement.style.color = "orange";  
-                        }
-                        else if (data.Value == 5) 
-                        {
-                            divElement.style.color = "blue";  
-                        }
-                        else 
-                        {
-                            divElement.style.color = "grey";  
-                        }
+                        divElement.style.color = data.Color;
                         
                         break;
                     }
