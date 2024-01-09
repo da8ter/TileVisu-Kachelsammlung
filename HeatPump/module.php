@@ -138,6 +138,7 @@
             }
 
             $variable = IPS_GetVariable($variableID);
+                        
             $Value = GetValue($variableID);
             $ValueFormatted = GetValueFormatted($variableID);
             $profile = $variable['VariableCustomProfile'];
@@ -145,16 +146,45 @@
                 $profile = $variable['VariableProfile'];
             }
 
-            // If Min/Max are not needed you can remove those values
-            // The channel
             $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
+
+            if (IPS_VariableProfileExists($profile)) {
+                $p = IPS_GetVariableProfile($profile);
+            
+                // Setze $colorhexWert auf einen leeren String als Standardwert
+                $colorhexWert = "";
+            
+                if (!empty($p['Associations']) && is_array($p['Associations'])) {
+                    foreach ($p['Associations'] as $association) {
+                        // Prüfe, ob der aktuelle Wert dem gesuchten Wert entspricht
+                        if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
+                            // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
+                            $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
+                            break; // Beende die Schleife, da der passende Wert gefunden wurde
+                        }
+                    }
+                }
+            } else {
+                $colorhexWert = "";
+            }
+            
+            
+            
+            //print_r($colorhexWert);
+            
+
+
+
+
             return json_encode([
                 'Ident' => $variableIdent,
                 'Value' => $Value,  
                 'ValueFormatted' => $ValueFormatted, 
                 'Min' => $p ? $p['MinValue'] : false,
                 'Max' => $p ? $p['MaxValue'] : false,
+                'Color' => '#' . $colorhexWert,
             ]);
+            
         }
     
     }
