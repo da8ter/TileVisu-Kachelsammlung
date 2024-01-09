@@ -3,7 +3,7 @@
 
         { 
             "type": "SelectMedia", 
-            "name": "Bewohner1Image", 
+            "name": "bgImage", 
             "caption": "Foto"
         },
 
