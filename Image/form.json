@@ -1,0 +1,11 @@
+{
+    "elements": [
+
+        { 
+            "type": "SelectMedia", 
+            "name": "Bewohner1Image", 
+            "caption": "Foto"
+        },
+
+    ]
+}
