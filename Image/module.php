@@ -8,7 +8,7 @@
             parent::Create();
 
             // Drei Eigenschaften für die dargestellten Zähler
-            $this->RegisterPropertyInteger("Bewohner1Image", 0);
+            $this->RegisterPropertyInteger("bgImage", 0);
             // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
             $this->SetVisualizationType(1);
         }
@@ -16,43 +16,9 @@
         public function ApplyChanges() {
             parent::ApplyChanges();
 
-            // Aktualisiere registrierte Nachrichten
-            foreach ($this->GetMessageList() as $senderID => $messageIDs) {
-                foreach($messageIDs as $messageID) {
-                    $this->UnregisterMessage($senderID, $messageID);
-                }
-            }
-
-            foreach(['Bewohner1', 'Bewohner2', 'Bewohner3', 'Bewohner4', 'Bewohner5'] as $BewohnerProperty) {
-                $this->RegisterMessage($this->ReadPropertyInteger($BewohnerProperty), OM_CHANGENAME);
-                $this->RegisterMessage($this->ReadPropertyInteger($BewohnerProperty), VM_UPDATE);
-            }
-
-            // Schicke eine komplette Update-Nachricht an die Darstellung, da sich ja Parameter geändert haben können
-            $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
         }
 
-        public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
-            foreach(['Bewohner1', 'Bewohner2', 'Bewohner3', 'Bewohner4', 'Bewohner5'] as $index => $BewohnerProperty) {
-                if ($SenderID === $this->ReadPropertyInteger($BewohnerProperty)) {
-                    switch ($Message) {
-                        case OM_CHANGENAME:
-                            // Teile der HTML-Darstellung den neuen Namen mit
-                            $this->UpdateVisualizationValue(json_encode([
-                                'name' . ($index + 1) => $Data[0]
-                            ]));
-                            break;
-
-                        case VM_UPDATE:
-                            // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                            $this->UpdateVisualizationValue(json_encode(['value' . ($index + 1) => GetValue($this->ReadPropertyInteger($BewohnerProperty))]));
-                            break;
-                    }
-                }
-            }
-        }
-
-      
+    
         public function GetVisualizationTile() {
             // Füge ein Skript hinzu, um beim laden, analog zu Änderungen bei Laufzeit, die Werte zu setzen
             // Obwohl die Rückgabe von GetFullUpdateMessage ja schon JSON-codiert ist wird dennoch ein weiteres mal json_encode ausgeführt
