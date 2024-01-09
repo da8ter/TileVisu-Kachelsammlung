@@ -5,7 +5,7 @@
             "type": "SelectMedia", 
             "name": "bgImage", 
             "caption": "Foto"
-        },
+        }
 
     ]
 }
