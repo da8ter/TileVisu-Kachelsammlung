@@ -3,56 +3,24 @@
 
   
     body {
-}
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
 
-.hidden {
-    display: none;
-}
-
-.container_anwesenheit {
+.image {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10%;
+    position: relative; /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
 }
+.bgimage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Sorgt dafür, dass das Bild den Container ausfüllt */
+        object-position: center; /* Zentriert das Bild innerhalb des Containers */
+    }
 
-.Bewohner1, .Bewohner2, .Bewohner3, .Bewohner4, .Bewohner5 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex: 1;  
-
-    min-width: 30px;
-    max-width: 500px;
-}
-
-.name {
-    margin-top: 5px;
-    text-align: center;
-    font-size: 1em;
-}
-
-/* Gemeinsame Stile für .color und .grey */
-.color, .grey {
-    width: 100%;
-    border-radius: 50%;
-}
-
-.color {
-    filter: grayscale(0%);
-}
-
-.grey {
-    filter: grayscale(100%);
-    opacity: 0.5;
-}
- 
 
 
 </style>
@@ -72,62 +40,12 @@
 
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter) {
-                    case 'Bewohner1':
-                    case 'Bewohner2':
-                    case 'Bewohner3':
-                    case 'Bewohner4':
-                    case 'Bewohner5':
-                        console.log('Anpassung der Sichtbarkeit für', parameter);
-                        element.className = decodedData[parameter] ? parameter : 'hidden';
-                        break;
-
                     case 'image1':
-                    case 'image2':
-                    case 'image3':
-                    case 'image4':
-                    case 'image5':
                     element.src = decodedData[parameter];
+                    //document.body.style.backgroundImage = decodedData[parameter];
+                //console.log('Setze innerHTML für', parameter);
                         break;
-
-                    case 'value1':
-                            image1.className = decodedData[parameter] ? 'color' : 'grey';
-                        break;
-
-                    case 'value2':
-                            image2.className = decodedData[parameter] ? 'color' : 'grey';
-                        break;
-
-                    case 'value3':
-                            image3.className = decodedData[parameter] ? 'color' : 'grey';
-                        break;
-
-                    case 'value4':
-                        image4.className = decodedData[parameter] ? 'color' : 'grey';
-                    break;
-
-                    case 'value5':
-                        image5className = decodedData[parameter] ? 'color' : 'grey';
-                    break;
-
-                    case 'fontsize':
-                        // Wählen Sie alle Elemente mit der Klasse .name aus
-                        const nameElements = document.querySelectorAll('.name');
-
-                        // Ändern Sie die font-size für jedes ausgewählte Element
-                        nameElements.forEach(element => {
-                            element.style.fontSize = decodedData[parameter]+'em'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
-                        });
-                    case 'eckenradius':
-                        // Wählen Sie alle Elemente mit der Klasse .name aus
-                        const cornerElements = document.querySelectorAll('.color, .grey');
-
-                        // Ändern Sie die font-size für jedes ausgewählte Element
-                        cornerElements.forEach(element => {
-                            element.style.borderRadius = decodedData[parameter]+'%'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
-                        });
-
-
-                    break;
+                  
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
@@ -141,29 +59,4 @@
 </script>
 
 
-<div class="container_anwesenheit" id="container">
-    <div class="bewohner_div" id="Bewohner1">
-        <img class="color" id="image1" onclick="requestAction('Bewohner1', 1);">
-        <div class="name" id="name1">1</div>
-    </div>
-    
-    <div class="bewohner_div" id="Bewohner2">
-        <img class="color" id="image2" onclick="requestAction('Bewohner2', 1);">
-        <div class="name" id="name2">2</div>
-    </div>
-    
-    <div class="bewohner_div" id="Bewohner3">
-        <img class="color" id="image3" onclick="requestAction('Bewohner3', 1);">
-        <div class="name" id="name3">3</div>
-    </div>
-
-    <div class="bewohner_div" id="Bewohner4">
-        <img class="color" id="image4" onclick="requestAction('Bewohner4', 1);">
-        <div class="name" id="name4">4</div>
-    </div>
-
-    <div class="bewohner_div" id="Bewohner5">
-        <img class="color" id="image5" onclick="requestAction('Bewohner5', 1);">
-        <div class="name" id="name5">5</div>
-    </div>    
-</div>
+<div class="image" id="text"><img class="bgimage" id="image1"></div>
