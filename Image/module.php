@@ -35,8 +35,10 @@
 
             // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
             private function GetFullUpdateMessage() {
+                $result = []; // Initialisiere das Ergebnis-Array
 
-                    $imageID = $this->ReadPropertyInteger('Bewohner1Image');
+
+                    $imageID = $this->ReadPropertyInteger('bgImage');
                     if (IPS_MediaExists($imageID)) {
                         $image = IPS_GetMedia($imageID);
                         if ($image['MediaType'] === MEDIATYPE_IMAGE) {
