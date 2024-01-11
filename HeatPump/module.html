@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
@@ -69,7 +70,7 @@
             box-sizing: border-box;
         }
 
-            .balken_links_leistung,
+        .balken_links_leistung,
         .balken_links_durchfluss,
         .balken_links_luefterdrehzahl,
         .balken_links_kompressor,
@@ -193,7 +194,7 @@
 
         .icon {
             color: #26d4b9;
-        
+
         }
 
         .right-space {
@@ -226,13 +227,14 @@
         .mode_2 .mode-eco {
             color: #26d4b9 !important;
         }
-        th, td {
+
+        th,
+        td {
             padding: 0 2 0 0;
             text-align: left;
             border: none;
             font-size: 0.9em;
         }
-
     </style>
 </head>
 
@@ -275,7 +277,7 @@
                     <div class="balken_links_durchfluss">
                         <span class="balken_links_text">
                             <b class="right-space">Flow:</b>
-                            <span id="flow" ></span>
+                            <span id="flow"></span>
                         </span>
                     </div>
                 </div>
@@ -294,8 +296,12 @@
             <table>
                 <tr>
                     <td style="padding-right: 10px;">SPF:</td>
-                    <td style="text-align: center;"><i class="fa-solid fa-house fa-sm icon fa-fw" ></i></td>
-                    <td><span id="spf"></span><span class="wp_jaz_heizen">&nbsp;&nbsp;<i class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i> <span id="spfheating"></span></span><span class="wp_jaz_ww">&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> <span id="spfwater"></span></span></td>
+                    <td style="text-align: center;"><i class="fa-solid fa-house fa-sm icon fa-fw"></i></td>
+                    <td><span id="spf"></span><span class="wp_jaz_heizen">&nbsp;&nbsp;<i
+                                class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i> <span
+                                id="spfheating"></span></span><span class="wp_jaz_ww">&nbsp;&nbsp;<i
+                                class="fa-solid fa-droplet fa-sm icon fa-fw"></i> <span id="spfwater"></span></span>
+                    </td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;">COP:</td>
@@ -305,27 +311,40 @@
                 <tr>
                     <td style="padding-right: 10px;">Consumption:</td>
                     <td style="text-align: center;"><i class="fa-solid fa-bolt fa-sm icon fa-fw"></i></td>
-                    <td><span id="consumption"></span>&nbsp;&nbsp;<i class="fa-solid fa-bolt fa-sm icon fa-fw"></i> Heute: <span id="consumptiontoday"></span></td>
+                    <td><span id="consumption"></span>&nbsp;&nbsp;<i class="fa-solid fa-bolt fa-sm icon fa-fw"></i>
+                        Heute: <span id="consumptiontoday"></span></td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;">Temp.:</td>
                     <td style="text-align: center;"><i class="fa-solid fa-tree fa-sm icon fa-fw"></i></td>
-                    <td><span id="outdoortemperature">0</span>&nbsp;&nbsp;<i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> <span id="watertemperature">0</span>&nbsp;&nbsp;<i class="fa-solid fa-circle-down fa-sm icon fa-fw"></i> <span id="flowtemperature">0</span>&nbsp;&nbsp;<i class="fa-solid fa-circle-up fa-sm icon fa-fw"></i> <span id="returntemperature">0</span></td>
+                    <td><span id="outdoortemperature">0</span>&nbsp;&nbsp;<i
+                            class="fa-solid fa-droplet fa-sm icon fa-fw"></i> <span
+                            id="watertemperature">0</span>&nbsp;&nbsp;<i
+                            class="fa-solid fa-circle-down fa-sm icon fa-fw"></i> <span
+                            id="flowtemperature">0</span>&nbsp;&nbsp;<i
+                            class="fa-solid fa-circle-up fa-sm icon fa-fw"></i> <span id="returntemperature">0</span>
+                    </td>
                 </tr>
                 <tr>
                     <td style="padding-right: 10px;"><span class="hz_alle">Heater Rods:</span></td>
-                    <td style="text-align: center;"><span class="hz_wp_backup"><i class="fa-solid fa-fan fa-sm icon fa-fw"></i></span></td>
-                    <td><span class="hz_wp_backup">WP:&nbsp;<i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon fa-fw"></i>&nbsp;&nbsp;</span><span class="hz_ww_alle"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> WW-Speicher:&nbsp;<i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw"></i></span></td>
+                    <td style="text-align: center;"><span class="hz_wp_backup"><i
+                                class="fa-solid fa-fan fa-sm icon fa-fw"></i></span></td>
+                    <td><span class="hz_wp_backup">WP:&nbsp;<i id="heaterrodbackupstatus"
+                                class="fa-solid fa-circle fa-sm icon fa-fw"></i>&nbsp;&nbsp;</span><span
+                            class="hz_ww_alle"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> WW-Speicher:&nbsp;<i
+                                id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i
+                                id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i
+                                id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw"></i></span></td>
                 </tr>
-        </table>
+            </table>
 
-        
+
         </div>
     </div>
     <script type="text/javascript" charset="UTF-8">
         function handleMessage(message) {
             const data = JSON.parse(message);
-            console.log(data);
+            //console.log(data);
             const divID = data.Ident.toLowerCase();
             const value = data.result;
             const divElement = document.getElementById(divID);
@@ -333,25 +352,27 @@
             if (divElement) {
                 switch (data.Ident) {
                     case 'Status': {
-                        const statusMapping = {
-                            0: window.assets.img_wp_aus,
-                            3: window.assets.img_wp_heizen,
-                            4: window.assets.img_wp_heizen,
-                            5: window.assets.img_wp_ww,
-                        };
-
                         let index = data.Value;
-                        if (!statusMapping[index]) {
+                        if (!statusImages[index]) {
                             index = 0;
                         }
+                        console.log(statusImages[index]);
+
+                        if (statusImages[index] === 'wp_heizen') {
+                            document.getElementById('image').src = window.assets.img_wp_heizen;
+                        }
+                        else if (statusImages[index] === 'wp_ww') {
+                            document.getElementById('image').src = window.assets.img_wp_ww;
+                        }
+                        else {
+                            document.getElementById('image').src = window.assets.img_wp_aus;
+                        }
+
 
                         divElement.className = 'status_' + data.Value;
-
-                        document.getElementById('image').src = statusMapping[index];
                         divElement.textContent = data.ValueFormatted;
-                        
                         divElement.style.color = data.Color;
-                        
+
                         break;
                     }
 
@@ -391,4 +412,5 @@
                 console.error('Ungültiges JSON-Format oder fehlende Daten.');
             }
         }
+
     </script>

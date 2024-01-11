@@ -12,6 +12,112 @@
             "validVariableTypes": [1]
         },
         {
+            "type": "ExpansionPanel",
+            "caption": "Bildzuordnung je nach Status der Wärempumpe",
+            "items": [
+                {
+                    "type": "Select",
+                    "name": "Statusimage0",
+                    "caption": "Status = 0",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage1",
+                    "caption": "Status = 1",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage2",
+                    "caption": "Status = 2",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage3",
+                    "caption": "Status = 3",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage4",
+                    "caption": "Status = 4",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage5",
+                    "caption": "Status = 5",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage6",
+                    "caption": "Status = 6",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage7",
+                    "caption": "Status = 7",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage8",
+                    "caption": "Status = 8",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                },
+                {
+                    "type": "Select",
+                    "name": "Statusimage9",
+                    "caption": "Status = 9",
+                    "options": [
+                        { "caption": "Wärmepumpe AUS", "value": "wp_aus" },
+                        { "caption": "Wärmepumpe Heizen", "value": "wp_heizen" },
+                        { "caption": "Wärmepumpe Warmwasser", "value": "wp_ww" }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "SelectVariable",
             "name": "Mode",
             "caption": "Mode",

@@ -27,6 +27,16 @@
             $this->RegisterPropertyInteger('Power', 0);
             $this->RegisterPropertyInteger('Consumption', 0);
             $this->RegisterPropertyInteger('ConsumptionToday', 0);
+            $this->RegisterPropertyString('Statusimage0', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage1', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage2', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage3', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage4', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage5', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage6', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage7', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage8', 'wp_aus');
+            $this->RegisterPropertyString('Statusimage9', 'wp_aus');
             $this->SetVisualizationType(1);
         }
         public function ApplyChanges() {
@@ -124,11 +134,36 @@
             $assets .= 'window.assets.img_wp_ww = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_ww.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
 
+          
+            $statusMapping = array(
+                0 => $this->ReadPropertyString('Statusimage0'),
+                1 => $this->ReadPropertyString('Statusimage1'),
+                2 => $this->ReadPropertyString('Statusimage2'),
+                4 => $this->ReadPropertyString('Statusimage4'),
+                5 => $this->ReadPropertyString('Statusimage5'),
+                3 => $this->ReadPropertyString('Statusimage3'),
+                6 => $this->ReadPropertyString('Statusimage6'),
+                7 => $this->ReadPropertyString('Statusimage7'),
+                8 => $this->ReadPropertyString('Statusimage8'),
+                9 => $this->ReadPropertyString('Statusimage9'),
+
+            );
+
+
+            // Konvertiere das PHP-Array in einen JSON-String
+            $statusImagesJson = json_encode($statusMapping);
+            // Füge den JSON-String in ein <script>-Tag ein
+            $images = '<script type="text/javascript">';
+            $images .= 'var statusImages = ' . $statusImagesJson . ';';
+            $images .= 'console.log(statusImages);';
+            $images .= '</script>';
+
+
             // Add static HTML content from file to make editing easier
             $module = file_get_contents(__DIR__ . '/module.html');
 
             // Return everything to render our fancy tile!
-            return $module . $assets . $messages;
+            return $module . $images . $assets . $messages;
         }
 
         private function GetUpdatedValue($variableIdent, $variableID) {
