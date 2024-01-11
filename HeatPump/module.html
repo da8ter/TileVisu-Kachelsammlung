@@ -210,7 +210,7 @@
             color: gray;
         }
 
-        .row {
+        .statusdiv, .modediv {
             display: flex;
             flex-direction: row;
             margin-bottom: 5px;
@@ -244,11 +244,11 @@
             <img id="image">
         </div>
         <div class="div2">
-            <div class="row">
+            <div class="hidden" id="statusdiv">
                 <b class="title right-space">Status:</b>
                 <div id="status"></div>
             </div>
-            <div class="row">
+            <div class="hidden" id="modediv">
                 <b class="title right-space">Mode:</b>
                 <div id="mode"></div>
             </div>
@@ -344,7 +344,6 @@
     <script type="text/javascript" charset="UTF-8">
         function handleMessage(message) {
             const data = JSON.parse(message);
-            //console.log(data);
             const divID = data.Ident.toLowerCase();
             const value = data.result;
             const divElement = document.getElementById(divID);
@@ -356,8 +355,6 @@
                         if (!statusImages[index]) {
                             index = 0;
                         }
-                        console.log(statusImages[index]);
-
                         if (statusImages[index] === 'wp_heizen') {
                             document.getElementById('image').src = window.assets.img_wp_heizen;
                         }
@@ -367,11 +364,11 @@
                         else {
                             document.getElementById('image').src = window.assets.img_wp_aus;
                         }
-
-
                         divElement.className = 'status_' + data.Value;
                         divElement.textContent = data.ValueFormatted;
                         divElement.style.color = data.Color;
+
+                        statusdiv.className = 'statusdiv';
 
                         break;
                     }
@@ -379,6 +376,7 @@
                     case 'Mode':
                         divElement.className = 'mode_' + data.Value;
                         divElement.textContent = data.ValueFormatted;
+                        modediv.className = 'modediv';
                         break;
 
                     case 'HeaterRodBackupStatus':

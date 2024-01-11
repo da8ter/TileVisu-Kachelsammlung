@@ -89,6 +89,7 @@
         public function GetVisualizationTile() {
             // Inject current values using the message handling function
             $initialHandling = [];
+            $statusArray = [];
             $childs = array(
                 array('Name' => 'Status', 'VariableID' => $this->ReadPropertyInteger('Status')),
                 array('Name' => 'Mode', 'VariableID' => $this->ReadPropertyInteger('Mode')),
@@ -115,13 +116,17 @@
             foreach ($childs as $child) {
                 $variableID = $child['VariableID'];  // Holt die VariableID aus dem Kind-Array
                 $ident = $child['Name'];  // Holt den Namen als Ident
-        
-                if (!IPS_VariableExists($variableID)) {
-                    continue;
+            
+                $variableExists = IPS_VariableExists($variableID);  // Überprüft, ob die Variable existiert
+                if ($variableExists) {
+                    $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident, $variableID) . '\');';
                 }
-
-
-            $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident, $variableID) . '\');';
+            
+                // Füge den Namen und den Status der Existenz der Variable in das neue Array ein
+                $statusArray[] = [
+                    'Name' => $ident,
+                    'Status' => $variableExists
+                ];
             }
 
             $messages = '<script>' . implode(' ', $initialHandling) . '</script>';
@@ -155,15 +160,19 @@
             // Füge den JSON-String in ein <script>-Tag ein
             $images = '<script type="text/javascript">';
             $images .= 'var statusImages = ' . $statusImagesJson . ';';
-            $images .= 'console.log(statusImages);';
             $images .= '</script>';
-
+            
+            $statusArrayJson = json_encode($statusArray);
+            $varexist = '<script type="text/javascript">';
+            $varexist .= 'var varexist = ' . $statusArrayJson . ';';
+            $varexist .= 'console.log(varexist);';
+            $varexist .= '</script>';
 
             // Add static HTML content from file to make editing easier
             $module = file_get_contents(__DIR__ . '/module.html');
 
             // Return everything to render our fancy tile!
-            return $module . $images . $assets . $messages;
+            return $module . $varexist . $images . $assets . $messages;
         }
 
         private function GetUpdatedValue($variableIdent, $variableID) {
@@ -202,14 +211,6 @@
             } else {
                 $colorhexWert = "";
             }
-            
-            
-            
-            //print_r($colorhexWert);
-            
-
-
-
 
             return json_encode([
                 'Ident' => $variableIdent,
