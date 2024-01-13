@@ -230,10 +230,13 @@
 
         th,
         td {
-            padding: 0 2 0 0;
+            padding: 3;
             text-align: left;
             border: none;
             font-size: 0.9em;
+            border-bottom: 1px dotted #26d4b9; /* Gepunkteter unterer Border für alle Zellen */
+
+
         }
         .spf {
             display: inline;
@@ -242,7 +245,8 @@
         .spf_row,
         .cop_row,
         .consumption_row,
-        .temp_row {
+        .temp_row,
+        .heizstaebe_row {
             display: table-row;
         }
         .wp_jaz_heizen, 
@@ -252,10 +256,14 @@
         .temp_outside,
         .temp_ww,
         .temp_vorlauf,
-        .temp_ruecklauf {
+        .temp_ruecklauf,
+        .heizstab_backup,
+        .heizstab_ww {
             display: inline;
-            margin-right: 7px;
+            margin-right: 10px;
+
         }
+
 
     </style>
 </head>
@@ -359,14 +367,16 @@
                         <span id="temp_ruecklauf" class="hidden"><i class="fa-solid fa-circle-up fa-sm icon fa-fw"></i>&nbsp;<span id="returntemperature">0</span></span>
                     </td>
                 </tr>
-                <tr>
+                <tr id="heizstaebe" class="hidden">
                     <td style="padding-right: 10px;"><span class="hz_alle">Heater Rods:</span></td>
-                    <td><i class="fa-solid fa-fan fa-sm icon fa-fw"></i><span class="hz_wp_backup">&nbsp;WP:&nbsp;<i id="heaterrodbackupstatus"
-                                class="fa-solid fa-circle fa-sm icon fa-fw"></i>&nbsp;&nbsp;</span><span
-                            class="hz_ww_alle"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> WW-Speicher:&nbsp;<i
-                                id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i
-                                id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw"></i><i
-                                id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw"></i></span></td>
+                    <td>
+                        <span id="heizstab_backup" class="hidden"><i class="fa-solid fa-fan fa-sm icon fa-fw"></i><span class="hz_wp_backup">&nbsp;WP:&nbsp;<i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon fa-fw"></i></span></span>
+                        <span id="heizstab_ww" class="hidden"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> WW-Speicher:&nbsp;
+                            <i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
+                            <i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
+                            <i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
+                        </span>
+                    </td>
                 </tr>
             </table>
 
@@ -411,10 +421,19 @@
                         modediv.className = 'modediv';
                         break;
 
+                    case 'ConsumptionToday':
+                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
+                        document.getElementById("consumption_row").className = 'consumption_row';
+                        document.getElementById("consumption_today").className = 'consumption_today';
+                        //Anzeigewert wird eingefügt
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+
                     case 'HeaterRodBackupStatus':
-                    case 'HeaterRodPhase1':
-                    case 'HeaterRodPhase2':
-                    case 'HeaterRodPhase3':
+                    document.getElementById("heizstaebe").className = 'heizstaebe_row';
+                    document.getElementById("heizstab_backup").className = 'heizstab_backup';
+
+
                         if (data.Value) {
                             divElement.classList.remove('fa-regular');
                             divElement.classList.add('fa-solid');
@@ -424,6 +443,24 @@
                             divElement.classList.add('fa-regular');
                         }
                         break;
+
+                    case 'HeaterRodPhase1':
+                    case 'HeaterRodPhase2':
+                    case 'HeaterRodPhase3':
+                    document.getElementById("heizstaebe").className = 'heizstaebe_row';
+                    document.getElementById("heizstab_ww").className = 'heizstaebe_ww';
+                    divElement.classList.remove('hidden');
+                        if (data.Value) {
+                            divElement.classList.remove('fa-regular');
+                            divElement.classList.add('fa-solid');
+                        }
+                        else {
+                            divElement.classList.remove('fa-solid');
+                            divElement.classList.add('fa-regular');
+                        }
+                    break;
+
+
 
                     case 'Power':
                     case 'CompressorPower':
