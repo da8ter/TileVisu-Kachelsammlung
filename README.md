@@ -1,14 +1,12 @@
 # TileVisu-HTML-Kachelsammlung
 
-- Sammlung von HTML-Kacheln für die Tile-Visualisierung von IPSymcon.
-Generell werden bei allen Kacheln Links und andere Objekte, die unterhalb der Instanz abgelegt sind, in der Vergrößerten Ansicht der Kachel als Listenansicht abgebildet.
+Zusammenstellung von HTML-Kacheln für die Tile-Visualisierung von IPSymcon. Grundsätzlich werden in allen Kacheln Links und andere Objekte, die unterhalb der Instanz platziert sind, in der vergrößerten Ansicht der Kachel als Listenansicht dargestellt.
 
-- Bewohnerstatus
-Kachel in der der Anwesenheitsstatus von bis zu 5 Bewohnern mit Foto und Name abgebildet werden kann.
-Der Status kann auch über das Bild geschaltet werden.
+-Bewohnerstatus-Kachel:
+Diese Kachel zeigt den Anwesenheitsstatus von bis zu 5 Bewohnern mit Foto und Namen an. Der Status kann auch durch Klicken auf das Bild geändert werden.
 
--Wärmepumpe
-Kachel zur Dasrstellung einer Wärmepumpe inkl. Leistungswerte, Temperaturen und Effizientzwerten.
+-Wärmepumpe-Kachel:
+Diese Kachel ermöglicht die Darstellung einer Wärmepumpe, inklusive Leistungswerten, Temperaturen und Effizienzwerten.
 
--Image
-Kachel zur Darstellung eines Fotos. Wird die Kachel vergrößert werden alle Objekte die unterhalb der Instanz liegen als Liste angezeigt.
+-Bild-Kachel:
+Diese Kachel dient der Anzeige eines Fotos. Bei Vergrößerung der Kachel werden alle Objekte, die unterhalb der Instanz liegen, als Liste angezeigt.
