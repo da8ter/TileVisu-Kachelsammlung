@@ -1,6 +1,6 @@
 <?php
 
-    class HTMLVisuHeatPump extends IPSModule
+    class TileVisuHeatPump extends IPSModule
     {
         
         public function Create() {
@@ -60,10 +60,8 @@
                 if ($SenderID === $this->ReadPropertyInteger($HeatPumpProperty)) {
                     switch ($Message) {
                         case VM_UPDATE:
-                            // Holen Sie sich das aktualisierte Wert-Array für das HeatPumpProperty
                             $updatedValue = $this->GetUpdatedValue($HeatPumpProperty, $this->ReadPropertyInteger($HeatPumpProperty));
                             
-                            // Aktualisieren Sie die Visualisierung mit dem neuen Wert
                             $this->UpdateVisualizationValue($updatedValue);
                             break;
                     }
@@ -79,15 +77,11 @@
             $variableID = $this->ReadPropertyInteger($Ident);
             SetValue($variableID, $Value);
 
-            // Holen Sie sich das aktualisierte Wert-Array für das HeatPumpProperty
             $updatedValue = $this->GetUpdatedValue($Ident, $this->ReadPropertyInteger($Ident));
 
-            // Aktualisieren Sie die Visualisierung mit dem neuen Wert
-            //$this->UpdateVisualizationValue($updatedValue);
         }
         
         public function GetVisualizationTile() {
-            // Inject current values using the message handling function
             $initialHandling = [];
             $statusArray = [];
             $childs = array(
@@ -131,7 +125,6 @@
 
             $messages = '<script>' . implode(' ', $initialHandling) . '</script>';
 
-            // We need to include the assets directly as there is no way to load anything afterwards yet
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
             $assets .= 'window.assets.img_wp_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_aus.webp')) . '";' . PHP_EOL;
@@ -155,9 +148,9 @@
             );
 
 
-            // Konvertiere das PHP-Array in einen JSON-String
+
             $statusImagesJson = json_encode($statusMapping);
-            // Füge den JSON-String in ein <script>-Tag ein
+
             $images = '<script type="text/javascript">';
             $images .= 'var statusImages = ' . $statusImagesJson . ';';
             $images .= '</script>';
@@ -195,7 +188,6 @@
             if (IPS_VariableProfileExists($profile)) {
                 $p = IPS_GetVariableProfile($profile);
             
-                // Setze $colorhexWert auf einen leeren String als Standardwert
                 $colorhexWert = "";
             
                 if (!empty($p['Associations']) && is_array($p['Associations'])) {

@@ -234,7 +234,7 @@
             text-align: left;
             border: none;
             font-size: 0.9em;
-            border-bottom: 1px solid rgba(128, 128, 128, 0.2); /* Gepunkteter unterer Border für alle Zellen */
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 
 
         }
@@ -422,10 +422,9 @@
                         break;
 
                     case 'ConsumptionToday':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
+                        
                         document.getElementById("consumption_row").className = 'consumption_row';
                         document.getElementById("consumption_today").className = 'consumption_today';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break; 
 
@@ -472,74 +471,54 @@
                     break;
 
                     case 'SPF':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("spf_row").className = 'spf_row';
                         document.getElementById("spf_icon").className = 'fa-solid fa-house fa-sm icon fa-fw';
                         divElement.className = 'spf';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break;
 
                     case 'SPFHeating':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
-                        document.getElementById("spf_row").className = 'spf_row'; //Zeile für SPF wird eingeblendet
+                        document.getElementById("spf_row").className = 'spf_row';
                         document.getElementById("wp_jaz_heizen").className = 'wp_jaz_heizen';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break;    
                     case 'SPFWater':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
-                        document.getElementById("spf_row").className = 'spf_row'; //Zeile für SPF wird eingeblendet
+                        document.getElementById("spf_row").className = 'spf_row';
                         document.getElementById("wp_jaz_ww").className = 'wp_jaz_ww';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break; 
                     case 'COP':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
-                        document.getElementById("cop_row").className = 'cop_row'; //Zeile für SPF wird eingeblendet
-                        //Anzeigewert wird eingefügt
+                        document.getElementById("cop_row").className = 'cop_row';
                         divElement.textContent = data.ValueFormatted;
                     break; 
                     case 'Consumption':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("consumption_row").className = 'consumption_row';
                         document.getElementById("consumption_watt").className = 'consumption_watt';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break; 
                     case 'ConsumptionToday':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("consumption_row").className = 'consumption_row';
                         document.getElementById("consumption_today").className = 'consumption_today';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break; 
                     case 'OutdoorTemperature':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("temp_row").className = 'temp_row';
                         document.getElementById("temp_outside").className = 'temp_outside';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break;                    
                     case 'WaterTemperature':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("temp_row").className = 'temp_row';
                         document.getElementById("temp_ww").className = 'temp_ww';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break;    
                     case 'FlowTemperature':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("temp_row").className = 'temp_row';
                         document.getElementById("temp_vorlauf").className = 'temp_vorlauf';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break;   
                     case 'ReturnTemperature':
-                        //Class ist standardmäßig .hidden. Wird, wenn eine SPF Variable konfiguriert ist auf die entsprechende class geändert.
                         document.getElementById("temp_row").className = 'temp_row';
                         document.getElementById("temp_ruecklauf").className = 'temp_ruecklauf';
-                        //Anzeigewert wird eingefügt
                         divElement.textContent = data.ValueFormatted;
                     break;                   
                     default:

@@ -1,6 +1,6 @@
 <?php
 
-    class HTMLVisuBewohner extends IPSModule
+    class TileVisuBewohnerstatus extends IPSModule
     {
         
         public function Create() {
