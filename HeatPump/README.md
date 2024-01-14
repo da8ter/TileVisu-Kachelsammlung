@@ -15,7 +15,7 @@ Beschreibung des Moduls.
 
 Stellt eine Kachel für die IPSymcon Tile Visualisation bereit um den aktuellen Betriebsstatus einer Wärmepumpe zu visualisieren.
 
-![alt text](https://app.box.com/s/nxdczpkl9yim3a1mw2ghjjjvkyobmv1l)
+![alt text](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
 
 ### 2. Voraussetzungen
 
