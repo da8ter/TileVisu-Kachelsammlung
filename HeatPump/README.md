@@ -33,6 +33,24 @@ https://github.com/da8ter/TileVisu-Kachelsammlung.git
 
 __Konfigurationsseite__:
 
+Über das Konfigurationsformular können alle Variablen konfiguriert werden. Nicht konfigurierte Werte werden in der Kachel ausgeblendet.
+
+Gültig für alle Variablen:
+Alle Variablen (außer Bool) benötigen ein Variablenprofil mit entsprechenden Suffix wie z.B. °C oder Watt und je nach belieben die Anzal der Nachkommastellen. Alle Werte werden in der Kachel so abgebildet wie das Variablenprofil es vorgibt.
+
+Status:
+Benötigt eine Integer-Variable mit maximal 10 Werten. Text und Farben werden aus dem Variablenprofil ausgelesen.
+
+Beispiel:
+![Variablenprofil für den Status](https://github.com/da8ter/images/blob/main/heatpump_status_profil.png)
+
+Status Bildkonfiguration:
+Hier kann jedem Status ein entsprechendes Wärmepumpenbild zugewiesen werden. Verfügbar sind drei Bilder: 1. Wärmepumpe aus, 2. Wärmepumpe heizen, 3. Wärmepumpe Warmwasser.
+
+Modus: (wie Status nur ohne Bilder)
+
+Die Werte Leistung, Kompressor, Lüfter und Durchfluss werden in einem Balken dargestellt. Diese 4 Variablen benötigen in ihrem Variablenprofil zwingend einen Mini- und Maximalwert für die Berechnung der prozentualen Balkendarstellung.
+![Variablenprofil für den Status](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
 
 
 ### 5. Statusvariablen und Profile
