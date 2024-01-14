@@ -15,8 +15,6 @@ Eine Kachel für die IPSymcon Tile Visualisation um den aktuellen Betriebsstatus
 ### 1. Funktionsumfang
 Anzeige von aktuellen Werten einer Wärempumpe.
 
-![Variablenprofil für die Balkendarstellung](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
-
 ### 2. Voraussetzungen
 
 - IP-Symcon ab Version 7.1
@@ -49,7 +47,7 @@ Hier kann jedem Status ein entsprechendes Wärmepumpenbild zugewiesen werden. Ve
 
 Modus: (wie Status nur ohne Bilder)
 
-Die Werte Leistung, Kompressor, Lüfter und Durchfluss werden in einem Balken dargestellt. Diese 4 Variablen benötigen in ihrem Variablenprofil zwingend einen Mini- und Maximalwert für die Berechnung der prozentualen Balkendarstellung.
+Die Werte Leistung, Kompressor, Lüfter und Durchfluss werden in einem Balken dargestellt. Diese 4 Variablen benötigen in ihrem Variablenprofil zwingend einen Min- und Maximalwert für die Berechnung der prozentualen Balkendarstellung.
 ![Variablenprofil für den Status](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
 
 
