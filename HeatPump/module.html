@@ -349,11 +349,11 @@
                 <tr id="consumption_row" class="hidden">
                     <td style="padding-right: 10px;">Consumption:</td>
                     <td>
-                        <span id="consumption_watt">
+                        <span id="consumption_watt" class="hidden">
                             <i class="fa-solid fa-bolt fa-sm icon fa-fw"></i>
                             <span id="consumption"></span>
                         </span>
-                        <span id="consumption_today">
+                        <span id="consumption_today" class="hidden">
                             <i class="fa-solid fa-bolt fa-sm icon fa-fw"></i>
                             Heute: <span id="consumptiontoday"></span>
                         </span>
@@ -380,7 +380,7 @@
                 </tr>
             </table>
 
-
+            
         </div>
     </div>
     <script type="text/javascript" charset="UTF-8">
@@ -428,6 +428,12 @@
                         divElement.textContent = data.ValueFormatted;
                     break; 
 
+                    case 'Consumption':
+                        
+                        document.getElementById("consumption_row").className = 'consumption_row';
+                        document.getElementById("consumption_watt").className = 'consumption_watt';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
                     case 'HeaterRodBackupStatus':
                     document.getElementById("heizstaebe").className = 'heizstaebe_row';
                     document.getElementById("heizstab_backup").className = 'heizstab_backup';
