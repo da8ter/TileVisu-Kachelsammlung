@@ -1,5 +1,6 @@
-# Bewohnerstatus
-Beschreibung des Moduls.
+# Wärmepumpen-Kachel
+Eine Kachel für die IPSymcon Tile Visualisation um den aktuellen Betriebsstatus einer Wärmepumpe zu visualisieren.
+![Wärmepumpen-Kachel](https://github.com/da8ter/images/blob/main/heatpump_kachel.png)
 
 ### Inhaltsverzeichnis
 
@@ -12,31 +13,27 @@ Beschreibung des Moduls.
 7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
 
 ### 1. Funktionsumfang
+Anzeige von aktuellen Werten einer Wärempumpe.
 
-Stellt eine Kachel für die IPSymcon Tile Visualisation bereit um den aktuellen Betriebsstatus einer Wärmepumpe zu visualisieren.
-
-![alt text](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
+![Variablenprofil für die Balkendarstellung](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 7.0
+- IP-Symcon ab Version 7.1
 
 ### 3. Software-Installation
 
-* Über den Module Store das 'Bewohnerstatus'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
+* Über das Module Control folgende URL hinzufügen
+https://github.com/da8ter/TileVisu-Kachelsammlung.git
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
- Unter 'Instanz hinzufügen' kann das 'Bewohnerstatus'-Modul mithilfe des Schnellfilters gefunden werden.  
+ Unter 'Instanz hinzufügen' kann das 'TileVisuHeatPump'-Modul mithilfe des Schnellfilters gefunden werden.  
 	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
 
 __Konfigurationsseite__:
 
-Name     | Beschreibung
--------- | ------------------
-         |
-         |
+
 
 ### 5. Statusvariablen und Profile
 
