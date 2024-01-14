@@ -146,74 +146,6 @@
         },
         {
             "type": "Label", 
-            "caption": "Temperatures",
-            "bold": true
-        },
-        {
-        "type": "RowLayout",
-        "items": [
-        {
-            "type": "SelectVariable",
-            "name": "OutdoorTemperature",
-            "caption": "Outdoor temperature:",
-            "validVariableTypes": [1, 2]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "WaterTemperature",
-            "caption": "Hot water temperature:",
-            "validVariableTypes": [1, 2]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "FlowTemperature",
-            "caption": "Flow temperature:",
-            "validVariableTypes": [1, 2]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "ReturnTemperature",
-            "caption": "Return temperature:",
-            "validVariableTypes": [1, 2]
-        }
-        ]
-        },
-        {
-            "type": "Label", 
-            "caption": "Heating rods",
-            "bold": true
-        },
-        {
-            "type": "RowLayout",
-            "items": [
-        {
-            "type": "SelectVariable",
-            "name": "HeaterRodBackupStatus",
-            "caption": "Backup Heater Status:",
-            "validVariableTypes": [0]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "HeaterRodPhase1",
-            "caption": "Heating rod Status Phase1:",
-            "validVariableTypes": [0]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "HeaterRodPhase2",
-            "caption": "Heating rod Status Phase2:",
-            "validVariableTypes": [0]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "HeaterRodPhase3",
-            "caption": "Heating rod Status Phase3:",
-            "validVariableTypes": [0]
-        }
-        ]
-        },
-        {
-            "type": "Label", 
             "caption": "Current performance:",
             "bold": true
         },
@@ -299,6 +231,74 @@
             "name": "ConsumptionToday",
             "caption": "Consumption today:",
             "validVariableTypes": [1, 2]
+        }
+        ]
+        },
+        {
+            "type": "Label", 
+            "caption": "Temperatures",
+            "bold": true
+        },
+        {
+        "type": "RowLayout",
+        "items": [
+        {
+            "type": "SelectVariable",
+            "name": "OutdoorTemperature",
+            "caption": "Outdoor temperature:",
+            "validVariableTypes": [1, 2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "WaterTemperature",
+            "caption": "Hot water temperature:",
+            "validVariableTypes": [1, 2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "FlowTemperature",
+            "caption": "Flow temperature:",
+            "validVariableTypes": [1, 2]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "ReturnTemperature",
+            "caption": "Return temperature:",
+            "validVariableTypes": [1, 2]
+        }
+        ]
+        },
+        {
+            "type": "Label", 
+            "caption": "Heating rods",
+            "bold": true
+        },
+        {
+            "type": "RowLayout",
+            "items": [
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodBackupStatus",
+            "caption": "Backup Heater Status:",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodPhase1",
+            "caption": "Heating rod Status Phase1:",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodPhase2",
+            "caption": "Heating rod Status Phase2:",
+            "validVariableTypes": [0]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "HeaterRodPhase3",
+            "caption": "Heating rod Status Phase3:",
+            "validVariableTypes": [0]
         }
         ]
         }
