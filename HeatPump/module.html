@@ -80,7 +80,7 @@
         .balken_rechts_kompressor {
             height: 1.8em;
             border-radius: calc(var(--div-height) / 4) 0px 0px calc(var(--div-height) / 4);
-            font-size: 0.8em;
+            font-size: var(--fontsizebalken);
             transition: width 2s;
             transition-timing-function: ease;
         }
@@ -126,7 +126,7 @@
         }
 
         .balken_links_leistung {
-            background: repeating-linear-gradient(to right, red 0%, orange 50%, red 100%);
+            background: repeating-linear-gradient(to right, var(--powerbalkenfarbe1) 0%, var(--powerbalkenfarbe2) 50%, var(--powerbalkenfarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_leistung 10s infinite;
@@ -135,7 +135,7 @@
         }
 
         .balken_links_durchfluss {
-            background: repeating-linear-gradient(to right, #0054ff 0%, #44a4f5 50%, #0054ff 100%);
+            background: repeating-linear-gradient(to right, var(--durchflussbalkenfarbe1) 0%, var(--durchflussbalkenfarbe2) 50%, var(--durchflussbalkenfarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_leistung 10s infinite;
@@ -144,7 +144,7 @@
         }
 
         .balken_links_luefterdrehzahl {
-            background: repeating-linear-gradient(to right, #13b7f2 0%, #99e4ff 50%, #13b7f2 100%);
+            background: repeating-linear-gradient(to right, var(--luefterbalkenfarbe1) 0%, var(--luefterbalkenfarbe2) 50%, var(--luefterbalkenfarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_leistung 10s infinite;
@@ -153,7 +153,7 @@
         }
 
         .balken_links_kompressor {
-            background: repeating-linear-gradient(to right, #990303 0%, #ff0000 50%, #990303 100%);
+            background: repeating-linear-gradient(to right, var(--kompressorbalkenfarbe1) 0%, var(--kompressorbalkenfarbe2) 50%, var(--kompressorbalkenfarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_leistung 10s infinite;
@@ -206,8 +206,10 @@
         }
 
         #status,
-        #mode {
-            color: gray;
+        #mode,
+        .title {
+            
+            font-size: var(--fontsizestatus);
         }
 
         .statusdiv, .modediv {
@@ -226,6 +228,7 @@
         .mode_1 .mode-silent,
         .mode_2 .mode-eco {
             color: #26d4b9 !important;
+            font-size: var(--fontsizestatus);
         }
 
         th,
@@ -233,7 +236,6 @@
             padding: 2;
             text-align: left;
             border: none;
-            font-size: 0.9em;
             border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 
 
@@ -262,6 +264,10 @@
             display: inline;
             margin-right: 7px;
 
+        }
+
+        table {
+        font-size: var(--fontsizedetails);
         }
 
 
@@ -316,7 +322,7 @@
                 <div class="balken_rechts">
                     <div class="balken_links_luefterdrehzahl">
                         <span class="balken_links_text">
-                            <b class="right-space">Fan Rotations:</b>
+                            <b class="right-space">Fan rotations:</b>
                             <span id="fanrotations"></span>
                         </span>
                     </div>
@@ -534,6 +540,20 @@
             } else {
                 console.error('Ungültiges JSON-Format oder fehlende Daten.');
             }
+            var root = document.documentElement;
+                        root.style.setProperty('--fontsizebalken', cssvar[0]+'em');
+                        root.style.setProperty('--fontsizedetails', cssvar[1]+'em');
+                        root.style.setProperty('--fontsizestatus', cssvar[2]+'em');
+
+                        root.style.setProperty('--powerbalkenfarbe1', cssvar[3]);
+                        root.style.setProperty('--powerbalkenfarbe2', cssvar[4]);
+                        root.style.setProperty('--kompressorbalkenfarbe1', cssvar[5]);
+                        root.style.setProperty('--kompressorbalkenfarbe2', cssvar[6]);
+                        root.style.setProperty('--durchflussbalkenfarbe1', cssvar[7]);
+                        root.style.setProperty('--durchflussbalkenfarbe2', cssvar[8]);
+                        root.style.setProperty('--luefterbalkenfarbe1', cssvar[9]);
+                        root.style.setProperty('--luefterbalkenfarbe2', cssvar[10]);
+
         }
 
     </script>

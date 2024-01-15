@@ -37,6 +37,17 @@
             $this->RegisterPropertyString('Statusimage7', 'wp_aus');
             $this->RegisterPropertyString('Statusimage8', 'wp_aus');
             $this->RegisterPropertyString('Statusimage9', 'wp_aus');
+            $this->RegisterPropertyFloat('SchriftgroesseBalken', 1);
+            $this->RegisterPropertyFloat('SchriftgroesseDetails', 1);
+            $this->RegisterPropertyFloat('SchriftgroesseStatus', 1);
+            $this->RegisterPropertyInteger('powerbalkenfarbe1', 0xFBA123);
+            $this->RegisterPropertyInteger('powerbalkenfarbe2', 0xFF5900);
+            $this->RegisterPropertyInteger('kompressorbalkenfarbe1', 0xFF0000);
+            $this->RegisterPropertyInteger('kompressorbalkenfarbe2', 0xA70101);
+            $this->RegisterPropertyInteger('durchflussbalkenfarbe1', 0x0091FF);
+            $this->RegisterPropertyInteger('durchflussbalkenfarbe2', 0x005CAD);
+            $this->RegisterPropertyInteger('luefterbalkenfarbe1', 0x7AD3FF);
+            $this->RegisterPropertyInteger('luefterbalkenfarbe2', 0x23B3FB);
             $this->SetVisualizationType(1);
         }
         public function ApplyChanges() {
@@ -84,6 +95,7 @@
         public function GetVisualizationTile() {
             $initialHandling = [];
             $statusArray = [];
+            $cssArray = [];
             $childs = array(
                 array('Name' => 'Status', 'VariableID' => $this->ReadPropertyInteger('Status')),
                 array('Name' => 'Mode', 'VariableID' => $this->ReadPropertyInteger('Mode')),
@@ -149,23 +161,41 @@
 
 
 
-            $statusImagesJson = json_encode($statusMapping);
+            $cssArray = array(
+                0 => $this->ReadPropertyFloat('SchriftgroesseBalken'),
+                1 => $this->ReadPropertyFloat('SchriftgroesseDetails'),
+                2 => $this->ReadPropertyFloat('SchriftgroesseStatus'),
+                3 => '#' . sprintf('%06X',$this->ReadPropertyInteger('powerbalkenfarbe1')),
+                4 => '#' . sprintf('%06X',$this->ReadPropertyInteger('powerbalkenfarbe2')),
+                5 => '#' . sprintf('%06X',$this->ReadPropertyInteger('kompressorbalkenfarbe1')),
+                6 => '#' . sprintf('%06X',$this->ReadPropertyInteger('kompressorbalkenfarbe2')),
+                7 => '#' . sprintf('%06X',$this->ReadPropertyInteger('durchflussbalkenfarbe1')),
+                8 => '#' . sprintf('%06X',$this->ReadPropertyInteger('durchflussbalkenfarbe2')),
+                9 => '#' . sprintf('%06X',$this->ReadPropertyInteger('luefterbalkenfarbe1')),
+                10 => '#' . sprintf('%06X',$this->ReadPropertyInteger('luefterbalkenfarbe2')),
+            );
 
+
+            $statusImagesJson = json_encode($statusMapping);
             $images = '<script type="text/javascript">';
             $images .= 'var statusImages = ' . $statusImagesJson . ';';
             $images .= '</script>';
+
+            $cssJson = json_encode($cssArray);
+            $cssvar = '<script type="text/javascript">';
+            $cssvar .= 'var cssvar = ' . $cssJson . ';';
+            $cssvar .= '</script>';
             
             $statusArrayJson = json_encode($statusArray);
             $varexist = '<script type="text/javascript">';
             $varexist .= 'var varexist = ' . $statusArrayJson . ';';
-            $varexist .= 'console.log(varexist);';
             $varexist .= '</script>';
 
             // Add static HTML content from file to make editing easier
             $module = file_get_contents(__DIR__ . '/module.html');
 
             // Return everything to render our fancy tile!
-            return $module . $varexist . $images . $assets . $messages;
+            return $module . $varexist . $images . $assets . $cssvar . $messages;
         }
 
         private function GetUpdatedValue($variableIdent, $variableID) {
