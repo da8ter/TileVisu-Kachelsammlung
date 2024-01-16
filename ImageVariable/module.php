@@ -50,6 +50,7 @@ class TileVisuImageVariable extends IPSModule
                 switch ($Message)
                 {
                     case VM_UPDATE:
+                        echo "Der Wert der Variable: " . $Message;
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
                         $this->UpdateVisualizationValue(json_encode(['variable' . ($index + 1) => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         break;
