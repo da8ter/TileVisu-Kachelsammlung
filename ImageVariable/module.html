@@ -78,19 +78,17 @@
                     break;
 
                 case 'fontsize':
-                                        root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
+                    root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
                     //console.log('Setze innerHTML für', parameter);
                     break;
                  
                 case 'hintergrundfarbe':
-                    var root = document.documentElement;
                     root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                     //console.log('Setze innerHTML für', parameter);
                     break;    
 
                 case 'tranzparenz':
-                    var root = document.documentElement;
-                    root.style.setProperty('--tranzparenz', decodedData[parameter]);
+                    root.style.setProperty('--transparenz', decodedData[parameter]);
                     //console.log('Setze innerHTML für', parameter);
                     break; 
 

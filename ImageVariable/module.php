@@ -72,8 +72,8 @@
                     'Variable' => $VariableExists
                 ];
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
-                $result['hintergrundfarbe'] = sprintf('%06X',$this->ReadPropertyInteger('Kachelhintergrundfarbe')),
-                $result['tranzparenz'] = $this->ReadPropertyFloat('Bildtransparenz');
+                $result['hintergrundfarbe'] = sprintf('%06X',$this->ReadPropertyInteger('Kachelhintergrundfarbe'));
+                $result['transparenz'] = $this->ReadPropertyFloat('Bildtransparenz');
                 if ($VariableExists) {
                     $result['variable1'] = GetValueFormatted($VariableID);
 
