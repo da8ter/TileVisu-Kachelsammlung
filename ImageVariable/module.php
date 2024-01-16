@@ -82,7 +82,7 @@ class TileVisuImageVariable extends IPSModule
         ];
         $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
         $result['hintergrundfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
-        $result['schriftfarbefarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
+        $result['schriftfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
         $result['transparenz'] = $this->ReadPropertyFloat('Bildtransparenz');
         if ($VariableExists)
         {

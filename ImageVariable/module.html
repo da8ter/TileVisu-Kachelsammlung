@@ -84,6 +84,11 @@
                     //console.log('Setze innerHTML für', parameter);
                     break;    
 
+                    case 'schriftfarbe':
+                    root.style.setProperty('--schriftfarbe', decodedData[parameter]);
+                    //console.log('Setze innerHTML für', parameter);
+                    break;  
+
                 case 'transparenz':
                     root.style.setProperty('--transparenz', decodedData[parameter]);
                     //console.log('Setze innerHTML für', parameter);
