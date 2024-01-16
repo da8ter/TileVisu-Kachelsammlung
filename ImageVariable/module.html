@@ -66,15 +66,11 @@
                 case 'image1':
                     const mainDiv = document.querySelector('.maindiv');
                     mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
-
-                    // element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
-                    element.style.backgroundSize = 'cover'; // Stellt sicher, dass das Bild den Container ausfüllt
-                    element.style.backgroundPosition = 'center'; // Zentriert das Bild innerhalb des Containers
                     //console.log('Setze innerHTML für', parameter);
                     break;
                 case 'variable':
                     element.textContent = decodedData[parameter];
-                    //console.log('Setze innerHTML für', parameter);
+                    console.log('Setze innerHTML für', parameter);
                     break;
 
                 case 'fontsize':
