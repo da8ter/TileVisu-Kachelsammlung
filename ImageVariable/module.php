@@ -84,7 +84,7 @@ class TileVisuImageVariable extends IPSModule
         $result['transparenz'] = $this->ReadPropertyFloat('Bildtransparenz');
         if ($VariableExists)
         {
-            $result['variable1'] = GetValueFormatted($VariableID);
+            $result['variable'] = GetValueFormatted($VariableID);
 
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
