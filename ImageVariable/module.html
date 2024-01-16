@@ -19,7 +19,7 @@
         background-image: "test";
     }
 
-    .variablentext {
+s    .variablentext {
         font-size: 2em;
         }
 
@@ -46,10 +46,12 @@
                     element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
                     element.style.backgroundSize = 'cover'; // Stellt sicher, dass das Bild den Container ausfüllt
                     element.style.backgroundPosition = 'center'; // Zentriert das Bild innerhalb des Containers
-
-                //console.log('Setze innerHTML für', parameter);
+                    //console.log('Setze innerHTML für', parameter);
                         break;
-                  
+                    case 'variable1':
+                    element.textContent = decodedData[parameter];
+                    //console.log('Setze innerHTML für', parameter);
+                        break;                  
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
