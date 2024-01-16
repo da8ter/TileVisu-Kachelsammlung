@@ -16,8 +16,23 @@
         display: flex;
         justify-content: center; /* Zentriert horizontal */
         align-items: center;     /* Zentriert vertikal */
-        background-image: "test";
+
     }
+    .maindiv:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    background: var(--background-image, none) center / cover no-repeat;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
 
     .variablentext {
         font-size: var(--fontsize);
@@ -43,7 +58,10 @@
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter) {
                     case 'image1':
-                    element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
+                    const mainDiv = document.querySelector('.maindiv');
+                    mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+
+                   // element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
                     element.style.backgroundSize = 'cover'; // Stellt sicher, dass das Bild den Container ausfüllt
                     element.style.backgroundPosition = 'center'; // Zentriert das Bild innerhalb des Containers
                     //console.log('Setze innerHTML für', parameter);
