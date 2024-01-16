@@ -11,6 +11,8 @@
             $this->RegisterPropertyInteger("bgImage", 0);
             $this->RegisterPropertyInteger("Variable", 0);
             $this->RegisterPropertyFloat('Schriftgroesse', 1);
+            $this->RegisterPropertyFloat('Bildtransparenz', 1);
+            $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0xFFFFFF);
             // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
             $this->SetVisualizationType(1);
         }
@@ -70,6 +72,8 @@
                     'Variable' => $VariableExists
                 ];
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
+                $result['hintergrundfarbe'] = sprintf('%06X',$this->ReadPropertyInteger('Kachelhintergrundfarbe')),
+                $result['tranzparenz'] = $this->ReadPropertyFloat('Bildtransparenz');
                 if ($VariableExists) {
                     $result['variable1'] = GetValueFormatted($VariableID);
 

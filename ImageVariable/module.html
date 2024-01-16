@@ -1,49 +1,51 @@
 <style>
     /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
 
-  
-    body {
-            margin: 0px;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: blue;
-        }
 
-        .maindiv {
+    body {
+        margin: 0px;
+        position: fixed;
         width: 100%;
         height: 100%;
-        position: relative; /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
+        background-color: blue;
+    }
+
+    .maindiv {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
         display: flex;
-        justify-content: center; /* Zentriert horizontal */
-        align-items: center;     /* Zentriert vertikal */
+        justify-content: center;
+        /* Zentriert horizontal */
+        align-items: center;
+        /* Zentriert vertikal */
 
     }
+
     .maindiv:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.1;
-    background: var(--background-image, none) center / cover no-repeat;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.maindiv > * {
-    position: relative;
-    z-index: 1;
-}
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.1;
+        background: var(--background-image, none) center / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .maindiv>* {
+        position: relative;
+        z-index: 1;
+    }
 
     .variablentext {
         font-size: var(--fontsize);
-        }
-
-
-
+    }
 </style>
 
 
@@ -58,39 +60,52 @@
             //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
             const element = document.getElementById(parameter);
-
-                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                switch (parameter) {
-                    case 'image1':
+            var root = document.documentElement;
+            // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+            switch (parameter) {
+                case 'image1':
                     const mainDiv = document.querySelector('.maindiv');
                     mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
 
-                   // element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
+                    // element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
                     element.style.backgroundSize = 'cover'; // Stellt sicher, dass das Bild den Container ausfüllt
                     element.style.backgroundPosition = 'center'; // Zentriert das Bild innerhalb des Containers
                     //console.log('Setze innerHTML für', parameter);
-                        break;
-                    case 'variable1':
+                    break;
+                case 'variable1':
                     element.textContent = decodedData[parameter];
                     //console.log('Setze innerHTML für', parameter);
-                        break;                  
+                    break;
 
-                        case 'fontsize':
-                        var root = document.documentElement;
-                        root.style.setProperty('--fontsize', decodedData[parameter]+'em');
+                case 'fontsize':
+                                        root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
                     //console.log('Setze innerHTML für', parameter);
-                        break;  
-                        
-                    default:
-                        //console.log('Setze innerHTML für', parameter);
-                        // Setze innerHTML nur, wenn das Element gefunden wurde
-                        //element.innerHTML = decodedData[parameter];
-                        break;
-                }
+                    break;
+                 
+                case 'hintergrundfarbe':
+                    var root = document.documentElement;
+                    root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                    //console.log('Setze innerHTML für', parameter);
+                    break;    
+
+                case 'tranzparenz':
+                    var root = document.documentElement;
+                    root.style.setProperty('--tranzparenz', decodedData[parameter]);
+                    //console.log('Setze innerHTML für', parameter);
+                    break; 
+
+                default:
+                    //console.log('Setze innerHTML für', parameter);
+                    // Setze innerHTML nur, wenn das Element gefunden wurde
+                    //element.innerHTML = decodedData[parameter];
+                    break;
+            }
 
         }
     }
 </script>
 
 
-<div class="maindiv" id="image1"><p class="variablentext" id="variable1"></p></div>
+<div class="maindiv" id="image1">
+    <p class="variablentext" id="variable1"></p>
+</div>

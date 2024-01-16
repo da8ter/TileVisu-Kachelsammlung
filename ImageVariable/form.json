@@ -6,19 +6,34 @@
             "caption": "Variable:",
             "validVariableTypes": []
         },
-        { 
-            "type": "SelectMedia", 
-            "name": "bgImage", 
+        {
+            "type": "SelectMedia",
+            "name": "bgImage",
             "caption": "Fotos"
         },
-        {   "type": "NumberSpinner",
-            "name": "Schriftgroesse", 
-            "caption": "Schriftgröße", 
+        {
+            "type": "NumberSpinner",
+            "name": "Bildtransparenz",
+            "caption": "Transparenz des Hintergrundbildes",
+            "digits": 1,
+            "minimum": 0.1,
+            "maximum": 1.0,
+            "suffix": "%"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "Schriftgroesse",
+            "caption": "Schriftgröße",
             "digits": 1,
             "minimum": 0.5,
             "maximum": 3.0,
             "suffix": "em"
+        },
+        {
+            "type": "SelectColor",
+            "allowTransparent": "false",
+            "name": "Kachelhintergrundfarbe",
+            "caption": "Kachelhintergrundfarbe"
         }
-
     ]
 }
