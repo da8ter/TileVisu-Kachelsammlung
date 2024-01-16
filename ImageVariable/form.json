@@ -9,7 +9,7 @@
         { 
             "type": "SelectMedia", 
             "name": "bgImage", 
-            "caption": "Foto"
+            "caption": "Fotos"
         }
 
     ]
