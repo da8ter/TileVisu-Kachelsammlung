@@ -20,7 +20,7 @@
     }
 
     .variablentext {
-        font-size: 2em;
+        font-size: var(--fontsize);
         }
 
 
@@ -33,10 +33,10 @@
         //console.log('Rohdaten empfangen:', data);
 
         const decodedData = JSON.parse(data);
-        console.log('Decodierte Daten:', decodedData);
+        //console.log('Decodierte Daten:', decodedData);
 
         for (const parameter in decodedData) {
-            console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+            //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
             const element = document.getElementById(parameter);
 
@@ -52,6 +52,12 @@
                     element.textContent = decodedData[parameter];
                     //console.log('Setze innerHTML für', parameter);
                         break;                  
+
+                        case 'fontsize':
+                    element.textContent = decodedData[parameter];
+                    //console.log('Setze innerHTML für', parameter);
+                        break;  
+                        root.style.setProperty('--fontsize', decodedData[parameter]+'em');
 
                     default:
                         //console.log('Setze innerHTML für', parameter);

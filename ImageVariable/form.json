@@ -10,6 +10,14 @@
             "type": "SelectMedia", 
             "name": "bgImage", 
             "caption": "Fotos"
+        },
+        {   "type": "NumberSpinner",
+            "name": "Schriftgroesse", 
+            "caption": "Schriftgröße", 
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 3.0,
+            "suffix": "em"
         }
 
     ]
