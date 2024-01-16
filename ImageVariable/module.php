@@ -37,13 +37,6 @@
             foreach(['bgImage', 'Variable'] as $index => $VariableProperty) {
                 if ($SenderID === $this->ReadPropertyInteger($VariableProperty)) {
                     switch ($Message) {
-                        case OM_CHANGENAME:
-                            // Teile der HTML-Darstellung den neuen Namen mit
-                            $this->UpdateVisualizationValue(json_encode([
-                                'name' . ($index + 1) => $Data[0]
-                            ]));
-                            break;
-
                         case VM_UPDATE:
                             // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
                             $this->UpdateVisualizationValue(json_encode(['variable' . ($index + 1) => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
@@ -78,7 +71,6 @@
                 ];
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
                 if ($VariableExists) {
-                    $result['name1'] = IPS_GetName($VariableID);
                     $result['variable1'] = GetValueFormatted($VariableID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
