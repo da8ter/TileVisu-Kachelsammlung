@@ -30,9 +30,8 @@ class TileVisuImageVariable extends IPSModule
             }
         }
 
-        $variableProperties = ['bgImage', 'Variable'];
-        foreach ($variableProperties as $VariableProperty)
-        {
+
+        foreach (['bgImage', 'Variable'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -42,17 +41,17 @@ class TileVisuImageVariable extends IPSModule
 
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
-        $variableProperties = ['bgImage', 'Variable'];
-        foreach ($variableProperties as $index => $VariableProperty)
+
+        foreach (['bgImage', 'Variable'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
                 switch ($Message)
                 {
                     case VM_UPDATE:
-                        echo "Der Wert der Variable: " . $Message;
+                        
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                        $this->UpdateVisualizationValue(json_encode(['variable' . ($index + 1) => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                        $this->UpdateVisualizationValue(json_encode(['variable' => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         break;
                 }
             }
