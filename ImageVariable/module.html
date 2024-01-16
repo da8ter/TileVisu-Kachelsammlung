@@ -54,11 +54,10 @@
                         break;                  
 
                         case 'fontsize':
-                    element.textContent = decodedData[parameter];
+                        root.style.setProperty('--fontsize', decodedData[parameter]+'em');
                     //console.log('Setze innerHTML für', parameter);
                         break;  
-                        root.style.setProperty('--fontsize', decodedData[parameter]+'em');
-
+                        
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
