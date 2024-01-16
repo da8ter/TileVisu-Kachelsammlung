@@ -1,5 +1,4 @@
 <?php
-
     class TileVisuImageVariable extends IPSModule
     {
         
