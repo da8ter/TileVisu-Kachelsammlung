@@ -79,7 +79,7 @@
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
                 if ($VariableExists) {
                     $result['name1'] = IPS_GetName($VariableID);
-                    $result['variable1'] = GetValue($VariableID);
+                    $result['variable1'] = GetValueFormatted($VariableID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
                     $imageID = $this->ReadPropertyInteger('bgImage');
