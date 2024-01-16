@@ -1,0 +1,16 @@
+{
+    "elements": [
+        {
+            "type": "SelectVariable",
+            "name": "Variable",
+            "caption": "Variable:",
+            "validVariableTypes": []
+        },
+        { 
+            "type": "SelectMedia", 
+            "name": "bgImage", 
+            "caption": "Foto"
+        }
+
+    ]
+}

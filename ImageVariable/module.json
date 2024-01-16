@@ -1,0 +1,12 @@
+{
+    "id": "{2E43ADA1-2C95-CF47-22D3-D92250B2D2FE}",
+    "name": "TileVisuImageVariable",
+    "type": 3,
+    "vendor": "",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "IMGV",
+    "url": ""
+}
