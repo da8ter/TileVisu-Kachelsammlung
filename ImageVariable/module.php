@@ -27,7 +27,6 @@
             }
 
             foreach(['bgImage', 'Variable'] as $VariableProperty) {
-                $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), OM_CHANGENAME);
                 $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
             }
 
