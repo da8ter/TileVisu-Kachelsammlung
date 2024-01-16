@@ -49,8 +49,10 @@
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter) {
                     case 'image1':
-                    element.src = decodedData[parameter];
-                    //document.body.style.backgroundImage = decodedData[parameter];
+                    element.style.backgroundImage = 'url(' + decodedData[parameter] + ')';
+                    element.style.backgroundSize = 'cover'; // Stellt sicher, dass das Bild den Container ausfüllt
+                    element.style.backgroundPosition = 'center'; // Zentriert das Bild innerhalb des Containers
+
                 //console.log('Setze innerHTML für', parameter);
                         break;
                   
