@@ -138,7 +138,12 @@ class TileVisuImageVariable extends IPSModule
                 $result['image1'] = $imageContent;
             }
         }
-
+        else
+        {
+            $imageContent = 'data:image/png;base64,';
+            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+            $result['image1'] = $imageContent;
+        }
         return json_encode($result);
     }
 }
