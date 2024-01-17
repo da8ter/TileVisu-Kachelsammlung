@@ -133,8 +133,8 @@
                     //console.log('Setze innerHTML für', parameter);
                     break;
                 case 'variable':
-                    element.textContent = decodedData[parameter];
-                    console.log('Setze innerHTML für', parameter);
+                    element.textContent = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' . decodedData[parameter];
+                    //console.log('Setze innerHTML für', parameter);
                     break;
 
                 case 'fontsize':
@@ -191,6 +191,6 @@
         <p class="raumname" id="raumname">Raumname</p>
     </div>
     <div class="box right-aligned">
-        <p class="variablentext" id="variable"><i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>Text</p>
+        <p class="variablentext" id="variable">Text</p>
     </div>
 </div>
