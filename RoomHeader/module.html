@@ -5,192 +5,212 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
 
-<style>
-    /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
+    <style>
+        /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
 
-    :root {
-        --background-image: #ff0000;
-    }
+        :root {
+            --background-image: #ff0000;
+        }
 
-    body {
-        margin: 0px;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background-color: var(--hintergrundfarbe);
-    }
+        body {
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--hintergrundfarbe);
+        }
 
-    .maindiv {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
-        display: flex;
-        justify-content: center;
-        /* Zentriert horizontal */
-        align-items: center;
-        /* Zentriert vertikal */
-
-    }
-
-    .maindiv:before {
-        content: ' ';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        opacity: var(--transparenz);
-        background: var(--background-image, none) center / cover no-repeat;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    .maindiv>* {
-        position: relative;
-        z-index: 1;
-    }
-
-    .box {
-        flex: 1;
-        /* Gleiche Breite für alle divs */
-        display: flex;
-        /*align-items: center; */
-        /* Vertikale Zentrierung für alle */
-        text-align: center;
-        /* Horizontaler Standard ist zentriert */
-        s border: 1px solid black;
-        /* Optional: Rahmen zur besseren Sichtbarkeit */
-        box-sizing: border-box;
-        height: 100%;
-        padding-top: 80px;
-    }
-
-    .left-aligned {
-        justify-content: flex-start;
-        align-items: flex-end;
-        /* Inhalt nach links ausrichten */
-        text-align: left;
-        /* Text linksbündig */
-        padding: 5px 5px 5px 20px;
-    }
-
-    .center-aligned {
-        justify-content: center;
-        align-items: center;
-        /* Inhalt zentrieren (horizontal und vertikal) */
-        padding: 5px 5px 5px 5px;
-    }
-
-    .right-aligned {
-        justify-content: flex-end;
-        align-items: flex-end;
-        /* Inhalt nach rechts ausrichten */
-        text-align: right;
-        /* Text rechtsbündig */
-        padding: 5px 20px 5px 5px;
-    }
-
-    .variablentext {
-        font-size: var(--fontsize);
-        color: var(--schriftfarbe);
-    }
-
-    .raumname {
-        font-size: var(--raumnamefontsize);
-        color: var(--raumnameschriftfarbe);
-    }
-
-    p {
-        margin: 0;
-    }
-    .icon {
-            color: #ffffff;
-            font-size: 3em;
-          }
-</style>
-
-
-<script>
-    function handleMessage(data) {
-        console.log('Rohdaten empfangen:', data);
-
-        const decodedData = JSON.parse(data);
-        console.log('Decodierte Daten:', decodedData);
-
-        for (const parameter in decodedData) {
-            //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
-
-            const element = document.getElementById(parameter);
-            var root = document.documentElement;
-            // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-            switch (parameter) {
-                case 'image1':
-                    const mainDiv = document.querySelector('.maindiv');
-                    mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-                case 'variable':
-                element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter];
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'fontsize':
-                    root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'hintergrundfarbe':
-                    root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'schriftfarbe':
-                    root.style.setProperty('--schriftfarbe', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'transparenz':
-                    root.style.setProperty('--transparenz', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'raumname':
-                    element.textContent = decodedData[parameter];
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'raumnameschriftgroesse':
-                    root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                case 'raumnameschriftfarbe':
-                    root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
-                    break;
-
-                default:
-                    //console.log('Setze innerHTML für', parameter);
-                    // Setze innerHTML nur, wenn das Element gefunden wurde
-                    //element.innerHTML = decodedData[parameter];
-                    break;
-            }
+        .maindiv {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
+            display: flex;
+            justify-content: center;
+            /* Zentriert horizontal */
+            align-items: center;
+            /* Zentriert vertikal */
 
         }
-    }
-</script>
+
+        .maindiv:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: var(--transparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .maindiv>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .box {
+            flex: 1;
+            /* Gleiche Breite für alle divs */
+            display: flex;
+            /*align-items: center; */
+            /* Vertikale Zentrierung für alle */
+            text-align: center;
+            /* Horizontaler Standard ist zentriert */
+            s border: 1px solid black;
+            /* Optional: Rahmen zur besseren Sichtbarkeit */
+            box-sizing: border-box;
+            height: 100%;
+            padding-top: 80px;
+        }
+
+        .left-aligned {
+            justify-content: flex-start;
+            align-items: flex-end;
+            /* Inhalt nach links ausrichten */
+            text-align: left;
+            /* Text linksbündig */
+            padding: 5px 5px 5px 20px;
+        }
+
+        .center-aligned {
+            justify-content: center;
+            align-items: center;
+            /* Inhalt zentrieren (horizontal und vertikal) */
+            padding: 5px 5px 5px 5px;
+        }
+
+        .right-aligned {
+            justify-content: flex-end;
+            align-items: flex-end;
+            /* Inhalt nach rechts ausrichten */
+            text-align: right;
+            /* Text rechtsbündig */
+            padding: 5px 20px 5px 5px;
+        }
+
+        .variablentext {
+            font-size: var(--fontsize);
+            color: var(--schriftfarbe);
+        }
+
+        .raumname {
+            font-size: var(--raumnamefontsize);
+            color: var(--raumnameschriftfarbe);
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .icon {
+            color: #ffffff;
+            font-size: 3em;
+        }
+
+        #meinButton {
+            padding: 10px 20px;
+            border: 2px solid #007BFF;
+            /* Blaue Grenze */
+            background-color: #007BFF;
+            /* Blauer Hintergrund */
+            color: white;
+            /* Weiße Schrift */
+            border-radius: 10px;
+            /* Runde Ecken */
+            cursor: pointer;
+            /* Cursor-Stil ändern, wenn über dem Button */
+            font-size: 16px;
+            /* Schriftgröße */
+            transition: background-color 0.3s;
+            /* Übergang für den Hover-Effekt */
+        }
+    </style>
 
 
-<div class="maindiv" id="image1">
+    <script>
+        function handleMessage(data) {
+            console.log('Rohdaten empfangen:', data);
 
-    <div class="box left-aligned">Linksbündig</div>
-    <div class="box center-aligned">
-        <p class="raumname" id="raumname">Raumname</p>
+            const decodedData = JSON.parse(data);
+            console.log('Decodierte Daten:', decodedData);
+
+            for (const parameter in decodedData) {
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
+                const element = document.getElementById(parameter);
+                var root = document.documentElement;
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter) {
+                    case 'image1':
+                        const mainDiv = document.querySelector('.maindiv');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+                    case 'variable':
+                        element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<button id="meinButton">Klick mich</button>';
+';
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'fontsize':
+                        root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'hintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'schriftfarbe':
+                        root.style.setProperty('--schriftfarbe', decodedData[parameter]);
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'transparenz':
+                        root.style.setProperty('--transparenz', decodedData[parameter]);
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'raumname':
+                        element.textContent = decodedData[parameter];
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'raumnameschriftgroesse':
+                        root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    case 'raumnameschriftfarbe':
+                        root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+
+                    default:
+                        //console.log('Setze innerHTML für', parameter);
+                        // Setze innerHTML nur, wenn das Element gefunden wurde
+                        //element.innerHTML = decodedData[parameter];
+                        break;
+                }
+
+            }
+        }
+    </script>
+
+
+    <div class="maindiv" id="image1">
+
+        <div class="box left-aligned">Linksbündig</div>
+        <div class="box center-aligned">
+            <p class="raumname" id="raumname">Raumname</p>
+        </div>
+        <div class="box right-aligned">
+            <p class="variablentext" id="variable">Text</p>
+        </div>
     </div>
-    <div class="box right-aligned">
-        <p class="variablentext" id="variable">Text</p>
-    </div>
-</div>
