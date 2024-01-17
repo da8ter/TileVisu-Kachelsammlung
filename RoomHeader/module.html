@@ -53,8 +53,8 @@
         align-items: center;
         /* Vertikale Zentrierung für alle */
         text-align: center;
-        /* Horizontaler Standard ist zentriert */s
-        border: 1px solid black;
+        /* Horizontaler Standard ist zentriert */
+        s border: 1px solid black;
         /* Optional: Rahmen zur besseren Sichtbarkeit */
         box-sizing: border-box;
         height: 100%;
@@ -87,6 +87,12 @@
         font-size: var(--fontsize);
         color: var(--schriftfarbe);
     }
+
+    .variablentext {
+        font-size: var(--fontsizeraumname);
+        color: var(--schriftfarberaumname);
+    }
+
     p {
         margin: 0;
     }
@@ -137,6 +143,21 @@
                     //console.log('Setze innerHTML für', parameter);
                     break;
 
+                case 'raumname':
+                    element.textContent = decodedData[parameter];
+                    //console.log('Setze innerHTML für', parameter);
+                    break;
+
+                case 'raumnameschriftgroesse':
+                    root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
+                    //console.log('Setze innerHTML für', parameter);
+                    break;
+
+                case 'raumnameschriftfarbe':
+                    root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
+                    //console.log('Setze innerHTML für', parameter);
+                    break;
+
                 default:
                     //console.log('Setze innerHTML für', parameter);
                     // Setze innerHTML nur, wenn das Element gefunden wurde
@@ -152,7 +173,9 @@
 <div class="maindiv" id="image1">
 
     <div class="box left-aligned">Linksbündig</div>
-    <div class="box center-aligned">Zentriert</div>
+    <div class="box center-aligned">
+        <p class="raumname" id="raumname">Raumname</p>
+    </div>
     <div class="box right-aligned">
         <p class="variablentext" id="variable">Text</p>
     </div>

@@ -13,7 +13,9 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
-
+        $this->RegisterPropertyString('Raumname', 'Raumname');
+        $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
+        $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -32,7 +34,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'Variable'] as $VariableProperty)        {
+        foreach (['bgImage', 'Variable', 'Raumname'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -43,7 +45,7 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'Variable'] as $index => $VariableProperty)
+        foreach (['bgImage', 'Variable', 'Raumname'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -84,6 +86,9 @@ class TileVisuRoomHeader extends IPSModule
         $result['hintergrundfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
         $result['schriftfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
         $result['transparenz'] = $this->ReadPropertyFloat('Bildtransparenz');
+        $result['raumname'] = $this->ReadPropertyString('Raumname');
+        $result['raumnameschriftgroesse'] = $this->ReadPropertyFloat('RaumnameSchriftgroesse');
+        $result['raumnameschriftfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
         if ($VariableExists)
         {
             $result['variable'] = GetValueFormatted($VariableID);
