@@ -1,6 +1,9 @@
 <style>
     /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
 
+    :root {
+        --background-image: #ff0000;
+    }
 
     body {
         margin: 0px;
@@ -43,6 +46,30 @@
         z-index: 1;
     }
 
+    .box {
+    flex: 1;  /* Gleiche Breite für alle divs */
+    display: flex;
+    align-items: center; /* Vertikale Zentrierung für alle */
+    text-align: center; /* Horizontaler Standard ist zentriert */
+    border: 1px solid black; /* Optional: Rahmen zur besseren Sichtbarkeit */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.left-aligned {
+    justify-content: flex-start; /* Inhalt nach links ausrichten */
+    text-align: left; /* Text linksbündig */
+}
+
+.center-aligned {
+    justify-content: center; /* Inhalt zentrieren (horizontal und vertikal) */
+}
+
+.right-aligned {
+    justify-content: flex-end; /* Inhalt nach rechts ausrichten */
+    text-align: right; /* Text rechtsbündig */
+}
+
     .variablentext {
         font-size: var(--fontsize);
         color: var(--schriftfarbe);
@@ -78,21 +105,21 @@
                     root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
                     //console.log('Setze innerHTML für', parameter);
                     break;
-                 
+
                 case 'hintergrundfarbe':
                     root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                     //console.log('Setze innerHTML für', parameter);
-                    break;    
+                    break;
 
-                    case 'schriftfarbe':
+                case 'schriftfarbe':
                     root.style.setProperty('--schriftfarbe', decodedData[parameter]);
                     //console.log('Setze innerHTML für', parameter);
-                    break;  
+                    break;
 
                 case 'transparenz':
                     root.style.setProperty('--transparenz', decodedData[parameter]);
                     //console.log('Setze innerHTML für', parameter);
-                    break; 
+                    break;
 
                 default:
                     //console.log('Setze innerHTML für', parameter);
@@ -107,5 +134,8 @@
 
 
 <div class="maindiv" id="image1">
-    <p class="variablentext" id="variable">Text</p>
+    
+    <div class="box left-aligned">Linksbündig</div>
+    <div class="box center-aligned">Zentriert</div>
+    <div class="box right-aligned"><p class="variablentext" id="variable">Text</p></div>
 </div>
