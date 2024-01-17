@@ -11,7 +11,7 @@ class TileVisuImageVariable extends IPSModule
         $this->RegisterPropertyInteger("Variable", 0);
         $this->RegisterPropertyFloat('Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Bildtransparenz', 1);
-        $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0xFFFFFF);
+        $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
