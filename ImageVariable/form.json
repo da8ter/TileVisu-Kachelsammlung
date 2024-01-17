@@ -14,11 +14,11 @@
         {
             "type": "NumberSpinner",
             "name": "Bildtransparenz",
-            "caption": "Transparenz des Hintergrundbildes",
+            "caption": "Transparenz Bildilde",
             "digits": 1,
-            "minimum": 0.1,
+            "minimum": 0.0,
             "maximum": 1.0,
-            "suffix": "%"
+            "suffix": "Werte von 0 bis 1"
         },
         {
             "type": "NumberSpinner",
