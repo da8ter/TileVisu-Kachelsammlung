@@ -47,28 +47,39 @@
     }
 
     .box {
-    flex: 1;  /* Gleiche Breite für alle divs */
-    display: flex;
-    align-items: center; /* Vertikale Zentrierung für alle */
-    text-align: center; /* Horizontaler Standard ist zentriert */
-    border: 1px solid black; /* Optional: Rahmen zur besseren Sichtbarkeit */
-    padding: 20px;
-    box-sizing: border-box;
-}
+        flex: 1;
+        /* Gleiche Breite für alle divs */
+        display: flex;
+        align-items: center;
+        /* Vertikale Zentrierung für alle */
+        text-align: center;
+        /* Horizontaler Standard ist zentriert */
+        border: 1px solid black;
+        /* Optional: Rahmen zur besseren Sichtbarkeit */
+        box-sizing: border-box;
+    }
 
-.left-aligned {
-    justify-content: flex-start; /* Inhalt nach links ausrichten */
-    text-align: left; /* Text linksbündig */
-}
+    .left-aligned {
+        justify-content: flex-start;
+        /* Inhalt nach links ausrichten */
+        text-align: left;
+        /* Text linksbündig */
+        padding: 5px 5px 5px 20px;
+    }
 
-.center-aligned {
-    justify-content: center; /* Inhalt zentrieren (horizontal und vertikal) */
-}
+    .center-aligned {
+        justify-content: center;
+        /* Inhalt zentrieren (horizontal und vertikal) */
+        padding: 5px 20px 5px 5px;
+    }
 
-.right-aligned {
-    justify-content: flex-end; /* Inhalt nach rechts ausrichten */
-    text-align: right; /* Text rechtsbündig */
-}
+    .right-aligned {
+        justify-content: flex-end;
+        /* Inhalt nach rechts ausrichten */
+        text-align: right;
+        /* Text rechtsbündig */
+        padding: 5px 5px 5px 5px;
+    }
 
     .variablentext {
         font-size: var(--fontsize);
@@ -134,8 +145,10 @@
 
 
 <div class="maindiv" id="image1">
-    
+
     <div class="box left-aligned">Linksbündig</div>
     <div class="box center-aligned">Zentriert</div>
-    <div class="box right-aligned"><p class="variablentext" id="variable">Text</p></div>
+    <div class="box right-aligned">
+        <p class="variablentext" id="variable">Text</p>
+    </div>
 </div>
