@@ -94,8 +94,11 @@ class TileVisuRoomHeader extends IPSModule
     {
         $VariableID = $this->ReadPropertyInteger('Variable');
         $VariableExists = IPS_VariableExists($VariableID);
+        $SchalterID = $this->ReadPropertyInteger('Schalter');
+        $SchalterExists = IPS_VariableExists($SchalterID);
         $result = [
             'Variable' => $VariableExists
+            'Schalter' => $SchalterExists
         ];
         $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
         $result['hintergrundfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
@@ -107,6 +110,10 @@ class TileVisuRoomHeader extends IPSModule
         if ($VariableExists)
         {
             $result['variable'] = GetValueFormatted($VariableID);
+        }
+        if ($SchalterExists)
+        {
+            $result['schalter'] = GetValueFormatted($SchalterID);
         }
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
