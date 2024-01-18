@@ -56,6 +56,52 @@ class TileVisuRoomHeader extends IPSModule
                         
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                        
+
+                        if ($VariableProperty == "Schalter")
+                        {
+                                         
+                            $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
+                                        
+                            $Value = GetValue($this->ReadPropertyInteger($VariableProperty));
+                            //$ValueFormatted = GetValueFormatted($variableID);
+                            $profile = $variable['VariableCustomProfile'];
+                            if ($profile === '') {
+                                $profile = $variable['VariableProfile'];
+                            }
+                
+                            $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
+                
+                            if (IPS_VariableProfileExists($profile)) {
+                                $p = IPS_GetVariableProfile($profile);
+                            
+                                $colorhexWert = "";
+                                $result['schaltercolor'] = $colorhexWert;
+                            
+                                if (!empty($p['Associations']) && is_array($p['Associations'])) {
+                                    foreach ($p['Associations'] as $association) {
+                                        // Prüfe, ob der aktuelle Wert dem gesuchten Wert entspricht
+                                        if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
+                                            // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
+                                            $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
+                                            $result['schaltercolor'] = $colorhexWert;
+                                            break; // Beende die Schleife, da der passende Wert gefunden wurde
+                                        }
+                                    }
+                                }
+                            } else {
+                                $colorhexWert = "";
+                                $result['schaltercolor'] = $colorhexWert;
+                            }
+                
+                
+                
+                
+                
+                        }
+
+
+
                         break;
                 }
             }
