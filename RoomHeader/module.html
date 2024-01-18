@@ -138,7 +138,7 @@
                 console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
                 const element = document.getElementById(parameter.toLowerCase());
-                const parameter2 = parameter.toLowerCase();
+                const parameter2 = String(parameter).toLowerCase();
                 console.log(parameter2);
 
                 var root = document.documentElement;
