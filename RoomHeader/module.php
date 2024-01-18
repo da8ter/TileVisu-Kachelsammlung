@@ -97,7 +97,7 @@ class TileVisuRoomHeader extends IPSModule
         $SchalterID = $this->ReadPropertyInteger('Schalter');
         $SchalterExists = IPS_VariableExists($SchalterID);
         $result = [
-            'Variable' => $VariableExists
+            'Variable' => $VariableExists,
             'Schalter' => $SchalterExists
         ];
         $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
