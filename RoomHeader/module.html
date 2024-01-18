@@ -138,12 +138,12 @@
                 console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
                 const element = document.getElementById(parameter.toLowerCase());
-                parameter = parameter.toLowerCase();
-                console.log(parameter);
+                const parameter2 = parameter.toLowerCase();
+                console.log(parameter2);
 
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                switch (parameter) {
+                switch (parameter2) {
                     case 'image1':
                         const mainDiv = document.querySelector('.maindiv');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
