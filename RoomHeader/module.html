@@ -122,6 +122,8 @@
             border-radius: 5px;
             cursor: pointer;
             border-width: 0px;
+            width: var(--schalterbreite);
+            font-size: var(--schalterschriftgroesse);
         }
     </style>
 
@@ -159,6 +161,14 @@
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
                         console.log('Setze innerHTML für', parameter2);
                         break;
+                    case 'schalterschriftgroesse':
+                        root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
+                        //console.log('Setze innerHTML für', parameter);
+                        break;    
+                    case 'schalterbreite':
+                        root.style.setProperty('--schaltersbreite', decodedData[parameter] + 'px');
+                        //console.log('Setze innerHTML für', parameter);
+                        break; 
                     case 'schaltercolor':
                     root.style.setProperty('--schaltercolor', decodedData[parameter]);
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
