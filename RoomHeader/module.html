@@ -87,6 +87,7 @@
         .right-aligned {
             justify-content: flex-end;
             align-items: flex-end;
+            flex-direction: column;
             /* Inhalt nach rechts ausrichten */
             text-align: right;
             /* Text rechtsbündig */
@@ -145,10 +146,13 @@
                         //console.log('Setze innerHTML für', parameter);
                         break;
                     case 'variable':
-                    element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter];
                         //console.log('Setze innerHTML für', parameter);
                         break;
-
+                    case 'schalter':
+                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
                     case 'fontsize':
                         root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
                         //console.log('Setze innerHTML für', parameter);
@@ -203,6 +207,9 @@
             <p class="raumname" id="raumname">Raumname</p>
         </div>
         <div class="box right-aligned">
+            <i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i>
             <p class="variablentext" id="variable">Text</p>
+            <button id="meinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button>
+
         </div>
     </div>
