@@ -38,7 +38,7 @@ class TileVisuRoomHeader extends IPSModule
         foreach (['bgImage', 'Variable', 'Schalter', 'Raumname'] as $VariableProperty)        {
             $variableID = $this->GetIDForIdent($VariableProperty); 
         
-            if ($SenderID === $variableID) {
+            
                 switch ($Message) {
                     case VM_UPDATE:
                         // Holen Sie die Variable und bestimmen Sie ihren Typ
@@ -68,7 +68,7 @@ class TileVisuRoomHeader extends IPSModule
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
     }
 }
-}
+
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
