@@ -36,38 +36,12 @@ class TileVisuRoomHeader extends IPSModule
 
 
         foreach (['bgImage', 'Variable', 'Schalter', 'Raumname'] as $VariableProperty)        {
-            $variableID = $this->GetIDForIdent($VariableProperty); 
-        
-            
-                switch ($Message) {
-                    case VM_UPDATE:
-                        // Holen Sie die Variable und bestimmen Sie ihren Typ
-                        $variable = IPS_GetVariable($variableID);
-                        $variableType = $variable['VariableType'];
-        
-                        // Abhängig vom Typ der Variable, holen Sie den Wert
-                        switch ($variableType) {
-                            case 1: // Integer
-                                $this->RegisterMessage($variableID, VM_UPDATE);
-                                break;
-                            case 2: // Float
-                                $this->RegisterMessage($variableID, VM_UPDATE);
-                                break;
-                            case 0: // Boolean
-                                $this->RegisterMessage($variableID, VM_UPDATE);
-                                break;
-                            case 3: // String
-                                $this->RegisterMessage($variableID, VM_UPDATE);
-                                break;
-                        }
-
-
+            $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
         // Schicke eine komplette Update-Nachricht an die Darstellung, da sich ja Parameter geändert haben können
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
     }
-}
 
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
@@ -86,16 +60,16 @@ class TileVisuRoomHeader extends IPSModule
                         // Abhängig vom Typ der Variable, holen Sie den Wert
                         switch ($variableType) {
                             case 1: // Integer
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($variableID)]));
+                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                                 break;
                             case 2: // Float
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($variableID)]));
+                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyFloat($VariableProperty))]));
                                 break;
                             case 0: // Boolean
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($variableID)]));
+                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyBoolean($VariableProperty))]));
                                 break;
                             case 3: // String
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($variableID)]));
+                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyString($VariableProperty))]));
                                 break;
                         }
         
