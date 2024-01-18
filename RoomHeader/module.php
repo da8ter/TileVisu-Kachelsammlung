@@ -36,7 +36,32 @@ class TileVisuRoomHeader extends IPSModule
 
 
         foreach (['bgImage', 'Variable', 'Schalter', 'Raumname'] as $VariableProperty)        {
-            $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
+            $variableID = $this->GetIDForIdent($VariableProperty); 
+        
+            if ($SenderID === $variableID) {
+                switch ($Message) {
+                    case VM_UPDATE:
+                        // Holen Sie die Variable und bestimmen Sie ihren Typ
+                        $variable = IPS_GetVariable($variableID);
+                        $variableType = $variable['VariableType'];
+        
+                        // Abhängig vom Typ der Variable, holen Sie den Wert
+                        switch ($variableType) {
+                            case 1: // Integer
+                                $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
+                                break;
+                            case 2: // Float
+                                $this->RegisterMessage($this->ReadPropertyFloat($VariableProperty), VM_UPDATE);
+                                break;
+                            case 0: // Boolean
+                                $this->RegisterMessage($this->ReadPropertyBoolean($VariableProperty), VM_UPDATE);
+                                break;
+                            case 3: // String
+                                $this->RegisterMessage($this->ReadPropertyString($VariableProperty), VM_UPDATE);
+                                break;
+                        }
+
+
         }
 
         // Schicke eine komplette Update-Nachricht an die Darstellung, da sich ja Parameter geändert haben können
