@@ -93,7 +93,7 @@ class TileVisuRoomHeader extends IPSModule
                                 $colorhexWert = "";
                                 $result['schaltercolor'] = $colorhexWert;
                             }
-                            $this->UpdateVisualizationValue(json_encode([$result]));
+                            $this->UpdateVisualizationValue(json_encode($result));
                 
                 
                 
