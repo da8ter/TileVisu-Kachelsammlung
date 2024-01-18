@@ -35,7 +35,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'Variable', 'Schalter', 'Raumname'] as $VariableProperty)        {
+        foreach (['bgImage', 'Variable', 'Schalter'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
