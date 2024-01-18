@@ -114,6 +114,44 @@ class TileVisuRoomHeader extends IPSModule
         if ($SchalterExists)
         {
             $result['schalter'] = GetValueFormatted($SchalterID);
+
+            $variable = IPS_GetVariable($SchalterID);
+                        
+            $Value = GetValue($SchalterID);
+            //$ValueFormatted = GetValueFormatted($variableID);
+            $profile = $variable['VariableCustomProfile'];
+            if ($profile === '') {
+                $profile = $variable['VariableProfile'];
+            }
+
+            $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
+
+            if (IPS_VariableProfileExists($profile)) {
+                $p = IPS_GetVariableProfile($profile);
+            
+                $colorhexWert = "";
+                $result['schaltercolor'] = $colorhexWert;
+            
+                if (!empty($p['Associations']) && is_array($p['Associations'])) {
+                    foreach ($p['Associations'] as $association) {
+                        // Prüfe, ob der aktuelle Wert dem gesuchten Wert entspricht
+                        if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
+                            // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
+                            $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
+                            $result['schaltercolor'] = $colorhexWert;
+                            break; // Beende die Schleife, da der passende Wert gefunden wurde
+                        }
+                    }
+                }
+            } else {
+                $colorhexWert = "";
+                $result['schaltercolor'] = $colorhexWert;
+            }
+
+
+
+
+
         }
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');

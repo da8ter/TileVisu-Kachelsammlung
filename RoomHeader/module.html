@@ -117,7 +117,7 @@
             margin-top: 10px;
             margin-bottom: 5px;
             padding: 5px 10px;
-            background-color: #26d4b9;
+            background-color: var(--schaltercolor);
             color: white;
             border-radius: 5px;
             cursor: pointer;
@@ -152,6 +152,11 @@
                         break;
                     case 'schalter':
                     element.textContent = decodedData[parameter];
+                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                        console.log('Setze innerHTML für', parameter);
+                        break;
+                    case 'schaltercolor':
+                    root.style.setProperty('--schaltercolor', decodedData[parameter]);
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
                         console.log('Setze innerHTML für', parameter);
                         break;
