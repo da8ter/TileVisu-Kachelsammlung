@@ -16,7 +16,7 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyString('Raumname', 'Raumname');
         $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
         $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
-        $this->RegisterPropertyInteger('Button', 0);
+        $this->RegisterPropertyInteger('Schalter', 0);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -35,7 +35,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'Variable', 'Button'] as $VariableProperty)        {
+        foreach (['bgImage', 'Variable', 'Schalter'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -46,7 +46,7 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'Variable', 'Button'] as $index => $VariableProperty)
+        foreach (['bgImage', 'Variable', 'Schalter'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {

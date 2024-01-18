@@ -8,8 +8,8 @@
         },
         {
             "type": "SelectVariable",
-            "name": "Variable",
-            "caption": "Button:",
+            "name": "Schalter",
+            "caption": "Schalter:",
             "validVariableTypes": []
         },
         {
