@@ -147,6 +147,5 @@ class TileVisuImageVariable extends IPSModule
         }
         return json_encode($result);
     }
-    $this->GetVisualizationTile();
 }
 ?>
