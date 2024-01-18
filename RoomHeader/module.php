@@ -74,7 +74,7 @@ class TileVisuRoomHeader extends IPSModule
                         }
         
                         // Senden Sie den aktualisierten Wert an die Visualisierung
-                        //$this->UpdateVisualizationValue(json_encode([$VariableProperty => $value]));
+                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => $value]));
         
 
                         if ($VariableProperty == "Schalter")
