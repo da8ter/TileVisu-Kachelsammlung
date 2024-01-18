@@ -48,6 +48,10 @@ class TileVisuRoomHeader extends IPSModule
 
         foreach (['bgImage', 'Variable', 'Schalter', 'Raumname'] as $VariableProperty) {
             //$variableID = $this->ReadPropertyInteger($VariableProperty);
+            if($this->GetIDForIdent($VariableProperty);)
+            {
+            
+            $VariableExists = IPS_VariableExists($VariableID);
             $variableID = $this->GetIDForIdent($VariableProperty); 
         
             if ($SenderID === $variableID) {
@@ -125,6 +129,7 @@ class TileVisuRoomHeader extends IPSModule
                 }
             }
         }
+    }
     }
 
 
