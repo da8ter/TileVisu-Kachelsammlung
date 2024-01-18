@@ -16,6 +16,7 @@ class TileVisuImageVariable extends IPSModule
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
+        $visualizationTile = $this->GetVisualizationTile();
     }
 
     public function ApplyChanges()
