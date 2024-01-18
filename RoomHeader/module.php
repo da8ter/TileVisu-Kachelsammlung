@@ -97,8 +97,8 @@ class TileVisuRoomHeader extends IPSModule
         $SchalterID = $this->ReadPropertyInteger('Schalter');
         $SchalterExists = IPS_VariableExists($SchalterID);
         $result = [
-            'Variable' => $VariableExists,
-            'Schalter' => $SchalterExists
+            'VariableExist' => $VariableExists,
+            'SchalterExist' => $SchalterExists
         ];
         $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
         $result['hintergrundfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
