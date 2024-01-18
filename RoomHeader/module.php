@@ -92,7 +92,7 @@ class TileVisuRoomHeader extends IPSModule
         if ($VariableExists)
         {
             $result['variable'] = GetValueFormatted($VariableID);
-
+        }
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
             if (IPS_MediaExists($imageID))
@@ -142,13 +142,7 @@ class TileVisuRoomHeader extends IPSModule
                 $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
                 $result['image1'] = $imageContent;
             }
-        }
-        else
-        {
-            $imageContent = 'data:image/png;base64,';
-            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
-            $result['image1'] = $imageContent;
-        }
+
         return json_encode($result);
     }
 }
