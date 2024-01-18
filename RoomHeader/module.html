@@ -131,12 +131,14 @@
             //console.log('Rohdaten empfangen:', data);
 
             const decodedData = JSON.parse(data);
+            
             //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
                 console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
-                const element = document.getElementById(parameter);
+                const element = document.getElementById(parameter.toLowerCase());
+
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter) {
@@ -150,7 +152,7 @@
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter];
                         //console.log('Setze innerHTML für', parameter);
                         break;
-                    case 'Schalter':
+                    case 'schalter':
                     element.textContent = decodedData[parameter];
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
                         console.log('Setze innerHTML für', parameter);

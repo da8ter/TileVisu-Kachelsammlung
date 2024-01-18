@@ -113,7 +113,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         if ($SchalterExists)
         {
-            $result['Schalter'] = GetValueFormatted($SchalterID);
+            $result['schalter'] = GetValueFormatted($SchalterID);
 
             $variable = IPS_GetVariable($SchalterID);
                         
