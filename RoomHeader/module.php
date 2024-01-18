@@ -17,6 +17,8 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
         $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyInteger('Schalter', 0);
+        $this->RegisterPropertyFloat('SchalterSchriftgroesse', 1);
+        $this->RegisterPropertyFloat('SchalterBreite', 100);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -153,6 +155,8 @@ class TileVisuRoomHeader extends IPSModule
         $result['raumname'] = $this->ReadPropertyString('Raumname');
         $result['raumnameschriftgroesse'] = $this->ReadPropertyFloat('RaumnameSchriftgroesse');
         $result['raumnameschriftfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
+        $result['schalterschriftgroesse'] = $this->ReadPropertyFloat('SchalterSchriftgroesse');
+        $result['schalterbreite'] = $this->ReadPropertyFloat('SchalterBreite');
         if ($VariableExists)
         {
             $result['variable'] = GetValueFormatted($VariableID);

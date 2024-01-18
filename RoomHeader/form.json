@@ -13,6 +13,24 @@
             "validVariableTypes": []
         },
         {
+            "type": "NumberSpinner",
+            "name": "SchalterSchriftgroesse",
+            "caption": "Schalter Schriftgröße",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "SchalterBreite",
+            "caption": "Schalter Breite",
+            "digits": 0,
+            "minimum": 50,
+            "maximum": 500,
+            "suffix": "Pixel"
+        },
+        {
             "type": "SelectMedia",
             "name": "bgImage",
             "caption": "Fotos"
