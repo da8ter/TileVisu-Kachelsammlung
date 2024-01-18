@@ -16,6 +16,7 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyString('Raumname', 'Raumname');
         $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
         $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
+        $this->RegisterPropertyInteger('Button', 0);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -34,7 +35,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'Variable'] as $VariableProperty)        {
+        foreach (['bgImage', 'Variable', 'Button'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -45,7 +46,7 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'Variable'] as $index => $VariableProperty)
+        foreach (['bgImage', 'Variable', 'Button'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -60,6 +61,20 @@ class TileVisuRoomHeader extends IPSModule
             }
         }
     }
+
+
+    public function RequestAction($Ident, $value) {
+        // Nachrichten von der HTML-Darstellung schicken immer den Ident passend zur Eigenschaft und im Wert die Differenz, welche auf die Variable gerechnet werden soll
+        $variableID = $this->ReadPropertyInteger($Ident);
+        if (!IPS_VariableExists($variableID)) {
+            $this->SendDebug('Error in RequestAction', 'Variable to be updated does not exist', 0);
+            return;
+        }
+            // Umschalten des Werts der Variable
+        $currentValue = GetValue($variableID);
+        SetValue($variableID, !$currentValue);
+    }
+
 
     public function GetVisualizationTile()
     {

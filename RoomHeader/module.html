@@ -127,10 +127,10 @@
 
     <script>
         function handleMessage(data) {
-            console.log('Rohdaten empfangen:', data);
+            //console.log('Rohdaten empfangen:', data);
 
             const decodedData = JSON.parse(data);
-            console.log('Decodierte Daten:', decodedData);
+            //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
@@ -145,7 +145,7 @@
                         //console.log('Setze innerHTML für', parameter);
                         break;
                     case 'variable':
-                    element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton">Alles ausschalten</button>';
+                    element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction('Button', 1)";>Alles ausschalten</button>';
                         //console.log('Setze innerHTML für', parameter);
                         break;
 

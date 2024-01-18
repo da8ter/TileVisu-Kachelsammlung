@@ -7,6 +7,12 @@
             "validVariableTypes": []
         },
         {
+            "type": "SelectVariable",
+            "name": "Variable",
+            "caption": "Button:",
+            "validVariableTypes": []
+        },
+        {
             "type": "SelectMedia",
             "name": "bgImage",
             "caption": "Fotos"
