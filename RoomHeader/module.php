@@ -46,40 +46,17 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'Variable', 'Schalter', 'Raumname'] as $VariableProperty) {
-            //$variableID = $this->ReadPropertyInteger($VariableProperty);
-            if($this->GetIDForIdent($VariableProperty))
+        foreach (['bgImage', 'Variable', 'Schalter'] as $index => $VariableProperty)
+        {
+            if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
-             
-            $VariableExists = IPS_VariableExists($VariableID);
-            $variableID = $this->GetIDForIdent($VariableProperty); 
-        
-            if ($SenderID === $variableID) {
-                switch ($Message) {
+                switch ($Message)
+                {
                     case VM_UPDATE:
-                        // Holen Sie die Variable und bestimmen Sie ihren Typ
-                        $variable = IPS_GetVariable($variableID);
-                        $variableType = $variable['VariableType'];
-        
-                        // Abhängig vom Typ der Variable, holen Sie den Wert
-                        switch ($variableType) {
-                            case 1: // Integer
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
-                                break;
-                            case 2: // Float
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyFloat($VariableProperty))]));
-                                break;
-                            case 0: // Boolean
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyBoolean($VariableProperty))]));
-                                break;
-                            case 3: // String
-                                $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyString($VariableProperty))]));
-                                break;
-                        }
-        
-                        // Senden Sie den aktualisierten Wert an die Visualisierung
-                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => $value]));
-        
+                        
+                        // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
+                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                        
 
                         if ($VariableProperty == "Schalter")
                         {
@@ -116,7 +93,7 @@ class TileVisuRoomHeader extends IPSModule
                                 $colorhexWert = "";
                                 $result['schaltercolor'] = $colorhexWert;
                             }
-                            $this->UpdateVisualizationValue(json_encode($result));
+                            $this->UpdateVisualizationValue(json_encode([$result]));
                 
                 
                 
@@ -129,7 +106,6 @@ class TileVisuRoomHeader extends IPSModule
                 }
             }
         }
-    }
     }
 
 
