@@ -52,6 +52,8 @@ class TileVisuRoomHeader extends IPSModule
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
+                print $this->ReadPropertyInteger($VariableProperty);
+
                 switch ($Message)
                 {
                     case VM_UPDATE:
