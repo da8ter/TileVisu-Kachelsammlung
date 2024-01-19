@@ -242,7 +242,7 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($id)) {
             return GetValueFormatted($id);
         }
-        return false;
+        //return false;
     }
 
     private function SetColorHexWert($id) {
