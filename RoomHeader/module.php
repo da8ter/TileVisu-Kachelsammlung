@@ -177,8 +177,9 @@ class TileVisuRoomHeader extends IPSModule
 
         foreach ($schalterIDs as $schalter) {
             $schalterValue = $this->CheckAndGetValueFormatted($schalter);
-            $result[$schalter] = $schalterValue;
+            
             if ($schalterValue) {
+                $result[$schalter] = $schalterValue;
                 $result[$schalter . 'Color'] = $this->SetColorHexWert($this->ReadPropertyInteger($schalter));
             }
         }
@@ -242,7 +243,7 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($id)) {
             return GetValueFormatted($id);
         }
-        //return false;
+        return false;
     }
 
     private function SetColorHexWert($id) {
