@@ -120,7 +120,8 @@ class TileVisuRoomHeader extends IPSModule
         }
             // Umschalten des Werts der Variable
         $currentValue = GetValue($variableID);
-        SetValue($variableID, !$currentValue);
+        //SetValue($variableID, !$currentValue);
+        RequestAction($variableID, !$currentValue);
     }
 
 
