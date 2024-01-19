@@ -7,9 +7,9 @@
             "validVariableTypes": []
         },
         {
-            "name": "Icon",
+            "name": "Icon1",
             "type": "SelectIcon",
-            "caption": "My Icon"
+            "caption": "Variable Icon"
         },
         {
             "type": "SelectVariable",
