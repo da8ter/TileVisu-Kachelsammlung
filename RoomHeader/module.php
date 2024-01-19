@@ -155,67 +155,28 @@ class TileVisuRoomHeader extends IPSModule
     }
 
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
-    private function GetFullUpdateMessage()
-    {
+    private function GetFullUpdateMessage() {
         $result = [
-        'VariableExist' => $this->CheckAndGetValueFormatted('Variable'),
-        'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
-        'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
-        'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
-        'transparenz' => $this->ReadPropertyFloat('Bildtransparenz'),
-        'raumname' => $this->ReadPropertyString('Raumname'),
-        'raumnameschriftgroesse' => $this->ReadPropertyFloat('RaumnameSchriftgroesse'),
-        'raumnameschriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe')),
-        'schalter1schriftgroesse' => $this->ReadPropertyFloat('Schalter1Schriftgroesse'),
-        'schalter1breite' => $this->ReadPropertyFloat('Schalter1Breite'),
-        'schalter2schriftgroesse' => $this->ReadPropertyFloat('Schalter2Schriftgroesse'),
-        'schalter2breite' => $this->ReadPropertyFloat('Schalter2Breite'),
-        'schalter3schriftgroesse' => $this->ReadPropertyFloat('Schalter3Schriftgroesse'),
-        'schalter3breite' => $this->ReadPropertyFloat('Schalter3Breite'),
-        'schalter4schriftgroesse' => $this->ReadPropertyFloat('Schalter4Schriftgroesse'),
-        'schalter4breite' => $this->ReadPropertyFloat('Schalter4Breite'),
-        'schalter5schriftgroesse' => $this->ReadPropertyFloat('Schalter5Schriftgroesse'),
-        'schalter5breite' => $this->ReadPropertyFloat('Schalter5Breite'),
-        'icon1' => $this->ReadPropertyString('Icon1')
-    ];
+            'VariableExist' => $this->CheckAndGetValueFormatted('Variable'),
+            'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
+            'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
+            'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
+            'transparenz' => $this->ReadPropertyFloat('Bildtransparenz'),
+            'raumname' => $this->ReadPropertyString('Raumname'),
+            'raumnameschriftgroesse' => $this->ReadPropertyFloat('RaumnameSchriftgroesse'),
+            'raumnameschriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe')),
+            'icon1' => $this->ReadPropertyString('Icon1')
+        ];
 
         $schalterIDs = ['Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'];
 
         foreach ($schalterIDs as $schalter) {
-            $result[$schalter . 'Exist'] = $this->CheckAndGetValueFormatted($schalter);
-        }
-
-        private function CheckAndGetValueFormatted($property) {
-            $id = $this->ReadPropertyInteger($property);
-            if (IPS_VariableExists($id)) {
-                return GetValueFormatted($id);
+            $schalterExist = $this->CheckAndGetValueFormatted($schalter);
+            $result[$schalter . 'Exist'] = $schalterExist;
+            if ($schalterExist) {
+                $result[$schalter . 'Color'] = $this->SetColorHexWert($this->ReadPropertyInteger($schalter));
             }
-            return false;
         }
-        
-        private function SetColorHexWert($id) {
-            $variable = IPS_GetVariable($id);
-            $Value = GetValue($id);
-            $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
-        
-            if ($profile && IPS_VariableProfileExists($profile)) {
-                $p = IPS_GetVariableProfile($profile);
-                
-                foreach ($p['Associations'] as $association) {
-                    if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
-                        return $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
-                    }
-                }
-            }
-            return "";
-        }
-
-        if ($VariableExists)
-        {
-            $result['variable'] = GetValueFormatted($VariableID);
-        }
- 
-
 
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
@@ -267,7 +228,33 @@ class TileVisuRoomHeader extends IPSModule
                 $result['image1'] = $imageContent;
             }
 
+
+
         return json_encode($result);
+    }
+    private function CheckAndGetValueFormatted($property) {
+        $id = $this->ReadPropertyInteger($property);
+        if (IPS_VariableExists($id)) {
+            return GetValueFormatted($id);
+        }
+        return false;
+    }
+
+    private function SetColorHexWert($id) {
+        $variable = IPS_GetVariable($id);
+        $Value = GetValue($id);
+        $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
+
+        if ($profile && IPS_VariableProfileExists($profile)) {
+            $p = IPS_GetVariableProfile($profile);
+            
+            foreach ($p['Associations'] as $association) {
+                if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
+                    return $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
+                }
+            }
+        }
+        return "";
     }
 }
 ?>
