@@ -191,9 +191,9 @@ class TileVisuRoomHeader extends IPSModule
         $result['schalter3schriftgroesse'] = $this->ReadPropertyFloat('Schalter3Schriftgroesse');
         $result['schalter3breite'] = $this->ReadPropertyFloat('Schalter3Breite');
         $result['schalter4schriftgroesse'] = $this->ReadPropertyFloat('Schalter4Schriftgroesse');
-        $result['schalter4breite'] = $this->ReadPropertyFloat('Schalte4Breite');
+        $result['schalter4breite'] = $this->ReadPropertyFloat('Schalter4Breite');
         $result['schalter5schriftgroesse'] = $this->ReadPropertyFloat('Schalter5Schriftgroesse');
-        $result['schalter5breite'] = $this->ReadPropertyFloat('Schalte5Breite');
+        $result['schalter5breite'] = $this->ReadPropertyFloat('Schalter5Breite');
         $result['icon1'] = $this->ReadPropertyString('Icon1');
         if ($VariableExists)
         {
