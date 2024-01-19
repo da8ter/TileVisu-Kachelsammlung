@@ -171,9 +171,9 @@ class TileVisuRoomHeader extends IPSModule
         $schalterIDs = ['Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'];
 
         foreach ($schalterIDs as $schalter) {
-            $schalterExist = $this->CheckAndGetValueFormatted($schalter);
-            $result[$schalter . 'Exist'] = $schalterExist;
-            if ($schalterExist) {
+            $schalterValue = $this->CheckAndGetValueFormatted($schalter);
+            $result[$schalter] = $schalterValue;
+            if ($schalterValue) {
                 $result[$schalter . 'Color'] = $this->SetColorHexWert($this->ReadPropertyInteger($schalter));
             }
         }
