@@ -627,9 +627,19 @@
                         //console.log('Setze innerHTML für', parameter);
                         break; 
                     case 'schalter1color':
-                    root.style.setProperty('--schaltercolor', decodedData[parameter]);
-                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
-                        console.log('Setze innerHTML für', parameter2);
+                        root.style.setProperty('--schalter1color', decodedData[parameter]);
+                        break;
+                    case 'schalter2color':
+                        root.style.setProperty('--schalter2color', decodedData[parameter]);
+                        break;
+                    case 'schalter3color':
+                        root.style.setProperty('--schalter3color', decodedData[parameter]);
+                        break;
+                    case 'schalter4color':
+                        root.style.setProperty('--schalter4color', decodedData[parameter]);
+                        break;
+                    case 'schalter5color':
+                        root.style.setProperty('--schalter5color', decodedData[parameter]);
                         break;
                     case 'fontsize':
                         root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
