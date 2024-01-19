@@ -102,7 +102,7 @@ class TileVisuRoomHeader extends IPSModule
                                         if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
                                             // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
                                             $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
-                                            $result[$VariableProperty .'farbe'] = $colorhexWert;
+                                            $result[$VariableProperty .'Color'] = $colorhexWert;
                                             break; // Beende die Schleife, da der passende Wert gefunden wurde
                                         }
                                     }
