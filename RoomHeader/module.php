@@ -159,11 +159,23 @@ class TileVisuRoomHeader extends IPSModule
     {
         $VariableID = $this->ReadPropertyInteger('Variable');
         $VariableExists = IPS_VariableExists($VariableID);
-        $SchalterID = $this->ReadPropertyInteger('Schalter');
-        $SchalterExists = IPS_VariableExists($SchalterID);
+        $Schalter1ID = $this->ReadPropertyInteger('Schalter1');
+        $Schalter1Exists = IPS_VariableExists($Schalter1ID);
+        $Schalter2ID = $this->ReadPropertyInteger('Schalter2');
+        $Schalter2Exists = IPS_VariableExists($Schalter2ID);
+        $Schalter3ID = $this->ReadPropertyInteger('Schalter3');
+        $Schalter3Exists = IPS_VariableExists($Schalter3ID);
+        $Schalter4ID = $this->ReadPropertyInteger('Schalter4');
+        $Schalter4Exists = IPS_VariableExists($Schalter4ID);
+        $Schalter5ID = $this->ReadPropertyInteger('Schalter5');
+        $Schalter5Exists = IPS_VariableExists($Schalter5ID);
         $result = [
             'VariableExist' => $VariableExists,
-            'SchalterExist' => $SchalterExists
+            'Schalter1Exist' => $Schalter1Exists,
+            'Schalter2Exist' => $Schalter2Exists,
+            'Schalter3Exist' => $Schalter3Exists,
+            'Schalter4Exist' => $Schalter4Exists,
+            'Schalter5Exist' => $Schalter5Exists,
         ];
         $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
         $result['hintergrundfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
@@ -172,20 +184,28 @@ class TileVisuRoomHeader extends IPSModule
         $result['raumname'] = $this->ReadPropertyString('Raumname');
         $result['raumnameschriftgroesse'] = $this->ReadPropertyFloat('RaumnameSchriftgroesse');
         $result['raumnameschriftfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
-        $result['schalterschriftgroesse'] = $this->ReadPropertyFloat('SchalterSchriftgroesse');
-        $result['schalterbreite'] = $this->ReadPropertyFloat('SchalterBreite');
+        $result['schalter1schriftgroesse'] = $this->ReadPropertyFloat('Schalter1Schriftgroesse');
+        $result['schalter1breite'] = $this->ReadPropertyFloat('Schalter1Breite');
+        $result['schalter2schriftgroesse'] = $this->ReadPropertyFloat('Schalter2Schriftgroesse');
+        $result['schalter2breite'] = $this->ReadPropertyFloat('Schalter2Breite');
+        $result['schalter3schriftgroesse'] = $this->ReadPropertyFloat('Schalter3Schriftgroesse');
+        $result['schalter3breite'] = $this->ReadPropertyFloat('Schalter3Breite');
+        $result['schalter4schriftgroesse'] = $this->ReadPropertyFloat('Schalter4Schriftgroesse');
+        $result['schalter4breite'] = $this->ReadPropertyFloat('Schalte4Breite');
+        $result['schalter5schriftgroesse'] = $this->ReadPropertyFloat('Schalter5Schriftgroesse');
+        $result['schalter5breite'] = $this->ReadPropertyFloat('Schalte5Breite');
         $result['icon1'] = $this->ReadPropertyString('Icon1');
         if ($VariableExists)
         {
             $result['variable'] = GetValueFormatted($VariableID);
         }
-        if ($SchalterExists)
+        if ($Schalter1Exists)
         {
-            $result['schalter'] = GetValueFormatted($SchalterID);
+            $result['schalter1'] = GetValueFormatted($Schalter1ID);
 
-            $variable = IPS_GetVariable($SchalterID);
+            $variable = IPS_GetVariable($Schalter1ID);
                         
-            $Value = GetValue($SchalterID);
+            $Value = GetValue($Schalter1ID);
             //$ValueFormatted = GetValueFormatted($variableID);
             $profile = $variable['VariableCustomProfile'];
             if ($profile === '') {

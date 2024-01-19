@@ -593,7 +593,7 @@
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter];
                         //console.log('Setze innerHTML für', parameter);
                         break;
-                    case 'schalter':
+                    case 'schalter1':
                     element.textContent = decodedData[parameter];
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
                         console.log('Setze innerHTML für', parameter2);
@@ -602,11 +602,11 @@
                         root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
                         //console.log('Setze innerHTML für', parameter);
                         break;    
-                    case 'schalterbreite':
+                    case 'schalter1breite':
                         root.style.setProperty('--schalterbreite', decodedData[parameter] + 'px');
                         //console.log('Setze innerHTML für', parameter);
                         break; 
-                    case 'schaltercolor':
+                    case 'schalter1color':
                     root.style.setProperty('--schaltercolor', decodedData[parameter]);
                     //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
                         console.log('Setze innerHTML für', parameter2);
@@ -672,7 +672,7 @@
     </div>
     <div class="menueleiste">
       <div class="menueleistelinks">Info 1 - Info 2 - Info 3 - Info 4 - Info 5</div>
-      <div class="menueleisterechts"><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">1</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">2</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">3</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">4</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">5</button></div>
+      <div class="menueleisterechts"><button id="schalter1" class="MeinButton" onclick="requestAction('Schalter', 1);">1</button><button id="schalter1" class="MeinButton" onclick="requestAction('Schalter', 1);">2</button><button id="schalter1" class="MeinButton" onclick="requestAction('Schalter1', 1);">3</button><button id="schalter1" class="MeinButton" onclick="requestAction('Schalter', 1);">4</button><button id="schalter1" class="MeinButton" onclick="requestAction('Schalter', 1);">5</button></div>
     </div>
   
   </div>
