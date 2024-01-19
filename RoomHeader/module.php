@@ -109,7 +109,7 @@ class TileVisuRoomHeader extends IPSModule
                                 }
                             } else {
                                 $colorhexWert = "";
-                                $result[$VariableProperty .'farbe'] = $colorhexWert;
+                                $result[$VariableProperty .'Color'] = $colorhexWert;
                             }
                             $this->UpdateVisualizationValue(json_encode($result));
                 
