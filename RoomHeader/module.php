@@ -17,9 +17,21 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyString('Raumname', 'Raumname');
         $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
         $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
-        $this->RegisterPropertyInteger('Schalter', 0);
-        $this->RegisterPropertyFloat('SchalterSchriftgroesse', 1);
-        $this->RegisterPropertyFloat('SchalterBreite', 100);
+        $this->RegisterPropertyInteger('Schalter1', 0);
+        $this->RegisterPropertyFloat('Schalter1Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter1Breite', 100);
+        $this->RegisterPropertyInteger('Schalter2', 0);
+        $this->RegisterPropertyFloat('Schalter2Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter2Breite', 100);
+        $this->RegisterPropertyInteger('Schalter3', 0);
+        $this->RegisterPropertyFloat('Schalter3Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter3Breite', 100);
+        $this->RegisterPropertyInteger('Schalter4', 0);
+        $this->RegisterPropertyFloat('Schalter4Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter4Breite', 100);
+        $this->RegisterPropertyInteger('Schalter5', 0);
+        $this->RegisterPropertyFloat('Schalter5Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter5Breite', 100);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -63,7 +75,7 @@ class TileVisuRoomHeader extends IPSModule
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
 
-                        if ($VariableProperty == "Schalter")
+                        if ($VariableProperty == "Schalter1" || $VariableProperty == "Schalter2" || $VariableProperty == "Schalter3" || $VariableProperty == "Schalter4" || $VariableProperty == "Schalter5")
                         {
                                          
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
@@ -82,7 +94,7 @@ class TileVisuRoomHeader extends IPSModule
                                 $p = IPS_GetVariableProfile($profile);
                             
                                 $colorhexWert = "";
-                                $result['schaltercolor'] = $colorhexWert;
+                                $result[$VariableProperty .'farbe'] = $colorhexWert;
                             
                                 if (!empty($p['Associations']) && is_array($p['Associations'])) {
                                     foreach ($p['Associations'] as $association) {
@@ -90,14 +102,14 @@ class TileVisuRoomHeader extends IPSModule
                                         if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
                                             // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
                                             $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
-                                            $result['schaltercolor'] = $colorhexWert;
+                                            $result[$VariableProperty .'farbe'] = $colorhexWert;
                                             break; // Beende die Schleife, da der passende Wert gefunden wurde
                                         }
                                     }
                                 }
                             } else {
                                 $colorhexWert = "";
-                                $result['schaltercolor'] = $colorhexWert;
+                                $result[$VariableProperty .'farbe'] = $colorhexWert;
                             }
                             $this->UpdateVisualizationValue(json_encode($result));
                 
