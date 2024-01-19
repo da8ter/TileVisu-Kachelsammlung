@@ -23,6 +23,8 @@ class TileVisuRoomHeader extends IPSModule
         $this->SetVisualizationType(1);
     }
 
+    print $this->ReadPropertyInteger('Schriftfarbe');
+
     public function ApplyChanges()
     {
         parent::ApplyChanges();
@@ -52,7 +54,7 @@ class TileVisuRoomHeader extends IPSModule
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
-                print $this->ReadPropertyInteger($VariableProperty);
+                
 
                 switch ($Message)
                 {
