@@ -20,79 +20,102 @@
             background-color: var(--hintergrundfarbe);
         }
 
-        .maindiv {
-            width: 100%;
-            height: 90%;
-            position: relative;
-            /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
-            display: flex;
-            justify-content: center;
-            /* Zentriert horizontal */
-            align-items: center;
-            /* Zentriert vertikal */
+        .maindiv2 {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        }
+.maindiv1 {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+}
 
-        .maindiv:before {
-            content: ' ';
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 90%;
-            z-index: 1;
-            opacity: var(--transparenz);
-            background: var(--background-image, none) center / cover no-repeat;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+.maindiv1:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90%;
+  z-index: 1;
+  opacity: var(--transparenz);
+  background: var(--background-image, none) center / cover no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-        .maindiv>* {
-            position: relative;
-            z-index: 1;
-        }
+.maindiv1 > * {
+  position: relative;
+  z-index: 1;
+}
 
-        .box {
-            flex: 1;
-            /* Gleiche Breite für alle divs */
-            display: flex;
-            /*align-items: center; */
-            /* Vertikale Zentrierung für alle */
-            text-align: center;
-            /* Horizontaler Standard ist zentriert */
-            s border: 1px solid black;
-            /* Optional: Rahmen zur besseren Sichtbarkeit */
-            box-sizing: border-box;
-            height: 100%;
-            padding-top: 80px;
-        }
+.left-aligned {
+  justify-content: flex-start;
+  align-items: flex-end;
+  /* Inhalt nach links ausrichten */
+  text-align: left;
+  /* Text linksbündig */
+  padding: 5px 5px 5px 5px;
+  background-color: yellow;
+  width: 20%;
+  height: 90%;
+}
 
-        .left-aligned {
-            justify-content: flex-start;
-            align-items: flex-end;
-            /* Inhalt nach links ausrichten */
-            text-align: left;
-            /* Text linksbündig */
-            padding: 5px 5px 5px 20px;
-        }
+.center-aligned {
+  justify-content: center;
+  align-items: center;
+  /* Inhalt zentrieren (horizontal und vertikal) */
+  padding: 5px 5px 5px 5px;
+  width: 60%;
+  height: 90%;
+  background-color: green;
+  text-align: center;
+}
 
-        .center-aligned {
-            justify-content: center;
-            align-items: center;
-            /* Inhalt zentrieren (horizontal und vertikal) */
-            padding: 5px 5px 5px 5px;
-        }
+.right-aligned {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  /* Inhalt nach rechts ausrichten */
+  text-align: right;
+  /* Text rechtsbündig */
+  padding: 5px 5px 5px 5px;
+  background-color: blue;
+  width: 20%;
+  height: 90%;
+}
+.menueleiste {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menueleistelinks {
+  width: 50%;
+  padding: 5px 5px 5px 5px;
+  background-color: red;
+  text-align: left;
+}
+.menueleisterechts {
+  width: 50%;
+  padding: 5px 5px 5px 5px;
+  background-color: lightblue;
+  text-align: right;
+}
 
-        .right-aligned {
-            justify-content: flex-end;
-            align-items: flex-end;
-            flex-direction: column;
-            /* Inhalt nach rechts ausrichten */
-            text-align: right;
-            /* Text rechtsbündig */
-            padding: 5px 20px 10px 5px;
-        }
 
         .variablentext {
             font-size: var(--fontsize);
@@ -127,7 +150,7 @@
         }
         .menueleiste {
             width: 100%;
-            height: 10%;
+            height: ;
         }
     </style>
 
@@ -224,18 +247,22 @@
         }
     </script>
 
-<div>
-    <div class="maindiv" id="image1">
-        <div class="box left-aligned">Linksbündig</div>
-        <div class="box center-aligned">
-            <p class="raumname" id="raumname">Raumname</p>
-        </div>
-        <div class="box right-aligned">
-            <i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i>
-            <p class="variablentext" id="variable">Text</p>
-            <button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button>
 
-        </div>
+<div class="maindiv1">
+    <div class="maindiv2">
+      <div class="left-aligned">
+        <div class="iconleft">Icon</div>
+        <div class="textleft">Text</div>
+      </div>
+      <div class="center-aligned"><p class="raumname" id="raumname">Raumname</p></div>
+      <div class="right-aligned">
+        <div class="iconright"><i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i></div>
+        <div class="textright"><p class="variablentext" id="variable">Text</p></div>
+      </div>
     </div>
-    <div class="menueleiste">Menüleiste</div>
-</div>
+    <div class="menueleiste">
+      <div class="menueleistelinks">Infotext 1 - Infotext 2 - Infotext 3 - Infotext 4 - Infotext 5</div>
+      <div class="menueleisterechts"><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button><button id="schalter" class="MeinButton" onclick="requestAction('Schalter', 1);">Alles ausschalten</button></div>
+    </div>
+  
+  </div>
