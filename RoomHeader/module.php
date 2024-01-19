@@ -57,9 +57,31 @@ class TileVisuRoomHeader extends IPSModule
                 switch ($Message)
                 {
                     case VM_UPDATE:
-                        
+
+                        $varID = GetIDForIdent($VariableProperty);
+                        $variable = IPS_GetVariable($varID);
+                        $varType = $array['VariableType'];
+
+                        if ($varType == 0)
+                        {
+                            $variable = json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyBoolean($VariableProperty))]);
+                        }
+                        elseif ($varType == 1) {
+                            $variable = json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]);
+                        }
+                        elseif ($varType == 2) {
+                            $variable = json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyFloat($VariableProperty))]);
+                        }
+                        elseif ($varType == 3) {
+                            $variable = json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyString($VariableProperty))]);
+                        }
+                        else {
+                            $variable = '';
+                        }
+
+
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                        $this->UpdateVisualizationValue($variable);
                         
 
                         if ($VariableProperty == "Schalter")
