@@ -162,6 +162,7 @@ class TileVisuRoomHeader extends IPSModule
         $result['raumnameschriftfarbe'] = '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
         $result['schalterschriftgroesse'] = $this->ReadPropertyFloat('SchalterSchriftgroesse');
         $result['schalterbreite'] = $this->ReadPropertyFloat('SchalterBreite');
+        $result['icon1'] = $this->ReadPropertyString('icon1');
         if ($VariableExists)
         {
             $result['variable'] = GetValueFormatted($VariableID);
