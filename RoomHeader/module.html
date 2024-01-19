@@ -397,7 +397,9 @@
             height: 100%;
             background-color: var(--hintergrundfarbe);
         }
-
+.hidden {
+    display: none;
+}
 .maindiv2 {
   width: 100%;
   height: 90%;
@@ -616,28 +618,28 @@
                         //console.log('Setze innerHTML für', parameter);
                         break;
                     case 'schalter1':
-                    element.textContent = decodedData[parameter];
-                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                        element.className = 'schalter1';
+                        element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
-                        case 'schalter2':
-                    element.textContent = decodedData[parameter];
-                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                    case 'schalter2':
+                        element.className = 'schalter2';
+                        element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
-                        case 'schalter3':
-                    element.textContent = decodedData[parameter];
-                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                        ase 'schalter3':
+                        element.className = 'schalter3';
+                        element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
-                        case 'schalter4':
-                    element.textContent = decodedData[parameter];
-                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                    case 'schalter4':
+                        element.className = 'schalter4';
+                        element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
-                        case 'schalter5':
-                    element.textContent = decodedData[parameter];
-                    //element.innerHTML = '<i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i><br>' + decodedData[parameter] + '<br><button id="meinButton" onclick="requestAction(\'Schalter\', 1);">Alles ausschalten</button>';
+                    case 'schalter5':
+                        element.className = 'schalter5';
+                        element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'schalterschriftgroesse':
@@ -740,7 +742,7 @@
     </div>
     <div class="menueleiste">
       <div class="menueleistelinks">Info 1 - Info 2 - Info 3 - Info 4 - Info 5</div>
-      <div class="menueleisterechts"><button id="schalter1" class="schalter1" onclick="requestAction('Schalter1', 1);">1</button><button id="schalter2" class="schalter2" onclick="requestAction('Schalter2', 1);">2</button><button id="schalter3" class="schalter3" onclick="requestAction('Schalter3', 1);">3</button><button id="schalter4" class="schalter4" onclick="requestAction('Schalter4', 1);">4</button><button id="schalter5" class="schalter4" onclick="requestAction('Schalter5', 1);">5</button></div>
+      <div class="menueleisterechts"><button id="schalter1" class="hidden" onclick="requestAction('Schalter1', 1);">1</button><button id="schalter2" class="hidden" onclick="requestAction('Schalter2', 1);">2</button><button id="schalter3" class="hidden" onclick="requestAction('Schalter3', 1);">3</button><button id="schalter4" class="hidden" onclick="requestAction('Schalter4', 1);">4</button><button id="schalter5" class="hidden" onclick="requestAction('Schalter5', 1);">5</button></div>
     </div>
   
   </div>
