@@ -13,8 +13,32 @@
         },
         {
             "type": "SelectVariable",
-            "name": "Schalter",
-            "caption": "Schalter:",
+            "name": "Schalter1",
+            "caption": "Schalter1:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Schalter2",
+            "caption": "Schalter2:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Schalter3",
+            "caption": "Schalter3:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Schalter4",
+            "caption": "Schalter4:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Schalter5",
+            "caption": "Schalter5:",
             "validVariableTypes": []
         },
         {
