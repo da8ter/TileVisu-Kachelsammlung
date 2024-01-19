@@ -18,10 +18,28 @@
             "validVariableTypes": []
         },
         {
+            "type": "NumberSpinner",
+            "name": "Schalter1Breite",
+            "caption": "Schalter1 Breite",
+            "digits": 0,
+            "minimum": 50,
+            "maximum": 500,
+            "suffix": "Pixel"
+        },
+        {
             "type": "SelectVariable",
             "name": "Schalter2",
             "caption": "Schalter2:",
             "validVariableTypes": []
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "Schalter2Breite",
+            "caption": "Schalter2 Breite",
+            "digits": 0,
+            "minimum": 50,
+            "maximum": 500,
+            "suffix": "Pixel"
         },
         {
             "type": "SelectVariable",
@@ -30,16 +48,43 @@
             "validVariableTypes": []
         },
         {
+            "type": "NumberSpinner",
+            "name": "Schalter3Breite",
+            "caption": "Schalter3 Breite",
+            "digits": 0,
+            "minimum": 50,
+            "maximum": 500,
+            "suffix": "Pixel"
+        },
+        {
             "type": "SelectVariable",
             "name": "Schalter4",
             "caption": "Schalter4:",
             "validVariableTypes": []
         },
         {
+            "type": "NumberSpinner",
+            "name": "Schalter4Breite",
+            "caption": "Schalter4 Breite",
+            "digits": 0,
+            "minimum": 50,
+            "maximum": 500,
+            "suffix": "Pixel"
+        },
+        {
             "type": "SelectVariable",
             "name": "Schalter5",
             "caption": "Schalter5:",
             "validVariableTypes": []
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "Schalter5Breite",
+            "caption": "Schalter5 Breite",
+            "digits": 0,
+            "minimum": 50,
+            "maximum": 500,
+            "suffix": "Pixel"
         },
         {
             "type": "NumberSpinner",
