@@ -437,8 +437,8 @@
   background: var(--background-image, none) center / cover no-repeat;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+  mask: linear-gradient(black, black, transparent);
 
     /* Anwenden des Blur-Filters */
     filter: blur(8px);
