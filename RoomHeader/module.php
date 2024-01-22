@@ -158,7 +158,7 @@ class TileVisuRoomHeader extends IPSModule
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
         $result = [
-            'VariableExist' => $this->CheckAndGetValueFormatted('Variable'),
+            'Variable' => $this->CheckAndGetValueFormatted('Variable'),
             'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
             'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
             'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
@@ -246,6 +246,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         return false;
     }
+
 
     private function SetColorHexWert($id) {
         $variable = IPS_GetVariable($id);
