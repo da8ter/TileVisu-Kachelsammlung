@@ -628,6 +628,7 @@
                         break;
                     case 'variableicon':
                     iconleft.className = decodedData[parameter] +' iconleft';
+                    iconleft.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
                     case 'schalter1':
                         element.className = 'schalter1';
@@ -743,7 +744,7 @@
 <div class="maindiv1">
     <div class="maindiv2">
       <div class="left-aligned">
-        <div class="hidden" id="iconleft"></div>
+        <img class="hidden" id="iconleft" src=""></img>
         <div class="textleft"><p class="variablentext" id="variable">Anwesend</p></div>
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Raumname</p></div>
