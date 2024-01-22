@@ -79,7 +79,7 @@ class TileVisuRoomHeader extends IPSModule
                         {
                                          
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
-                            $result[$VariableProperty] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));
+                            
                             
 
                                         
@@ -106,7 +106,7 @@ class TileVisuRoomHeader extends IPSModule
                                             $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
                                             $result[$VariableProperty .'Color'] = $colorhexWert;
                       
-                                            $icon = $association['Icon'];
+                                            $icon = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));;
                                             $result[$VariableProperty .'Icon'] = $icon;
                                             break; // Beende die Schleife, da der passende Wert gefunden wurde
                                         }
