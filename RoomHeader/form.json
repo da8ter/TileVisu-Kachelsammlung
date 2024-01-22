@@ -7,7 +7,7 @@
             "validVariableTypes": []
         },
         {
-            "name": "Icon1",
+            "name": "Icon_links",
             "type": "SelectIcon",
             "caption": "Variable Icon"
         },

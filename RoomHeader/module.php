@@ -9,7 +9,7 @@ class TileVisuRoomHeader extends IPSModule
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyInteger("Variable", 0);
-        $this->RegisterPropertyString('Icon1', '');
+        $this->RegisterPropertyString('Icon_links', '');
         $this->RegisterPropertyFloat('Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
@@ -103,6 +103,7 @@ class TileVisuRoomHeader extends IPSModule
                                             // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
                                             $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
                                             $result[$VariableProperty .'Color'] = $colorhexWert;
+                                            $result[$VariableProperty .'Icon'] = $association['Icon'];
                                             break; // Beende die Schleife, da der passende Wert gefunden wurde
                                         }
                                     }
@@ -257,6 +258,7 @@ class TileVisuRoomHeader extends IPSModule
             foreach ($p['Associations'] as $association) {
                 if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
                     return $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
+                    
                 }
             }
         }
