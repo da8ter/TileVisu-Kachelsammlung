@@ -625,16 +625,10 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'infolinksicon':
-                        if (decodedData[parameter] === "Transparent")
-                        {
-                        }
-                        else
-                        {
-
-                        iconlinks.className = ' iconlinks';
-                        iconlinks.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
-                    }
-                        break;
+                    if (decodedData[parameter] !== "Transparent") {
+                    iconlinks.className = ' iconlinks';
+                    iconlinks.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+    }                   break;
                     case 'inforechts':
                         element.textContent = decodedData[parameter];
                         break;
