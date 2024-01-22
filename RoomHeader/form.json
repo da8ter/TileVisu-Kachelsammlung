@@ -7,11 +7,6 @@
             "validVariableTypes": []
         },
         {
-            "name": "Icon_links",
-            "type": "SelectIcon",
-            "caption": "Variable Icon"
-        },
-        {
             "type": "SelectVariable",
             "name": "Schalter1",
             "caption": "Schalter1:",
