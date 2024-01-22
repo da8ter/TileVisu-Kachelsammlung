@@ -289,7 +289,7 @@ class TileVisuRoomHeader extends IPSModule
                     $icon = $association['Icon'];
                     return $icon;
                 }
-                elseif (isset($p['Icon']) {
+                elseif (isset($p['Icon'])) {
                     $icon = $p['Icon'];
                     return $icon;
                 }
