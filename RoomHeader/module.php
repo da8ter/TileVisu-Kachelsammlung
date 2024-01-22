@@ -164,7 +164,6 @@ class TileVisuRoomHeader extends IPSModule
             'raumname' => $this->ReadPropertyString('Raumname'),
             'raumnameschriftgroesse' => $this->ReadPropertyFloat('RaumnameSchriftgroesse'),
             'raumnameschriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe')),
-            'icon_links' => $this->ReadPropertyString('Icon_links'),
             'schalter1breite' => $this->ReadPropertyFloat('Schalter1Breite'),
             'schalter2breite' => $this->ReadPropertyFloat('Schalter2Breite'),
             'schalter3breite' => $this->ReadPropertyFloat('Schalter3Breite'),
