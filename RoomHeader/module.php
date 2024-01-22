@@ -279,7 +279,7 @@ class TileVisuRoomHeader extends IPSModule
                 }
             }
         }
-        IPS_LogMessage("Custom Log", "Icon: " . $p);
+        IPS_LogMessage("Custom Log", "Icon: " . vardump($p));
         //return "icontest";
     }
 }
