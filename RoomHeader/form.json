@@ -2,8 +2,8 @@
     "elements": [
         {
             "type": "SelectVariable",
-            "name": "Variable",
-            "caption": "Variable:",
+            "name": "InfoLinks",
+            "caption": "Variable Links:",
             "validVariableTypes": []
         },
         {
