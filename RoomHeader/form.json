@@ -8,6 +8,12 @@
         },
         {
             "type": "SelectVariable",
+            "name": "InfoRechts",
+            "caption": "Variable Rechts:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
             "name": "Schalter1",
             "caption": "Schalter1:",
             "validVariableTypes": []
