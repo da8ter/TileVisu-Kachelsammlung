@@ -534,6 +534,13 @@
 }
 
 
+        .infolinks, .inforechts {
+            font-size: var(--fontsize);
+            color: var(--schriftfarbe);
+            opacity: 0.5;
+
+        }
+
         .raumname {
             font-size: var(--raumnamefontsize);
             color: var(--raumnameschriftfarbe);
@@ -736,12 +743,13 @@
 <div class="maindiv1">
     <div class="maindiv2">
       <div class="left-aligned">
-        <div class="textleft"><img class="hidden" id="iconleft" src=""><br><p class="variablentext" id="infolinks">Info</p></div>
+        <div class="iconright"><img class="hidden" id="iconleft" src=""></div>
+        <div class="textleft"><p class="infolinks" id="infolinks">Info</p></div>
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
       <div class="right-aligned">
         <div class="iconright"><i id="temp_icon" class="fa-solid fa-temperature-three-quarters icon"></i></div>
-        <div class="textright"><p class="variablentext" id="variable">Text</p></div>
+        <div class="textright"><p class="inforechts" id="inforechts">Text</p></div>
       </div>
     </div>
     <div class="menueleiste">
