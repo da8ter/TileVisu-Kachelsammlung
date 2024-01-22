@@ -103,7 +103,8 @@ class TileVisuRoomHeader extends IPSModule
                                             // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
                                             $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
                                             $result[$VariableProperty .'Color'] = $colorhexWert;
-                                            $result[$VariableProperty .'Icon'] = $association['Icon'];
+                                            $icon = 'ipsIcon' . $association['Icon'];
+                                            $result[$VariableProperty .'Icon'] = $icon;
                                             break; // Beende die Schleife, da der passende Wert gefunden wurde
                                         }
                                     }
@@ -179,7 +180,7 @@ class TileVisuRoomHeader extends IPSModule
             
             if ($schalterValue) {
                 $result[$schalter] = $schalterValue;
-                $result[$schalter . 'Color'] = $this->SetColorHexWert($this->ReadPropertyInteger($schalter));
+                $result[$schalter . 'Color'] = $this->GetColor($this->ReadPropertyInteger($schalter));
             }
         }
 
@@ -246,7 +247,7 @@ class TileVisuRoomHeader extends IPSModule
     }
 
 
-    private function SetColorHexWert($id) {
+    private function GetColor($id) {
         $variable = IPS_GetVariable($id);
         $Value = GetValue($id);
         $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
@@ -274,7 +275,8 @@ class TileVisuRoomHeader extends IPSModule
             
             foreach ($p['Associations'] as $association) {
                 if (isset($association['Value'], $association['Icon']) && $association['Value'] == $Value) {
-                    return $association['Icon'];
+                    $icon = 'ipsIcon' . $association['Icon'];
+                    return $icon;
                     
                 }
             }
