@@ -280,25 +280,28 @@ class TileVisuRoomHeader extends IPSModule
         $variable = IPS_GetVariable($id);
         $Value = GetValue($id);
         $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
+        $icon = "";
 
         if ($profile && IPS_VariableProfileExists($profile)) {
             $p = IPS_GetVariableProfile($profile);
-            
+
             foreach ($p['Associations'] as $association) {
-                if (isset($association['Value'], $association['Icon']) && $association['Value'] == $Value) {
+                if (isset($association['Value']) && $association['Icon'] != "" && $association['Value'] == $Value) {
                     $icon = $association['Icon'];
-                    return $icon;
-                }
-                elseif (isset($p['Icon']) && !isset($association['Icon'])) {
-                    $icon = $p['Icon'];
-                    return $icon;
-                }
-                else {
-                    return 'Transparent';
+                    break;
                 }
             }
+
+            if ($icon == "" && isset($p['Icon']) && $p['Icon'] != "") {
+                $icon = $p['Icon'];
+            }
+
+            if ($icon == "") {
+                $icon = "Transparent";
+            }
         }
-        //return "icontest";
-    }
+
+        echo $icon;
+
 }
 ?>
