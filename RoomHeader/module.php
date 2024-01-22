@@ -155,11 +155,20 @@ class TileVisuRoomHeader extends IPSModule
 
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
+
+        $result = [];
+    
+        if (IPS_VariableExists($this->ReadPropertyInteger('InfoLinks'))) {
+            $result['infolinks'] = $this->CheckAndGetValueFormatted('InfoLinks');
+            $result['infolinksicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoLinks'));
+        }
+    
+        if (IPS_VariableExists($this->ReadPropertyInteger('InfoRechts'))) {
+            $result['inforechts'] = $this->CheckAndGetValueFormatted('InfoRechts');
+            $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'));
+        }
+
         $result = [
-            'infolinks' => $this->CheckAndGetValueFormatted('InfoLinks'),
-            'infolinksicon' => $this->GetIcon($this->ReadPropertyInteger('InfoLinks')),
-            'inforechts' => $this->CheckAndGetValueFormatted('InfoRechts'),
-            'inforechtsicon' => $this->GetIcon($this->ReadPropertyInteger('InfoRechts')),
             'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
             'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
             'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
