@@ -622,12 +622,18 @@
                         //console.log('Setze innerHTML für', parameter);
                         break;
                     case 'infolinks':
-                    element.textContent = decodedData[parameter];
+                        element.textContent = decodedData[parameter];
                         break;
                     case 'infolinksicon':
-
-                    iconlinks.className = ' iconlinks';
-                    iconlinks.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        iconlinks.className = ' iconlinks';
+                        iconlinks.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        break;
+                    case 'inforechts':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'inforechtsicon':
+                        iconrechts.className = ' iconrechts';
+                        iconrechts.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
                     case 'schalter1':
                         element.className = 'schalter1';
