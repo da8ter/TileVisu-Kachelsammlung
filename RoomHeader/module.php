@@ -277,7 +277,7 @@ class TileVisuRoomHeader extends IPSModule
                 if (isset($association['Value'], $association['Icon']) && $association['Value'] == $Value) {
                     $icon = $association['Icon'];
 
-                    $icon .= base64_encode(file_get_contents('/legacy/img/icons/Aircraft.svg'));
+                    $icon .= base64_encode(file_get_contents(__DIR__ . '../../legacy/img/icons/Aircraft.svg'));
 
 
 
