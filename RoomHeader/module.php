@@ -156,6 +156,7 @@ class TileVisuRoomHeader extends IPSModule
     private function GetFullUpdateMessage() {
         $result = [
             'Variable' => $this->CheckAndGetValueFormatted('Variable'),
+            'VariableIcon' => $this->GetIcon($this->ReadPropertyInteger('Variable'));,
             'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
             'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
             'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
@@ -256,6 +257,24 @@ class TileVisuRoomHeader extends IPSModule
             foreach ($p['Associations'] as $association) {
                 if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
                     return $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
+                    
+                }
+            }
+        }
+        return "";
+    }
+
+    private function GetIcon($id) {
+        $variable = IPS_GetVariable($id);
+        $Value = GetValue($id);
+        $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
+
+        if ($profile && IPS_VariableProfileExists($profile)) {
+            $p = IPS_GetVariableProfile($profile);
+            
+            foreach ($p['Associations'] as $association) {
+                if (isset($association['Value'], $association['Icon']) && $association['Value'] == $Value) {
+                    return $association['Icon'];
                     
                 }
             }
