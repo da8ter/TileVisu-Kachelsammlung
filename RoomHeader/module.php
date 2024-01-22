@@ -92,8 +92,7 @@ class TileVisuRoomHeader extends IPSModule
                 
                             if (IPS_VariableProfileExists($profile)) {
                                 $p = IPS_GetVariableProfile($profile);
-                                var_dump($p);
-                            
+                                                            
                                 $colorhexWert = "";
                                 $result[$VariableProperty .'Color'] = $colorhexWert;
                             
@@ -109,10 +108,7 @@ class TileVisuRoomHeader extends IPSModule
                                         }
                                     }
                                 }
-                            } else {
-                                $colorhexWert = "";
-                                $result[$VariableProperty .'Color'] = $colorhexWert;
-                            }
+                            } 
                             $this->UpdateVisualizationValue(json_encode($result));
                 
                 
