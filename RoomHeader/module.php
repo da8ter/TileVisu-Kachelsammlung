@@ -92,7 +92,7 @@ class TileVisuRoomHeader extends IPSModule
                 
                             if (IPS_VariableProfileExists($profile)) {
                                 $p = IPS_GetVariableProfile($profile);
-                                echo $p;
+                                var_dump($p);
                             
                                 $colorhexWert = "";
                                 $result[$VariableProperty .'Color'] = $colorhexWert;
