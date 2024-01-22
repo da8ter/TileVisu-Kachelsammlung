@@ -554,12 +554,12 @@
             font-size: 3em;
             opacity: 0.5;
         }
-        .iconlegacy {
+        .iconleft {
             width: 50px;
             height: 50px;
             background-size: cover; /* oder 'contain', je nach Bedarf */
     background-repeat: no-repeat; /* verhindert das Wiederholen des Bildes */
-    background-position: center;
+    background-position: left;
         }
         .schalter1, .schalter2, .schalter3, .schalter4, .schalter5 {
             margin-top: 0px;
@@ -627,7 +627,7 @@
                     element.textContent = decodedData[parameter];
                         break;
                     case 'variableicon':
-                    iconleft.className = decodedData[parameter] +' iconlegacy';
+                    iconleft.className = decodedData[parameter] +' iconleft';
                         break;
                     case 'schalter1':
                         element.className = 'schalter1';
