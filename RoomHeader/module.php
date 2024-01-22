@@ -75,7 +75,7 @@ class TileVisuRoomHeader extends IPSModule
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
 
-                        if ($VariableProperty == "Schalter1" || $VariableProperty == "Schalter2" || $VariableProperty == "Schalter3" || $VariableProperty == "Schalter4" || $VariableProperty == "Schalter5")
+                        if ($VariableProperty == "Schalter1" || $VariableProperty == "Schalter2" || $VariableProperty == "Schalter3" || $VariableProperty == "Schalter4" || $VariableProperty == "Schalter5" || $VariableProperty == "Variable")
                         {
                                          
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
