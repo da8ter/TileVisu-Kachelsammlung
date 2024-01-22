@@ -287,9 +287,14 @@ class TileVisuRoomHeader extends IPSModule
             foreach ($p['Associations'] as $association) {
                 if (isset($association['Value'], $association['Icon']) && $association['Value'] == $Value) {
                     $icon = $association['Icon'];
-
                     return $icon;
-                    
+                }
+                elseif (isset($p['Icon']) {
+                    $icon = $p['Icon'];
+                    return $icon;
+                }
+                else {
+                    return 'Transparent';
                 }
             }
         }
