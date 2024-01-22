@@ -167,21 +167,22 @@ class TileVisuRoomHeader extends IPSModule
             $result['inforechts'] = $this->CheckAndGetValueFormatted('InfoRechts');
             $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'));
         }
+            $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
 
-        $result = [
-            'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
-            'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
-            'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
-            'transparenz' => $this->ReadPropertyFloat('Bildtransparenz'),
-            'raumname' => $this->ReadPropertyString('Raumname'),
-            'raumnameschriftgroesse' => $this->ReadPropertyFloat('RaumnameSchriftgroesse'),
-            'raumnameschriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe')),
-            'schalter1breite' => $this->ReadPropertyFloat('Schalter1Breite'),
-            'schalter2breite' => $this->ReadPropertyFloat('Schalter2Breite'),
-            'schalter3breite' => $this->ReadPropertyFloat('Schalter3Breite'),
-            'schalter4breite' => $this->ReadPropertyFloat('Schalter4Breite'),
-            'schalter5breite' => $this->ReadPropertyFloat('Schalter5Breite')
-        ];
+
+            $result['fontsize'] =  $this->ReadPropertyFloat('Schriftgroesse');
+            $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
+            $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
+            $result['transparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
+            $result['raumname'] =  $this->ReadPropertyString('Raumname');
+            $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
+            $result['raumnameschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
+            $result['schalter1breite'] =  $this->ReadPropertyFloat('Schalter1Breite');
+            $result['schalter2breite'] =  $this->ReadPropertyFloat('Schalter2Breite');
+            $result['schalter3breite'] =  $this->ReadPropertyFloat('Schalter3Breite');
+            $result['schalter4breite'] =  $this->ReadPropertyFloat('Schalter4Breite');
+            $result['schalter5breite'] =  $this->ReadPropertyFloat('Schalter5Breite');
+ 
 
         $schalterIDs = ['Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'];
 
