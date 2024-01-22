@@ -620,10 +620,10 @@
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         //console.log('Setze innerHTML für', parameter);
                         break;
-                    case 'variable':
+                    case 'infolinks':
                     element.textContent = decodedData[parameter];
                         break;
-                    case 'variableicon':
+                    case 'infolinksicon':
 
                     iconleft.className = ' iconleft';
                     iconleft.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
@@ -743,7 +743,7 @@
     <div class="maindiv2">
       <div class="left-aligned">
         <img class="hidden" id="iconleft" src=""></img>
-        <div class="textleft"><p class="variablentext" id="variable">Info</p></div>
+        <div class="textleft"><p class="variablentext" id="infolinks">Info</p></div>
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
       <div class="right-aligned">
