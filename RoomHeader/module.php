@@ -8,7 +8,7 @@ class TileVisuRoomHeader extends IPSModule
 
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("bgImage", 0);
-        $this->RegisterPropertyInteger("Infolinks", 0);
+        $this->RegisterPropertyInteger("InfoLinks", 0);
         $this->RegisterPropertyFloat('Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
@@ -49,7 +49,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'Infolinks', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $VariableProperty)        {
+        foreach (['bgImage', 'InfoLinks', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -60,7 +60,7 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'Infolinks', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $index => $VariableProperty)
+        foreach (['bgImage', 'InfoLinks', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -74,7 +74,7 @@ class TileVisuRoomHeader extends IPSModule
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
 
-                        if ($VariableProperty == "Schalter1" || $VariableProperty == "Schalter2" || $VariableProperty == "Schalter3" || $VariableProperty == "Schalter4" || $VariableProperty == "Schalter5" || $VariableProperty == "Infolinks")
+                        if ($VariableProperty == "Schalter1" || $VariableProperty == "Schalter2" || $VariableProperty == "Schalter3" || $VariableProperty == "Schalter4" || $VariableProperty == "Schalter5" || $VariableProperty == "InfoLinks")
                         {
                                          
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
@@ -155,8 +155,8 @@ class TileVisuRoomHeader extends IPSModule
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
         $result = [
-            'Infolinks' => $this->CheckAndGetValueFormatted('Infolinks'),
-            'InfolinksIcon' => $this->GetIcon($this->ReadPropertyInteger('Infolinks')),
+            'infolinks' => $this->CheckAndGetValueFormatted('InfoLinks'),
+            'infolinksicon' => $this->GetIcon($this->ReadPropertyInteger('InfoLinks')),
             'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
             'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
             'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
