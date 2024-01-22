@@ -279,7 +279,7 @@ class TileVisuRoomHeader extends IPSModule
                 }
             }
         }
-        return "icontest";
+        //return "icontest";
     }
 }
 ?>
