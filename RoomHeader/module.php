@@ -156,7 +156,7 @@ class TileVisuRoomHeader extends IPSModule
     private function GetFullUpdateMessage() {
         $result = [
             'Variable' => $this->CheckAndGetValueFormatted('Variable'),
-            'VariableIcon' => $this->GetIcon($this->ReadPropertyInteger('Variable'));,
+            'VariableIcon' => $this->GetIcon($this->ReadPropertyInteger('Variable')),
             'fontsize' => $this->ReadPropertyFloat('Schriftgroesse'),
             'hintergrundfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe')),
             'schriftfarbe' => '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe')),
