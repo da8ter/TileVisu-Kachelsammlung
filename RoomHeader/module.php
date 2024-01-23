@@ -37,6 +37,16 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger('Info3', 0);
         $this->RegisterPropertyInteger('Info4', 0);
         $this->RegisterPropertyInteger('Info5', 0);
+        $this->RegisterPropertyBoolean('Info1NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info2NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info4NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info5NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info1iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info2iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info3iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info4iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info5iconSwitch', 1);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -143,11 +153,12 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
+            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1Name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
             $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
-            $result['info1Name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
+
             $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
             $result['info2Name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
         }
@@ -166,6 +177,19 @@ class TileVisuRoomHeader extends IPSModule
             $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'));
             $result['info5Name'] = IPS_GetName($this->ReadPropertyInteger('Info5')) . ':';
         }
+
+
+        $this->ReadPropertyBoolean('Info1NameSwitch');
+        $this->RegisterPropertyBoolean('Info2NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info4NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info5NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Info1iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info2iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info3iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info4iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info5iconSwitch', 1);
+
 
             $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
 
