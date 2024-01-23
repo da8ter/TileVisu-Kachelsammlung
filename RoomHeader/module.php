@@ -147,27 +147,27 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
             $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
-            $result['info1Name'] = $this->IPS_GetName($this->ReadPropertyInteger('Info1'));
+            $result['info1Name'] = IPS_GetName($this->ReadPropertyInteger('Info1'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
             $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
-            $result['info2Name'] = $this->IPS_GetName($this->ReadPropertyInteger('Info2'));
+            $result['info2Name'] = IPS_GetName($this->ReadPropertyInteger('Info2'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
             $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'));
-            $result['info3Name'] = $this->IPS_GetName($this->ReadPropertyInteger('Info3'));
+            $result['info3Name'] = IPS_GetName($this->ReadPropertyInteger('Info3'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info4'))) {
             $result['info4'] = $this->CheckAndGetValueFormatted('Info4');
             $result['info4icon'] = $this->GetIcon($this->ReadPropertyInteger('Info4'));
-            $result['info4Name'] = $this->IPS_GetName($this->ReadPropertyInteger('Info4'));
+            $result['info4Name'] = IPS_GetName($this->ReadPropertyInteger('Info4'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info5'))) {
             $result['info5'] = $this->CheckAndGetValueFormatted('Info5');
             $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'));
-            $result['info5Name'] = $this->IPS_GetName($this->ReadPropertyInteger('Info5'));
+            $result['info5Name'] = IPS_GetName($this->ReadPropertyInteger('Info5'));
         }
 
             $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
