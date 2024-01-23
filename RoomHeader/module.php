@@ -47,6 +47,21 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyBoolean('Info3IconSwitch', 1);
         $this->RegisterPropertyBoolean('Info4IconSwitch', 1);
         $this->RegisterPropertyBoolean('Info5IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter1NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter2NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter3NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter4NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter5NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter1IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter2IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter3IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter4IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter5IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter1AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter2AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter3AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter4AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter5AssoSwitch', 1);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -153,37 +168,67 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
-            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1Name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
+            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
             if ($this->ReadPropertyBoolean('Info1IconSwitch')) $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
-            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2Name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
+            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
             if ($this->ReadPropertyBoolean('Info2IconSwitch')) $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
 
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
-            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3Name'] = IPS_GetName($this->ReadPropertyInteger('Info3')) . ':';
+            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3name'] = IPS_GetName($this->ReadPropertyInteger('Info3')) . ':';
             if ($this->ReadPropertyBoolean('Info3IconSwitch')) $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'));
 
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info4'))) {
             $result['info4'] = $this->CheckAndGetValueFormatted('Info4');
-            if ($this->ReadPropertyBoolean('Info4NameSwitch')) $result['info4Name'] = IPS_GetName($this->ReadPropertyInteger('Info4')) . ':';
+            if ($this->ReadPropertyBoolean('Info4NameSwitch')) $result['info4name'] = IPS_GetName($this->ReadPropertyInteger('Info4')) . ':';
             if ($this->ReadPropertyBoolean('Info4IconSwitch')) $result['info4icon'] = $this->GetIcon($this->ReadPropertyInteger('Info4'));
 
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info5'))) {
             $result['info5'] = $this->CheckAndGetValueFormatted('Info5');
-            if ($this->ReadPropertyBoolean('Info5NameSwitch')) $result['info5Name'] = IPS_GetName($this->ReadPropertyInteger('Info5')) . ':';
+            if ($this->ReadPropertyBoolean('Info5NameSwitch')) $result['info5name'] = IPS_GetName($this->ReadPropertyInteger('Info5')) . ':';
             if ($this->ReadPropertyBoolean('Info5IconSwitch')) $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'));
-
         }
-
-
-            $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
-
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter1'))) {
+            $result['schalter1'] = $this->CheckAndGetValueFormatted('Schalter1');
+            $result['schalter1breite'] =  $this->ReadPropertyFloat('Schalter1Breite');
+            $result['schalter1color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter1'));
+            if ($this->ReadPropertyBoolean('Schalter1NameSwitch')) $result['schalter1name'] = IPS_GetName($this->ReadPropertyInteger('Schalter1')) . ':';
+            if ($this->ReadPropertyBoolean('Schalter1IconSwitch')) $result['schalter1icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter1'));
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter2'))) {
+            $result['Schalter2'] = $this->CheckAndGetValueFormatted('Schalter2');
+            $result['schalter2breite'] =  $this->ReadPropertyFloat('Schalter2Breite');
+            $result['schalter2color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter2'));
+            if ($this->ReadPropertyBoolean('Schalter2NameSwitch')) $result['schalter2name'] = IPS_GetName($this->ReadPropertyInteger('Schalter2')) . ':';
+            if ($this->ReadPropertyBoolean('Schalter2IconSwitch')) $result['schalter2icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter2'));
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter3'))) {
+            $result['Schalter3'] = $this->CheckAndGetValueFormatted('Schalter3');
+            $result['schalter3breite'] =  $this->ReadPropertyFloat('Schalter3Breite');
+            $result['schalter3color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter3'));
+            if ($this->ReadPropertyBoolean('Schalter3NameSwitch')) $result['schalter3Nname'] = IPS_GetName($this->ReadPropertyInteger('Schalter3')) . ':';
+            if ($this->ReadPropertyBoolean('Schalter3IconSwitch')) $result['schalter3icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter3'));
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter4'))) {
+            $result['Schalter4'] = $this->CheckAndGetValueFormatted('Schalter4');
+            $result['schalter4breite'] =  $this->ReadPropertyFloat('Schalter4Breite');
+            $result['schalter4color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter4'));
+            if ($this->ReadPropertyBoolean('Schalter4NameSwitch')) $result['schalter4name'] = IPS_GetName($this->ReadPropertyInteger('Schalter4')) . ':';
+            if ($this->ReadPropertyBoolean('Schalter4IconSwitch')) $result['schalter4icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter4'));
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter5'))) {
+            $result['Schalter5'] = $this->CheckAndGetValueFormatted('Schalter5');
+            $result['schalter5breite'] =  $this->ReadPropertyFloat('Schalter5Breite');
+            $result['schalter5color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter5'));
+            if ($this->ReadPropertyBoolean('Schalter5NameSwitch')) $result['schalter5name'] = IPS_GetName($this->ReadPropertyInteger('Schalter5')) . ':';
+            if ($this->ReadPropertyBoolean('Schalter5IconSwitch')) $result['schalter5icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter5'));
+        }
 
             $result['fontsize'] =  $this->ReadPropertyFloat('Schriftgroesse');
             $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
@@ -192,24 +237,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['raumname'] =  $this->ReadPropertyString('Raumname');
             $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
             $result['raumnameschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
-            $result['schalter1breite'] =  $this->ReadPropertyFloat('Schalter1Breite');
-            $result['schalter2breite'] =  $this->ReadPropertyFloat('Schalter2Breite');
-            $result['schalter3breite'] =  $this->ReadPropertyFloat('Schalter3Breite');
-            $result['schalter4breite'] =  $this->ReadPropertyFloat('Schalter4Breite');
-            $result['schalter5breite'] =  $this->ReadPropertyFloat('Schalter5Breite');
- 
-
-        $schalterIDs = ['Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'];
-
-        foreach ($schalterIDs as $schalter) {
-            $schalterValue = $this->CheckAndGetValueFormatted($schalter);
             
-            if ($schalterValue) {
-                $result[$schalter] = $schalterValue;
-                $result[$schalter . 'Color'] = $this->GetColor($this->ReadPropertyInteger($schalter));
-            }
-        }
-
+            
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
             if (IPS_MediaExists($imageID))
