@@ -19,12 +19,12 @@
                 {
                     "type": "SelectMedia",
                     "name": "bgImage",
-                    "caption": "Fotos"
+                    "caption": "Foto:"
                 },
                 {
                     "type": "NumberSpinner",
-                    "name": "Bildtransparenz",
-                    "caption": "Transparenz Bild (Werte von 0 bis 1",
+                    "name": "Bildtransparenz:",
+                    "caption": "Transparenz Bild (Werte von 0 bis 1)",
                     "digits": 1,
                     "minimum": 0.0,
                     "maximum": 1.0,
@@ -39,18 +39,18 @@
                 {
                     "type": "ValidationTextBox",
                     "name": "Raumname",
-                    "caption": "Raumname (Text Mitte)"
+                    "caption": "Raumname (Text Mitte):"
                 },
                 {
                     "type": "SelectColor",
                     "allowTransparent": "false",
                     "name": "RaumnameSchriftfarbe",
-                    "caption": "Schriftfarbe"
+                    "caption": "Schriftfarbe:"
                 },
                 {
                     "type": "NumberSpinner",
                     "name": "RaumnameSchriftgroesse",
-                    "caption": "Schriftgröße",
+                    "caption": "Schriftgröße:",
                     "digits": 1,
                     "minimum": 0.5,
                     "maximum": 10.0,
