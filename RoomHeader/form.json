@@ -29,7 +29,13 @@
                     "minimum": 0.0,
                     "maximum": 1.0,
                     "suffix": ""
-                },
+                }
+
+                    ]
+        },
+        {
+            "type": "RowLayout",
+            "items": [
                 {
                     "type": "ValidationTextBox",
                     "name": "Raumname",
