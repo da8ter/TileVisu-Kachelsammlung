@@ -259,9 +259,10 @@
                         break;
                     case 'infolinksicon':
                     if (decodedData[parameter] !== "Transparent") {
-                    iconlinks.className = ' iconlinks';
-                    iconlinks.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-    }                   break;
+                        iconlinks.className = ' iconlinks';
+                        iconlinks.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }                   
+                        break;
                     case 'inforechts':
                         element.textContent = decodedData[parameter];
                         break;
@@ -373,9 +374,11 @@
                         console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info1icon':
-                        element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         console.log('Setze innerHTML für', parameter2);
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'info1icon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
                         break;
                     case 'info2':
                         element.className = 'info2';
@@ -383,9 +386,11 @@
                         console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info2icon':
-                        element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         console.log('Setze innerHTML für', parameter2);
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'info2icon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
                         break;
                     case 'info3':
                         element.className = 'info3';
