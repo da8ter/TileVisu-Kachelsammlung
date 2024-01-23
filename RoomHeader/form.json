@@ -56,7 +56,7 @@
                             "onClick": "TM_Update2($id);"
                         }
                     ]
-                }
+                },
                 { 
                     "type": "ColumnLayout",
                     "items": [
