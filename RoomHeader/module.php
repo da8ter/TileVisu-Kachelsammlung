@@ -154,28 +154,31 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
             if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1Name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
-            $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
+            if ($this->ReadPropertyBoolean('Info1IconSwitch')) $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
+            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2Name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
+            if ($this->ReadPropertyBoolean('Info2IconSwitch')) $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
 
-            $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
-            $result['info2Name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
-            $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'));
-            $result['info3Name'] = IPS_GetName($this->ReadPropertyInteger('Info3')) . ':';
+            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3Name'] = IPS_GetName($this->ReadPropertyInteger('Info3')) . ':';
+            if ($this->ReadPropertyBoolean('Info3IconSwitch')) $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'));
+
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info4'))) {
             $result['info4'] = $this->CheckAndGetValueFormatted('Info4');
-            $result['info4icon'] = $this->GetIcon($this->ReadPropertyInteger('Info4'));
-            $result['info4Name'] = IPS_GetName($this->ReadPropertyInteger('Info4')) . ':';
+            if ($this->ReadPropertyBoolean('Info4NameSwitch')) $result['info4Name'] = IPS_GetName($this->ReadPropertyInteger('Info4')) . ':';
+            if ($this->ReadPropertyBoolean('Info4IconSwitch')) $result['info4icon'] = $this->GetIcon($this->ReadPropertyInteger('Info4'));
+
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info5'))) {
             $result['info5'] = $this->CheckAndGetValueFormatted('Info5');
-            $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'));
-            $result['info5Name'] = IPS_GetName($this->ReadPropertyInteger('Info5')) . ':';
+            if ($this->ReadPropertyBoolean('Info5NameSwitch')) $result['info5Name'] = IPS_GetName($this->ReadPropertyInteger('Info5')) . ':';
+            if ($this->ReadPropertyBoolean('Info5IconSwitch')) $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'));
+
         }
 
 
