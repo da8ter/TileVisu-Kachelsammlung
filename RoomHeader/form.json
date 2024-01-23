@@ -43,6 +43,11 @@
                     "type": "ColumnLayout",
                     "items": [
                         {
+                            "type": "Label", 
+                            "caption": "Menüleiste links:",
+                            "bold": true
+                        },
+                        {
                             "type": "SelectVariable",
                             "name": "Info1",
                             "caption": "Info1:",
