@@ -66,7 +66,7 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $index => $VariableProperty)
+        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'info1', 'info2', 'info3', 'info4', 'info5'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -79,7 +79,7 @@ class TileVisuRoomHeader extends IPSModule
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
-
+                        //Icon und Farbe abrufen
                         if ($VariableProperty == "Schalter1" || 
                         $VariableProperty == "Schalter2" || 
                         $VariableProperty == "Schalter3" || 
@@ -92,7 +92,6 @@ class TileVisuRoomHeader extends IPSModule
                         $VariableProperty == "Info3" ||
                         $VariableProperty == "Info4" ||
                         $VariableProperty == "Info5"
-                        
                         )
                         {
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
