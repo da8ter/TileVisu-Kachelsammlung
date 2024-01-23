@@ -48,10 +48,21 @@
                             "bold": true
                         },
                         {
+                            "type": "RowLayout",
+                            "items": [
+                        {
                             "type": "SelectVariable",
                             "name": "Info1",
                             "caption": "Info1:",
                             "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info1",
+                            "caption": "Info1:",
+                            "validVariableTypes": []
+                        }
+                        ]
                         },
                         {
                             "type": "SelectVariable",
@@ -182,36 +193,6 @@
             "minimum": 0.5,
             "maximum": 10.0,
             "suffix": "em"
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info1",
-            "caption": "Info1:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info2",
-            "caption": "Info2:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info3",
-            "caption": "Info3:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info4",
-            "caption": "Info4:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info5",
-            "caption": "Info5:",
-            "validVariableTypes": []
         },
         {
             "type": "SelectMedia",
