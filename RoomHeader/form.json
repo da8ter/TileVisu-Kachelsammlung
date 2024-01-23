@@ -43,23 +43,35 @@
                     "type": "ColumnLayout",
                     "items": [
                         {
-                            "type": "Label", 
-                            "caption": "Menüleiste links:",
-                            "bold": true
+                            "type": "SelectVariable",
+                            "name": "Info1",
+                            "caption": "Info1:",
+                            "validVariableTypes": []
                         },
                         {
-                            "type": "SelectLocation",
-                            "name": "Location",
-                            "caption": "My Location"
-                        },{
-                            "type": "Button",
-                            "caption": "Test",
-                            "onClick": "TM_Update($id);"
-                        },{
-                            "type": "Button",
-                            "caption": "Test2",
-                            "onClick": "TM_Update2($id);"
-                        }
+                            "type": "SelectVariable",
+                            "name": "Info2",
+                            "caption": "Info2:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info3",
+                            "caption": "Info3:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info4",
+                            "caption": "Info4:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info5",
+                            "caption": "Info5:",
+                            "validVariableTypes": []
+                        },
                     ]
                 },
                 { 
