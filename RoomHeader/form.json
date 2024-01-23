@@ -119,7 +119,7 @@
                             "popup": {
                                 "caption": "Einstellung",
                                 "items": [
-                                    { "type": "CheckBox", "name": "Info1NameSwitch", "caption": "Valiablenname anzeigen" }
+                                    { "type": "CheckBox", "name": "Info1NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info1IconSwitch", "caption": "Icon anzeigen" }
                                 ]
                             }
@@ -141,7 +141,7 @@
                             "popup": {
                                 "caption": "Einstellung",
                                 "items": [
-                                    { "type": "CheckBox", "name": "Info2NameSwitch", "caption": "Valiablenname anzeigen" }
+                                    { "type": "CheckBox", "name": "Info2NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info2IconSwitch", "caption": "Icon anzeigen" }
                                 ]
                             }
@@ -163,7 +163,7 @@
                             "popup": {
                                 "caption": "Einstellung",
                                 "items": [
-                                    { "type": "CheckBox", "name": "Info3NameSwitch", "caption": "Valiablenname anzeigen" }
+                                    { "type": "CheckBox", "name": "Info3NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info3IconSwitch", "caption": "Icon anzeigen" }
                                 ]
                             }
@@ -185,7 +185,7 @@
                             "popup": {
                                 "caption": "Einstellung",
                                 "items": [
-                                    { "type": "CheckBox", "name": "Info4NameSwitch", "caption": "Valiablenname anzeigen" }
+                                    { "type": "CheckBox", "name": "Info4NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info4IconSwitch", "caption": "Icon anzeigen" }
                                 ]
                             }
@@ -207,7 +207,7 @@
                             "popup": {
                                 "caption": "Einstellung",
                                 "items": [
-                                    { "type": "CheckBox", "name": "Info5NameSwitch", "caption": "Valiablenname anzeigen" }
+                                    { "type": "CheckBox", "name": "Info5NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info5IconSwitch", "caption": "Icon anzeigen" }
                                 ]
                             }
