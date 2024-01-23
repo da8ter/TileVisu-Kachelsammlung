@@ -269,7 +269,7 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter1IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter1NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter1NameAsso", "caption": "Assoziation anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter1AssoSwitch", "caption": "Assoziation anzeigen" }
                                 ]
                             }
                         }
@@ -301,7 +301,7 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter2IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter2NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter2NameAsso", "caption": "Assoziation anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter2AssoSwitch", "caption": "Assoziation anzeigen" }
                                 ]
                             }
                         }
@@ -333,7 +333,7 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter3IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter3NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter3NameAsso", "caption": "Assoziation anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter3AssoSwitch", "caption": "Assoziation anzeigen" }
                                 ]
                             }
                         }
@@ -365,7 +365,7 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter4IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter4NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter4NameAsso", "caption": "Assoziation anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter4AssoSwitch", "caption": "Assoziation anzeigen" }
                                 ]
                             }
                         }
@@ -397,7 +397,7 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter5IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter5NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter5NameAsso", "caption": "Assoziation anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter5AssoSwitch", "caption": "Assoziation anzeigen" }
                                 ]
                             }
                         }
