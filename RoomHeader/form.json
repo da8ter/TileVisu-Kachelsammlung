@@ -62,11 +62,7 @@
                             "popup": {
                                 "caption": "My Element Popup",
                                 "items": [
-                                    {
-                                        "type": "SelectVariable",
-                                        "name": "VariableTest",
-                                        "caption": "Some Variable"
-                                    }
+       
                                 ]
                             }
                         }
@@ -82,13 +78,18 @@
                             "validVariableTypes": []
                         },
                         {
-                            "type": "SelectVariable",
-                            "name": "Info11",
-                            "caption": "Info11:",
-                            "validVariableTypes": []
+                            "type": "PopupButton",
+                            "caption": "Open Popup",
+                            "popup": {
+                                "caption": "My Element Popup",
+                                "items": [
+       
+                                ]
+                            }
                         }
                         ]
-                        },                        {
+                        },
+                        {
                             "type": "RowLayout",
                             "items": [
                         {
@@ -98,13 +99,18 @@
                             "validVariableTypes": []
                         },
                         {
-                            "type": "SelectVariable",
-                            "name": "Info11",
-                            "caption": "Info11:",
-                            "validVariableTypes": []
+                            "type": "PopupButton",
+                            "caption": "Open Popup",
+                            "popup": {
+                                "caption": "My Element Popup",
+                                "items": [
+       
+                                ]
+                            }
                         }
                         ]
-                        },                        {
+                        },
+                        {
                             "type": "RowLayout",
                             "items": [
                         {
@@ -114,13 +120,18 @@
                             "validVariableTypes": []
                         },
                         {
-                            "type": "SelectVariable",
-                            "name": "Info11",
-                            "caption": "Info11:",
-                            "validVariableTypes": []
+                            "type": "PopupButton",
+                            "caption": "Open Popup",
+                            "popup": {
+                                "caption": "My Element Popup",
+                                "items": [
+       
+                                ]
+                            }
                         }
                         ]
-                        },                        {
+                        },
+                        {
                             "type": "RowLayout",
                             "items": [
                         {
@@ -130,10 +141,14 @@
                             "validVariableTypes": []
                         },
                         {
-                            "type": "SelectVariable",
-                            "name": "Info11",
-                            "caption": "Info11:",
-                            "validVariableTypes": []
+                            "type": "PopupButton",
+                            "caption": "Open Popup",
+                            "popup": {
+                                "caption": "My Element Popup",
+                                "items": [
+       
+                                ]
+                            }
                         }
                         ]
                         }
