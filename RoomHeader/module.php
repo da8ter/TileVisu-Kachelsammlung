@@ -55,7 +55,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'info1', 'info2', 'info3', 'info4', 'info5'] as $VariableProperty)        {
+        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Info1', 'Info2', 'Info3', 'Info4', 'Info5'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -66,7 +66,7 @@ class TileVisuRoomHeader extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'info1', 'info2', 'info3', 'info4', 'info5'] as $index => $VariableProperty)
+        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Info1', 'Info2', 'Info3', 'Info4', 'Info5'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
