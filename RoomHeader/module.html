@@ -160,8 +160,19 @@
             font-size: var(--fontsize);
             color: var(--schriftfarbe);
             opacity: 0.9;
+        }
+
+        .info1, .info2, .info3, .info4, .info5 {
+            font-size: 1em;
 
         }
+        .infoicon {
+            color: #ffffff;
+            font-size: 1em;
+            opacity: 1;
+        }
+
+
 
         .raumname {
             font-size: var(--raumnamefontsize);
@@ -356,6 +367,56 @@
                         root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
                         //console.log('Setze innerHTML für', parameter);
                         break;
+                    case 'info1':
+                        element.className = 'info1';
+                        element.textContent = decodedData[parameter];
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info1icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info2':
+                        element.className = 'info2';
+                        element.textContent = decodedData[parameter];
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info2icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info3':
+                        element.className = 'info3';
+                        element.textContent = decodedData[parameter];
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info3icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info4':
+                        element.className = 'info4';
+                        element.textContent = decodedData[parameter];
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info4icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'sinfo5':
+                        element.className = 'info5';
+                        element.textContent = decodedData[parameter];
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
+                    case 'info5icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        console.log('Setze innerHTML für', parameter2);
+                        break;
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
@@ -382,7 +443,7 @@
       </div>
     </div>
     <div class="menueleiste">
-      <div class="menueleistelinks">Info 1 - Info 2 - Info 3 - Info 4</div>
+      <div class="menueleistelinks"><img class="hidden" id="info1icon" src=""><p class="hidden" id="info1"></p><img class="hidden" id="info2icon" src=""><p class="hidden" id="info2"></p><img class="hidden" id="info3icon" src=""><p class="hidden" id="info3"></p><img class="hidden" id="info4icon" src=""><p class="hidden" id="info4"></p><img class="hidden" id="info5icon" src=""><p class="hidden" id="info5"></p></div>
       <div class="menueleisterechts"><button id="schalter1" class="hidden" onclick="requestAction('Schalter1', 1);">1</button><button id="schalter2" class="hidden" onclick="requestAction('Schalter2', 1);">2</button><button id="schalter3" class="hidden" onclick="requestAction('Schalter3', 1);">3</button><button id="schalter4" class="hidden" onclick="requestAction('Schalter4', 1);">4</button><button id="schalter5" class="hidden" onclick="requestAction('Schalter5', 1);">5</button></div>
     </div>
   
