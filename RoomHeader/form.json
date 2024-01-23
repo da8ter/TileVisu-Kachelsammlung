@@ -119,7 +119,7 @@
                             "popup": {
                                 "caption": "Einstellung",
                                 "items": [
-       
+                                    { "type": "CheckBox", "name": "Info1NameSwitch", "caption": "Valiablenname anzeigen" }
                                 ]
                             }
                         }
