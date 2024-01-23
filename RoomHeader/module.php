@@ -89,10 +89,6 @@ class TileVisuRoomHeader extends IPSModule
                             $this->UpdateVisualizationValue(json_encode($result));
                         break; // Beende die Schleife, da der passende Wert gefunden wurde
 
-                            
-                            $this->UpdateVisualizationValue(json_encode($result));
-                                       
-                        break;
                 }
             }
         }
