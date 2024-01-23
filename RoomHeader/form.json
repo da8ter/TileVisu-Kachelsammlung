@@ -386,29 +386,6 @@
                     }
                 ]
             }
-        },
-
-        
-        {
-            "type": "NumberSpinner",
-            "name": "Schriftgroesse",
-            "caption": "Schriftgröße",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "Kachelhintergrundfarbe",
-            "caption": "Kachelhintergrundfarbe"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "Schriftfarbe",
-            "caption": "Schriftfarbe"
         }
     ]
 }
