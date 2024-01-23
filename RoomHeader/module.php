@@ -32,6 +32,11 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger('Schalter5', 0);
         $this->RegisterPropertyFloat('Schalter5Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter5Breite', 100);
+        $this->RegisterPropertyInteger('Info1', 0);
+        $this->RegisterPropertyInteger('Info2', 0);
+        $this->RegisterPropertyInteger('Info3', 0);
+        $this->RegisterPropertyInteger('Info4', 0);
+        $this->RegisterPropertyInteger('Info5', 0);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }

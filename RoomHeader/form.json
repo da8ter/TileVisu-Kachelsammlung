@@ -97,13 +97,34 @@
             "suffix": "em"
         },
         {
-            "type": "NumberSpinner",
-            "name": "SchalterBreite",
-            "caption": "Schalter Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
+            "type": "SelectVariable",
+            "name": "Info1",
+            "caption": "Info1:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Info2",
+            "caption": "Info2:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Info3",
+            "caption": "Info3:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Info4",
+            "caption": "Info4:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Info5",
+            "caption": "Info5:",
+            "validVariableTypes": []
         },
         {
             "type": "SelectMedia",
