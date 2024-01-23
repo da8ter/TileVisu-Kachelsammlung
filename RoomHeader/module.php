@@ -80,20 +80,9 @@ class TileVisuRoomHeader extends IPSModule
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
                         //Icon und Farbe abrufen
-                        if ($VariableProperty == "Schalter1" || 
-                        $VariableProperty == "Schalter2" || 
-                        $VariableProperty == "Schalter3" || 
-                        $VariableProperty == "Schalter4" || 
-                        $VariableProperty == "Schalter5" || 
-                        $VariableProperty == "InfoLinks" || 
-                        $VariableProperty == "InfoRechts" ||
-                        $VariableProperty == "Info1" ||
-                        $VariableProperty == "Info2" ||
-                        $VariableProperty == "Info3" ||
-                        $VariableProperty == "Info4" ||
-                        $VariableProperty == "Info5") {
-                      
-                    
+                        $propertiesToCheck = ["Schalter1", "Schalter2", "Schalter3", "Schalter4", "Schalter5", "InfoLinks", "InfoRechts", "Info1", "Info2", "Info3", "Info4", "Info5"];
+                        if (in_array($VariableProperty, $propertiesToCheck)) {
+                                        
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
                             $variableID = $this->ReadPropertyInteger($VariableProperty);
 
