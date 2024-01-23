@@ -165,7 +165,10 @@
         .info1, .info2, .info3, .info4, .info5 {
             font-size: 1em;
             padding-right: 20px;
-
+        }
+        .info1name, .info2name, .info3name, .info4name, .info5name {
+            font-size: 1em;
+            padding-right: 0px;
         }
         .infoicon {
             color: #ffffff;
@@ -383,7 +386,7 @@
                         }
                         break;
                     case 'info1name':
-                        element.className = 'info1';
+                        element.className = 'info1name';
                         element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
@@ -400,7 +403,7 @@
                         }
                         break;
                     case 'info2name':
-                        element.className = 'info2';
+                        element.className = 'info2name';
                         element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         break;
