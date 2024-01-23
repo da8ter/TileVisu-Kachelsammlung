@@ -42,11 +42,11 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info4NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info5NameSwitch', 1);
-        $this->RegisterPropertyBoolean('Info1iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info2iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info3iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info4iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info5iconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info1IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info2IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info3IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info4IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Info5IconSwitch', 1);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
