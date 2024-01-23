@@ -92,10 +92,8 @@ class TileVisuRoomHeader extends IPSModule
                         $VariableProperty == "Info3" ||
                         $VariableProperty == "Info4" ||
                         $VariableProperty == "Info5") {
-                        // Ihr Code hier
-                    }
+                      
                     
-                        {
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
                             $variableID = $this->ReadPropertyInteger($VariableProperty);
 
