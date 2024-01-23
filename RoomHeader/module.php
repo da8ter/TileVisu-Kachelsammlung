@@ -179,18 +179,6 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        $this->ReadPropertyBoolean('Info1NameSwitch');
-        $this->RegisterPropertyBoolean('Info2NameSwitch', 1);
-        $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
-        $this->RegisterPropertyBoolean('Info4NameSwitch', 1);
-        $this->RegisterPropertyBoolean('Info5NameSwitch', 1);
-        $this->RegisterPropertyBoolean('Info1iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info2iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info3iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info4iconSwitch', 1);
-        $this->RegisterPropertyBoolean('Info5iconSwitch', 1);
-
-
             $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
 
 
