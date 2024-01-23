@@ -39,12 +39,12 @@
                     "type": "SelectColor",
                     "allowTransparent": "false",
                     "name": "RaumnameSchriftfarbe",
-                    "caption": "Raumname Schriftfarbe"
+                    "caption": "Schriftfarbe"
                 },
                 {
                     "type": "NumberSpinner",
                     "name": "RaumnameSchriftgroesse",
-                    "caption": "Raumname Schriftgröße",
+                    "caption": "Schriftgröße",
                     "digits": 1,
                     "minimum": 0.5,
                     "maximum": 10.0,
