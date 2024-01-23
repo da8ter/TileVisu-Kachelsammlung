@@ -71,17 +71,34 @@
                             "bold": true
                         },
                         {
-                            "type": "SelectLocation",
-                            "name": "Location",
-                            "caption": "My Location"
-                        },{
-                            "type": "Button",
-                            "caption": "Test",
-                            "onClick": "TM_Update($id);"
-                        },{
-                            "type": "Button",
-                            "caption": "Test2",
-                            "onClick": "TM_Update2($id);"
+                            "type": "SelectVariable",
+                            "name": "Schalter1",
+                            "caption": "Schalter1:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter2",
+                            "caption": "Schalter2:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter3",
+                            "caption": "Schalter3:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter4",
+                            "caption": "Schalter4:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter5",
+                            "caption": "Schalter5:",
+                            "validVariableTypes": []
                         }
                     ]
                 }
@@ -89,12 +106,7 @@
                     ]
         },
 
-        {
-            "type": "SelectVariable",
-            "name": "Schalter1",
-            "caption": "Schalter1:",
-            "validVariableTypes": []
-        },
+       
         {
             "type": "NumberSpinner",
             "name": "Schalter1Breite",
@@ -104,12 +116,7 @@
             "maximum": 500,
             "suffix": "Pixel"
         },
-        {
-            "type": "SelectVariable",
-            "name": "Schalter2",
-            "caption": "Schalter2:",
-            "validVariableTypes": []
-        },
+
         {
             "type": "NumberSpinner",
             "name": "Schalter2Breite",
@@ -119,12 +126,7 @@
             "maximum": 500,
             "suffix": "Pixel"
         },
-        {
-            "type": "SelectVariable",
-            "name": "Schalter3",
-            "caption": "Schalter3:",
-            "validVariableTypes": []
-        },
+
         {
             "type": "NumberSpinner",
             "name": "Schalter3Breite",
@@ -134,12 +136,7 @@
             "maximum": 500,
             "suffix": "Pixel"
         },
-        {
-            "type": "SelectVariable",
-            "name": "Schalter4",
-            "caption": "Schalter4:",
-            "validVariableTypes": []
-        },
+
         {
             "type": "NumberSpinner",
             "name": "Schalter4Breite",
@@ -149,12 +146,7 @@
             "maximum": 500,
             "suffix": "Pixel"
         },
-        {
-            "type": "SelectVariable",
-            "name": "Schalter5",
-            "caption": "Schalter5:",
-            "validVariableTypes": []
-        },
+
         {
             "type": "NumberSpinner",
             "name": "Schalter5Breite",
