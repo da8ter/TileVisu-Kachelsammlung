@@ -85,7 +85,7 @@ class TileVisuRoomHeader extends IPSModule
                             //Icon abrufen
                             $result[$VariableProperty .'Icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));
                             //Name abrufen
-                            $result[$VariableProperty .'Name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty)) + :;
+                            $result[$VariableProperty . 'Name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty)) . ':';
 
                             $this->UpdateVisualizationValue(json_encode($result));
 
