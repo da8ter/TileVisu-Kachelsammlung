@@ -82,7 +82,7 @@ class TileVisuRoomHeader extends IPSModule
                         //Icon und Farbe abrufen
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
-                            print_r($result);
+                            
 
                             //Icon abrufen
                             $result[$VariableProperty .'Icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));
