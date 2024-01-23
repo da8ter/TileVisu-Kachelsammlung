@@ -59,7 +59,7 @@
                         },
                         {
                             "type": "Button",
-                            "caption": "Test2",
+                            "caption": "Test22",
                             "onClick": "TM_Update2($id);"
                         }
                     ]
