@@ -44,7 +44,7 @@
                     "items": [
                         {
                             "type": "Label", 
-                            "caption": "Menüleiste links:",
+                            "caption": "Links:",
                             "bold": true
                         },
                         {
@@ -58,7 +58,7 @@
                         },
                         {
                             "type": "PopupButton",
-                            "caption": "Open Popup",
+                            "caption": "Einstellung",
                             "popup": {
                                 "caption": "My Element Popup",
                                 "items": [
@@ -79,7 +79,7 @@
                         },
                         {
                             "type": "PopupButton",
-                            "caption": "Open Popup",
+                            "caption": "Einstellung",
                             "popup": {
                                 "caption": "My Element Popup",
                                 "items": [
@@ -100,7 +100,7 @@
                         },
                         {
                             "type": "PopupButton",
-                            "caption": "Open Popup",
+                            "caption": "Einstellung",
                             "popup": {
                                 "caption": "My Element Popup",
                                 "items": [
@@ -121,7 +121,7 @@
                         },
                         {
                             "type": "PopupButton",
-                            "caption": "Open Popup",
+                            "caption": "Einstellung",
                             "popup": {
                                 "caption": "My Element Popup",
                                 "items": [
@@ -142,7 +142,7 @@
                         },
                         {
                             "type": "PopupButton",
-                            "caption": "Open Popup",
+                            "caption": "Einstellung",
                             "popup": {
                                 "caption": "My Element Popup",
                                 "items": [
@@ -159,7 +159,7 @@
                     "items": [
                         {
                             "type": "Label", 
-                            "caption": "Menüleiste rechts:",
+                            "caption": "Rechts:",
                             "bold": true
                         },
                         {
