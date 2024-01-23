@@ -57,6 +57,24 @@
                         }
                     ]
                 }
+                { 
+                    "type": "ColumnLayout",
+                    "items": [
+                        {
+                            "type": "SelectLocation",
+                            "name": "Location",
+                            "caption": "My Location"
+                        },{
+                            "type": "Button",
+                            "caption": "Test",
+                            "onClick": "TM_Update($id);"
+                        },{
+                            "type": "Button",
+                            "caption": "Test2",
+                            "onClick": "TM_Update2($id);"
+                        }
+                    ]
+                }
 
                     ]
         },
