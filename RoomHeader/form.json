@@ -24,11 +24,17 @@
                 {
                     "type": "NumberSpinner",
                     "name": "Bildtransparenz:",
-                    "caption": "Transparenz Bild (Werte von 0 bis 1)",
+                    "caption": "Transparenz Foto (Werte von 0 bis 1)",
                     "digits": 1,
                     "minimum": 0.0,
                     "maximum": 1.0,
                     "suffix": ""
+                },
+                {
+                    "type": "SelectColor",
+                    "allowTransparent": "false",
+                    "name": "Kachelhintergrundfarbe",
+                    "caption": "Kachelhintergrundfarbe"
                 }
 
                     ]
