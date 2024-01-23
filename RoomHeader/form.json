@@ -1,15 +1,16 @@
 {
     "elements": [
         {
-            "type": "Label", 
+            "type": "Label",
             "caption": "Tile configuration:",
             "bold": true
         },
-        {   "type": "Label", 
-            "caption": "Beispiel einer voll konfigurierten Kachel" 
+        {
+            "type": "Label",
+            "caption": "Beispiel einer voll konfigurierten Kachel"
         },
         {
-            "type": "Label", 
+            "type": "Label",
             "caption": "Info links/rechts:",
             "bold": true
         },
@@ -28,22 +29,21 @@
                     "caption": "Variable Rechts:",
                     "validVariableTypes": []
                 }
-
-                    ]
+            ]
         },
         {
-            "type": "Label", 
+            "type": "Label",
             "caption": "Menüleiste:",
             "bold": true
         },
         {
             "type": "RowLayout",
             "items": [
-                { 
+                {
                     "type": "ColumnLayout",
                     "items": [
                         {
-                            "type": "Label", 
+                            "type": "Label",
                             "caption": "Menüleiste links:",
                             "bold": true
                         },
@@ -51,28 +51,30 @@
                             "type": "SelectLocation",
                             "name": "Location",
                             "caption": "My Location"
-                        },{
+                        },
+                        {
                             "type": "Button",
                             "caption": "Test",
                             "onClick": "TM_Update($id);"
-                        },{
+                        },
+                        {
                             "type": "Button",
                             "caption": "Test2",
                             "onClick": "TM_Update2($id);"
                         }
                     ]
                 },
-                { 
+                {
                     "type": "ColumnLayout",
                     "items": [
                         {
-                            "type": "Label", 
+                            "type": "Label",
                             "caption": "Menüleiste rechts:",
                             "bold": true
                         },
-                                {
-                                    "type": "RowLayout",
-                                    "items": [
+                        {
+                            "type": "RowLayout",
+                            "items": [
                                 {
                                     "type": "SelectVariable",
                                     "name": "Schalter1",
@@ -85,207 +87,217 @@
                                     "popup": {
                                         "caption": "Bilder zum Wärmepumpenstatus zuordnen",
                                         "items": [
-                        
+                                            {
+                                                "type": "Select",
+                                                "name": "Statusimage0",
+                                                "caption": "Status = 0",
+                                                "options": [
                                                     {
-                                                        "type": "Select",
-                                                        "name": "Statusimage0",
-                                                        "caption": "Status = 0",
-                                                        "options": [
-                                                            { "caption": "OFF", "value": "wp_aus" },
-                                                            { "caption": "HEATING", "value": "wp_heizen" },
-                                                            { "caption": "HOT WATER", "value": "wp_ww" }
-                                                        ]
+                                                        "caption": "OFF",
+                                                        "value": "wp_aus"
                                                     },
                                                     {
-                                                        "type": "Select",
-                                                        "name": "Statusimage9",
-                                                        "caption": "Status = 9",
-                                                        "options": [
-                                                            { "caption": "OFF", "value": "wp_aus" },
-                                                            { "caption": "HEATING", "value": "wp_heizen" },
-                                                            { "caption": "HOT WATER", "value": "wp_ww" }
-                                                        ]
+                                                        "caption": "HEATING",
+                                                        "value": "wp_heizen"
+                                                    },
+                                                    {
+                                                        "caption": "HOT WATER",
+                                                        "value": "wp_ww"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "Select",
+                                                "name": "Statusimage9",
+                                                "caption": "Status = 9",
+                                                "options": [
+                                                    {
+                                                        "caption": "OFF",
+                                                        "value": "wp_aus"
+                                                    },
+                                                    {
+                                                        "caption": "HEATING",
+                                                        "value": "wp_heizen"
+                                                    },
+                                                    {
+                                                        "caption": "HOT WATER",
+                                                        "value": "wp_ww"
                                                     }
                                                 ]
                                             }
-                                        }
-                                            ]
+                                        ]
+                                    }
                                 }
-                                ]
-                                },
-                        {
-                            "type": "SelectVariable",
-                            "name": "Schalter2",
-                            "caption": "Schalter2:",
-                            "validVariableTypes": []
-                        },
-                        {
-                            "type": "SelectVariable",
-                            "name": "Schalter3",
-                            "caption": "Schalter3:",
-                            "validVariableTypes": []
-                        },
-                        {
-                            "type": "SelectVariable",
-                            "name": "Schalter4",
-                            "caption": "Schalter4:",
-                            "validVariableTypes": []
-                        },
-                        {
-                            "type": "SelectVariable",
-                            "name": "Schalter5",
-                            "caption": "Schalter5:",
-                            "validVariableTypes": []
+                            ]
                         }
                     ]
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "Schalter2",
+                    "caption": "Schalter2:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "Schalter3",
+                    "caption": "Schalter3:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "Schalter4",
+                    "caption": "Schalter4:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "Schalter5",
+                    "caption": "Schalter5:",
+                    "validVariableTypes": []
                 }
-
-                    ]
-        },
-
-       
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter1Breite",
-            "caption": "Schalter1 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter2Breite",
-            "caption": "Schalter2 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter3Breite",
-            "caption": "Schalter3 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter4Breite",
-            "caption": "Schalter4 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter5Breite",
-            "caption": "Schalter5 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "SchalterSchriftgroesse",
-            "caption": "Schalter Schriftgröße",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info1",
-            "caption": "Info1:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info2",
-            "caption": "Info2:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info3",
-            "caption": "Info3:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info4",
-            "caption": "Info4:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Info5",
-            "caption": "Info5:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectMedia",
-            "name": "bgImage",
-            "caption": "Fotos"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "Bildtransparenz",
-            "caption": "Transparenz Bild (Werte von 0 bis 1",
-            "digits": 1,
-            "minimum": 0.0,
-            "maximum": 1.0,
-            "suffix": ""
-        },
-        {
-            "type": "ValidationTextBox",
-            "name": "Raumname",
-            "caption": "Raumname (Text Mitte)"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "RaumnameSchriftfarbe",
-            "caption": "Raumname Schriftfarbe"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "RaumnameSchriftgroesse",
-            "caption": "Raumname Schriftgröße",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "Schriftgroesse",
-            "caption": "Schriftgröße",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "Kachelhintergrundfarbe",
-            "caption": "Kachelhintergrundfarbe"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "Schriftfarbe",
-            "caption": "Schriftfarbe"
+            ]
         }
     ]
+},
+{
+    "type": "NumberSpinner",
+    "name": "Schalter1Breite",
+    "caption": "Schalter1 Breite",
+    "digits": 0,
+    "minimum": 50,
+    "maximum": 500,
+    "suffix": "Pixel"
+},
+{
+    "type": "NumberSpinner",
+    "name": "Schalter2Breite",
+    "caption": "Schalter2 Breite",
+    "digits": 0,
+    "minimum": 50,
+    "maximum": 500,
+    "suffix": "Pixel"
+},
+{
+    "type": "NumberSpinner",
+    "name": "Schalter3Breite",
+    "caption": "Schalter3 Breite",
+    "digits": 0,
+    "minimum": 50,
+    "maximum": 500,
+    "suffix": "Pixel"
+},
+{
+    "type": "NumberSpinner",
+    "name": "Schalter4Breite",
+    "caption": "Schalter4 Breite",
+    "digits": 0,
+    "minimum": 50,
+    "maximum": 500,
+    "suffix": "Pixel"
+},
+{
+    "type": "NumberSpinner",
+    "name": "Schalter5Breite",
+    "caption": "Schalter5 Breite",
+    "digits": 0,
+    "minimum": 50,
+    "maximum": 500,
+    "suffix": "Pixel"
+},
+{
+    "type": "NumberSpinner",
+    "name": "SchalterSchriftgroesse",
+    "caption": "Schalter Schriftgröße",
+    "digits": 1,
+    "minimum": 0.5,
+    "maximum": 10.0,
+    "suffix": "em"
+},
+{
+    "type": "SelectVariable",
+    "name": "Info1",
+    "caption": "Info1:",
+    "validVariableTypes": []
+},
+{
+    "type": "SelectVariable",
+    "name": "Info2",
+    "caption": "Info2:",
+    "validVariableTypes": []
+},
+{
+    "type": "SelectVariable",
+    "name": "Info3",
+    "caption": "Info3:",
+    "validVariableTypes": []
+},
+{
+    "type": "SelectVariable",
+    "name": "Info4",
+    "caption": "Info4:",
+    "validVariableTypes": []
+},
+{
+    "type": "SelectVariable",
+    "name": "Info5",
+    "caption": "Info5:",
+    "validVariableTypes": []
+},
+{
+    "type": "SelectMedia",
+    "name": "bgImage",
+    "caption": "Fotos"
+},
+{
+    "type": "NumberSpinner",
+    "name": "Bildtransparenz",
+    "caption": "Transparenz Bild (Werte von 0 bis 1",
+    "digits": 1,
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "suffix": ""
+},
+{
+    "type": "ValidationTextBox",
+    "name": "Raumname",
+    "caption": "Raumname (Text Mitte)"
+},
+{
+    "type": "SelectColor",
+    "allowTransparent": "false",
+    "name": "RaumnameSchriftfarbe",
+    "caption": "Raumname Schriftfarbe"
+},
+{
+    "type": "NumberSpinner",
+    "name": "RaumnameSchriftgroesse",
+    "caption": "Raumname Schriftgröße",
+    "digits": 1,
+    "minimum": 0.5,
+    "maximum": 10.0,
+    "suffix": "em"
+},
+{
+    "type": "NumberSpinner",
+    "name": "Schriftgroesse",
+    "caption": "Schriftgröße",
+    "digits": 1,
+    "minimum": 0.5,
+    "maximum": 10.0,
+    "suffix": "em"
+},
+{
+    "type": "SelectColor",
+    "allowTransparent": "false",
+    "name": "Kachelhintergrundfarbe",
+    "caption": "Kachelhintergrundfarbe"
+},
+{
+    "type": "SelectColor",
+    "allowTransparent": "false",
+    "name": "Schriftfarbe",
+    "caption": "Schriftfarbe"
+}
+]
 }
