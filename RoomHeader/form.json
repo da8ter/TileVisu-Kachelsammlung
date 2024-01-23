@@ -58,8 +58,8 @@
                         },
                         {
                             "type": "SelectVariable",
-                            "name": "Info1",
-                            "caption": "Info1:",
+                            "name": "Info11",
+                            "caption": "Info11:",
                             "validVariableTypes": []
                         }
                         ]
