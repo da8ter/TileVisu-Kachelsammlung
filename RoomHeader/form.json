@@ -23,10 +23,18 @@
                     "validVariableTypes": []
                 },
                 {
-                    "type": "SelectVariable",
-                    "name": "InfoRechts",
-                    "caption": "Variable Rechts:",
-                    "validVariableTypes": []
+                    "type": "PopupButton",
+                    "caption": "Open Popup",
+                    "popup": {
+                        "caption": "My Element Popup",
+                        "items": [
+                            {
+                                "type": "SelectVariable",
+                                "name": "VariableTest",
+                                "caption": "Some Variable"
+                            }
+                        ]
+                    }
                 }
 
                     ]
@@ -65,11 +73,24 @@
                         ]
                         },
                         {
+                            "type": "RowLayout",
+                            "items": [
+                        {
                             "type": "SelectVariable",
                             "name": "Info2",
                             "caption": "Info2:",
                             "validVariableTypes": []
                         },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info11",
+                            "caption": "Info11:",
+                            "validVariableTypes": []
+                        }
+                        ]
+                        },                        {
+                            "type": "RowLayout",
+                            "items": [
                         {
                             "type": "SelectVariable",
                             "name": "Info3",
@@ -78,16 +99,44 @@
                         },
                         {
                             "type": "SelectVariable",
+                            "name": "Info11",
+                            "caption": "Info11:",
+                            "validVariableTypes": []
+                        }
+                        ]
+                        },                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
                             "name": "Info4",
                             "caption": "Info4:",
                             "validVariableTypes": []
                         },
                         {
                             "type": "SelectVariable",
+                            "name": "Info11",
+                            "caption": "Info11:",
+                            "validVariableTypes": []
+                        }
+                        ]
+                        },                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
                             "name": "Info5",
                             "caption": "Info5:",
                             "validVariableTypes": []
+                        },
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info11",
+                            "caption": "Info11:",
+                            "validVariableTypes": []
                         }
+                        ]
+                        },
                     ]
                 },
                 { 
