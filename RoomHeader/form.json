@@ -168,7 +168,7 @@
                         {
                             "type": "SelectVariable",
                             "name": "Schalter1",
-                            "caption": "Info1:",
+                            "caption": "Schalter1:",
                             "validVariableTypes": []
                         },
                         {
@@ -197,7 +197,7 @@
                         {
                             "type": "SelectVariable",
                             "name": "Schalter2",
-                            "caption": "Info2:",
+                            "caption": "Schalter2:",
                             "validVariableTypes": []
                         },
                         {
@@ -226,7 +226,7 @@
                         {
                             "type": "SelectVariable",
                             "name": "Schalter3",
-                            "caption": "Info3:",
+                            "caption": "Schalter3:",
                             "validVariableTypes": []
                         },
                         {
@@ -255,7 +255,7 @@
                         {
                             "type": "SelectVariable",
                             "name": "Schalter4",
-                            "caption": "Info4:",
+                            "caption": "Schalter4:",
                             "validVariableTypes": []
                         },
                         {
@@ -283,7 +283,7 @@
                             "items": [
                         {
                             "type": "SelectVariable",
-                            "name": "Info5",
+                            "name": "Schalter5",
                             "caption": "Schalter5:",
                             "validVariableTypes": []
                         },
