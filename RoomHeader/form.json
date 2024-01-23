@@ -1,17 +1,37 @@
 {
     "elements": [
         {
-            "type": "SelectVariable",
-            "name": "InfoLinks",
-            "caption": "Variable Links:",
-            "validVariableTypes": []
+            "type": "Label", 
+            "caption": "Tile configuration:",
+            "bold": true
+        },
+        {   "type": "Label", 
+            "caption": "Beispiel einer voll konfigurierten Kachel" 
         },
         {
-            "type": "SelectVariable",
-            "name": "InfoRechts",
-            "caption": "Variable Rechts:",
-            "validVariableTypes": []
+            "type": "Label", 
+            "caption": "Info links/rechts:",
+            "bold": true
         },
+        {
+            "type": "RowLayout",
+            "items": [
+                {
+                    "type": "SelectVariable",
+                    "name": "InfoLinks",
+                    "caption": "Variable Links:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "InfoRechts",
+                    "caption": "Variable Rechts:",
+                    "validVariableTypes": []
+                },
+                    ]
+        },
+
+
         {
             "type": "SelectVariable",
             "name": "Schalter1",
