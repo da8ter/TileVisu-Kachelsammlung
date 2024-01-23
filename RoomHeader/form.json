@@ -312,58 +312,25 @@
 
                     ]
         },
-
-       
-
-
         {
-            "type": "NumberSpinner",
-            "name": "Schalter2Breite",
-            "caption": "Schalter2 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter3Breite",
-            "caption": "Schalter3 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter4Breite",
-            "caption": "Schalter4 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-
-        {
-            "type": "NumberSpinner",
-            "name": "Schalter5Breite",
-            "caption": "Schalter5 Breite",
-            "digits": 0,
-            "minimum": 50,
-            "maximum": 500,
-            "suffix": "Pixel"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "SchalterSchriftgroesse",
+            "type": "PopupButton",
             "caption": "Schalter Schriftgröße",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
+            "popup": {
+                "caption": "Schalter Schriftgröße",
+                "items": [
+                    {
+                        "type": "NumberSpinner",
+                        "name": "SchalterSchriftgroesse",
+                        "caption": "Schalter Schriftgröße",
+                        "digits": 1,
+                        "minimum": 0.5,
+                        "maximum": 10.0,
+                        "suffix": "em"
+                    }
+                ]
+            }
         },
+
         {
             "type": "SelectMedia",
             "name": "bgImage",
