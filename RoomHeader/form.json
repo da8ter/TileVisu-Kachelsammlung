@@ -70,17 +70,13 @@
                             "caption": "Menüleiste rechts:",
                             "bold": true
                         },
-                                {
-                                    "type": "RowLayout",
-                                    "items": [
-                                {
-                                    "type": "SelectVariable",
-                                    "name": "Schalter1",
-                                    "caption": "Schalter1:",
-                                    "validVariableTypes": []
-                                }
-                                ]
-                                }
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter1",
+                            "caption": "Schalter1:",
+                            "validVariableTypes": []
+                        },
+
                         {
                             "type": "SelectVariable",
                             "name": "Schalter2",
