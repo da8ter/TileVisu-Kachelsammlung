@@ -23,18 +23,10 @@
                     "validVariableTypes": []
                 },
                 {
-                    "type": "PopupButton",
-                    "caption": "Open Popup",
-                    "popup": {
-                        "caption": "My Element Popup",
-                        "items": [
-                            {
-                                "type": "SelectVariable",
-                                "name": "VariableTest",
-                                "caption": "Some Variable"
-                            }
-                        ]
-                    }
+                    "type": "SelectVariable",
+                    "name": "InfoRechts",
+                    "caption": "Variable Rechts:",
+                    "validVariableTypes": []
                 }
 
                     ]
@@ -65,10 +57,18 @@
                             "validVariableTypes": []
                         },
                         {
-                            "type": "SelectVariable",
-                            "name": "Info11",
-                            "caption": "Info11:",
-                            "validVariableTypes": []
+                            "type": "PopupButton",
+                            "caption": "Open Popup",
+                            "popup": {
+                                "caption": "My Element Popup",
+                                "items": [
+                                    {
+                                        "type": "SelectVariable",
+                                        "name": "VariableTest",
+                                        "caption": "Some Variable"
+                                    }
+                                ]
+                            }
                         }
                         ]
                         },
