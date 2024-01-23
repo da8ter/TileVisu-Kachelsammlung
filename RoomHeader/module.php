@@ -77,13 +77,9 @@ class TileVisuRoomHeader extends IPSModule
                     case VM_UPDATE:
                         
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                        
+                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
                         //Icon und Farbe abrufen
-                        $propertiesToCheck = ["Schalter1", "Schalter2", "Schalter3", "Schalter4", "Schalter5", "InfoLinks", "InfoRechts", "Info1", "Info2", "Info3", "Info4", "Info5"];
-                        if (in_array($VariableProperty, $propertiesToCheck)) {
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));           
-
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
 
@@ -93,8 +89,7 @@ class TileVisuRoomHeader extends IPSModule
 
                             
                             $this->UpdateVisualizationValue(json_encode($result));
-                
-                        }
+                                       
                         break;
                 }
             }
