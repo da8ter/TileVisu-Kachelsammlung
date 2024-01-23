@@ -102,7 +102,7 @@
                         {
                             "type": "Label", 
                             "caption": "Links:",
-                            "bold": true
+                            "bold": false
                         },
                         {
                             "type": "RowLayout",
@@ -222,7 +222,7 @@
                         {
                             "type": "Label", 
                             "caption": "Rechts:",
-                            "bold": true
+                            "bold": false
                         },
                         {
                             "type": "RowLayout",
