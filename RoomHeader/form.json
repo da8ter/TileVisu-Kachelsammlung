@@ -27,7 +27,8 @@
                     "name": "InfoRechts",
                     "caption": "Variable Rechts:",
                     "validVariableTypes": []
-                },
+                }
+
                     ]
         },
 
