@@ -73,11 +73,29 @@
         {
             "type": "RowLayout",
             "items": [
+                { 
+            "type": "ColumnLayout",
+            "items": [
+                {
+                    "type": "Label", 
+                    "caption": "Links:",
+                    "bold": false
+                },
                 {
                     "type": "SelectVariable",
                     "name": "InfoLinks",
                     "caption": "Links:",
                     "validVariableTypes": []
+                }
+            ]
+        }
+                { 
+            "type": "ColumnLayout",
+            "items": [
+                {
+                    "type": "Label", 
+                    "caption": "Rechts:",
+                    "bold": false
                 },
                 {
                     "type": "SelectVariable",
@@ -85,7 +103,8 @@
                     "caption": "Rechts:",
                     "validVariableTypes": []
                 }
-
+            ]
+        }
                     ]
         },
         {
