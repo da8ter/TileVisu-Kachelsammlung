@@ -43,6 +43,11 @@
                     "type": "ColumnLayout",
                     "items": [
                         {
+                            "type": "Label", 
+                            "caption": "Menüleiste links:",
+                            "bold": true
+                        },
+                        {
                             "type": "SelectLocation",
                             "name": "Location",
                             "caption": "My Location"
@@ -60,6 +65,11 @@
                 { 
                     "type": "ColumnLayout",
                     "items": [
+                        {
+                            "type": "Label", 
+                            "caption": "Menüleiste rechts:",
+                            "bold": true
+                        },
                         {
                             "type": "SelectLocation",
                             "name": "Location",
