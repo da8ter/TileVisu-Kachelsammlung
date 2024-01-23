@@ -167,7 +167,7 @@
                             "items": [
                         {
                             "type": "SelectVariable",
-                            "name": "Info1",
+                            "name": "Schalter1",
                             "caption": "Info1:",
                             "validVariableTypes": []
                         },
@@ -188,7 +188,7 @@
                             "items": [
                         {
                             "type": "SelectVariable",
-                            "name": "Info2",
+                            "name": "Schalter2",
                             "caption": "Info2:",
                             "validVariableTypes": []
                         },
@@ -209,7 +209,7 @@
                             "items": [
                         {
                             "type": "SelectVariable",
-                            "name": "Info3",
+                            "name": "Schalter3",
                             "caption": "Info3:",
                             "validVariableTypes": []
                         },
@@ -230,7 +230,7 @@
                             "items": [
                         {
                             "type": "SelectVariable",
-                            "name": "Info4",
+                            "name": "Schalter4",
                             "caption": "Info4:",
                             "validVariableTypes": []
                         },
@@ -252,7 +252,7 @@
                         {
                             "type": "SelectVariable",
                             "name": "Info5",
-                            "caption": "Info5:",
+                            "caption": "Schalter5:",
                             "validVariableTypes": []
                         },
                         {
