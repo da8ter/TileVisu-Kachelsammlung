@@ -55,7 +55,7 @@ class TileVisuRoomHeader extends IPSModule
         }
 
 
-        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $VariableProperty)        {
+        foreach (['bgImage', 'InfoLinks', 'InfoRechts', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'info1', 'info2', 'info3', 'info4', 'info5'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -80,7 +80,20 @@ class TileVisuRoomHeader extends IPSModule
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                         
 
-                        if ($VariableProperty == "Schalter1" || $VariableProperty == "Schalter2" || $VariableProperty == "Schalter3" || $VariableProperty == "Schalter4" || $VariableProperty == "Schalter5" || $VariableProperty == "InfoLinks" || $VariableProperty == "InfoRechts")
+                        if ($VariableProperty == "Schalter1" || 
+                        $VariableProperty == "Schalter2" || 
+                        $VariableProperty == "Schalter3" || 
+                        $VariableProperty == "Schalter4" || 
+                        $VariableProperty == "Schalter5" || 
+                        $VariableProperty == "InfoLinks" || 
+                        $VariableProperty == "InfoRechts" ||
+                        $VariableProperty == "Info1" ||
+                        $VariableProperty == "Info2" ||
+                        $VariableProperty == "Info3" ||
+                        $VariableProperty == "Info4" ||
+                        $VariableProperty == "Info5"
+                        
+                        )
                         {
                             $variable = IPS_GetVariable($this->ReadPropertyInteger($VariableProperty));
                             $variableID = $this->ReadPropertyInteger($VariableProperty);
