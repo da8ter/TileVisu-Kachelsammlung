@@ -11,9 +11,11 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger("InfoLinks", 0);
         $this->RegisterPropertyInteger("InfoRechts", 0);
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
+        $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('InfoSchriftfarbe', 0xFFFFFF);
+        $this->RegisterPropertyInteger('InfoMenueSchriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyString('Raumname', 'Raumname');
         $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
         $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
@@ -272,6 +274,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['infofontsize'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
             $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
             $result['infoschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoSchriftfarbe'));
+            $result['infomenueschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoMenueSchriftfarbe'));
+            $result['infomenuefontsize'] =  $this->ReadPropertyFloat('InfoMenueSchriftgroesse');
             $result['transparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['raumname'] =  $this->ReadPropertyString('Raumname');
             $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
