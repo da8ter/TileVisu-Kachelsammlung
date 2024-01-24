@@ -189,7 +189,13 @@
             background-color: #28CDAB;
             margin-right: 5px;
             margin-left: 10px;
-
+        }
+        .infotrennerstart {
+            height: 100%;
+            width: 1px;
+            background-color: #28CDAB;
+            margin-right: 5px;
+            margin-left: 0px;
         }
 
 
@@ -463,7 +469,7 @@
                         element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         if (info2 != "" || info3 != "" || info4 != "" || info5 != "") info1trenner.className = 'infotrenner';
-                        info1trennerstart.className = 'infotrenner';
+                        info1trennerstart.className = 'infotrennerstart';
                         break;
                     case 'info1icon':
                         console.log('Setze innerHTML für', parameter2);
