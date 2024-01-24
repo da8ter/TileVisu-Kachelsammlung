@@ -358,7 +358,7 @@ class TileVisuRoomHeader extends IPSModule
             }
 
             if ($icon == "") {
-                $icon = "Transparent";
+                $icon = "";
             }
         }
         return $icon;
