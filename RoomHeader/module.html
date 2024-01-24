@@ -156,28 +156,50 @@
 }
 
 
-        .infolinks, .inforechts {
-            font-size: var(--fontsize);
-            color: var(--schriftfarbe);
-            opacity: 0.9;
+        .infolinks, 
+        .inforechts {
+            font-size: var(--infofontsize);
+            color: var(--infoschriftfarbe);
+            opacity: 1;
         }
 
-        .info1asso, .info2asso, .info3asso, .info4asso, .info5asso {
+        .info1asso, 
+        .info2asso, 
+        .info3asso, 
+        .info4asso, 
+        .info5asso {
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
         }
-        .info1name, .info2name, .info3name, .info4name, .info5name, .schalter1name, .schalter2name, .schalter3name, .schalter4name, .schalter5name {
+        .info1name, 
+        .info2name, 
+        .info3name, 
+        .info4name, 
+        .info5name, 
+        .schalter1name, 
+        .schalter2name, 
+        .schalter3name, 
+        .schalter4name, 
+        .schalter5name {
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
 
         }
-        .schalter1name, .schalter2name, .schalter3name, .schalter4name, .schalter5name, .schalter1asso, .schalter2asso, .schalter3asso, .schalter4asso, .schalter5asso {
+        .schalter1name, 
+        .schalter2name, 
+        .schalter3name, 
+        .schalter4name, 
+        .schalter5name, 
+        .schalter1asso, 
+        .schalter2asso, 
+        .schalter3asso, 
+        .schalter4asso, 
+        .schalter5asso {
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
-
         }
         .infoicon, .schaltericon {
             color: #ffffff;
@@ -185,9 +207,8 @@
             opacity: 1;
             padding-right: 1px;
             padding-left: 1px;
-
         }
-        .infotrenner {
+        .infotrenner, .infotrennerstart {
             height: 60%;
             width: 1px;
             background-color: #28CDAB;
@@ -195,10 +216,6 @@
             margin-left: 10px;
         }
         .infotrennerstart {
-            height: 60%;
-            width: 1px;
-            background-color: #28CDAB;
-            margin-right: 10px;
             margin-left: 0px;
         }
 
@@ -441,17 +458,14 @@
 
                     case 'hintergrundfarbe':
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                        //console.log('Setze innerHTML für', parameter);
                         break;
 
-                    case 'schriftfarbe':
-                        root.style.setProperty('--schriftfarbe', decodedData[parameter]);
-                        //console.log('Setze innerHTML für', parameter);
+                    case 'infoschriftfarbe':
+                        root.style.setProperty('--infoschriftfarbe', decodedData[parameter]);
                         break;
 
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
-                        //console.log('Setze innerHTML für', parameter);
                         break;
 
                     case 'raumname':

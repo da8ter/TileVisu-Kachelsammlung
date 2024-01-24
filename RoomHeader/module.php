@@ -10,10 +10,10 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyInteger("InfoLinks", 0);
         $this->RegisterPropertyInteger("InfoRechts", 0);
-        $this->RegisterPropertyFloat('Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
-        $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
+        $this->RegisterPropertyInteger('InfoSchriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyString('Raumname', 'Raumname');
         $this->RegisterPropertyFloat('RaumnameSchriftgroesse', 1);
         $this->RegisterPropertyInteger('RaumnameSchriftfarbe', 0xFFFFFF);
@@ -269,9 +269,9 @@ class TileVisuRoomHeader extends IPSModule
             if ($this->ReadPropertyBoolean('Schalter5AssoSwitch')) $result['schalter5asso'] = $this->CheckAndGetValueFormatted('Schalter5');
         }
 
-            $result['fontsize'] =  $this->ReadPropertyFloat('Schriftgroesse');
+            $result['infofontsize'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
             $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
-            $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
+            $result['infoschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoSchriftfarbe'));
             $result['transparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['raumname'] =  $this->ReadPropertyString('Raumname');
             $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
