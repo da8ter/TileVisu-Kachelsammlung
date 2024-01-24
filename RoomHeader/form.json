@@ -253,6 +253,15 @@
                             }
                         }
                         ]
+                        },
+                        {
+                            "type": "NumberSpinner",
+                            "name": "InfoMenueSchriftgroesse",
+                            "caption": "Schriftgröße:",
+                            "digits": 1,
+                            "minimum": 0.5,
+                            "maximum": 10.0,
+                            "suffix": "em"
                         }
                     ]
                 },
@@ -430,22 +439,13 @@
                     ]
         },
         {
-            "type": "PopupButton",
-            "caption": "Schalter Schriftgröße",
-            "popup": {
-                "caption": "Schalter Schriftgröße",
-                "items": [
-                    {
-                        "type": "NumberSpinner",
-                        "name": "SchalterSchriftgroesse",
-                        "caption": "Schalter Schriftgröße",
-                        "digits": 1,
-                        "minimum": 0.5,
-                        "maximum": 10.0,
-                        "suffix": "em"
-                    }
-                ]
-            }
+            "type": "NumberSpinner",
+            "name": "InfoMenueSchriftgroesse",
+            "caption": "Schriftgröße:",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
         }
     ]
 }

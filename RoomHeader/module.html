@@ -171,8 +171,8 @@
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
-            font-size: var(--infofontsize);
-            color: var(--infoschriftfarbe);
+            font-size: var(--infomenuefontsize);
+            color: var(--infomenueschriftfarbe);
         }
         .info1name, 
         .info2name, 
@@ -182,8 +182,8 @@
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
-            font-size: var(--infofontsize);
-            color: var(--infoschriftfarbe);
+            font-size: var(--infomenuefontsize);
+            color: var(--infomenueschriftfarbe);
         }
 
         .schalter1name, 
@@ -465,32 +465,29 @@
                         root.style.setProperty('--infofontsize', decodedData[parameter] + 'em');
                         //console.log('Setze innerHTML für', parameter);
                         break;
-
                     case 'hintergrundfarbe':
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;
-
                     case 'infoschriftfarbe':
                         root.style.setProperty('--infoschriftfarbe', decodedData[parameter]);
                         break;
-
+                    case 'infomenueschriftgroesse':
+                        root.style.setProperty('--infomenueschriftgroesse', decodedData[parameter] + 'em');
+                        break;
+                    case 'infomenueschriftfarbe':
+                        root.style.setProperty('--infomenueschriftfarbe', decodedData[parameter]);
+                        break;
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
                         break;
-
                     case 'raumname':
                         element.textContent = decodedData[parameter];
-                        //console.log('Setze innerHTML für', parameter);
                         break;
-
                     case 'raumnameschriftgroesse':
                         root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
-                        //console.log('Setze innerHTML für', parameter);
                         break;
-
                     case 'raumnameschriftfarbe':
                         root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
-                        //console.log('Setze innerHTML für', parameter);
                         break;
                     case 'info1asso':
                         element.className = 'info1asso';
