@@ -253,7 +253,7 @@
                             }
                         }
                         ]
-                        }
+                        },
                         {
                             "type": "NumberSpinner",
                             "name": "InfoMenueSchriftgroesse",
@@ -433,15 +433,15 @@
                         }
                         ]
                         },
-        {
-            "type": "NumberSpinner",
-            "name": "InfoMenueSchriftgroesse",
-            "caption": "Schriftgröße:",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        }
+                        {
+                            "type": "NumberSpinner",
+                            "name": "InfoMenueSchriftgroesse",
+                            "caption": "Schriftgröße:",
+                            "digits": 1,
+                            "minimum": 0.5,
+                            "maximum": 10.0,
+                            "suffix": "em"
+                        }
                     ]
                 }
 
