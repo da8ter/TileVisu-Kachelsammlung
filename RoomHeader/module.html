@@ -469,10 +469,9 @@
                         element.textContent = decodedData[parameter];
                         if (info1name != "") info1doppelpunkt.className = 'info1asso';
                         info1trennerstart.className = 'infotrennerstart';
-                        if (info2 != "" || info3 != "" || info4 != "" || info5 != "") info1trenner.className = 'infotrenner';
+                        if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         break;
                     case 'info1icon':
-                        console.log('Setze innerHTML für', parameter2);
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
@@ -481,17 +480,15 @@
                     case 'info1name':
                         element.className = 'info1name';
                         element.textContent = decodedData[parameter];
-                        console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info2asso':
                         element.className = 'info2asso';
                         element.textContent = decodedData[parameter];
                         if (info2name != "") info2doppelpunkt.className = 'info2asso';
                         info1trennerstart.className = 'infotrennerstart';
-                        if (info3 != "" || info4 != "" || info5 != "") info2trenner.className = 'infotrenner';
+                        if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
                         break;
                     case 'info2icon':
-                        console.log('Setze innerHTML für', parameter2);
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
@@ -500,31 +497,28 @@
                     case 'info2name':
                         element.className = 'info2name';
                         element.textContent = decodedData[parameter];
-                        console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info3asso':
                         element.className = 'info3asso';
                         element.textContent = decodedData[parameter];
                         if (info3name != "") info3doppelpunkt.className = 'info3asso';
                         info1trennerstart.className = 'infotrennerstart';
-                        if (info4 != "" || info5 != "") info3trenner.className = 'infotrenner';
+                        if (info4asso != "" || info5asso != "") info3trenner.className = 'infotrenner';
                         break;
                     case 'info3icon':
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
-                        console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info4asso':
                         element.className = 'info4asso';
                         element.textContent = decodedData[parameter];
                         if (info4name != "") info4doppelpunkt.className = 'info4asso';
                         info1trennerstart.className = 'infotrennerstart';
-                        if (info5 != "") info4trenner.className = 'infotrenner';
+                        if (info5asso != "") info4trenner.className = 'infotrenner';
                         break;
                     case 'info4icon':
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
-                        console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info5asso':
                         element.className = 'info5asso';
@@ -535,7 +529,6 @@
                     case 'info5icon':
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
-                        console.log('Setze innerHTML für', parameter2);
                         break;
 
                     default:
