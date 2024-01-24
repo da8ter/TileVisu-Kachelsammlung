@@ -243,7 +243,6 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter3breite'] =  $this->ReadPropertyFloat('Schalter3Breite');
             $result['schalter3color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter3'));
             if ($this->ReadPropertyBoolean('Schalter3NameSwitch')) $result['schalter3name'] = IPS_GetName($this->ReadPropertyInteger('Schalter3'));
-            //if ($this->ReadPropertyBoolean('Schalter3IconSwitch')) $result['schalter3icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter3'));
             if ($this->ReadPropertyBoolean('Schalter3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter3')) !== "Transparent") {
                 $result['schalter3icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter3'));
             }
@@ -383,6 +382,9 @@ class TileVisuRoomHeader extends IPSModule
             if ($icon == "") {
                 $icon = "Transparent";
             }
+        }
+        else {
+            $icon = "Transparent";
         }
         return $icon;
     }
