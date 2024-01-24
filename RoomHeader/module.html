@@ -461,7 +461,7 @@
                         element.className = 'info1';
                         element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
-                        info1trenner.className = 'infotrenner';
+                        if (info2 != "" || info3 != "" || info4 != "" || info5 != "") info1trenner.className = 'infotrenner';
                         break;
                     case 'info1icon':
                         console.log('Setze innerHTML für', parameter2);
