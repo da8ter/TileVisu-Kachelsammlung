@@ -104,7 +104,29 @@
                     "validVariableTypes": []
                 }
             ]
+        },
+        {
+            "type": "RowLayout",
+            "items": [
+                {
+                    "type": "SelectColor",
+                    "allowTransparent": "false",
+                    "name": "RaumnameSchriftfarbe",
+                    "caption": "Schriftfarbe:"
+                },
+                {
+                    "type": "NumberSpinner",
+                    "name": "RaumnameSchriftgroesse",
+                    "caption": "Schriftgröße:",
+                    "digits": 1,
+                    "minimum": 0.5,
+                    "maximum": 10.0,
+                    "suffix": "em"
+                }
+
+                    ]
         }
+
                     ]
         },
         {
