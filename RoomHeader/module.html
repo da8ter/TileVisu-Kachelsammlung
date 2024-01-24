@@ -463,7 +463,7 @@
                         element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
                         if (info2 != "" || info3 != "" || info4 != "" || info5 != "") info1trenner.className = 'infotrenner';
-                        info1trenner.className = 'infotrenner';
+                        info1trennerstart.className = 'infotrenner';
                         break;
                     case 'info1icon':
                         console.log('Setze innerHTML für', parameter2);
@@ -555,7 +555,7 @@
     <div class="menueleiste">
       <div class="menueleistelinks">
 
-        <div class="hidden" id="info1trenner"></div>
+        <div class="hidden" id="info1trennerstart"></div>
         <img class="hidden" id="info1icon" src="">
         <p class="hidden" id="info1name"></p>&nbsp;
         <p class="hidden" id="info1"></p>
