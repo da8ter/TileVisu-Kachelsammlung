@@ -479,6 +479,7 @@
                     case 'info2':
                         element.className = 'info2';
                         element.textContent = decodedData[parameter];
+                        if (info3 != "" || info4 != "" || info5 != "") info2trenner.className = 'infotrenner';
                         console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info2icon':
@@ -496,6 +497,7 @@
                     case 'info3':
                         element.className = 'info3';
                         element.textContent = decodedData[parameter];
+                        if (info4 != "" || info5 != "") info4trenner.className = 'infotrenner';
                         console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info3icon':
@@ -506,6 +508,7 @@
                     case 'info4':
                         element.className = 'info4';
                         element.textContent = decodedData[parameter];
+                        if (info5 != "") info1trenner.className = 'infotrenner';
                         console.log('Setze innerHTML für', parameter2);
                         break;
                     case 'info4icon':
@@ -559,14 +562,17 @@
         <img class="hidden" id="info2icon" src="">
         <p class="hidden" id="info2name"></p>&nbsp;
         <p class="hidden" id="info2"></p>
+        <div class="hidden" id="info1trenner"></div>
         
         <img class="hidden" id="info3icon" src="">
         <p class="hidden" id="info3name"></p>&nbsp;
         <p class="hidden" id="info3"></p>
+        <div class="hidden" id="info1trenner"></div>
 
         <img class="hidden" id="info4icon" src="">
         <p class="hidden" id="info4name"></p>&nbsp;
         <p class="hidden" id="info4"></p>
+        <div class="hidden" id="info1trenner"></div>
 
         <img class="hidden" id="info5icon" src="">
         <p class="hidden" id="info5name"></p>&nbsp;
