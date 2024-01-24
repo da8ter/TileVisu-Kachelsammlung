@@ -467,7 +467,7 @@
                     case 'info1asso':
                         element.className = 'info1asso';
                         element.textContent = decodedData[parameter];
-                        if (info1name != "") info1doppelpunkt.className = 'info1asso';
+                        if (info1name != "" && info1icon == "") info1doppelpunkt.className = 'info1asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         break;
