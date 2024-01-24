@@ -253,7 +253,7 @@
                             }
                         }
                         ]
-                        },
+                        }
                         {
                             "type": "NumberSpinner",
                             "name": "InfoMenueSchriftgroesse",
@@ -432,12 +432,7 @@
                             }
                         }
                         ]
-                        }
-                    ]
-                }
-
-                    ]
-        },
+                        },
         {
             "type": "NumberSpinner",
             "name": "InfoMenueSchriftgroesse",
@@ -446,6 +441,11 @@
             "minimum": 0.5,
             "maximum": 10.0,
             "suffix": "em"
+        }
+                    ]
+                }
+
+                    ]
         }
     ]
 }
