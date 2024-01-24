@@ -488,7 +488,7 @@
                     case 'info2asso':
                         element.className = 'info2asso';
                         element.textContent = decodedData[parameter];
-                        if (info2name != "") info2doppelpunkt.className = 'info2asso';
+                        if (info2name != "" && info2icon == "") info2doppelpunkt.className = 'info2asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
                         break;
@@ -505,7 +505,7 @@
                     case 'info3asso':
                         element.className = 'info3asso';
                         element.textContent = decodedData[parameter];
-                        if (info3name != "") info3doppelpunkt.className = 'info3asso';
+                        if (info3name != "" && info3icon == "") info3doppelpunkt.className = 'info3asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info4asso != "" || info5asso != "") info3trenner.className = 'infotrenner';
                         break;
@@ -516,7 +516,7 @@
                     case 'info4asso':
                         element.className = 'info4asso';
                         element.textContent = decodedData[parameter];
-                        if (info4name != "") info4doppelpunkt.className = 'info4asso';
+                        if (info4name != "" && info4icon == "") info4doppelpunkt.className = 'info4asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info5asso != "") info4trenner.className = 'infotrenner';
                         break;
@@ -527,7 +527,7 @@
                     case 'info5asso':
                         element.className = 'info5asso';
                         element.textContent = decodedData[parameter];
-                        if (info5name != "") info5doppelpunkt.className = 'info5asso';
+                        if (info5name != "" && info5icon == "") info5doppelpunkt.className = 'info5asso';
                         info5trennerstart.className = 'infotrennerstart';
                         break;
                     case 'info5icon':
