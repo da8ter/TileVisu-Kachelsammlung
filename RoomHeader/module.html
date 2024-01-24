@@ -184,7 +184,12 @@
             padding-left: 1px;
 
         }
+        .infotrenner {
+            height: 100%;
+            width: 1px;
+            background-color: #28CDAB;
 
+        }
 
 
         .raumname {
@@ -456,6 +461,7 @@
                         element.className = 'info1';
                         element.textContent = decodedData[parameter];
                         console.log('Setze innerHTML für', parameter2);
+                        info1trenner.className = 'infotrenner';
                         break;
                     case 'info1icon':
                         console.log('Setze innerHTML für', parameter2);
@@ -547,6 +553,7 @@
         <img class="hidden" id="info1icon" src="">
         <p class="hidden" id="info1name"></p>&nbsp;
         <p class="hidden" id="info1"></p>
+        <div class="hidden" id="info1trenner"></div>
 
         <img class="hidden" id="info2icon" src="">
         <p class="hidden" id="info2name"></p>&nbsp;
