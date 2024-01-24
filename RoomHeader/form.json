@@ -89,7 +89,7 @@
                 },
                 {
                     "type": "NumberSpinner",
-                    "name": "RaumnameSchriftgroesse",
+                    "name": "InfoSchriftgroesse",
                     "caption": "Schriftgröße:",
                     "digits": 1,
                     "minimum": 0.5,
@@ -115,7 +115,7 @@
                 {
                     "type": "SelectColor",
                     "allowTransparent": "false",
-                    "name": "RaumnameSchriftfarbe",
+                    "name": "InfoSchriftfarbe",
                     "caption": "Schriftfarbe:"
                 }
             ]
