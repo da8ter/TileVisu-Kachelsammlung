@@ -340,7 +340,7 @@
                         element.className = 'schalter1asso';
                         schalter1.className = 'schalter1';
                         element.textContent = decodedData[parameter];
-                        if (schalter1name != "") schalter1doppelpunkt.className = 'schalter1';
+                        if (!document.getElementById("schalter1name").classList.contains("hidden")) schalter1doppelpunkt.className = 'schalter1asso';
                         break;
                     case 'schalter1icon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -358,7 +358,7 @@
                         element.className = 'schalter2asso';
                         schalter2.className = 'schalter2';
                         element.textContent = decodedData[parameter];
-                        if (schalter2name != "") schalter2doppelpunkt.className = 'schalter2asso';
+                        if (!document.getElementById("schalter2name").classList.contains("hidden")) schalter2doppelpunkt.className = 'schalter2asso';
                         break;
                     case 'schalter2icon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -376,7 +376,7 @@
                         element.className = 'schalter3asso';
                         schalter3.className = 'schalter3';
                         element.textContent = decodedData[parameter];
-                        if (schalter3name != "") schalter3doppelpunkt.className = 'schalter3asso';
+                        if (!document.getElementById("schalter3name").classList.contains("hidden")) schalter3doppelpunkt.className = 'schalter3asso';
                         break;
                     case 'schalter3icon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -394,12 +394,7 @@
                         element.className = 'schalter4asso';
                         schalter4.className = 'schalter4';
                         element.textContent = decodedData[parameter];
-                        //if ("schalter4name" in window) schalter4doppelpunkt.className = 'schalter4asso';
-
                         if (!document.getElementById("schalter4name").classList.contains("hidden")) schalter4doppelpunkt.className = 'schalter4asso';
-                        
-
-                        console.log(schalter4name);
                         break;
                     case 'schalter4icon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -417,7 +412,7 @@
                         element.className = 'schalter5asso';
                         schalter5.className = 'schalter5';
                         element.textContent = decodedData[parameter];
-                        if (typeof schalter5name !== 'undefined') schalter5doppelpunkt.className = 'schalter5asso';
+                        if (!document.getElementById("schalter5name").classList.contains("hidden")) schalter5doppelpunkt.className = 'schalter5asso';
                         break;
                     case 'schalter5icon':
                         if (decodedData[parameter] !== "Transparent") {
