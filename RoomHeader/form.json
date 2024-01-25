@@ -443,6 +443,21 @@
             "allowTransparent": "false",
             "name": "InfoSchriftfarbe",
             "caption": "Schriftfarbe:"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "InfoMenueTransparenz",
+            "caption": "Hintergrund Transparenz:",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
+        },
+        {
+            "type": "SelectColor",
+            "allowTransparent": "false",
+            "name": "InfoMenueHintergrundfarbe",
+            "caption": "Hintergrundfarbe:"
         }
         
     ]
