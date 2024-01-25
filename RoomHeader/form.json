@@ -441,7 +441,7 @@
         {
             "type": "SelectColor",
             "allowTransparent": "false",
-            "name": "InfoSchriftfarbe",
+            "name": "InfoMenueSchriftfarbe",
             "caption": "Schriftfarbe:"
         },
         {
