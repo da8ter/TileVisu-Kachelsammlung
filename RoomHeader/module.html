@@ -394,7 +394,7 @@
                         element.className = 'schalter4asso';
                         schalter4.className = 'schalter4';
                         element.textContent = decodedData[parameter];
-                        if (typeof schalter4name !== 'undefined') schalter4doppelpunkt.className = 'schalter4asso';
+                        if ("schalter4name" in window) schalter4doppelpunkt.className = 'schalter4asso';
                         console.log(typeof schalter4name !== 'undefined');
                         break;
                     case 'schalter4icon':
