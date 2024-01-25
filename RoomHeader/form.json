@@ -169,7 +169,7 @@
                             "type": "SelectVariable",
                             "name": "Info2",
                             "caption": "Info2:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -192,7 +192,7 @@
                             "type": "SelectVariable",
                             "name": "Info3",
                             "caption": "Info3:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -215,7 +215,7 @@
                             "type": "SelectVariable",
                             "name": "Info4",
                             "caption": "Info4:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -238,7 +238,7 @@
                             "type": "SelectVariable",
                             "name": "Info5",
                             "caption": "Info5:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
