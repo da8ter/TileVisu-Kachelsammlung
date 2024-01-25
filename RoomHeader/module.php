@@ -379,7 +379,7 @@ class TileVisuRoomHeader extends IPSModule
             return "rgba($r, $g, $b, $transparenz)";
         } else {
             // Fallback für ungültige Eingaben
-            return false;
+            return $hexColor;
         }
     }
 
