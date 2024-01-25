@@ -10,7 +10,7 @@
         },
         {
             "type": "Label", 
-            "caption": "Rauminfos:",
+            "caption": "Raumname und Bild:",
             "bold": true
         },
         {
@@ -84,7 +84,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "InfoLinks",
-                    "caption": "Links:",
+                    "caption": "Variable links:",
                     "validVariableTypes": []
                 },
                 {
@@ -109,7 +109,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "InfoRechts",
-                    "caption": "Rechts:",
+                    "caption": "Variable rechts:",
                     "validVariableTypes": []
                 },
                 {
