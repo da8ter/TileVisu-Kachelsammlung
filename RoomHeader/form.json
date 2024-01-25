@@ -23,7 +23,7 @@
                 },
                 {
                     "type": "NumberSpinner",
-                    "name": "Bildtransparenz:",
+                    "name": "Bildtransparenz",
                     "caption": "Transparenz Foto (Werte von 0 bis 1)",
                     "digits": 1,
                     "minimum": 0.0,
