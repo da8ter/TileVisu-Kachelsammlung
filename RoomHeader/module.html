@@ -117,7 +117,7 @@
 .menueleiste {
   backdrop-filter: blur(10px) brightness(1);
   -webkit-backdrop-filter: blur(10px) brightness(1);
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: var(--menueinfohintergrundfarbe);
   width: 100%;
 
   position: relative;
@@ -319,7 +319,6 @@
                     case 'image1':
                         const mainDiv = document.querySelector('.maindiv1');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
-                        //console.log('Setze innerHTML für', parameter);
                         break;
                     case 'infolinks':
                         element.textContent = decodedData[parameter];
@@ -427,27 +426,21 @@
                         break;  
                     case 'schalterschriftgroesse':
                         root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
-                        console.log('Setze innerHTML für', parameter);
                         break;    
                     case 'schalter1breite':
                         root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
-                        console.log('Setze innerHTML für', parameter);
                         break; 
                     case 'schalter2breite':
                         root.style.setProperty('--schalter2breite', decodedData[parameter] + 'px');
-                        console.log('Setze innerHTML für', parameter);
                         break; 
                     case 'schalter3breite':
                         root.style.setProperty('--schalter3breite', decodedData[parameter] + 'px');
-                        console.log('Setze innerHTML für', parameter);
                         break; 
                     case 'schalter4breite':
                         root.style.setProperty('--schalter4breite', decodedData[parameter] + 'px');
-                        console.log('Setze innerHTML für', parameter);
                         break; 
                     case 'schalter5breite':
                         root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
-                        console.log('Setze innerHTML für', parameter);
                         break; 
                     case 'schalter1color':
                         root.style.setProperty('--schalter1color', decodedData[parameter]);
@@ -480,6 +473,10 @@
                     case 'infomenueschriftfarbe':
                         root.style.setProperty('--infomenueschriftfarbe', decodedData[parameter]);
                         break;
+                    case 'infomenuehintergrundfarbe':
+                        root.style.setProperty('--infomenuehintergrundfarbe', decodedData[parameter] + 'em');
+
+                        break; 
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
                         break;

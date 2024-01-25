@@ -12,6 +12,8 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger("InfoRechts", 0);
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
+        $this->RegisterPropertyFloat('InfoMenueTransparenz', 1);
+        this->RegisterPropertyInteger('InfoMenueHintergrundfarbe', 0x000000);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('InfoSchriftfarbe', 0xFFFFFF);
@@ -276,6 +278,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['infoschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoSchriftfarbe'));
             $result['infomenueschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoMenueSchriftfarbe'));
             $result['infomenuefontsize'] =  $this->ReadPropertyFloat('InfoMenueSchriftgroesse');
+            $result['infomenuetransparenz'] =  $this->ReadPropertyFloat('InfoMenueTransparenz');
+            $result['infomenuehintergrundfarbe'] =  $this->GetColorRGB($this->ReadPropertyInteger('InfoMenueHintergrundfarbe'));
             $result['transparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['raumname'] =  $this->ReadPropertyString('Raumname');
             $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
@@ -361,6 +365,20 @@ class TileVisuRoomHeader extends IPSModule
             }
         }
         return "";
+    }
+
+    function GetColorRGB($hexcolor) {
+        $transparenz = $this->ReadPropertyFloat('InfoMenueTransparenz');
+        // Prüft, ob der Hex-Farbwert gültig ist
+        if (strlen($hexColor) == 6) {
+            $r = hexdec(substr($hexColor, 0, 2));
+            $g = hexdec(substr($hexColor, 2, 2));
+            $b = hexdec(substr($hexColor, 4, 2));
+            return "rgba($r, $g, $b, $transparenz)";
+        } else {
+            // Fallback für ungültige Eingaben
+            return false;
+        }
     }
 
     private function GetIcon($id) {
