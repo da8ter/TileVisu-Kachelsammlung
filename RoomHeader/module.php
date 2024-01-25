@@ -14,7 +14,6 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueTransparenz', 1);
         $this->RegisterPropertyInteger('InfoMenueHintergrundfarbe', 0x000000);
-        $this->RegisterPropertyInteger('InfoMenueSchriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('InfoSchriftfarbe', 0xFFFFFF);
