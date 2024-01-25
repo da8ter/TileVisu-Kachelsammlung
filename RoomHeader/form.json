@@ -169,7 +169,7 @@
                             "type": "SelectVariable",
                             "name": "Info2",
                             "caption": "Info2:",
-                            "validVariableTypes": [0]
+                            "validVariableTypes": []
                         },
                         {
                             "type": "PopupButton",
@@ -192,7 +192,7 @@
                             "type": "SelectVariable",
                             "name": "Info3",
                             "caption": "Info3:",
-                            "validVariableTypes": [0]
+                            "validVariableTypes": []
                         },
                         {
                             "type": "PopupButton",
@@ -215,7 +215,7 @@
                             "type": "SelectVariable",
                             "name": "Info4",
                             "caption": "Info4:",
-                            "validVariableTypes": [0]
+                            "validVariableTypes": []
                         },
                         {
                             "type": "PopupButton",
@@ -238,7 +238,7 @@
                             "type": "SelectVariable",
                             "name": "Info5",
                             "caption": "Info5:",
-                            "validVariableTypes": [0]
+                            "validVariableTypes": []
                         },
                         {
                             "type": "PopupButton",
@@ -271,7 +271,7 @@
                             "type": "SelectVariable",
                             "name": "Schalter1",
                             "caption": "Schalter1:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -303,7 +303,7 @@
                             "type": "SelectVariable",
                             "name": "Schalter2",
                             "caption": "Schalter2:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -335,7 +335,7 @@
                             "type": "SelectVariable",
                             "name": "Schalter3",
                             "caption": "Schalter3:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -367,7 +367,7 @@
                             "type": "SelectVariable",
                             "name": "Schalter4",
                             "caption": "Schalter4:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
@@ -399,7 +399,7 @@
                             "type": "SelectVariable",
                             "name": "Schalter5",
                             "caption": "Schalter5:",
-                            "validVariableTypes": []
+                            "validVariableTypes": [0]
                         },
                         {
                             "type": "PopupButton",
