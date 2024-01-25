@@ -1,0 +1,464 @@
+{
+    "elements": [
+        {
+            "type": "Label", 
+            "caption": "Tile configuration:",
+            "bold": true
+        },
+        {   "type": "Label", 
+            "caption": "Beispiel einer voll konfigurierten Kachel" 
+        },
+        {
+            "type": "Label", 
+            "caption": "Raumname und Bild:",
+            "bold": true
+        },
+        {
+            "type": "RowLayout",
+            "items": [
+                {
+                    "type": "SelectMedia",
+                    "name": "bgImage",
+                    "caption": "Foto:"
+                },
+                {
+                    "type": "NumberSpinner",
+                    "name": "Bildtransparenz",
+                    "caption": "Transparenz Foto (Werte von 0 bis 1)",
+                    "digits": 1,
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "suffix": ""
+                },
+                {
+                    "type": "SelectColor",
+                    "allowTransparent": "false",
+                    "name": "Kachelhintergrundfarbe",
+                    "caption": "Kachelhintergrundfarbe"
+                }
+
+                    ]
+        },
+        {
+            "type": "RowLayout",
+            "items": [
+                {
+                    "type": "ValidationTextBox",
+                    "name": "Raumname",
+                    "caption": "Raumname (Text Mitte):"
+                },
+                {
+                    "type": "SelectColor",
+                    "allowTransparent": "false",
+                    "name": "RaumnameSchriftfarbe",
+                    "caption": "Schriftfarbe:"
+                },
+                {
+                    "type": "NumberSpinner",
+                    "name": "RaumnameSchriftgroesse",
+                    "caption": "Schriftgröße:",
+                    "digits": 1,
+                    "minimum": 0.5,
+                    "maximum": 10.0,
+                    "suffix": "em"
+                }
+
+                    ]
+        },
+        {
+            "type": "Label", 
+            "caption": "Infobereich:",
+            "bold": true
+        },
+        {
+            "type": "RowLayout",
+            "items": [
+                { 
+            "type": "ColumnLayout",
+            "items": [
+                {
+                    "type": "Label", 
+                    "caption": "Links:",
+                    "bold": false
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "InfoLinks",
+                    "caption": "Variable links:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "NumberSpinner",
+                    "name": "InfoSchriftgroesse",
+                    "caption": "Schriftgröße:",
+                    "digits": 1,
+                    "minimum": 0.5,
+                    "maximum": 10.0,
+                    "suffix": "em"
+                }
+            ]
+        },
+                { 
+            "type": "ColumnLayout",
+            "items": [
+                {
+                    "type": "Label", 
+                    "caption": "Rechts:",
+                    "bold": false
+                },
+                {
+                    "type": "SelectVariable",
+                    "name": "InfoRechts",
+                    "caption": "Variable rechts:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "SelectColor",
+                    "allowTransparent": "false",
+                    "name": "InfoSchriftfarbe",
+                    "caption": "Schriftfarbe:"
+                }
+            ]
+        }
+
+                    ]
+        },
+        {
+            "type": "Label", 
+            "caption": "Menüleiste:",
+            "bold": true
+        },
+        {
+            "type": "RowLayout",
+            "items": [
+                { 
+                    "type": "ColumnLayout",
+                    "items": [
+                        {
+                            "type": "Label", 
+                            "caption": "Links:",
+                            "bold": false
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info1",
+                            "caption": "Info1:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    { "type": "CheckBox", "name": "Info1NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Info1IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info1AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info2",
+                            "caption": "Info2:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    { "type": "CheckBox", "name": "Info2NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Info2IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info2AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info3",
+                            "caption": "Info3:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    { "type": "CheckBox", "name": "Info3NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Info3IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info3AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info4",
+                            "caption": "Info4:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    { "type": "CheckBox", "name": "Info4NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Info4IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info4AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Info5",
+                            "caption": "Info5:",
+                            "validVariableTypes": []
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    { "type": "CheckBox", "name": "Info5NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Info5IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info5AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        }
+                    ]
+                },
+                { 
+                    "type": "ColumnLayout",
+                    "items": [
+                        {
+                            "type": "Label", 
+                            "caption": "Rechts:",
+                            "bold": false
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter1",
+                            "caption": "Schalter1:",
+                            "validVariableTypes": [0]
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    {
+                                        "type": "NumberSpinner",
+                                        "name": "Schalter1Breite",
+                                        "caption": "Breite",
+                                        "digits": 0,
+                                        "minimum": 10,
+                                        "maximum": 500,
+                                        "suffix": "Pixel"
+                                    },
+                                    { "type": "CheckBox", "name": "Schalter1IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter1NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter1AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter2",
+                            "caption": "Schalter2:",
+                            "validVariableTypes": [0]
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    {
+                                        "type": "NumberSpinner",
+                                        "name": "Schalter2Breite",
+                                        "caption": "Breite",
+                                        "digits": 0,
+                                        "minimum": 10,
+                                        "maximum": 500,
+                                        "suffix": "Pixel"
+                                    },
+                                    { "type": "CheckBox", "name": "Schalter2IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter2NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter2AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter3",
+                            "caption": "Schalter3:",
+                            "validVariableTypes": [0]
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    {
+                                        "type": "NumberSpinner",
+                                        "name": "Schalter3Breite",
+                                        "caption": "Breite",
+                                        "digits": 0,
+                                        "minimum": 10,
+                                        "maximum": 500,
+                                        "suffix": "Pixel"
+                                    },
+                                    { "type": "CheckBox", "name": "Schalter3IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter3NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter3AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter4",
+                            "caption": "Schalter4:",
+                            "validVariableTypes": [0]
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    {
+                                        "type": "NumberSpinner",
+                                        "name": "Schalter4Breite",
+                                        "caption": "Breite",
+                                        "digits": 0,
+                                        "minimum": 10,
+                                        "maximum": 500,
+                                        "suffix": "Pixel"
+                                    },
+                                    { "type": "CheckBox", "name": "Schalter4IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter4NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter4AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        },
+                        {
+                            "type": "RowLayout",
+                            "items": [
+                        {
+                            "type": "SelectVariable",
+                            "name": "Schalter5",
+                            "caption": "Schalter5:",
+                            "validVariableTypes": [0]
+                        },
+                        {
+                            "type": "PopupButton",
+                            "caption": "Einstellung",
+                            "popup": {
+                                "caption": "Einstellung",
+                                "items": [
+                                    {
+                                        "type": "NumberSpinner",
+                                        "name": "Schalter5Breite",
+                                        "caption": "Breite",
+                                        "digits": 0,
+                                        "minimum": 10,
+                                        "maximum": 500,
+                                        "suffix": "Pixel"
+                                    },
+                                    { "type": "CheckBox", "name": "Schalter5IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter5NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter5AssoSwitch", "caption": "Wert anzeigen" }
+                                ]
+                            }
+                        }
+                        ]
+                        }
+                    ]
+                }
+
+                    ]
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "InfoMenueSchriftgroesse",
+            "caption": "Schriftgröße:",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
+        },
+        {
+            "type": "SelectColor",
+            "allowTransparent": "false",
+            "name": "InfoMenueSchriftfarbe",
+            "caption": "Schriftfarbe:"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "InfoMenueTransparenz",
+            "caption": "Hintergrund Transparenz:",
+            "digits": 1,
+            "minimum": 0.1,
+            "maximum": 1,
+            "suffix": "0 bis 1"
+        },
+        {
+            "type": "SelectColor",
+            "allowTransparent": "false",
+            "name": "InfoMenueHintergrundfarbe",
+            "caption": "Hintergrundfarbe:"
+        }
+        
+    ]
+}
