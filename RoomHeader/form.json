@@ -327,7 +327,8 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter2IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter2NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter2AssoSwitch", "caption": "Wert anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter2AssoSwitch", "caption": "Wert anzeigen" },
+                                    { "type": "ValidationTextBox", "name": "Schalter2AltName", "caption": "Variablenname überschreiben:"}
                                 ]
                             }
                         }
@@ -359,7 +360,8 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter3IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter3NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter3AssoSwitch", "caption": "Wert anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter3AssoSwitch", "caption": "Wert anzeigen" },
+                                    { "type": "ValidationTextBox", "name": "Schalter3AltName", "caption": "Variablenname überschreiben:"}
                                 ]
                             }
                         }
@@ -391,7 +393,8 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter4IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter4NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter4AssoSwitch", "caption": "Wert anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter4AssoSwitch", "caption": "Wert anzeigen" },
+                                    { "type": "ValidationTextBox", "name": "Schalter4AltName", "caption": "Variablenname überschreiben:"}
                                 ]
                             }
                         }
@@ -423,7 +426,8 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter5IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter5NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter5AssoSwitch", "caption": "Wert anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter5AssoSwitch", "caption": "Wert anzeigen" },
+                                    { "type": "ValidationTextBox", "name": "Schalter5AltName", "caption": "Variablenname überschreiben:"}
                                 ]
                             }
                         }

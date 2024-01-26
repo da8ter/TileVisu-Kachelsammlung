@@ -28,15 +28,19 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger('Schalter2', 0);
         $this->RegisterPropertyFloat('Schalter2Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter2Breite', 100);
+        $this->RegisterPropertyString('Schalter2AltName', '');
         $this->RegisterPropertyInteger('Schalter3', 0);
         $this->RegisterPropertyFloat('Schalter3Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter3Breite', 100);
+        $this->RegisterPropertyString('Schalter3AltName', '');
         $this->RegisterPropertyInteger('Schalter4', 0);
         $this->RegisterPropertyFloat('Schalter4Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter4Breite', 100);
+        $this->RegisterPropertyString('Schalter4AltName', '');
         $this->RegisterPropertyInteger('Schalter5', 0);
         $this->RegisterPropertyFloat('Schalter5Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter5Breite', 100);
+        $this->RegisterPropertyString('Schalter5AltName', '');
         $this->RegisterPropertyInteger('Info1', 0);
         $this->RegisterPropertyInteger('Info2', 0);
         $this->RegisterPropertyInteger('Info3', 0);
@@ -294,6 +298,10 @@ class TileVisuRoomHeader extends IPSModule
             $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
             $result['raumnameschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
             $result['schalter1altname'] =  $this->ReadPropertyString('Schalter1AltName');
+            $result['schalter2altname'] =  $this->ReadPropertyString('Schalter2AltName');
+            $result['schalter3altname'] =  $this->ReadPropertyString('Schalter3AltName');
+            $result['schalter4altname'] =  $this->ReadPropertyString('Schalter4AltName');
+            $result['schalter5altname'] =  $this->ReadPropertyString('Schalter5AltName');
             
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
