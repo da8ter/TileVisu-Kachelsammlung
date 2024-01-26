@@ -355,6 +355,13 @@
                         schalter1.className = 'schalter1';
                         element.textContent = decodedData[parameter];
                         break;
+                    case 'schalter1altname':
+                        if(decodedData[parameter] != ''){
+                        schalter1name.className = 'schalter1name';
+                        schalter1.className = 'schalter1';
+                        schalter1name.textContent = decodedData[parameter];
+                        }
+                        break;
                     case 'schalter2asso':
                         element.className = 'schalter2asso';
                         schalter2.className = 'schalter2';
@@ -372,7 +379,14 @@
                         element.className = 'schalter2name';
                         element.textContent = decodedData[parameter];
                         schalter2.className = 'schalter2';
-                        break;   
+                        break;  
+                    case 'schalter2altname':
+                        if(decodedData[parameter] != ''){
+                        schalter2name.className = 'schalter2name';
+                        schalter2.className = 'schalter2';
+                        schalter2name.textContent = decodedData[parameter];
+                        }
+                        break; 
                     case 'schalter3asso':
                         element.className = 'schalter3asso';
                         schalter3.className = 'schalter3';
@@ -390,6 +404,13 @@
                         element.className = 'schalter3name';
                         schalter3.className = 'schalter3';
                         element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter3altname':
+                        if(decodedData[parameter] != ''){
+                        schalter3name.className = 'schalter3name';
+                        schalter3.className = 'schalter3';
+                        schalter3name.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'schalter4asso':
                         element.className = 'schalter4asso';
@@ -409,6 +430,13 @@
                         element.textContent = decodedData[parameter];
                         schalter4.className = 'schalter4';
                         break;  
+                    case 'schalter4altname':
+                        if(decodedData[parameter] != ''){
+                        schalter4name.className = 'schalter4name';
+                        schalter4.className = 'schalter4';
+                        schalter4name.textContent = decodedData[parameter];
+                        }
+                        break;
                     case 'schalter5asso':
                         element.className = 'schalter5asso';
                         schalter5.className = 'schalter5';
@@ -427,6 +455,13 @@
                         schalter5.className = 'schalter5';
                         element.textContent = decodedData[parameter];
                         break;  
+                    case 'schalter5altname':
+                        if(decodedData[parameter] != ''){
+                        schalter5name.className = 'schalter5name';
+                        schalter5.className = 'schalter5';
+                        schalter5name.textContent = decodedData[parameter];
+                        }
+                        break;
                     case 'schalterschriftgroesse':
                         root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
                         break;    
