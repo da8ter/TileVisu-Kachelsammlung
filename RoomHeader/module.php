@@ -118,14 +118,22 @@ class TileVisuRoomHeader extends IPSModule
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
 
-                            if($VariableProperty != 'InfoLinks'  || $VariableProperty != 'InfoRechts')
+                            if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts')
                             {
-                            if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
-                            if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty)) !== "Transparent") {
-                                $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger('VariableProperty'));
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty)) !== "Transparent") {
+                                    $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger('VariableProperty'));
+                                }
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
                             }
-                            if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
-                        }
+
+                            if($VariableProperty == 'Schalter1' || $VariableProperty == 'Schalter2' || $VariableProperty == 'Schalter3' || $VariableProperty == 'Schalter4' || $VariableProperty == 'Schalter5')
+                            {
+                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
+                            }
+
+
+
                             $this->UpdateVisualizationValue(json_encode($result));
 
                             
