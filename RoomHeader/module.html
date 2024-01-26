@@ -78,7 +78,6 @@
   text-align: left;
   /* Text linksbündig */
   padding: 0px 0px 10px 0px;
-  background-color: ;
   width: 20%;
   height: 100%;
   padding-left: 20px;
@@ -93,7 +92,6 @@
   padding: 0px 0px 0px 0px;
   width: 60%;
   height: 100%;
-  background-color: ;
   text-align: center;
   box-sizing: border-box;
 }
@@ -108,7 +106,6 @@
   text-align: right;
   /* Text rechtsbündig */
   padding: 0px 0px 10px 0px;
-  background-color: ;
   width: 20%;
   height: 100%;
   padding-right: 20px;
@@ -139,7 +136,6 @@
     justify-content: flex-start;
   width: 50%;
   padding: 0px;
-  background-color: ;
   text-align: left;
   height: 100%;
   box-sizing: border-box;
@@ -150,7 +146,6 @@
     align-items: center;
     justify-content: flex-end;
   width: 50%;
-  background-color: ;
   text-align: right;
   height: 100%;
   box-sizing: border-box;
@@ -532,6 +527,7 @@
                         if (info1name != "" && info1icon == "") info1doppelpunkt.className = 'info1asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
+                        if (!document.getElementById("info1name").classList.contains("hidden")) info1doppelpunkt.className = 'info1asso';
                         break;
                     case 'info1icon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -545,12 +541,19 @@
                         element.textContent = decodedData[parameter];
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         break;
+                    case 'info1altname':
+                        if(decodedData[parameter] != ''){
+                        info1name.className = 'info1name';
+                        info1name.textContent = decodedData[parameter];
+                        }
+                        break;    
                     case 'info2asso':
                         element.className = 'info2asso';
                         element.textContent = decodedData[parameter];
                         if (info2name != "" && info2icon == "") info2doppelpunkt.className = 'info2asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
+                        if (!document.getElementById("info2name").classList.contains("hidden")) info2doppelpunkt.className = 'info2asso';
                         break;
                     case 'info2icon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -569,6 +572,7 @@
                         if (info3name != "" && info3icon == "") info3doppelpunkt.className = 'info3asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info4asso != "" || info5asso != "") info3trenner.className = 'infotrenner';
+                        if (!document.getElementById("info3name").classList.contains("hidden")) info3doppelpunkt.className = 'info3asso';
                         break;
                     case 'info3icon':
                         element.className = 'infoicon';
@@ -580,6 +584,7 @@
                         if (info4name != "" && info4icon == "") info4doppelpunkt.className = 'info4asso';
                         info1trennerstart.className = 'infotrennerstart';
                         if (info5asso != "") info4trenner.className = 'infotrenner';
+                        if (!document.getElementById("info4name").classList.contains("hidden")) info4doppelpunkt.className = 'info4asso';
                         break;
                     case 'info4icon':
                         element.className = 'infoicon';
@@ -590,12 +595,12 @@
                         element.textContent = decodedData[parameter];
                         if (info5name != "" && info5icon == "") info5doppelpunkt.className = 'info5asso';
                         info5trennerstart.className = 'infotrennerstart';
+                        if (!document.getElementById("info5name").classList.contains("hidden")) info5doppelpunkt.className = 'info5asso';
                         break;
                     case 'info5icon':
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
-
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
@@ -691,5 +696,5 @@
         </button>
     </div>
     </div>
-  
   </div>
+

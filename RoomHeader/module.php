@@ -42,6 +42,15 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyFloat('Schalter5Breite', 100);
         $this->RegisterPropertyString('Schalter5AltName', '');
         $this->RegisterPropertyInteger('Info1', 0);
+        $this->RegisterPropertyString('Info1AltName', '');
+        $this->RegisterPropertyInteger('Info2', 0);
+        $this->RegisterPropertyString('Info2AltName', '');
+        $this->RegisterPropertyInteger('Info3', 0);
+        $this->RegisterPropertyString('Info3AltName', '');
+        $this->RegisterPropertyInteger('Info4', 0);
+        $this->RegisterPropertyString('Info4AltName', '');
+        $this->RegisterPropertyInteger('Info5', 0);
+        $this->RegisterPropertyString('Info5AltName', '');
         $this->RegisterPropertyInteger('Info2', 0);
         $this->RegisterPropertyInteger('Info3', 0);
         $this->RegisterPropertyInteger('Info4', 0);
@@ -122,21 +131,16 @@ class TileVisuRoomHeader extends IPSModule
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
 
-                            if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts')
+                            if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts' || $VariableProperty != 'bgImage')
                             {
+                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
+
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty)) !== "Transparent") {
                                     $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));
                                 }
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
                             }
-
-                            if($VariableProperty == 'Schalter1' || $VariableProperty == 'Schalter2' || $VariableProperty == 'Schalter3' || $VariableProperty == 'Schalter4' || $VariableProperty == 'Schalter5')
-                            {
-                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
-                            }
-
-
 
                             $this->UpdateVisualizationValue(json_encode($result));
 
@@ -194,7 +198,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
-            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
+            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1'));
             if ($this->ReadPropertyBoolean('Info1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info1')) !== "Transparent") {
                 $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
             }
@@ -202,16 +206,15 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
-            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
+            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2'));
             if ($this->ReadPropertyBoolean('Info2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info2')) !== "Transparent") {
                 $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
             }
             if ($this->ReadPropertyBoolean('Info2AssoSwitch')) $result['info2asso'] = $this->CheckAndGetValueFormatted('Info2');
-
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
-            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3name'] = IPS_GetName($this->ReadPropertyInteger('Info3')) . ':';
+            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3name'] = IPS_GetName($this->ReadPropertyInteger('Info3'));
             if ($this->ReadPropertyBoolean('Info3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info3')) !== "Transparent") {
                 $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'));
             }
@@ -302,7 +305,11 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter3altname'] =  $this->ReadPropertyString('Schalter3AltName');
             $result['schalter4altname'] =  $this->ReadPropertyString('Schalter4AltName');
             $result['schalter5altname'] =  $this->ReadPropertyString('Schalter5AltName');
-            
+            $result['info1altname'] =  $this->ReadPropertyString('Info1AltName');
+            $result['info2altname'] =  $this->ReadPropertyString('Info2AltName');
+            $result['info3altname'] =  $this->ReadPropertyString('Info3AltName');
+            $result['info4altname'] =  $this->ReadPropertyString('Info4AltName');
+            $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');           
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
@@ -385,7 +392,8 @@ class TileVisuRoomHeader extends IPSModule
         return "";
     }
 
-    function GetColorRGB($hexcolor) {
+
+    private function GetColorRGB($hexcolor) {
         $transparenz = $this->ReadPropertyFloat('InfoMenueTransparenz');
         if($hexcolor != "-1")
         {
