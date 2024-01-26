@@ -129,6 +129,7 @@ class TileVisuRoomHeader extends IPSModule
 
                             if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts' || $VariableProperty != 'bgImage')
                             {
+                                print_r($VariableProperty);
                                 $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
 
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
