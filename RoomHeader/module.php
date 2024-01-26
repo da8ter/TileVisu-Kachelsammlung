@@ -369,6 +369,7 @@ class TileVisuRoomHeader extends IPSModule
 
     function GetColorRGB($hexcolor) {
         $transparenz = $this->ReadPropertyFloat('InfoMenueTransparenz');
+print_r($hexcolor);
 
         $hexColor = sprintf('%06X', $hexcolor);
         // Prüft, ob der Hex-Farbwert gültig ist
