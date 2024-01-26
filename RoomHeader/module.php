@@ -129,13 +129,14 @@ class TileVisuRoomHeader extends IPSModule
 
                             if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts' || $VariableProperty != 'bgImage')
                             {
-                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
 
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty)) !== "Transparent") {
                                     $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));
                                 }
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
+                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
+
                             }
 
                             $this->UpdateVisualizationValue(json_encode($result));
