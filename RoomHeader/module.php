@@ -139,12 +139,6 @@ class TileVisuRoomHeader extends IPSModule
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
                             }
 
-                            if($VariableProperty == 'Schalter1' || $VariableProperty == 'Schalter2' || $VariableProperty == 'Schalter3' || $VariableProperty == 'Schalter4' || $VariableProperty == 'Schalter5')
-                            {
-                            }
-
-
-
                             $this->UpdateVisualizationValue(json_encode($result));
 
                             
