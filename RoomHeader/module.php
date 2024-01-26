@@ -411,13 +411,6 @@ class TileVisuRoomHeader extends IPSModule
     }
 
     private function GetIcon($id) {
-
-        $varicon = IPS_GetObject($id)
-
-        if($varicon['ObjectIcon'] !=""){
-            return $varicon;  
-        }
-        else {
         $variable = IPS_GetVariable($id);
         $Value = GetValue($id);
         $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
