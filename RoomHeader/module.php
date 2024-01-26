@@ -24,6 +24,7 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger('Schalter1', 0);
         $this->RegisterPropertyFloat('Schalter1Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter1Breite', 100);
+        $this->RegisterPropertyString('Schalter1AltName', '');
         $this->RegisterPropertyInteger('Schalter2', 0);
         $this->RegisterPropertyFloat('Schalter2Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter2Breite', 100);
@@ -284,6 +285,7 @@ class TileVisuRoomHeader extends IPSModule
             $result['raumname'] =  $this->ReadPropertyString('Raumname');
             $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
             $result['raumnameschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
+            $result['schalter1altname'] =  $this->ReadPropertyString('Schalter1AltName');
             
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde

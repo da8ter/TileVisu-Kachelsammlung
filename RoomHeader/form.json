@@ -294,7 +294,8 @@
                                     },
                                     { "type": "CheckBox", "name": "Schalter1IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter1NameSwitch", "caption": "Valiablenname anzeigen" },
-                                    { "type": "CheckBox", "name": "Schalter1AssoSwitch", "caption": "Wert anzeigen" }
+                                    { "type": "CheckBox", "name": "Schalter1AssoSwitch", "caption": "Wert anzeigen" },
+                                    { "type": "ValidationTextBox", "name": "Schalter1AltName", "caption": "Variablenname überschreiben:"}
                                 ]
                             }
                         }
