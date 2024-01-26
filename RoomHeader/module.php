@@ -51,6 +51,10 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyString('Info4AltName', '');
         $this->RegisterPropertyInteger('Info5', 0);
         $this->RegisterPropertyString('Info5AltName', '');
+        $this->RegisterPropertyInteger('Info2', 0);
+        $this->RegisterPropertyInteger('Info3', 0);
+        $this->RegisterPropertyInteger('Info4', 0);
+        $this->RegisterPropertyInteger('Info5', 0);
         $this->RegisterPropertyBoolean('Info1NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info2NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
@@ -207,7 +211,6 @@ class TileVisuRoomHeader extends IPSModule
                 $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
             }
             if ($this->ReadPropertyBoolean('Info2AssoSwitch')) $result['info2asso'] = $this->CheckAndGetValueFormatted('Info2');
-
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
@@ -388,6 +391,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         return "";
     }
+
 
     private function GetColorRGB($hexcolor) {
         $transparenz = $this->ReadPropertyFloat('InfoMenueTransparenz');

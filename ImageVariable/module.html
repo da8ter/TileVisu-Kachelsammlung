@@ -55,10 +55,9 @@
         //console.log('Rohdaten empfangen:', data);
 
         const decodedData = JSON.parse(data);
-        //console.log('Decodierte Daten:', decodedData);
+
 
         for (const parameter in decodedData) {
-            //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
             const element = document.getElementById(parameter);
             var root = document.documentElement;
@@ -67,37 +66,29 @@
                 case 'image1':
                     const mainDiv = document.querySelector('.maindiv');
                     mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
-                    //console.log('Setze innerHTML für', parameter);
                     break;
                 case 'variable':
                     element.textContent = decodedData[parameter];
-                    console.log('Setze innerHTML für', parameter);
                     break;
 
                 case 'fontsize':
                     root.style.setProperty('--fontsize', decodedData[parameter] + 'em');
-                    //console.log('Setze innerHTML für', parameter);
                     break;
                  
                 case 'hintergrundfarbe':
                     root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
                     break;    
 
                     case 'schriftfarbe':
                     root.style.setProperty('--schriftfarbe', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
                     break;  
 
                 case 'transparenz':
                     root.style.setProperty('--transparenz', decodedData[parameter]);
-                    //console.log('Setze innerHTML für', parameter);
                     break; 
 
                 default:
-                    //console.log('Setze innerHTML für', parameter);
-                    // Setze innerHTML nur, wenn das Element gefunden wurde
-                    //element.innerHTML = decodedData[parameter];
+
                     break;
             }
 

@@ -300,14 +300,13 @@
 
             const decodedData = JSON.parse(data);
             
-            console.log('Decodierte Daten:', decodedData);
+            //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
                 console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
                 const element = document.getElementById(parameter.toLowerCase());
                 const parameter2 = String(parameter).toLowerCase();
-                //console.log(parameter2);
 
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
@@ -602,7 +601,6 @@
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
-
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
@@ -698,5 +696,5 @@
         </button>
     </div>
     </div>
-  
   </div>
+
