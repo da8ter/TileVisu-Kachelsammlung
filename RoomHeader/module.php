@@ -200,7 +200,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
-            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1')) . ':';
+            if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1'));
             if ($this->ReadPropertyBoolean('Info1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info1')) !== "Transparent") {
                 $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'));
             }
@@ -208,7 +208,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
-            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2')) . ':';
+            if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2'));
             if ($this->ReadPropertyBoolean('Info2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info2')) !== "Transparent") {
                 $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'));
             }
@@ -217,7 +217,7 @@ class TileVisuRoomHeader extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
-            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3name'] = IPS_GetName($this->ReadPropertyInteger('Info3')) . ':';
+            if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3name'] = IPS_GetName($this->ReadPropertyInteger('Info3'));
             if ($this->ReadPropertyBoolean('Info3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info3')) !== "Transparent") {
                 $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'));
             }
