@@ -546,6 +546,12 @@
                         element.textContent = decodedData[parameter];
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         break;
+                    case 'info1altname':
+                        if(decodedData[parameter] != ''){
+                        info1name.className = 'info1name';
+                        info1.className = 'info1';
+                        info1name.textContent = decodedData[parameter];
+                        }    
                     case 'info2asso':
                         element.className = 'info2asso';
                         element.textContent = decodedData[parameter];

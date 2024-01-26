@@ -42,10 +42,15 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyFloat('Schalter5Breite', 100);
         $this->RegisterPropertyString('Schalter5AltName', '');
         $this->RegisterPropertyInteger('Info1', 0);
+        $this->RegisterPropertyString('Info1AltName', '');
         $this->RegisterPropertyInteger('Info2', 0);
+        $this->RegisterPropertyString('Info2AltName', '');
         $this->RegisterPropertyInteger('Info3', 0);
+        $this->RegisterPropertyString('Info3AltName', '');
         $this->RegisterPropertyInteger('Info4', 0);
+        $this->RegisterPropertyString('Info4AltName', '');
         $this->RegisterPropertyInteger('Info5', 0);
+        $this->RegisterPropertyString('Info5AltName', '');
         $this->RegisterPropertyBoolean('Info1NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info2NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
@@ -122,8 +127,10 @@ class TileVisuRoomHeader extends IPSModule
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
 
-                            if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts')
+                            if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts' || $VariableProperty != 'bgImage')
                             {
+                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
+
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty)) !== "Transparent") {
                                     $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty));
@@ -133,7 +140,6 @@ class TileVisuRoomHeader extends IPSModule
 
                             if($VariableProperty == 'Schalter1' || $VariableProperty == 'Schalter2' || $VariableProperty == 'Schalter3' || $VariableProperty == 'Schalter4' || $VariableProperty == 'Schalter5')
                             {
-                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
                             }
 
 
@@ -302,7 +308,11 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter3altname'] =  $this->ReadPropertyString('Schalter3AltName');
             $result['schalter4altname'] =  $this->ReadPropertyString('Schalter4AltName');
             $result['schalter5altname'] =  $this->ReadPropertyString('Schalter5AltName');
-            
+            $result['info1altname'] =  $this->ReadPropertyString('Info1AltName');
+            $result['info2altname'] =  $this->ReadPropertyString('Info2AltName');
+            $result['info3altname'] =  $this->ReadPropertyString('Info3AltName');
+            $result['info4altname'] =  $this->ReadPropertyString('Info4AltName');
+            $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');           
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
