@@ -51,10 +51,6 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyString('Info4AltName', '');
         $this->RegisterPropertyInteger('Info5', 0);
         $this->RegisterPropertyString('Info5AltName', '');
-        $this->RegisterPropertyInteger('Info2', 0);
-        $this->RegisterPropertyInteger('Info3', 0);
-        $this->RegisterPropertyInteger('Info4', 0);
-        $this->RegisterPropertyInteger('Info5', 0);
         $this->RegisterPropertyBoolean('Info1NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info2NameSwitch', 1);
         $this->RegisterPropertyBoolean('Info3NameSwitch', 1);
@@ -415,6 +411,13 @@ class TileVisuRoomHeader extends IPSModule
     }
 
     private function GetIcon($id) {
+
+        $varicon = IPS_GetObject($id)
+
+        if($varicon['ObjectIcon'] !=""){
+            return $varicon;  
+        }
+        else {
         $variable = IPS_GetVariable($id);
         $Value = GetValue($id);
         $profile = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
