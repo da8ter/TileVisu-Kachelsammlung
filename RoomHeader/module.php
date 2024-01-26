@@ -370,17 +370,22 @@ class TileVisuRoomHeader extends IPSModule
     function GetColorRGB($hexcolor) {
         $transparenz = $this->ReadPropertyFloat('InfoMenueTransparenz');
 print_r($hexcolor);
-
-        $hexColor = sprintf('%06X', $hexcolor);
-        // Prüft, ob der Hex-Farbwert gültig ist
-        if (strlen($hexColor) == 6) {
-            $r = hexdec(substr($hexColor, 0, 2));
-            $g = hexdec(substr($hexColor, 2, 2));
-            $b = hexdec(substr($hexColor, 4, 2));
-            return "rgba($r, $g, $b, $transparenz)";
-        } else {
-            // Fallback für ungültige Eingaben
-            return $hexColor;
+        if($hexcolor != "-1")
+        {
+                $hexColor = sprintf('%06X', $hexcolor);
+                // Prüft, ob der Hex-Farbwert gültig ist
+                if (strlen($hexColor) == 6) {
+                    $r = hexdec(substr($hexColor, 0, 2));
+                    $g = hexdec(substr($hexColor, 2, 2));
+                    $b = hexdec(substr($hexColor, 4, 2));
+                    return "rgba($r, $g, $b, $transparenz)";
+                } else {
+                    // Fallback für ungültige Eingaben
+                    return $hexColor;
+                }
+        }
+        else {
+            return "";
         }
     }
 
