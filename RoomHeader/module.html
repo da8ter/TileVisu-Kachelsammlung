@@ -355,6 +355,13 @@
                         schalter1.className = 'schalter1';
                         element.textContent = decodedData[parameter];
                         break;
+                    case 'schalter1altname':
+                        if(decodedData[parameter] != ''){
+                        element.className = 'schalter1name';
+                        schalter1.className = 'schalter1';
+                        element.textContent = decodedData[parameter];
+                        }
+                        break;
                     case 'schalter2asso':
                         element.className = 'schalter2asso';
                         schalter2.className = 'schalter2';
