@@ -127,7 +127,7 @@ class TileVisuRoomHeader extends IPSModule
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
 
-                            if($VariableProperty != 'InfoLinks' || $VariableProperty != 'InfoRechts' || $VariableProperty != 'bgImage')
+                            if($VariableProperty != 'InfoLinks' && $VariableProperty != 'InfoRechts' && $VariableProperty != 'bgImage')
                             {
 
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
