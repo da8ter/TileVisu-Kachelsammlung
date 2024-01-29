@@ -90,10 +90,30 @@
                     "bold": false
                 },
                 {
+                    "type": "RowLayout",
+                    "items": [
+          
+                {
                     "type": "SelectVariable",
                     "name": "InfoLinks",
                     "caption": "Variable links:",
                     "validVariableTypes": []
+                },
+                {
+                    "type": "PopupButton",
+                    "caption": "Einstellung",
+                    "popup": {
+                        "caption": "Einstellung",
+                        "items": [
+                            { "type": "CheckBox", "name": "InfoLinksNameSwitch", "caption": "Valiablenname anzeigen" },
+                            { "type": "CheckBox", "name": "InfoLinksIconSwitch", "caption": "Icon anzeigen" },
+                            { "type": "CheckBox", "name": "InfoLinksVarIconSwitch", "caption": "Variablenicon verwenden" },
+                            { "type": "CheckBox", "name": "InfoLinksAssoSwitch", "caption": "Wert anzeigen" },
+                            { "type": "ValidationTextBox", "name": "InfoLinksAltName", "caption": "Variablenname überschreiben:"}
+                        ]
+                    }
+                }
+                ]
                 },
                 {
                     "type": "NumberSpinner",
