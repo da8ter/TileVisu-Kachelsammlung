@@ -164,6 +164,7 @@
                                 "items": [
                                     { "type": "CheckBox", "name": "Info1NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info1IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info1VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Info1AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Info1AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -188,6 +189,7 @@
                                 "items": [
                                     { "type": "CheckBox", "name": "Info2NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info2IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info2VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Info2AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Info2AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -212,6 +214,7 @@
                                 "items": [
                                     { "type": "CheckBox", "name": "Info3NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info3IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info3VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Info3AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Info3AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -236,6 +239,7 @@
                                 "items": [
                                     { "type": "CheckBox", "name": "Info4NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info4IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info4VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Info4AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Info4AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -260,6 +264,7 @@
                                 "items": [
                                     { "type": "CheckBox", "name": "Info5NameSwitch", "caption": "Valiablenname anzeigen" },
                                     { "type": "CheckBox", "name": "Info5IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Info5VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Info5AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Info5AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -301,8 +306,9 @@
                                         "maximum": 500,
                                         "suffix": "Pixel"
                                     },
-                                    { "type": "CheckBox", "name": "Schalter1IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter1NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter1IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter1VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Schalter1AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Schalter1AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -334,8 +340,9 @@
                                         "maximum": 500,
                                         "suffix": "Pixel"
                                     },
-                                    { "type": "CheckBox", "name": "Schalter2IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter2NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter2IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter2VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Schalter2AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Schalter2AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -367,8 +374,9 @@
                                         "maximum": 500,
                                         "suffix": "Pixel"
                                     },
-                                    { "type": "CheckBox", "name": "Schalter3IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter3NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter3IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter3VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Schalter3AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Schalter3AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -400,8 +408,9 @@
                                         "maximum": 500,
                                         "suffix": "Pixel"
                                     },
-                                    { "type": "CheckBox", "name": "Schalter4IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter4NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter4IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter4VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Schalter4AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Schalter4AltName", "caption": "Variablenname überschreiben:"}
                                 ]
@@ -433,8 +442,9 @@
                                         "maximum": 500,
                                         "suffix": "Pixel"
                                     },
-                                    { "type": "CheckBox", "name": "Schalter5IconSwitch", "caption": "Icon anzeigen" },
                                     { "type": "CheckBox", "name": "Schalter5NameSwitch", "caption": "Valiablenname anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter5IconSwitch", "caption": "Icon anzeigen" },
+                                    { "type": "CheckBox", "name": "Schalter5VarIconSwitch", "caption": "Variablenicon verwenden" },
                                     { "type": "CheckBox", "name": "Schalter5AssoSwitch", "caption": "Wert anzeigen" },
                                     { "type": "ValidationTextBox", "name": "Schalter5AltName", "caption": "Variablenname überschreiben:"}
                                 ]
