@@ -10,15 +10,15 @@ class TileVisuRoomHeader extends IPSModule
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyInteger("InfoLinks", 0);
-        $this->RegisterPropertyBoolean('InfoLinksNameSwitch', 1);
+        $this->RegisterPropertyBoolean('InfoLinksNameSwitch', 0);
         $this->RegisterPropertyBoolean('InfoLinksIconSwitch', 1);
-        $this->RegisterPropertyBoolean('InfoLinksVarIconSwitch', 1);
+        $this->RegisterPropertyBoolean('InfoLinksVarIconSwitch', 0);
         $this->RegisterPropertyBoolean('InfoLinksAssoSwitch', 1);
         $this->RegisterPropertyString('InfoLinksAltName', '');
         $this->RegisterPropertyInteger("InfoRechts", 0);
-        $this->RegisterPropertyBoolean('InfoRechtsNameSwitch', 1);
+        $this->RegisterPropertyBoolean('InfoRechtsNameSwitch', 0);
         $this->RegisterPropertyBoolean('InfoRechtsIconSwitch', 1);
-        $this->RegisterPropertyBoolean('InfoRechtsVarIconSwitch', 1);
+        $this->RegisterPropertyBoolean('InfoRechtsVarIconSwitch', 0);
         $this->RegisterPropertyBoolean('InfoRechtsAssoSwitch', 1);
         $this->RegisterPropertyString('InfoRechtsAltName', '');
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
