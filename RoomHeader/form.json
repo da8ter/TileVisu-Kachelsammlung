@@ -126,7 +126,7 @@
                 }
             ]
         },
-                { 
+        { 
             "type": "ColumnLayout",
             "items": [
                 {
@@ -168,7 +168,7 @@
                 }
             ]
         
-
+        }
         },
         {
             "type": "Label", 
