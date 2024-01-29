@@ -124,6 +124,11 @@ class TileVisuRoomHeader extends IPSModule
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
+        foreach (['InfoLinksNameSwitch', 'InfoLinksIconSwitch', 'InfoLinksVarIconSwitch', 'InfoLinksAssoSwitch'] as $VariableProperty)        {
+            $this->RegisterMessage($this->ReadPropertyBoolean($VariableProperty), VM_UPDATE);
+        }
+        $this->RegisterMessage($this->ReadPropertyString('InfoLinksAltName'), VM_UPDATE);
+
         // Schicke eine komplette Update-Nachricht an die Darstellung, da sich ja Parameter geändert haben können
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
     }
