@@ -9,9 +9,9 @@ class TileVisuRoomHeader extends IPSModule
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyInteger("InfoLinks", 0);
-        $this->RegisterPropertyInteger("InfoLinksVarIconSwitch", 0);
+        $this->RegisterPropertyBoolean("InfoLinksVarIconSwitch", 0);
         $this->RegisterPropertyInteger("InfoRechts", 0);
-        $this->RegisterPropertyInteger("InfoRechtsVarIconSwitch", 0);
+        $this->RegisterPropertyBoolean("InfoRechtsVarIconSwitch", 0);
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueTransparenz', 0.3);
