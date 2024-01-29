@@ -11,7 +11,7 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyInteger("InfoLinks", 0);
         $this->RegisterPropertyBoolean("InfoLinksVarIconSwitch", 0);
         $this->RegisterPropertyInteger("InfoRechts", 0);
-        $this->RegisterPropertyBoolean("InfoRechtsVarIconSwitch", 0);
+        $this->RegisterPropertyBooleans("InfoRechtsVarIconSwitch", 0);
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueTransparenz', 0.3);
@@ -143,9 +143,9 @@ class TileVisuRoomHeader extends IPSModule
                             {
 
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
-                               // if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty, $this->ReadPropertyInteger($VariableProperty . 'VarIconSwitch')) !== "Transparent") {
-                                  // $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyInteger($VariableProperty . 'VarIconSwitch'));
-                               // }
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty, $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')) !== "Transparent") {
+                                   $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch'));
+                                }
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
                                 $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
 
@@ -208,24 +208,24 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
             if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1'));
-            if ($this->ReadPropertyBoolean('Info1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info1'), $this->ReadPropertyInteger('Info1VarIconSwitch')) !== "Transparent") {
-                $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'), $this->ReadPropertyInteger('Info1VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Info1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info1'), $this->ReadPropertyBoolean('Info1VarIconSwitch')) !== "Transparent") {
+                $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'), $this->ReadPropertyBoolean('Info1VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Info1AssoSwitch')) $result['info1asso'] = $this->CheckAndGetValueFormatted('Info1');
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
             if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2'));
-            if ($this->ReadPropertyBoolean('Info2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info2'), $this->ReadPropertyInteger('Info2VarIconSwitch')) !== "Transparent") {
-                $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'), $this->ReadPropertyInteger('Info2VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Info2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info2'), $this->ReadPropertyBoolean('Info2VarIconSwitch')) !== "Transparent") {
+                $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'), $this->ReadPropertyBoolean('Info2VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Info2AssoSwitch')) $result['info2asso'] = $this->CheckAndGetValueFormatted('Info2');
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info3'))) {
             $result['info3'] = $this->CheckAndGetValueFormatted('Info3');
             if ($this->ReadPropertyBoolean('Info3NameSwitch')) $result['info3name'] = IPS_GetName($this->ReadPropertyInteger('Info3'));
-            if ($this->ReadPropertyBoolean('Info3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info3'), $this->ReadPropertyInteger('Info3VarIconSwitch')) !== "Transparent") {
-                $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'), $this->ReadPropertyInteger('Info3VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Info3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info3'), $this->ReadPropertyBoolean('Info3VarIconSwitch')) !== "Transparent") {
+                $result['info3icon'] = $this->GetIcon($this->ReadPropertyInteger('Info3'), $this->ReadPropertyBoolean('Info3VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Info3AssoSwitch')) $result['info3asso'] = $this->CheckAndGetValueFormatted('Info3');
 
@@ -233,8 +233,8 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($this->ReadPropertyInteger('Info4'))) {
             $result['info4'] = $this->CheckAndGetValueFormatted('Info4');
             if ($this->ReadPropertyBoolean('Info4NameSwitch')) $result['info4name'] = IPS_GetName($this->ReadPropertyInteger('Info4'));
-            if ($this->ReadPropertyBoolean('Info4IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info4'), $this->ReadPropertyInteger('Info1Var4conSwitch')) !== "Transparent") {
-                $result['info4icon'] = $this->GetIcon($this->ReadPropertyInteger('Info4'), $this->ReadPropertyInteger('Info1Var4conSwitch'));
+            if ($this->ReadPropertyBoolean('Info4IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info4'), $this->ReadPropertyBoolean('Info1Var4conSwitch')) !== "Transparent") {
+                $result['info4icon'] = $this->GetIcon($this->ReadPropertyInteger('Info4'), $this->ReadPropertyBoolean('Info1Var4conSwitch'));
             }
             if ($this->ReadPropertyBoolean('Info4AssoSwitch')) $result['info4asso'] = $this->CheckAndGetValueFormatted('Info4');
 
@@ -242,8 +242,8 @@ class TileVisuRoomHeader extends IPSModule
         if (IPS_VariableExists($this->ReadPropertyInteger('Info5'))) {
             $result['info5'] = $this->CheckAndGetValueFormatted('Info5');
             if ($this->ReadPropertyBoolean('Info5NameSwitch')) $result['info5name'] = IPS_GetName($this->ReadPropertyInteger('Info5'));
-            if ($this->ReadPropertyBoolean('Info5IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info5'), $this->ReadPropertyInteger('Info5VarIconSwitch')) !== "Transparent") {
-                $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'), $this->ReadPropertyInteger('Info5VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Info5IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info5'), $this->ReadPropertyBoolean('Info5VarIconSwitch')) !== "Transparent") {
+                $result['info5icon'] = $this->GetIcon($this->ReadPropertyInteger('Info5'), $this->ReadPropertyBoolean('Info5VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Info5AssoSwitch')) $result['info5asso'] = $this->CheckAndGetValueFormatted('Info5');
         }
@@ -252,8 +252,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter1breite'] =  $this->ReadPropertyFloat('Schalter1Breite');
             $result['schalter1color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter1'));
             if ($this->ReadPropertyBoolean('Schalter1NameSwitch')) $result['schalter1name'] = IPS_GetName($this->ReadPropertyInteger('Schalter1'));
-            if ($this->ReadPropertyBoolean('Schalter1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter1'), $this->ReadPropertyInteger('Schalter1VarIconSwitch')) !== "Transparent") {
-                $result['schalter1icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter1'), $this->ReadPropertyInteger('Schalter1VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Schalter1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter1'), $this->ReadPropertyBoolean('Schalter1VarIconSwitch')) !== "Transparent") {
+                $result['schalter1icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter1'), $this->ReadPropertyBoolean('Schalter1VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Schalter1AssoSwitch')) $result['schalter1asso'] = $this->CheckAndGetValueFormatted('Schalter1');
         }
@@ -262,8 +262,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter2breite'] =  $this->ReadPropertyFloat('Schalter2Breite');
             $result['schalter2color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter2'));
             if ($this->ReadPropertyBoolean('Schalter2NameSwitch')) $result['schalter2name'] = IPS_GetName($this->ReadPropertyInteger('Schalter2'));
-            if ($this->ReadPropertyBoolean('Schalter2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter2'), $this->ReadPropertyInteger('Schalter2VarIconSwitch')) !== "Transparent") {
-                $result['schalter2icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter2'), $this->ReadPropertyInteger('Schalter2VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Schalter2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter2'), $this->ReadPropertyBoolean('Schalter2VarIconSwitch')) !== "Transparent") {
+                $result['schalter2icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter2'), $this->ReadPropertyBoolean('Schalter2VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Schalter2AssoSwitch')) $result['schalter2asso'] = $this->CheckAndGetValueFormatted('Schalter2');
         }
@@ -272,8 +272,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter3breite'] =  $this->ReadPropertyFloat('Schalter3Breite');
             $result['schalter3color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter3'));
             if ($this->ReadPropertyBoolean('Schalter3NameSwitch')) $result['schalter3name'] = IPS_GetName($this->ReadPropertyInteger('Schalter3'));
-            if ($this->ReadPropertyBoolean('Schalter3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter3'), $this->ReadPropertyInteger('Schalter3VarIconSwitch')) !== "Transparent") {
-                $result['schalter3icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter3'), $this->ReadPropertyInteger('Schalter3VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Schalter3IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter3'), $this->ReadPropertyBoolean('Schalter3VarIconSwitch')) !== "Transparent") {
+                $result['schalter3icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter3'), $this->ReadPropertyBoolean('Schalter3VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Schalter3AssoSwitch')) $result['schalter3asso'] = $this->CheckAndGetValueFormatted('Schalter3');
         }
@@ -282,8 +282,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter4breite'] =  $this->ReadPropertyFloat('Schalter4Breite');
             $result['schalter4color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter4'));
             if ($this->ReadPropertyBoolean('Schalter4NameSwitch')) $result['schalter4name'] = IPS_GetName($this->ReadPropertyInteger('Schalter4'));
-            if ($this->ReadPropertyBoolean('Schalter4IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter4'), $this->ReadPropertyInteger('Schalter4VarIconSwitch')) !== "Transparent") {
-                $result['schalter4icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter4'), $this->ReadPropertyInteger('Schalter4VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Schalter4IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter4'), $this->ReadPropertyBoolean('Schalter4VarIconSwitch')) !== "Transparent") {
+                $result['schalter4icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter4'), $this->ReadPropertyBoolean('Schalter4VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Schalter4AssoSwitch')) $result['schalter4asso'] = $this->CheckAndGetValueFormatted('Schalter4');
         }
@@ -292,8 +292,8 @@ class TileVisuRoomHeader extends IPSModule
             $result['schalter5breite'] =  $this->ReadPropertyFloat('Schalter5Breite');
             $result['schalter5color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter5'));
             if ($this->ReadPropertyBoolean('Schalter5NameSwitch')) $result['schalter5name'] = IPS_GetName($this->ReadPropertyInteger('Schalter5'));
-            if ($this->ReadPropertyBoolean('Schalter5IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter5'), $this->ReadPropertyInteger('Schalter5VarIconSwitch')) !== "Transparent") {
-                $result['schalter5icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter5'), $this->ReadPropertyInteger('Schalter5VarIconSwitch'));
+            if ($this->ReadPropertyBoolean('Schalter5IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter5'), $this->ReadPropertyBoolean('Schalter5VarIconSwitch')) !== "Transparent") {
+                $result['schalter5icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter5'), $this->ReadPropertyBoolean('Schalter5VarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('Schalter5AssoSwitch')) $result['schalter5asso'] = $this->CheckAndGetValueFormatted('Schalter5');
         }
