@@ -143,7 +143,7 @@ class TileVisuRoomHeader extends IPSModule
                             {
 
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
-                                if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty, $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')) !== "Transparent") {
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty, $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')) !== "Transparent")) {
                                    $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch'));
                                 }
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
@@ -198,12 +198,12 @@ class TileVisuRoomHeader extends IPSModule
     
         if (IPS_VariableExists($this->ReadPropertyInteger('InfoLinks'))) {
             $result['infolinks'] = $this->CheckAndGetValueFormatted('InfoLinks');
-            $result['infolinksicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoLinks'),$this->ReadPropertyBoolean('InfoLinksVarIconSwitch'));
+            $result['infolinksicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoLinks'), $this->ReadPropertyBoolean('InfoLinksVarIconSwitch'));
         }
     
         if (IPS_VariableExists($this->ReadPropertyInteger('InfoRechts'))) {
             $result['inforechts'] = $this->CheckAndGetValueFormatted('InfoRechts');
-            $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'),$this->ReadPropertyBoolean('InfoRechtsVarIconSwitch'));
+            $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'), $this->ReadPropertyBoolean('InfoRechtsVarIconSwitch'));
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
