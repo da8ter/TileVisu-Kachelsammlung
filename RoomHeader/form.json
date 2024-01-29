@@ -135,6 +135,32 @@
                     "bold": false
                 },
                 {
+                    "type": "RowLayout",
+                    "items": [
+          
+                {
+                    "type": "SelectVariable",
+                    "name": "InfoRechts",
+                    "caption": "Variable rechts:",
+                    "validVariableTypes": []
+                },
+                {
+                    "type": "PopupButton",
+                    "caption": "Einstellung",
+                    "popup": {
+                        "caption": "Einstellung",
+                        "items": [
+                            { "type": "CheckBox", "name": "InfoRechtsNameSwitch", "caption": "Valiablenname anzeigen" },
+                            { "type": "CheckBox", "name": "InfoRechtsIconSwitch", "caption": "Icon anzeigen" },
+                            { "type": "CheckBox", "name": "InfoRechtsVarIconSwitch", "caption": "Variablenicon verwenden" },
+                            { "type": "CheckBox", "name": "InfoRechtsAssoSwitch", "caption": "Wert anzeigen" },
+                            { "type": "ValidationTextBox", "name": "InfoRechtsAltName", "caption": "Variablenname überschreiben:"}
+                        ]
+                    }
+                }
+                ]
+                },
+                {
                     "type": "SelectVariable",
                     "name": "InfoRechts",
                     "caption": "Variable rechts:",
