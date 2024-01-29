@@ -426,7 +426,7 @@ class TileVisuRoomHeader extends IPSModule
         $Value = GetValue($id);
         $icon = "";
         //Abfragen ob das Variablen-Icon oder das Profil-Icon verwendet werden soll
-        if($vasricon == true){
+        if($varicon == true){
         $icon = IPS_GetObject($id);
             if($icon['ObjectIcon'] != ""){
                 $icon = $icon['ObjectIcon'];
