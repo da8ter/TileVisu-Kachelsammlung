@@ -698,3 +698,19 @@
     </div>
   </div>
 
+        <script>
+        var iframe = document.querySelector('iframe');
+
+        // Blockieren des Touch-Scrolls auf dem iframe
+        document.body.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        });
+
+        // Weiterleiten des Scroll-Ereignisses von iframe zur Hauptseite
+        iframe.addEventListener('touchmove', function(e) {
+            // Hier können Sie je nach Bedarf die Scroll-Operation anpassen
+            // In diesem Beispiel wird die Scroll-Position der Hauptseite um den gleichen Betrag wie im iframe verschoben
+            window.scrollBy(0, e.touches[0].clientY);
+        });
+    </script>
+
