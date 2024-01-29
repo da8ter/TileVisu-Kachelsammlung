@@ -221,7 +221,7 @@ class TileVisuRoomHeader extends IPSModule
             if ($this->ReadPropertyBoolean('InfoRechtsIconSwitch') && $this->GetIcon($this->ReadPropertyInteger('InfoRechts'), $this->ReadPropertyBoolean('InfoRechtsVarIconSwitch')) !== "Transparent") {
                 $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'), $this->ReadPropertyBoolean('InfoRechtsVarIconSwitch'));
             }
-            if ($this->ReadPropertyBoolean('InfoRechtsAssoSwitch')) $result['inforechtssasso'] = $this->CheckAndGetValueFormatted('InfoRechts');
+            if ($this->ReadPropertyBoolean('InfoRechtsAssoSwitch')) $result['inforechtsasso'] = $this->CheckAndGetValueFormatted('InfoRechts');
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
