@@ -52,7 +52,6 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyFloat('Schalter5Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter5Breite', 100);
         $this->RegisterPropertyString('Schalter5AltName', '');
-        $this->RegisterPropertyString('Info1AltName', '');
         $this->RegisterPropertyInteger('Info1', 0);
         $this->RegisterPropertyString('Info1AltName', '');
         $this->RegisterPropertyInteger('Info2', 0);
@@ -214,7 +213,6 @@ class TileVisuRoomHeader extends IPSModule
                 $result['infolinksicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoLinks'), $this->ReadPropertyBoolean('InfoLinksVarIconSwitch'));
             }
             if ($this->ReadPropertyBoolean('InfoLinksAssoSwitch')) $result['infolinksasso'] = $this->CheckAndGetValueFormatted('InfoLinks');
-
         }
     
         if (IPS_VariableExists($this->ReadPropertyInteger('InfoRechts'))) {
