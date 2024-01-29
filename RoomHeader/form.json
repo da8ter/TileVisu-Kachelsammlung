@@ -161,12 +161,6 @@
                 ]
                 },
                 {
-                    "type": "SelectVariable",
-                    "name": "InfoRechts",
-                    "caption": "Variable rechts:",
-                    "validVariableTypes": []
-                },
-                {
                     "type": "SelectColor",
                     "allowTransparent": "false",
                     "name": "InfoSchriftfarbe",
@@ -175,7 +169,6 @@
             ]
         }
 
-                    ]
         },
         {
             "type": "Label", 
