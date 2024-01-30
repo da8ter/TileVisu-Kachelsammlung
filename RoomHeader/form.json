@@ -175,6 +175,7 @@
             "caption": "Menüleiste:",
             "bold": true
         },
+        { "type": "CheckBox", "name": "InfoMenueSwitch", "caption": "Menüleiste" },
         {
             "type": "RowLayout",
             "items": [

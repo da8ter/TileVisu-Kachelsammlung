@@ -153,6 +153,7 @@
 }
 
 
+
         .infolinks, 
         .inforechts,
         .infolinksasso,
@@ -319,6 +320,11 @@
                         const mainDiv = document.querySelector('.maindiv1');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
+                    case 'infomenueswitch':
+                        if(decodedData[parameter] == true){
+                        menueleiste.className = 'menueleiste';
+                        }
+                        break; 
                     case 'infolinksasso':
                         element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
@@ -665,7 +671,7 @@
         </div>
       </div>
     </div>
-    <div class="menueleiste">
+    <div class="hidden" id="menueleiste">
       <div class="menueleistelinks">
 
         <div class="hidden" id="info1trennerstart"></div>

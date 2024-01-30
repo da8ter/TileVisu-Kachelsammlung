@@ -22,6 +22,7 @@ class TileVisuRoomHeader extends IPSModule
         $this->RegisterPropertyBoolean('InfoRechtsAssoSwitch', 1);
         $this->RegisterPropertyString('InfoRechtsAltName', '');
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
+        $this->RegisterPropertyBoolean('InfoMenueSwitch', 1);
         $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueTransparenz', 0.3);
         $this->RegisterPropertyInteger('InfoMenueHintergrundfarbe', 0x000000);
@@ -339,6 +340,7 @@ class TileVisuRoomHeader extends IPSModule
             $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');         
             $result['infolinksaltname'] =  $this->ReadPropertyString('InfoLinksAltName');
             $result['inforechtsaltname'] =  $this->ReadPropertyString('InfoRechtsAltName');    
+            $result['infomenueswitch'] =  $this->ReadPropertyString('InfoMenueSwitch');   
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
