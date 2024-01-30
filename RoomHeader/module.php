@@ -6,13 +6,23 @@ class TileVisuRoomHeader extends IPSModule
         // Nie diese Zeile löschen!
         parent::Create();
 
+
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyInteger("InfoLinks", 0);
-        $this->RegisterPropertyBoolean("InfoLinksVarIconSwitch", 0);
+        $this->RegisterPropertyBoolean('InfoLinksNameSwitch', 0);
+        $this->RegisterPropertyBoolean('InfoLinksIconSwitch', 1);
+        $this->RegisterPropertyBoolean('InfoLinksVarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('InfoLinksAssoSwitch', 1);
+        $this->RegisterPropertyString('InfoLinksAltName', '');
         $this->RegisterPropertyInteger("InfoRechts", 0);
-        $this->RegisterPropertyBoolean("InfoRechtsVarIconSwitch", 0);
+        $this->RegisterPropertyBoolean('InfoRechtsNameSwitch', 0);
+        $this->RegisterPropertyBoolean('InfoRechtsIconSwitch', 1);
+        $this->RegisterPropertyBoolean('InfoRechtsVarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('InfoRechtsAssoSwitch', 1);
+        $this->RegisterPropertyString('InfoRechtsAltName', '');
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
+        $this->RegisterPropertyBoolean('InfoMenueSwitch', 1);
         $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueTransparenz', 0.3);
         $this->RegisterPropertyInteger('InfoMenueHintergrundfarbe', 0x000000);
@@ -139,17 +149,14 @@ class TileVisuRoomHeader extends IPSModule
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
 
-                            if($VariableProperty != 'InfoLinks' && $VariableProperty != 'InfoRechts' && $VariableProperty != 'bgImage')
+                            if($VariableProperty != 'bgImage')
                             {
-
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')) !== "Transparent") {
                                    $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch'));
-                                   var_dump($this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')));
                                 }
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
                                 $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
-
                             }
 
                             $this->UpdateVisualizationValue(json_encode($result));
@@ -199,12 +206,20 @@ class TileVisuRoomHeader extends IPSModule
     
         if (IPS_VariableExists($this->ReadPropertyInteger('InfoLinks'))) {
             $result['infolinks'] = $this->CheckAndGetValueFormatted('InfoLinks');
-            $result['infolinksicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoLinks'), $this->ReadPropertyBoolean('InfoLinksVarIconSwitch'));
+            if ($this->ReadPropertyBoolean('InfoLinksNameSwitch')) $result['infolinksname'] = IPS_GetName($this->ReadPropertyInteger('InfoLinks'));
+            if ($this->ReadPropertyBoolean('InfoLinksIconSwitch') && $this->GetIcon($this->ReadPropertyInteger('InfoLinks'), $this->ReadPropertyBoolean('InfoLinksVarIconSwitch')) !== "Transparent") {
+                $result['infolinksicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoLinks'), $this->ReadPropertyBoolean('InfoLinksVarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('InfoLinksAssoSwitch')) $result['infolinksasso'] = $this->CheckAndGetValueFormatted('InfoLinks');
         }
     
         if (IPS_VariableExists($this->ReadPropertyInteger('InfoRechts'))) {
             $result['inforechts'] = $this->CheckAndGetValueFormatted('InfoRechts');
-            $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'), $this->ReadPropertyBoolean('InfoRechtsVarIconSwitch'));
+            if ($this->ReadPropertyBoolean('InfoRechtsNameSwitch')) $result['inforechtsname'] = IPS_GetName($this->ReadPropertyInteger('InfoRechts'));
+            if ($this->ReadPropertyBoolean('InfoRechtsIconSwitch') && $this->GetIcon($this->ReadPropertyInteger('InfoRechts'), $this->ReadPropertyBoolean('InfoRechtsVarIconSwitch')) !== "Transparent") {
+                $result['inforechtsicon'] = $this->GetIcon($this->ReadPropertyInteger('InfoRechts'), $this->ReadPropertyBoolean('InfoRechtsVarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('InfoRechtsAssoSwitch')) $result['inforechtsasso'] = $this->CheckAndGetValueFormatted('InfoRechts');
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
@@ -319,7 +334,10 @@ class TileVisuRoomHeader extends IPSModule
             $result['info2altname'] =  $this->ReadPropertyString('Info2AltName');
             $result['info3altname'] =  $this->ReadPropertyString('Info3AltName');
             $result['info4altname'] =  $this->ReadPropertyString('Info4AltName');
-            $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');           
+            $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');         
+            $result['infolinksaltname'] =  $this->ReadPropertyString('InfoLinksAltName');
+            $result['inforechtsaltname'] =  $this->ReadPropertyString('InfoRechtsAltName');    
+            $result['infomenueswitch'] =  $this->ReadPropertyBoolean('InfoMenueSwitch');   
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');

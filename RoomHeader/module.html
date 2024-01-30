@@ -153,8 +153,13 @@
 }
 
 
+
         .infolinks, 
-        .inforechts {
+        .inforechts,
+        .infolinksasso,
+        .inforechtsasso,
+        .infolinksname,
+        .inforechtsname {
             font-size: var(--infofontsize);
             color: var(--infoschriftfarbe);
             opacity: 1;
@@ -300,14 +305,14 @@
 
             const decodedData = JSON.parse(data);
             
-            //console.log('Decodierte Daten:', decodedData);
+            console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
-                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
                 const element = document.getElementById(parameter.toLowerCase());
                 const parameter2 = String(parameter).toLowerCase();
-
+                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
@@ -315,22 +320,59 @@
                         const mainDiv = document.querySelector('.maindiv1');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
-                    case 'infolinks':
+                    case 'infomenueswitch':
+                        if(decodedData[parameter] == true){
+                        menueleiste.className = 'menueleiste';
+                        }
+                        else
+                        {
+                        menueleiste.className = 'hidden';
+                        }
+                        break; 
+                    case 'infolinksasso':
+                        element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
+                        if (infolinksname != "" && infolinksicon == "") infolinksdoppelpunkt.className = 'infolinksasso';
+                        if (!document.getElementById("infolinksname").classList.contains("hidden")) infolinksdoppelpunkt.className = 'infolinksasso';
                         break;
                     case 'infolinksicon':
-                    if (decodedData[parameter] !== "Transparent") {
-                        iconlinks.className = ' iconlinks';
-                        iconlinks.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        }                   
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconlinks';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
                         break;
-                    case 'inforechts':
+                    case 'infolinksname':
+                        element.className = 'infolinksname';
                         element.textContent = decodedData[parameter];
                         break;
-                    case 'inforechtsicon':
-                        iconrechts.className = ' iconrechts';
-                        iconrechts.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                    case 'infolinksaltname':
+                        if(decodedData[parameter] != ''){
+                        infolinksname.className = 'infolinksname';
+                        infolinksname.textContent = decodedData[parameter];
+                        }
+                        break; 
+                    case 'inforechtsasso':
+                        element.className = 'inforechtsasso';
+                        element.textContent = decodedData[parameter];
+                        if (inforechtsname != "" && inforechtsicon == "") inforechtsdoppelpunkt.className = 'inforechtsasso';
+                        if (!document.getElementById("inforechtsname").classList.contains("hidden")) inforechtsdoppelpunkt.className = 'inforechtsasso';
                         break;
+                    case 'inforechtsicon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconrechts';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'inforechtsname':
+                        element.className = 'inforechtsname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'inforechtsaltname':
+                        if(decodedData[parameter] != ''){
+                        inforechtsname.className = 'inforechtsname';
+                        inforechtsname.textContent = decodedData[parameter];
+                        }
+                        break; 
                     case 'schalter1asso':
                         element.className = 'schalter1asso';
                         schalter1.className = 'schalter1';
@@ -616,16 +658,24 @@
 <div class="maindiv1">
     <div class="maindiv2">
       <div class="left-aligned">
-        <div class="iconlinksdiv"><img class="hidden" id="iconlinks" src=""></div>
-        <div><p class="infolinks" id="infolinks"></p></div>
+        <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
+        <div>
+            <p class="hidden" id="infolinksname"></p>
+            <p class="hidden" id="infolinksdoppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="infolinksasso"></p>
+        </div>
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
       <div class="right-aligned">
-        <div class="iconrechtsdiv"><img class="hidden" id="iconrechts" src=""></div>
-        <div><p class="inforechts" id="inforechts"></p></div>
+        <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
+        <div>
+            <p class="hidden" id="inforechtsname"></p>
+            <p class="hidden" id="inforechtsdoppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="inforechtsasso"></p>
+        </div>
       </div>
     </div>
-    <div class="menueleiste">
+    <div class="hidden" id="menueleiste">
       <div class="menueleistelinks">
 
         <div class="hidden" id="info1trennerstart"></div>
@@ -697,4 +747,3 @@
     </div>
     </div>
   </div>
-

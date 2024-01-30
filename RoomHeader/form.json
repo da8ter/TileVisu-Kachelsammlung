@@ -90,10 +90,30 @@
                     "bold": false
                 },
                 {
+                    "type": "RowLayout",
+                    "items": [
+          
+                {
                     "type": "SelectVariable",
                     "name": "InfoLinks",
                     "caption": "Variable links:",
                     "validVariableTypes": []
+                },
+                {
+                    "type": "PopupButton",
+                    "caption": "Einstellung",
+                    "popup": {
+                        "caption": "Einstellung",
+                        "items": [
+                            { "type": "CheckBox", "name": "InfoLinksNameSwitch", "caption": "Valiablenname anzeigen" },
+                            { "type": "CheckBox", "name": "InfoLinksIconSwitch", "caption": "Icon anzeigen" },
+                            { "type": "CheckBox", "name": "InfoLinksVarIconSwitch", "caption": "Variablenicon verwenden" },
+                            { "type": "CheckBox", "name": "InfoLinksAssoSwitch", "caption": "Wert anzeigen" },
+                            { "type": "ValidationTextBox", "name": "InfoLinksAltName", "caption": "Variablenname überschreiben:"}
+                        ]
+                    }
+                }
+                ]
                 },
                 {
                     "type": "NumberSpinner",
@@ -106,7 +126,7 @@
                 }
             ]
         },
-                { 
+        { 
             "type": "ColumnLayout",
             "items": [
                 {
@@ -115,10 +135,30 @@
                     "bold": false
                 },
                 {
+                    "type": "RowLayout",
+                    "items": [
+          
+                {
                     "type": "SelectVariable",
                     "name": "InfoRechts",
                     "caption": "Variable rechts:",
                     "validVariableTypes": []
+                },
+                {
+                    "type": "PopupButton",
+                    "caption": "Einstellung",
+                    "popup": {
+                        "caption": "Einstellung",
+                        "items": [
+                            { "type": "CheckBox", "name": "InfoRechtsNameSwitch", "caption": "Valiablenname anzeigen" },
+                            { "type": "CheckBox", "name": "InfoRechtsIconSwitch", "caption": "Icon anzeigen" },
+                            { "type": "CheckBox", "name": "InfoRechtsVarIconSwitch", "caption": "Variablenicon verwenden" },
+                            { "type": "CheckBox", "name": "InfoRechtsAssoSwitch", "caption": "Wert anzeigen" },
+                            { "type": "ValidationTextBox", "name": "InfoRechtsAltName", "caption": "Variablenname überschreiben:"}
+                        ]
+                    }
+                }
+                ]
                 },
                 {
                     "type": "SelectColor",
@@ -127,15 +167,15 @@
                     "caption": "Schriftfarbe:"
                 }
             ]
-        }
-
-                    ]
+        
+        }]
         },
         {
             "type": "Label", 
             "caption": "Menüleiste:",
             "bold": true
         },
+        { "type": "CheckBox", "name": "InfoMenueSwitch", "caption": "" },
         {
             "type": "RowLayout",
             "items": [
