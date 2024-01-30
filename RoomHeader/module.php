@@ -340,7 +340,7 @@ class TileVisuRoomHeader extends IPSModule
             $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');         
             $result['infolinksaltname'] =  $this->ReadPropertyString('InfoLinksAltName');
             $result['inforechtsaltname'] =  $this->ReadPropertyString('InfoRechtsAltName');    
-            $result['infomenueswitch'] =  $this->ReadPropertyString('InfoMenueSwitch');   
+            $result['infomenueswitch'] =  $this->ReadPropertyBoolean('InfoMenueSwitch');   
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
