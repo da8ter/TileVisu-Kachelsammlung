@@ -10,7 +10,8 @@ class TileVisuWashingMaschine extends IPSModule
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("Status", 0);
         $this->RegisterPropertyInteger("Programm", 0);
-        $this->RegisterPropertyInteger("Lautzeit", 0);
+        $this->RegisterPropertyInteger("Programmfortschritt", 0);
+        $this->RegisterPropertyInteger("Restlaufzeit", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
         $this->RegisterPropertyFloat("StatusSchriftgroesse", 0);
@@ -18,7 +19,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyFloat("BalkenSchriftgroesse", 0);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 0);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 0);
-        $this->RegisterPropertyInteger("Bild", 0);
+        //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 0);
 
 
@@ -40,7 +41,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        foreach (['Status', 'Programm', 'Lautzeit', 'Verbrauch', 'VerbrauchTag'] as $VariableProperty)        {
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -51,7 +52,7 @@ class TileVisuWashingMaschine extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Programm', 'Lautzeit', 'Verbrauch', 'VerbrauchTag'] as $index => $VariableProperty)
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -108,7 +109,9 @@ class TileVisuWashingMaschine extends IPSModule
     
             $result['status'] = $this->CheckAndGetValueFormatted('Status');
             $result['programm'] = $this->CheckAndGetValueFormatted('Programm');
-            $result['lautzeit'] = $this->CheckAndGetValueFormatted('Lautzeit');
+            $result['programmfortschritt'] = $this->CheckAndGetValueFormatted('Programmfortschritt');
+            $result['programmfortschrittvalue'] = GetValued($this->ReadPropertyInteger('Programmfortschritt'))
+            $result['restlaufzeit'] = $this->CheckAndGetValueFormatted('restlaufzeit');
             $result['verbrauch'] = $this->CheckAndGetValueFormatted('Verbrauch');
             $result['verbrauchtag'] = $this->CheckAndGetValueFormatted('VerbrauchTag');
             $result['StatusSchriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
@@ -116,7 +119,7 @@ class TileVisuWashingMaschine extends IPSModule
             $result['BalkenSchriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
-            $result['Bild'] =  $this->GetColor($this->ReadPropertyInteger('Bild'));
+            //$result['Bild'] =  $this->GetColor($this->ReadPropertyInteger('Bild'));
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
         return json_encode($result);
     }

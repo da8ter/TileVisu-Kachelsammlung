@@ -7,6 +7,84 @@
         },
         {   "type": "Label", 
             "caption": "Beispiel einer voll konfigurierten Kachel" 
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Status",
+            "caption": "Status:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Programm",
+            "caption": "Programm:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Lautzeit",
+            "caption": "Lautzeit:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "Verbrauch",
+            "caption": "Verbrauch:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "SelectVariable",
+            "name": "VerbrauchTag",
+            "caption": "Verbrauch Tag:",
+            "validVariableTypes": []
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "StatusSchriftgroesse",
+            "caption": "Schriftgröße Status:",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "ProgrammSchriftgroesse",
+            "caption": "Programm Schriftgröße:",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "BalkenSchriftgroesse",
+            "caption": "Balken Schriftgröße:",
+            "digits": 1,
+            "minimum": 0.5,
+            "maximum": 10.0,
+            "suffix": "em"
+        },
+        {
+            "type": "SelectColor",
+            "allowTransparent": "false",
+            "name": "BalkenVerlaufFarbe1",
+            "caption": "Balken Verlauf Farbe 1:"
+        },
+        {
+            "type": "SelectColor",
+            "allowTransparent": "false",
+            "name": "BalkenVerlaufFarbe2",
+            "caption": "Balken Verlauf Farbe 2:"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "BildBreite",
+            "caption": "Bild Breite:",
+            "digits": 1,
+            "minimum": 1.0,
+            "maximum": 50.0,
+            "suffix": "%"
         }
         
     ]

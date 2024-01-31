@@ -18,284 +18,190 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background-color: var(--hintergrundfarbe);
-            
-        }
-.hidden {
-    display: none;
-}
-.maindiv2 {
-  width: 100%;
-  height: 90%;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.maindiv1 {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: flex-start;
-  box-sizing: border-box;
-  padding: 0px 0px 0px 0px;
-}
-
-
-.maindiv1:before {
-  content: " ";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: var(--transparenz);
-  background: var(--background-image, none) bottom / cover no-repeat;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-
-.maindiv1 > * {
-  position: relative;
-  z-index: 1;
-}
-
-.left-aligned {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  align-items: flex-start;
-  /* Inhalt nach links ausrichten */
-  text-align: left;
-  /* Text linksbündig */
-  padding: 0px 0px 10px 0px;
-  width: 20%;
-  height: 100%;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
-
-.center-aligned {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Inhalt zentrieren (horizontal und vertikal) */
-  padding: 0px 0px 0px 0px;
-  width: 60%;
-  height: 100%;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.right-aligned {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  align-items: flex-end;
-  flex-direction: column;
-  /* Inhalt nach rechts ausrichten */
-  text-align: right;
-  /* Text rechtsbündig */
-  padding: 0px 0px 10px 0px;
-  width: 20%;
-  height: 100%;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-.menueleiste {
-  backdrop-filter: blur(10px) brightness(1);
-  -webkit-backdrop-filter: blur(10px) brightness(1);
-  background-color: var(--infomenuehintergrundfarbe);
-  width: 100%;
-
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  box-sizing: border-box;
-  border-top: 0px dotted #28cdab;
-    
-}
-.menueleistelinks {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  width: 50%;
-  padding: 0px;
-  text-align: left;
-  height: 100%;
-  box-sizing: border-box;
-}
-.menueleisterechts {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-  width: 50%;
-  text-align: right;
-  height: 100%;
-  box-sizing: border-box;
-
-}
-
-
-
-        .infolinks, 
-        .inforechts,
-        .infolinksasso,
-        .inforechtsasso,
-        .infolinksname,
-        .inforechtsname {
-            font-size: var(--infofontsize);
-            color: var(--infoschriftfarbe);
-            opacity: 1;
         }
 
-        .info1asso, 
-        .info2asso, 
-        .info3asso, 
-        .info4asso, 
-        .info5asso {
-            font-size: 1em;
-            padding-right: 1px;
-            padding-left: 1px;
-            font-size: var(--infomenuefontsize);
-            color: var(--infomenueschriftfarbe);
-        }
-        .info1name, 
-        .info2name, 
-        .info3name, 
-        .info4name, 
-        .info5name {
-            font-size: 1em;
-            padding-right: 1px;
-            padding-left: 1px;
-            font-size: var(--infomenuefontsize);
-            color: var(--infomenueschriftfarbe);
+        .hidden {
+            display: none;
         }
 
-        .schalter1name, 
-        .schalter2name, 
-        .schalter3name, 
-        .schalter4name, 
-        .schalter5name {
-            font-size: 1em;
-            padding-right: 1px;
-            padding-left: 1px;
-        }
-
-
-        .schalter1name, 
-        .schalter2name, 
-        .schalter3name, 
-        .schalter4name, 
-        .schalter5name, 
-        .schalter1asso, 
-        .schalter2asso, 
-        .schalter3asso, 
-        .schalter4asso, 
-        .schalter5asso {
-            font-size: 1em;
-            padding-right: 1px;
-            padding-left: 1px;
-        }
-        .infoicon, .schaltericon {
-            color: #ffffff;
-            width: 1.3em;
-            opacity: 1;
-            padding-right: 1px;
-            padding-left: 1px;
-        }
-        .infotrenner, .infotrennerstart {
-            height: 60%;
-            width: 1px;
-            background-color: #28CDAB;
-            margin-right: 10px;
-            margin-left: 10px;
-            opacity: 0.3;
-        }
-        .infotrennerstart {
-            margin-left: 0px;
-        }
-
-
-        .raumname {
-            font-size: var(--raumnamefontsize);
-            color: var(--raumnameschriftfarbe);
-        }
-
-        p {
-            margin: 0;
-        }
-
-        .icon {
-            color: #ffffff;
-            font-size: 3em;
-            opacity: 0.5;
-        }
-        .iconlinks, .iconrechts {
-
-            height: calc(var(--infofontsize) * 2.5);;
-        }
-
-
-        .schalter1, .schalter2, .schalter3, .schalter4, .schalter5 {
+        .main_container {
+            width: 100%;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            margin-left: 10px;
-            padding: 5px;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            border-width: 0px;
-            font-size: var(--schalterschriftgroesse);
+            flex-wrap: nowrap;
+            position: relative;
+            font-size: 1em;
             box-sizing: border-box;
-            height: 100%;
-            
         }
 
-        .schalter1 {
-            background-color: var(--schalter1color);
-            min-width: var(--schalter1breite);
+        .div1 {
+            width: 20%;
+            box-sizing: border-box;
         }
-        .schalter2 {
-            background-color: var(--schalter2color);
-            min-width: var(--schalter2breite);
+
+        .div1 img {
+            width: 100%;
+            box-sizing: border-box;
         }
-        .schalter3 {
-            background-color: var(--schalter3color);
-            min-width: var(--schalter3breite);
+
+        .div2 {
+            width: 80%;
+            padding: 0px 5px 5px 2.5%;
+            margin: 0px 0px 0px 2.5%;
+            box-sizing: border-box;
+            border-radius: 0px;
+            border-left: 1px dotted #28cdab;
         }
-        .schalter4 {
-            background-color: var(--schalter4color);
-            min-width: var(--schalter4breite);
-        }
-        .schalter5 {
-            background-color: var(--schalter5color);
-            min-width: var(--schalter5breite);
+
+        .balkendiagramm {
+            width: 100%;
+            display: flex;
+            position: relative;
+            margin-bottom: 2%;
+            box-sizing: border-box;
         }
 
 
 
+        @keyframes gradient_forschritt {
+            0% {
+                background-position: 0 0;
+            }
 
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .balken_links_fortschritt {
+            width: var(--fortschnitt_prozent);
+            //width: 25%;
+            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_forschritt 10s infinite;
+            /* Hier die Animation ändern */
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            height: calc(var(--div-height) + var(--div-height) /5);
+            border-radius: calc(var(--div-height) / 4) 0px 0px calc(var(--div-height) / 4);
+            font-size: 0.8em;
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+
+        .balken_links_text {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            transform: translate(-0%, -50%);
+            color: white;
+            z-index: 2;
+            padding: 3px;
+            font-size: 1em;
+        }
+
+        .balken_links_text_finish {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+            transform: translate(-0%, -50%);
+            color: white;
+            z-index: 3;
+            padding: 3px;
+            font-size: 1em;
+        }
+
+        .balken_rechts {
+            width: 100%;
+            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
+            //      font-size: 0.9rem;
+            transition: width 2s;
+            transition-timing-function: ease;
+            overflow: hidden;
+        }
+
+        .status_0 {
+            color: #000000;
+        }
+
+        .status_1 {
+            color: #000000;
+        }
+
+        .status_2 {
+            color: #000000;
+        }
+
+        .status_3 {
+            color: #fc9003;
+        }
+
+        .status_4 {
+            color: #03a1fc;
+        }
+
+        .status_5 {
+            color: #fc9003;
+        }
+
+        .status_6 {
+            color: #000000;
+        }
+
+        .status_7 {
+            color: #000000;
+        }
+
+        .status_8 {
+            color: #000000;
+        }
+
+        .status_9 {
+            color: #000000;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .container_daten {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .daten_links {
+            margin-right: 20px;
+            border: 0px solid #000;
+        }
+
+        .daten_rechts {
+            border: 0px solid #000;
+        }
+
+        .verbrauch {
+            font-size: 0.8em;
+            margin-top: 10px;
+            padding: 00px 0px 0px 0px;
+        }
+
+        .programm {
+            font-size: 0.8em;
+            margin: 0px 0px 5px 0px;
+            padding: 0px 0px 0px 0px;
+        }
     </style>
 
 
@@ -304,7 +210,7 @@
             //console.log('Rohdaten empfangen:', data);
 
             const decodedData = JSON.parse(data);
-            
+
             console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
@@ -316,29 +222,25 @@
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
-                    case 'image1':
-                        const mainDiv = document.querySelector('.maindiv1');
-                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
-                        break;
-                    case 'infomenueswitch':
-                        if(decodedData[parameter] == true){
-                        menueleiste.className = 'menueleiste';
-                        }
-                        else
-                        {
-                        menueleiste.className = 'hidden';
-                        }
-                        break; 
-                    case 'infolinksasso':
-                        element.className = 'infolinksasso';
+                    
+                    case 'status':
+                        //element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
-                        if (infolinksname != "" && infolinksicon == "") infolinksdoppelpunkt.className = 'infolinksasso';
-                        if (!document.getElementById("infolinksname").classList.contains("hidden")) infolinksdoppelpunkt.className = 'infolinksasso';
                         break;
-                    case 'infolinksicon':
+                    case 'programm':
+                        //element.className = 'infolinksasso';
+                        element.textContent = decodedData[parameter];
+                        break;    
+                    case 'laufzeit':
+                        //element.className = 'infolinksasso';
+                        element.textContent = decodedData[parameter];
+                        break;    
+
+
+                    case 'programm':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'iconlinks';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            element.className = 'iconlinks';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         }
                         break;
                     case 'infolinksname':
@@ -346,11 +248,11 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'infolinksaltname':
-                        if(decodedData[parameter] != ''){
-                        infolinksname.className = 'infolinksname';
-                        infolinksname.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            infolinksname.className = 'infolinksname';
+                            infolinksname.textContent = decodedData[parameter];
                         }
-                        break; 
+                        break;
                     case 'inforechtsasso':
                         element.className = 'inforechtsasso';
                         element.textContent = decodedData[parameter];
@@ -359,8 +261,8 @@
                         break;
                     case 'inforechtsicon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'iconrechts';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            element.className = 'iconrechts';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         }
                         break;
                     case 'inforechtsname':
@@ -368,11 +270,11 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'inforechtsaltname':
-                        if(decodedData[parameter] != ''){
-                        inforechtsname.className = 'inforechtsname';
-                        inforechtsname.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            inforechtsname.className = 'inforechtsname';
+                            inforechtsname.textContent = decodedData[parameter];
                         }
-                        break; 
+                        break;
                     case 'schalter1asso':
                         element.className = 'schalter1asso';
                         schalter1.className = 'schalter1';
@@ -381,9 +283,9 @@
                         break;
                     case 'schalter1icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter1.className = 'schalter1';
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter1.className = 'schalter1';
                         }
                         break;
                     case 'schalter1name':
@@ -392,10 +294,10 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'schalter1altname':
-                        if(decodedData[parameter] != ''){
-                        schalter1name.className = 'schalter1name';
-                        schalter1.className = 'schalter1';
-                        schalter1name.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            schalter1name.className = 'schalter1name';
+                            schalter1.className = 'schalter1';
+                            schalter1name.textContent = decodedData[parameter];
                         }
                         break;
                     case 'schalter2asso':
@@ -406,23 +308,23 @@
                         break;
                     case 'schalter2icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter2.className = 'schalter2';
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter2.className = 'schalter2';
                         }
                         break;
                     case 'schalter2name':
                         element.className = 'schalter2name';
                         element.textContent = decodedData[parameter];
                         schalter2.className = 'schalter2';
-                        break;  
+                        break;
                     case 'schalter2altname':
-                        if(decodedData[parameter] != ''){
-                        schalter2name.className = 'schalter2name';
-                        schalter2.className = 'schalter2';
-                        schalter2name.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            schalter2name.className = 'schalter2name';
+                            schalter2.className = 'schalter2';
+                            schalter2name.textContent = decodedData[parameter];
                         }
-                        break; 
+                        break;
                     case 'schalter3asso':
                         element.className = 'schalter3asso';
                         schalter3.className = 'schalter3';
@@ -431,9 +333,9 @@
                         break;
                     case 'schalter3icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter3.className = 'schalter3';
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter3.className = 'schalter3';
                         }
                         break;
                     case 'schalter3name':
@@ -442,10 +344,10 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'schalter3altname':
-                        if(decodedData[parameter] != ''){
-                        schalter3name.className = 'schalter3name';
-                        schalter3.className = 'schalter3';
-                        schalter3name.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            schalter3name.className = 'schalter3name';
+                            schalter3.className = 'schalter3';
+                            schalter3name.textContent = decodedData[parameter];
                         }
                         break;
                     case 'schalter4asso':
@@ -456,21 +358,21 @@
                         break;
                     case 'schalter4icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter4.className = 'schalter4';
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter4.className = 'schalter4';
                         }
                         break;
                     case 'schalter4name':
                         element.className = 'schalter4name';
                         element.textContent = decodedData[parameter];
                         schalter4.className = 'schalter4';
-                        break;  
+                        break;
                     case 'schalter4altname':
-                        if(decodedData[parameter] != ''){
-                        schalter4name.className = 'schalter4name';
-                        schalter4.className = 'schalter4';
-                        schalter4name.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            schalter4name.className = 'schalter4name';
+                            schalter4.className = 'schalter4';
+                            schalter4name.textContent = decodedData[parameter];
                         }
                         break;
                     case 'schalter5asso':
@@ -481,41 +383,41 @@
                         break;
                     case 'schalter5icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter5.className = 'schalter5';
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter5.className = 'schalter5';
                         }
                         break;
                     case 'schalter5name':
                         element.className = 'schalter5name';
                         schalter5.className = 'schalter5';
                         element.textContent = decodedData[parameter];
-                        break;  
+                        break;
                     case 'schalter5altname':
-                        if(decodedData[parameter] != ''){
-                        schalter5name.className = 'schalter5name';
-                        schalter5.className = 'schalter5';
-                        schalter5name.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            schalter5name.className = 'schalter5name';
+                            schalter5.className = 'schalter5';
+                            schalter5name.textContent = decodedData[parameter];
                         }
                         break;
                     case 'schalterschriftgroesse':
                         root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
-                        break;    
+                        break;
                     case 'schalter1breite':
                         root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
-                        break; 
+                        break;
                     case 'schalter2breite':
                         root.style.setProperty('--schalter2breite', decodedData[parameter] + 'px');
-                        break; 
+                        break;
                     case 'schalter3breite':
                         root.style.setProperty('--schalter3breite', decodedData[parameter] + 'px');
-                        break; 
+                        break;
                     case 'schalter4breite':
                         root.style.setProperty('--schalter4breite', decodedData[parameter] + 'px');
-                        break; 
+                        break;
                     case 'schalter5breite':
                         root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
-                        break; 
+                        break;
                     case 'schalter1color':
                         root.style.setProperty('--schalter1color', decodedData[parameter]);
                         break;
@@ -550,7 +452,7 @@
                     case 'infomenuehintergrundfarbe':
                         root.style.setProperty('--infomenuehintergrundfarbe', decodedData[parameter]);
 
-                        break; 
+                        break;
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
                         break;
@@ -573,9 +475,9 @@
                         break;
                     case 'info1icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
+                            element.className = 'infoicon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         }
                         break;
                     case 'info1name':
@@ -584,11 +486,11 @@
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         break;
                     case 'info1altname':
-                        if(decodedData[parameter] != ''){
-                        info1name.className = 'info1name';
-                        info1name.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != '') {
+                            info1name.className = 'info1name';
+                            info1name.textContent = decodedData[parameter];
                         }
-                        break;    
+                        break;
                     case 'info2asso':
                         element.className = 'info2asso';
                         element.textContent = decodedData[parameter];
@@ -599,9 +501,9 @@
                         break;
                     case 'info2icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
+                            element.className = 'infoicon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
                         }
                         break;
                     case 'info2name':
@@ -618,7 +520,7 @@
                         break;
                     case 'info3icon':
                         element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         break;
                     case 'info4asso':
                         element.className = 'info4asso';
@@ -630,7 +532,7 @@
                         break;
                     case 'info4icon':
                         element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         break;
                     case 'info5asso':
                         element.className = 'info5asso';
@@ -641,7 +543,7 @@
                         break;
                     case 'info5icon':
                         element.className = 'infoicon';
-                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         break;
                     default:
                         //console.log('Setze innerHTML für', parameter);
@@ -655,95 +557,23 @@
     </script>
 
 
-<div class="maindiv1">
-    <div class="maindiv2">
-      <div class="left-aligned">
-        <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
-        <div>
-            <p class="hidden" id="infolinksname"></p>
-            <p class="hidden" id="infolinksdoppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="infolinksasso"></p>
+</head>
+<body>
+<div class="main_container">
+    <div id="div1" class="div1">
+    </div>
+    <div class="div2">
+        <b>Status: </b><span id="status"></span></br>
+        <div class="programm"><span class="programm"><b>Programm: </b><span id="programm"></span></span></div>
+
+        <div class="balkendiagramm">
+            <div class="balken_rechts">
+                <div class="balken_links_fortschritt">
+                    <span class="balken_links_text"><i class="fa-regular fa-circle-right fa-sm" style="color: #ffffff;"></i>&nbsp;&nbsp;<span id="laufzeit">0</span>&nbsp;%</span>
+                    <span class="balken_links_text_finish"><i class="fa-regular fa-clock fa-sm" style="color: #ffffff;"></i>&nbsp;&nbsp;<span id="23156">0</span>&nbsp;m</span>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
-      <div class="right-aligned">
-        <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
-        <div>
-            <p class="hidden" id="inforechtsname"></p>
-            <p class="hidden" id="inforechtsdoppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="inforechtsasso"></p>
-        </div>
-      </div>
+            <div class="verbrauch"> <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span id="19631"></span> Watt&nbsp;&nbsp;&nbsp;Tag: <span id="45283"></span> kWh</div>
     </div>
-    <div class="hidden" id="menueleiste">
-      <div class="menueleistelinks">
-
-        <div class="hidden" id="info1trennerstart"></div>
-        <img class="hidden" id="info1icon" src="">
-        <p class="hidden" id="info1name"></p>
-        <p class="hidden" id="info1doppelpunkt">:&nbsp;</p>
-        <p class="hidden" id="info1asso"></p>
-        <div class="hidden" id="info1trenner"></div>
-
-        <img class="hidden" id="info2icon" src="">
-        <p class="hidden" id="info2name"></p>
-        <p class="hidden" id="info2doppelpunkt">:&nbsp;</p>
-        <p class="hidden" id="info2asso"></p>
-        <div class="hidden" id="info2trenner"></div>
-        
-        <img class="hidden" id="info3icon" src="">
-        <p class="hidden" id="info3name"></p>
-        <p class="hidden" id="info3doppelpunkt">:&nbsp;</p>
-        <p class="hidden" id="info3asso"></p>
-        <div class="hidden" id="info3trenner"></div>
-
-        <img class="hidden" id="info4icon" src="">
-        <p class="hidden" id="info4name"></p>
-        <p class="hidden" id="info4doppelpunkt">:&nbsp;</p>
-        <p class="hidden" id="info4asso"></p>
-        <div class="hidden" id="info4trenner"></div>
-
-        <img class="hidden" id="info5icon" src="">
-        <p class="hidden" id="info5name"></p>
-        <p class="hidden" id="info5doppelpunkt">:&nbsp;</p>
-        <p class="hidden" id="info5asso"></p></div>
-
-      <div class="menueleisterechts">
-
-        <button id="schalter1" class="hidden" onclick="requestAction('Schalter1', 1);">
-            <img class="hidden" id="schalter1icon" src="">
-            <p class="hidden" id="schalter1name"></p>
-            <p class="hidden" id="schalter1doppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="schalter1asso"></p>
-        </button>
-
-        <button id="schalter2" class="hidden" onclick="requestAction('Schalter2', 1);">
-            <img class="hidden" id="schalter2icon" src="">
-            <p class="hidden" id="schalter2name"></p>
-            <p class="hidden" id="schalter2doppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="schalter2asso"></p>
-        </button>
-
-        <button id="schalter3" class="hidden" onclick="requestAction('Schalter3', 1);">
-            <img class="hidden" id="schalter3icon" src="">
-            <p class="hidden" id="schalter3name"></p>
-            <p class="hidden" id="schalter3doppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="schalter3asso"></p>
-        </button>
-
-        <button id="schalter4" class="hidden" onclick="requestAction('Schalter4', 1);">
-            <img class="hidden" id="schalter4icon" src="">
-            <p class="hidden" id="schalter4name"></p>
-            <p class="hidden" id="schalter4doppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="schalter4asso"></p>
-        </button>
-
-        <button id="schalter5" class="hidden" onclick="requestAction('Schalter5', 1);">
-            <img class="hidden" id="schalter5icon" src="">
-            <p class="hidden" id="schalter5name"></p>
-            <p class="hidden" id="schalter5doppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="schalter5asso"></p>
-        </button>
-    </div>
-    </div>
-  </div>
+</div>
