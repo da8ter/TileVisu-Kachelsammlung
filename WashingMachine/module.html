@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
+
+        :root {
+            --background-image: #000000;
+        }
+
+        body {
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--hintergrundfarbe);
+            
+        }
+.hidden {
+    display: none;
+}
+.maindiv2 {
+  width: 100%;
+  height: 90%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.maindiv1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 0px;
+}
+
+
+.maindiv1:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: var(--transparenz);
+  background: var(--background-image, none) bottom / cover no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.maindiv1 > * {
+  position: relative;
+  z-index: 1;
+}
+
+.left-aligned {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  align-items: flex-start;
+  /* Inhalt nach links ausrichten */
+  text-align: left;
+  /* Text linksbündig */
+  padding: 0px 0px 10px 0px;
+  width: 20%;
+  height: 100%;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.center-aligned {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Inhalt zentrieren (horizontal und vertikal) */
+  padding: 0px 0px 0px 0px;
+  width: 60%;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.right-aligned {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  /* Inhalt nach rechts ausrichten */
+  text-align: right;
+  /* Text rechtsbündig */
+  padding: 0px 0px 10px 0px;
+  width: 20%;
+  height: 100%;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+.menueleiste {
+  backdrop-filter: blur(10px) brightness(1);
+  -webkit-backdrop-filter: blur(10px) brightness(1);
+  background-color: var(--infomenuehintergrundfarbe);
+  width: 100%;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+  border-top: 0px dotted #28cdab;
+    
+}
+.menueleistelinks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  width: 50%;
+  padding: 0px;
+  text-align: left;
+  height: 100%;
+  box-sizing: border-box;
+}
+.menueleisterechts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  width: 50%;
+  text-align: right;
+  height: 100%;
+  box-sizing: border-box;
+
+}
+
+
+
+        .infolinks, 
+        .inforechts,
+        .infolinksasso,
+        .inforechtsasso,
+        .infolinksname,
+        .inforechtsname {
+            font-size: var(--infofontsize);
+            color: var(--infoschriftfarbe);
+            opacity: 1;
+        }
+
+        .info1asso, 
+        .info2asso, 
+        .info3asso, 
+        .info4asso, 
+        .info5asso {
+            font-size: 1em;
+            padding-right: 1px;
+            padding-left: 1px;
+            font-size: var(--infomenuefontsize);
+            color: var(--infomenueschriftfarbe);
+        }
+        .info1name, 
+        .info2name, 
+        .info3name, 
+        .info4name, 
+        .info5name {
+            font-size: 1em;
+            padding-right: 1px;
+            padding-left: 1px;
+            font-size: var(--infomenuefontsize);
+            color: var(--infomenueschriftfarbe);
+        }
+
+        .schalter1name, 
+        .schalter2name, 
+        .schalter3name, 
+        .schalter4name, 
+        .schalter5name {
+            font-size: 1em;
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+
+
+        .schalter1name, 
+        .schalter2name, 
+        .schalter3name, 
+        .schalter4name, 
+        .schalter5name, 
+        .schalter1asso, 
+        .schalter2asso, 
+        .schalter3asso, 
+        .schalter4asso, 
+        .schalter5asso {
+            font-size: 1em;
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+        .infoicon, .schaltericon {
+            color: #ffffff;
+            width: 1.3em;
+            opacity: 1;
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+        .infotrenner, .infotrennerstart {
+            height: 60%;
+            width: 1px;
+            background-color: #28CDAB;
+            margin-right: 10px;
+            margin-left: 10px;
+            opacity: 0.3;
+        }
+        .infotrennerstart {
+            margin-left: 0px;
+        }
+
+
+        .raumname {
+            font-size: var(--raumnamefontsize);
+            color: var(--raumnameschriftfarbe);
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .icon {
+            color: #ffffff;
+            font-size: 3em;
+            opacity: 0.5;
+        }
+        .iconlinks, .iconrechts {
+
+            height: calc(var(--infofontsize) * 2.5);;
+        }
+
+
+        .schalter1, .schalter2, .schalter3, .schalter4, .schalter5 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 10px;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border-width: 0px;
+            font-size: var(--schalterschriftgroesse);
+            box-sizing: border-box;
+            height: 100%;
+            
+        }
+
+        .schalter1 {
+            background-color: var(--schalter1color);
+            min-width: var(--schalter1breite);
+        }
+        .schalter2 {
+            background-color: var(--schalter2color);
+            min-width: var(--schalter2breite);
+        }
+        .schalter3 {
+            background-color: var(--schalter3color);
+            min-width: var(--schalter3breite);
+        }
+        .schalter4 {
+            background-color: var(--schalter4color);
+            min-width: var(--schalter4breite);
+        }
+        .schalter5 {
+            background-color: var(--schalter5color);
+            min-width: var(--schalter5breite);
+        }
+
+
+
+
+    </style>
+
+
+    <script>
+        function handleMessage(data) {
+            //console.log('Rohdaten empfangen:', data);
+
+            const decodedData = JSON.parse(data);
+            
+            console.log('Decodierte Daten:', decodedData);
+
+            for (const parameter in decodedData) {
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
+                const element = document.getElementById(parameter.toLowerCase());
+                const parameter2 = String(parameter).toLowerCase();
+                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                var root = document.documentElement;
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter2) {
+                    case 'image1':
+                        const mainDiv = document.querySelector('.maindiv1');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'infomenueswitch':
+                        if(decodedData[parameter] == true){
+                        menueleiste.className = 'menueleiste';
+                        }
+                        else
+                        {
+                        menueleiste.className = 'hidden';
+                        }
+                        break; 
+                    case 'infolinksasso':
+                        element.className = 'infolinksasso';
+                        element.textContent = decodedData[parameter];
+                        if (infolinksname != "" && infolinksicon == "") infolinksdoppelpunkt.className = 'infolinksasso';
+                        if (!document.getElementById("infolinksname").classList.contains("hidden")) infolinksdoppelpunkt.className = 'infolinksasso';
+                        break;
+                    case 'infolinksicon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconlinks';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'infolinksname':
+                        element.className = 'infolinksname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'infolinksaltname':
+                        if(decodedData[parameter] != ''){
+                        infolinksname.className = 'infolinksname';
+                        infolinksname.textContent = decodedData[parameter];
+                        }
+                        break; 
+                    case 'inforechtsasso':
+                        element.className = 'inforechtsasso';
+                        element.textContent = decodedData[parameter];
+                        if (inforechtsname != "" && inforechtsicon == "") inforechtsdoppelpunkt.className = 'inforechtsasso';
+                        if (!document.getElementById("inforechtsname").classList.contains("hidden")) inforechtsdoppelpunkt.className = 'inforechtsasso';
+                        break;
+                    case 'inforechtsicon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconrechts';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'inforechtsname':
+                        element.className = 'inforechtsname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'inforechtsaltname':
+                        if(decodedData[parameter] != ''){
+                        inforechtsname.className = 'inforechtsname';
+                        inforechtsname.textContent = decodedData[parameter];
+                        }
+                        break; 
+                    case 'schalter1asso':
+                        element.className = 'schalter1asso';
+                        schalter1.className = 'schalter1';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter1name").classList.contains("hidden")) schalter1doppelpunkt.className = 'schalter1asso';
+                        break;
+                    case 'schalter1icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'schaltericon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        schalter1.className = 'schalter1';
+                        }
+                        break;
+                    case 'schalter1name':
+                        element.className = 'schalter1name';
+                        schalter1.className = 'schalter1';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter1altname':
+                        if(decodedData[parameter] != ''){
+                        schalter1name.className = 'schalter1name';
+                        schalter1.className = 'schalter1';
+                        schalter1name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter2asso':
+                        element.className = 'schalter2asso';
+                        schalter2.className = 'schalter2';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter2name").classList.contains("hidden")) schalter2doppelpunkt.className = 'schalter2asso';
+                        break;
+                    case 'schalter2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'schaltericon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        schalter2.className = 'schalter2';
+                        }
+                        break;
+                    case 'schalter2name':
+                        element.className = 'schalter2name';
+                        element.textContent = decodedData[parameter];
+                        schalter2.className = 'schalter2';
+                        break;  
+                    case 'schalter2altname':
+                        if(decodedData[parameter] != ''){
+                        schalter2name.className = 'schalter2name';
+                        schalter2.className = 'schalter2';
+                        schalter2name.textContent = decodedData[parameter];
+                        }
+                        break; 
+                    case 'schalter3asso':
+                        element.className = 'schalter3asso';
+                        schalter3.className = 'schalter3';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter3name").classList.contains("hidden")) schalter3doppelpunkt.className = 'schalter3asso';
+                        break;
+                    case 'schalter3icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'schaltericon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        schalter3.className = 'schalter3';
+                        }
+                        break;
+                    case 'schalter3name':
+                        element.className = 'schalter3name';
+                        schalter3.className = 'schalter3';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter3altname':
+                        if(decodedData[parameter] != ''){
+                        schalter3name.className = 'schalter3name';
+                        schalter3.className = 'schalter3';
+                        schalter3name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter4asso':
+                        element.className = 'schalter4asso';
+                        schalter4.className = 'schalter4';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter4name").classList.contains("hidden")) schalter4doppelpunkt.className = 'schalter4asso';
+                        break;
+                    case 'schalter4icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'schaltericon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        schalter4.className = 'schalter4';
+                        }
+                        break;
+                    case 'schalter4name':
+                        element.className = 'schalter4name';
+                        element.textContent = decodedData[parameter];
+                        schalter4.className = 'schalter4';
+                        break;  
+                    case 'schalter4altname':
+                        if(decodedData[parameter] != ''){
+                        schalter4name.className = 'schalter4name';
+                        schalter4.className = 'schalter4';
+                        schalter4name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter5asso':
+                        element.className = 'schalter5asso';
+                        schalter5.className = 'schalter5';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter5name").classList.contains("hidden")) schalter5doppelpunkt.className = 'schalter5asso';
+                        break;
+                    case 'schalter5icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'schaltericon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        schalter5.className = 'schalter5';
+                        }
+                        break;
+                    case 'schalter5name':
+                        element.className = 'schalter5name';
+                        schalter5.className = 'schalter5';
+                        element.textContent = decodedData[parameter];
+                        break;  
+                    case 'schalter5altname':
+                        if(decodedData[parameter] != ''){
+                        schalter5name.className = 'schalter5name';
+                        schalter5.className = 'schalter5';
+                        schalter5name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalterschriftgroesse':
+                        root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
+                        break;    
+                    case 'schalter1breite':
+                        root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
+                        break; 
+                    case 'schalter2breite':
+                        root.style.setProperty('--schalter2breite', decodedData[parameter] + 'px');
+                        break; 
+                    case 'schalter3breite':
+                        root.style.setProperty('--schalter3breite', decodedData[parameter] + 'px');
+                        break; 
+                    case 'schalter4breite':
+                        root.style.setProperty('--schalter4breite', decodedData[parameter] + 'px');
+                        break; 
+                    case 'schalter5breite':
+                        root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
+                        break; 
+                    case 'schalter1color':
+                        root.style.setProperty('--schalter1color', decodedData[parameter]);
+                        break;
+                    case 'schalter2color':
+                        root.style.setProperty('--schalter2color', decodedData[parameter]);
+                        break;
+                    case 'schalter3color':
+                        root.style.setProperty('--schalter3color', decodedData[parameter]);
+                        break;
+                    case 'schalter4color':
+                        root.style.setProperty('--schalter4color', decodedData[parameter]);
+                        break;
+                    case 'schalter5color':
+                        root.style.setProperty('--schalter5color', decodedData[parameter]);
+                        break;
+                    case 'infofontsize':
+                        root.style.setProperty('--infofontsize', decodedData[parameter] + 'em');
+                        //console.log('Setze innerHTML für', parameter);
+                        break;
+                    case 'hintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        break;
+                    case 'infoschriftfarbe':
+                        root.style.setProperty('--infoschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'infomenuefontsize':
+                        root.style.setProperty('--infomenuefontsize', decodedData[parameter] + 'em');
+                        break;
+                    case 'infomenueschriftfarbe':
+                        root.style.setProperty('--infomenueschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'infomenuehintergrundfarbe':
+                        root.style.setProperty('--infomenuehintergrundfarbe', decodedData[parameter]);
+
+                        break; 
+                    case 'transparenz':
+                        root.style.setProperty('--transparenz', decodedData[parameter]);
+                        break;
+                    case 'raumname':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'raumnameschriftgroesse':
+                        root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
+                        break;
+                    case 'raumnameschriftfarbe':
+                        root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'info1asso':
+                        element.className = 'info1asso';
+                        element.textContent = decodedData[parameter];
+                        if (info1name != "" && info1icon == "") info1doppelpunkt.className = 'info1asso';
+                        info1trennerstart.className = 'infotrennerstart';
+                        if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
+                        if (!document.getElementById("info1name").classList.contains("hidden")) info1doppelpunkt.className = 'info1asso';
+                        break;
+                    case 'info1icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
+                        }
+                        break;
+                    case 'info1name':
+                        element.className = 'info1name';
+                        element.textContent = decodedData[parameter];
+                        if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
+                        break;
+                    case 'info1altname':
+                        if(decodedData[parameter] != ''){
+                        info1name.className = 'info1name';
+                        info1name.textContent = decodedData[parameter];
+                        }
+                        break;    
+                    case 'info2asso':
+                        element.className = 'info2asso';
+                        element.textContent = decodedData[parameter];
+                        if (info2name != "" && info2icon == "") info2doppelpunkt.className = 'info2asso';
+                        info1trennerstart.className = 'infotrennerstart';
+                        if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
+                        if (!document.getElementById("info2name").classList.contains("hidden")) info2doppelpunkt.className = 'info2asso';
+                        break;
+                    case 'info2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
+                        }
+                        break;
+                    case 'info2name':
+                        element.className = 'info2name';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'info3asso':
+                        element.className = 'info3asso';
+                        element.textContent = decodedData[parameter];
+                        if (info3name != "" && info3icon == "") info3doppelpunkt.className = 'info3asso';
+                        info1trennerstart.className = 'infotrennerstart';
+                        if (info4asso != "" || info5asso != "") info3trenner.className = 'infotrenner';
+                        if (!document.getElementById("info3name").classList.contains("hidden")) info3doppelpunkt.className = 'info3asso';
+                        break;
+                    case 'info3icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        break;
+                    case 'info4asso':
+                        element.className = 'info4asso';
+                        element.textContent = decodedData[parameter];
+                        if (info4name != "" && info4icon == "") info4doppelpunkt.className = 'info4asso';
+                        info1trennerstart.className = 'infotrennerstart';
+                        if (info5asso != "") info4trenner.className = 'infotrenner';
+                        if (!document.getElementById("info4name").classList.contains("hidden")) info4doppelpunkt.className = 'info4asso';
+                        break;
+                    case 'info4icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        break;
+                    case 'info5asso':
+                        element.className = 'info5asso';
+                        element.textContent = decodedData[parameter];
+                        if (info5name != "" && info5icon == "") info5doppelpunkt.className = 'info5asso';
+                        info1trennerstart.className = 'infotrennerstart';
+                        if (!document.getElementById("info5name").classList.contains("hidden")) info5doppelpunkt.className = 'info5asso';
+                        break;
+                    case 'info5icon':
+                        element.className = 'infoicon';
+                        element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
+                        break;
+                    default:
+                        //console.log('Setze innerHTML für', parameter);
+                        // Setze innerHTML nur, wenn das Element gefunden wurde
+                        //element.innerHTML = decodedData[parameter];<i id="temp_icon" class="fa-solid fa-house-chimney-user icon"></i>
+                        break;
+                }
+
+            }
+        }
+    </script>
+
+
+<div class="maindiv1">
+    <div class="maindiv2">
+      <div class="left-aligned">
+        <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
+        <div>
+            <p class="hidden" id="infolinksname"></p>
+            <p class="hidden" id="infolinksdoppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="infolinksasso"></p>
+        </div>
+      </div>
+      <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
+      <div class="right-aligned">
+        <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
+        <div>
+            <p class="hidden" id="inforechtsname"></p>
+            <p class="hidden" id="inforechtsdoppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="inforechtsasso"></p>
+        </div>
+      </div>
+    </div>
+    <div class="hidden" id="menueleiste">
+      <div class="menueleistelinks">
+
+        <div class="hidden" id="info1trennerstart"></div>
+        <img class="hidden" id="info1icon" src="">
+        <p class="hidden" id="info1name"></p>
+        <p class="hidden" id="info1doppelpunkt">:&nbsp;</p>
+        <p class="hidden" id="info1asso"></p>
+        <div class="hidden" id="info1trenner"></div>
+
+        <img class="hidden" id="info2icon" src="">
+        <p class="hidden" id="info2name"></p>
+        <p class="hidden" id="info2doppelpunkt">:&nbsp;</p>
+        <p class="hidden" id="info2asso"></p>
+        <div class="hidden" id="info2trenner"></div>
+        
+        <img class="hidden" id="info3icon" src="">
+        <p class="hidden" id="info3name"></p>
+        <p class="hidden" id="info3doppelpunkt">:&nbsp;</p>
+        <p class="hidden" id="info3asso"></p>
+        <div class="hidden" id="info3trenner"></div>
+
+        <img class="hidden" id="info4icon" src="">
+        <p class="hidden" id="info4name"></p>
+        <p class="hidden" id="info4doppelpunkt">:&nbsp;</p>
+        <p class="hidden" id="info4asso"></p>
+        <div class="hidden" id="info4trenner"></div>
+
+        <img class="hidden" id="info5icon" src="">
+        <p class="hidden" id="info5name"></p>
+        <p class="hidden" id="info5doppelpunkt">:&nbsp;</p>
+        <p class="hidden" id="info5asso"></p></div>
+
+      <div class="menueleisterechts">
+
+        <button id="schalter1" class="hidden" onclick="requestAction('Schalter1', 1);">
+            <img class="hidden" id="schalter1icon" src="">
+            <p class="hidden" id="schalter1name"></p>
+            <p class="hidden" id="schalter1doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="schalter1asso"></p>
+        </button>
+
+        <button id="schalter2" class="hidden" onclick="requestAction('Schalter2', 1);">
+            <img class="hidden" id="schalter2icon" src="">
+            <p class="hidden" id="schalter2name"></p>
+            <p class="hidden" id="schalter2doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="schalter2asso"></p>
+        </button>
+
+        <button id="schalter3" class="hidden" onclick="requestAction('Schalter3', 1);">
+            <img class="hidden" id="schalter3icon" src="">
+            <p class="hidden" id="schalter3name"></p>
+            <p class="hidden" id="schalter3doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="schalter3asso"></p>
+        </button>
+
+        <button id="schalter4" class="hidden" onclick="requestAction('Schalter4', 1);">
+            <img class="hidden" id="schalter4icon" src="">
+            <p class="hidden" id="schalter4name"></p>
+            <p class="hidden" id="schalter4doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="schalter4asso"></p>
+        </button>
+
+        <button id="schalter5" class="hidden" onclick="requestAction('Schalter5', 1);">
+            <img class="hidden" id="schalter5icon" src="">
+            <p class="hidden" id="schalter5name"></p>
+            <p class="hidden" id="schalter5doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="schalter5asso"></p>
+        </button>
+    </div>
+    </div>
+  </div>
