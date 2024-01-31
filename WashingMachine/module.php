@@ -1,5 +1,5 @@
 <?php
-class TileVisuWashingMaschin extends IPSModule
+class TileVisuWashingMaschine extends IPSModule
 {
     public function Create()
     {
@@ -121,7 +121,7 @@ class TileVisuWashingMaschin extends IPSModule
         return json_encode($result);
     }
 
-    
+
     private function CheckAndGetValueFormatted($property) {
         $id = $this->ReadPropertyInteger($property);
         if (IPS_VariableExists($id)) {
