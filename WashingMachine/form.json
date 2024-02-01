@@ -105,7 +105,7 @@
                                 "caption": "Status = 0",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -114,7 +114,7 @@
                                 "caption": "Status = 1",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -123,7 +123,7 @@
                                 "caption": "Status = 2",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -132,7 +132,7 @@
                                 "caption": "Status = 3",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -141,7 +141,7 @@
                                 "caption": "Status = 4",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -150,7 +150,7 @@
                                 "caption": "Status = 5",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -159,7 +159,7 @@
                                 "caption": "Status = 6",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -168,7 +168,7 @@
                                 "caption": "Status = 7",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -177,7 +177,7 @@
                                 "caption": "Status = 8",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             },
                             {
@@ -186,7 +186,7 @@
                                 "caption": "Status = 9",
                                 "options": [
                                     { "caption": "OFF", "value": "wm_aus" },
-                                    { "caption": "HEATING", "value": "wm_an" },
+                                    { "caption": "HEATING", "value": "wm_an" }
                                 ]
                             }
                         ]
