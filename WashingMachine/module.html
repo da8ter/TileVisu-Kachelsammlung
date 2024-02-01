@@ -75,7 +75,7 @@
         .balken_links_fortschritt {
             width: var(--fortschnitt_prozent);
             //width: 25%;
-            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background: repeating-linear-gradient(to right, var(--balkenverlauffarbe1) 0%, var(--balkenverlauffarbe2) 50%, var(--balkenverlauffarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_forschritt 10s infinite;
@@ -238,9 +238,6 @@
                         else {
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
-
-
-
                         element.textContent = decodedData[parameter];
                         break;
                     case 'programm':
@@ -251,7 +248,15 @@
                         //element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
                         break;    
-
+                    case 'schalter5breite':
+                        root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'balkenverlauffarbe1':
+                        root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
+                        break;
+                    case 'balkenverlauffarbe2':
+                        root.style.setProperty('--balkenverlauffarbe2', decodedData[parameter]);
+                        break;
 
                     case 'programm':
                         if (decodedData[parameter] !== "Transparent") {
