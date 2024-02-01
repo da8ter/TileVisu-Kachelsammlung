@@ -111,7 +111,7 @@ class TileVisuWashingMaschine extends IPSModule
             $result['programm'] = $this->CheckAndGetValueFormatted('Programm');
             $result['programmfortschritt'] = $this->CheckAndGetValueFormatted('Programmfortschritt');
             $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
-            $result['restlaufzeit'] = $this->CheckAndGetValueFormatted('restlaufzeit');
+            $result['restlaufzeit'] = $this->CheckAndGetValueFormatted('Restlaufzeit');
             $result['verbrauch'] = $this->CheckAndGetValueFormatted('Verbrauch');
             $result['verbrauchtag'] = $this->CheckAndGetValueFormatted('VerbrauchTag');
             $result['StatusSchriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
