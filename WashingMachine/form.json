@@ -87,7 +87,7 @@
             "type": "NumberSpinner",
             "name": "BildBreite",
             "caption": "Bild Breite:",
-            "digits": 1,
+            "digits": 0,
             "minimum": 1.0,
             "maximum": 50.0,
             "suffix": "%"
