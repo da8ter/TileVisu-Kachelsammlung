@@ -14,11 +14,11 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyInteger("Restlaufzeit", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
-        $this->RegisterPropertyFloat("StatusSchriftgroesse", 0);
-        $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 0);
-        $this->RegisterPropertyFloat("BalkenSchriftgroesse", 0);
-        $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 0);
-        $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 0);
+        $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
+        $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
+        $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
+        $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 0x28cdab);
+        $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 0x208a74);
         //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 0);
 
