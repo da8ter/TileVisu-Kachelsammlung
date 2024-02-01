@@ -224,7 +224,23 @@
                 switch (parameter2) {
                     
                     case 'status':
-                        //element.className = 'infolinksasso';
+                        
+                    let index = decodedData[parameter];
+                        if (!statusImages[index]) {
+                            index = 0;
+                        }
+                        if (statusImages[index] === 'wm_an') {
+                            document.getElementById('image').src = window.assets.img_wm_an;
+                        }
+                        else if (statusImages[index] === 'wp_aus') {
+                            document.getElementById('image').src = window.assets.img_wm_aus;
+                        }
+                        else {
+                            document.getElementById('image').src = window.assets.img_wm_aus;
+                        }
+
+
+
                         element.textContent = decodedData[parameter];
                         break;
                     case 'programm':
@@ -560,7 +576,7 @@
 </head>
 <body>
 <div class="main_container">
-    <div id="div1" class="div1">
+    <div id="div1" class="div1"><img id="image">
     </div>
     <div class="div2">
         <b>Status: </b><span id="status"></span></br>

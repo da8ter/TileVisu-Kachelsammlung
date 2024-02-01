@@ -18,9 +18,20 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
         $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
-        $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 0x208a74);
+        $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 2132596);
         //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 0);
+
+        $this->RegisterPropertyString('Statusimage0', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage1', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage2', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage3', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage4', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage5', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage6', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage7', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage8', 'wm_aus');
+        $this->RegisterPropertyString('Statusimage9', 'wm_aus');
 
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
@@ -91,6 +102,27 @@ class TileVisuWashingMaschine extends IPSModule
     {
         // Füge ein Skript hinzu, um beim Laden, analog zu Änderungen bei Laufzeit, die Werte zu setzen
         $initialHandling = '<script>handleMessage(' . json_encode($this->GetFullUpdateMessage()) . ')</script>';
+
+        $assets = '<script>';
+        $assets .= 'window.assets = {};' . PHP_EOL;
+        $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.gif')) . '";' . PHP_EOL;
+        $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.gif')) . '";' . PHP_EOL;
+        $assets .= '</script>';
+
+
+        $statusMapping = array(
+            0 => $this->ReadPropertyString('Statusimage0'),
+            1 => $this->ReadPropertyString('Statusimage1'),
+            2 => $this->ReadPropertyString('Statusimage2'),
+            4 => $this->ReadPropertyString('Statusimage4'),
+            5 => $this->ReadPropertyString('Statusimage5'),
+            3 => $this->ReadPropertyString('Statusimage3'),
+            6 => $this->ReadPropertyString('Statusimage6'),
+            7 => $this->ReadPropertyString('Statusimage7'),
+            8 => $this->ReadPropertyString('Statusimage8'),
+            9 => $this->ReadPropertyString('Statusimage9'),
+
+        );
 
         // Füge statisches HTML aus Datei hinzu
         $module = file_get_contents(__DIR__ . '/module.html');
