@@ -252,6 +252,12 @@
                         let restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
                         break;
+                    case 'verbrauch':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'verbrauchtag':
+                        element.textContent = decodedData[parameter];
+                        break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
                         break;
@@ -596,6 +602,6 @@
                 </div>
             </div>
         </div>
-            <div class="verbrauch"> <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span id="19631"></span> Watt&nbsp;&nbsp;&nbsp;Tag: <span id="45283"></span> kWh</div>
+            <div class="verbrauch"> <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span id="verbrauchtag"></span></div>
     </div>
 </div>
