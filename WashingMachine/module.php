@@ -121,15 +121,20 @@ class TileVisuWashingMaschine extends IPSModule
             7 => $this->ReadPropertyString('Statusimage7'),
             8 => $this->ReadPropertyString('Statusimage8'),
             9 => $this->ReadPropertyString('Statusimage9'),
-
         );
+
+        $statusImagesJson = json_encode($statusMapping);
+        $images = '<script type="text/javascript">';
+        $images .= 'var statusImages = ' . $statusImagesJson . ';';
+        $images .= '</script>';
+
 
         // Füge statisches HTML aus Datei hinzu
         $module = file_get_contents(__DIR__ . '/module.html');
 
         // Gebe alles zurück.
         // Wichtig: $initialHandling nach hinten, da die Funktion handleMessage erst im HTML definiert wird
-        return $module . $initialHandling . $assets;
+        return $module . $initialHandling . $images . $assets;
     }
 
 
