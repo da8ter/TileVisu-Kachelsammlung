@@ -248,9 +248,9 @@
                     case 'programmfortschritt':
                         element.textContent = decodedData[parameter];
                         break;
-                    case 'restlaufzeit':
+                    case 'restlaufzeitvalue':
                         let restmin = Math.round(decodedData[parameter] / 60);
-                        element.textContent = restmin;
+                        restlaufzeit.textContent = restmin;
                         break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
