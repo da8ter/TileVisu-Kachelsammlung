@@ -16,6 +16,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
         $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
         $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
+        $this->RegisterPropertyFloat("InfoSchriftgroesse", 1);
         $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 2132596);
@@ -152,9 +153,10 @@ class TileVisuWashingMaschine extends IPSModule
             $result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
             $result['verbrauch'] = $this->CheckAndGetValueFormatted('Verbrauch');
             $result['verbrauchtag'] = $this->CheckAndGetValueFormatted('VerbrauchTag');
-            $result['StatusSchriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
-            $result['ProgrammSchriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
-            $result['BalkenSchriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
+            $result['statusschriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
+            $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
+            $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
+            $result['balkenschriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
             //$result['Bild'] =  $this->GetColor($this->ReadPropertyInteger('Bild'));
