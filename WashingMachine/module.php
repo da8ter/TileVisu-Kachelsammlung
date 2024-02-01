@@ -17,7 +17,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
         $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
         $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
-        $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 0x28cdab);
+        $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 0x208a74);
         //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 0);
