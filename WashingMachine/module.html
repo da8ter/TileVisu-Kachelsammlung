@@ -67,7 +67,7 @@
         }
 
         .balken_links_fortschritt {
-            width: var(--fortschnitt_prozent);
+            width: var(--programmfortschrittvalue);
             //width: 25%;
             background: repeating-linear-gradient(to right, var(--balkenverlauffarbe1) 0%, var(--balkenverlauffarbe2) 50%, var(--balkenverlauffarbe1) 100%);
             background-size: 200% auto;
@@ -242,8 +242,8 @@
                         //element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
                         break;    
-                    case 'schalter5breite':
-                        root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
+                    case 'programmfortschrittvalue':
+                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%');
                         break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
