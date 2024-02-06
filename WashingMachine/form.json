@@ -1,14 +1,15 @@
 {
     "elements": [
-        {
-            "type": "Label", 
-            "caption": "Tile configuration:",
-            "bold": true
-        },
-        {   "type": "Label", 
-            "caption": "Beispiel einer voll konfigurierten Kachel" 
-        },
-        {
+      {
+        "type": "Label",
+        "caption": "Tile configuration:",
+        "bold": true
+      },
+      {
+        "type": "Label",
+        "caption": "Beispiel einer voll konfigurierten Kachel"
+      },
+      {
         "type": "List",
         "name": "Devices",
         "caption": "Devices",
@@ -16,133 +17,139 @@
         "add": true,
         "delete": true,
         "sort": {
-            "column": "Name",
-            "direction": "ascending"
+          "column": "Name",
+          "direction": "ascending"
         },
-        "columns": [{
+        "columns": [
+          {
             "caption": "InstanceID",
-            "name": "InstanceID", 
+            "name": "InstanceID",
             "width": "75px",
             "add": 0,
             "edit": {
-                "type": "SelectInstance"
+              "type": "SelectInstance"
             }
-        }, {
+          },
+          {
             "caption": "Name",
             "name": "Name",
             "width": "auto",
             "add": ""
-        }, {
+          },
+          {
             "caption": "State",
             "name": "State",
             "width": "40px",
             "add": "New!"
-        }, {
+          },
+          {
             "caption": "Temperature",
             "name": "Temperature",
             "width": "75px",
             "add": 20.0,
             "edit": {
-                "type": "NumberSpinner",
-                "digits": 2
+              "type": "NumberSpinner",
+              "digits": 2
             }
-        }],
-        "values": [{
+          }
+        ],
+        "values": [
+          {
             "InstanceID": 12435,
             "Name": "ABCD",
             "State": "OK!",
             "Temperature": 23.31,
-            "rowColor": "#ff0000" //rot
-        }]
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Programm",
-            "caption": "Programm:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Programmfortschritt",
-            "caption": "Programmfortschritt:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Restlaufzeit",
-            "caption": "Restlaufzeit:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "Verbrauch",
-            "caption": "Verbrauch:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "SelectVariable",
-            "name": "VerbrauchTag",
-            "caption": "Verbrauch Tag:",
-            "validVariableTypes": []
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "StatusSchriftgroesse",
-            "caption": "Schriftgröße Status:",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "ProgrammSchriftgroesse",
-            "caption": "Programm Schriftgröße:",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "BalkenSchriftgroesse",
-            "caption": "Balken Schriftgröße:",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "InfoSchriftgroesse",
-            "caption": "Info Schriftgröße:",
-            "digits": 1,
-            "minimum": 0.5,
-            "maximum": 10.0,
-            "suffix": "em"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "BalkenVerlaufFarbe1",
-            "caption": "Balken Verlauf Farbe 1:"
-        },
-        {
-            "type": "SelectColor",
-            "allowTransparent": "false",
-            "name": "BalkenVerlaufFarbe2",
-            "caption": "Balken Verlauf Farbe 2:"
-        },
-        {
-            "type": "NumberSpinner",
-            "name": "BildBreite",
-            "caption": "Bild Breite:",
-            "digits": 0,
-            "minimum": 1.0,
-            "maximum": 50.0,
-            "suffix": "%"
-        }
-        
-        
+            "rowColor": "#ff0000"
+          }
+        ]
+      },
+      {
+        "type": "SelectVariable",
+        "name": "Programm",
+        "caption": "Programm:",
+        "validVariableTypes": []
+      },
+      {
+        "type": "SelectVariable",
+        "name": "Programmfortschritt",
+        "caption": "Programmfortschritt:",
+        "validVariableTypes": []
+      },
+      {
+        "type": "SelectVariable",
+        "name": "Restlaufzeit",
+        "caption": "Restlaufzeit:",
+        "validVariableTypes": []
+      },
+      {
+        "type": "SelectVariable",
+        "name": "Verbrauch",
+        "caption": "Verbrauch:",
+        "validVariableTypes": []
+      },
+      {
+        "type": "SelectVariable",
+        "name": "VerbrauchTag",
+        "caption": "Verbrauch Tag:",
+        "validVariableTypes": []
+      },
+      {
+        "type": "NumberSpinner",
+        "name": "StatusSchriftgroesse",
+        "caption": "Schriftgröße Status:",
+        "digits": 1,
+        "minimum": 0.5,
+        "maximum": 10.0,
+        "suffix": "em"
+      },
+      {
+        "type": "NumberSpinner",
+        "name": "ProgrammSchriftgroesse",
+        "caption": "Programm Schriftgröße:",
+        "digits": 1,
+        "minimum": 0.5,
+        "maximum": 10.0,
+        "suffix": "em"
+      },
+      {
+        "type": "NumberSpinner",
+        "name": "BalkenSchriftgroesse",
+        "caption": "Balken Schriftgröße:",
+        "digits": 1,
+        "minimum": 0.5,
+        "maximum": 10.0,
+        "suffix": "em"
+      },
+      {
+        "type": "NumberSpinner",
+        "name": "InfoSchriftgroesse",
+        "caption": "Info Schriftgröße:",
+        "digits": 1,
+        "minimum": 0.5,
+        "maximum": 10.0,
+        "suffix": "em"
+      },
+      {
+        "type": "SelectColor",
+        "allowTransparent": false,
+        "name": "BalkenVerlaufFarbe1",
+        "caption": "Balken Verlauf Farbe 1:"
+      },
+      {
+        "type": "SelectColor",
+        "allowTransparent": false,
+        "name": "BalkenVerlaufFarbe2",
+        "caption": "Balken Verlauf Farbe 2:"
+      },
+      {
+        "type": "NumberSpinner",
+        "name": "BildBreite",
+        "caption": "Bild Breite:",
+        "digits": 0,
+        "minimum": 1.0,
+        "maximum": 50.0,
+        "suffix": "%"
+      }
     ]
-}
+  }
+  
