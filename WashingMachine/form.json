@@ -21,13 +21,19 @@
           "direction": "ascending"
         },
         "columns": [
-          {
+          {s
             "caption": "InstanceID",
             "name": "InstanceID",
             "width": "75px",
             "add": 0,
             "edit": {
-              "type": "SelectInstance"
+              "type": "Select",
+              "options": [
+                { "caption": "Bit (1Bit)", "value": 0 },
+                { "caption": "Bits (2Bit)", "value": 1 },
+                { "caption": "Bits (4Bit)", "value": 2 },
+                { "caption": "Byte (8Bit)", "value": 3 }
+            ]
             }
           },
           {
