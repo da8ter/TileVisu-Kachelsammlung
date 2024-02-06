@@ -24,8 +24,8 @@
             "add": 0
           },
           {
-            "caption": "",
-            "name": "Temperature",
+            "caption": "Bild",
+            "name": "Bildauswahl",
             "width": "500px",
             "add": 0,
             "edit": {
