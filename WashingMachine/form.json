@@ -21,24 +21,23 @@
             "caption": "Assoziation Name",
             "name": "AssoziationName",
             "width": "500px",
+            "add": 0
+          },
+          {
+            "caption": "",
+            "name": "Temperature",
+            "width": "500px",
             "add": 0,
             "edit": {
-              "type": "Select",
-              "options": [
-                { "caption": "Bit (1Bit)", "value": 0 },
-                { "caption": "Bits (2Bit)", "value": 1 },
-                { "caption": "Bits (4Bit)", "value": 2 },
-                { "caption": "Byte (8Bit)", "value": 3 }
-            ]
-            },
-            {
-                "caption": "Name",
-                "name": "Name",
-                "width": "auto",
-                "add": ""
-            }
+                "type": "Select",
+                "options": [
+                  { "caption": "Bit (1Bit)", "value": 0 },
+                  { "caption": "Bits (2Bit)", "value": 1 },
+                  { "caption": "Bits (4Bit)", "value": 2 },
+                  { "caption": "Byte (8Bit)", "value": 3 }
+              ]
+              }
           }
-
         ],
         "values": [
           {
