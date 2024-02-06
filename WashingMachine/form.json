@@ -22,8 +22,8 @@
         },
         "columns": [
           {
-            "caption": "InstanceID",
-            "name": "InstanceID",
+            "caption": "Assoziation Name",
+            "name": "AssoziationName",
             "width": "75px",
             "add": 0,
             "edit": {
@@ -35,29 +35,8 @@
                 { "caption": "Byte (8Bit)", "value": 3 }
             ]
             }
-          },
-          {
-            "caption": "Name",
-            "name": "Name",
-            "width": "auto",
-            "add": ""
-          },
-          {
-            "caption": "State",
-            "name": "State",
-            "width": "40px",
-            "add": "New!"
-          },
-          {
-            "caption": "Temperature",
-            "name": "Temperature",
-            "width": "75px",
-            "add": 20.0,
-            "edit": {
-              "type": "NumberSpinner",
-              "digits": 2
-            }
           }
+
         ],
         "values": [
           {
