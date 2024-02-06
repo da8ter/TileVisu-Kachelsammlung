@@ -20,7 +20,7 @@
           {
             "caption": "Assoziation Name",
             "name": "AssoziationName",
-            "width": "75px",
+            "width": "500px",
             "add": 0,
             "edit": {
               "type": "Select",
