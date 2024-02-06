@@ -14,8 +14,8 @@
         "name": "Devices",
         "caption": "Devices",
         "rowCount": 5,
-        "add": true,
-        "delete": true,
+        "add": false,
+        "delete": false,
         "sort": {
           "column": "Name",
           "direction": "ascending"
