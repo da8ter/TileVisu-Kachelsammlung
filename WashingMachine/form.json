@@ -30,6 +30,12 @@
                 { "caption": "Bits (4Bit)", "value": 2 },
                 { "caption": "Byte (8Bit)", "value": 3 }
             ]
+            },
+            {
+                "caption": "Name",
+                "name": "Name",
+                "width": "auto",
+                "add": ""
             }
           }
 
