@@ -113,6 +113,7 @@
 
         .status {
             font-size: var(--statusschriftgroesse);
+            color: var(--statuscolor);
             display: inline-block;
             margin: 0;
         }
@@ -237,6 +238,9 @@
                             else {
                                 document.getElementById('image').src = window.assets.img_wm_aus;
                             }
+                            root.style.setProperty('--statuscolor', statusColor[index]);
+
+
                             break;
                         case 'programm':
                         //element.className = 'infolinksasso';
