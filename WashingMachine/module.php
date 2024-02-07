@@ -21,18 +21,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 2132596);
         //$this->RegisterPropertyInteger("Bild", 0);
-        $this->RegisterPropertyFloat("BildBreite", 0);
-
-        $this->RegisterPropertyString('Statusimage0', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage1', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage2', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage3', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage4', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage5', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage6', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage7', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage8', 'wm_aus');
-        $this->RegisterPropertyString('Statusimage9', 'wm_aus');
+        $this->RegisterPropertyFloat("BildBreite", 20);
         $this->RegisterPropertyString('ProfilAssoziazionen', '[]');
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
