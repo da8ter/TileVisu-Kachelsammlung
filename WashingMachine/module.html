@@ -113,6 +113,12 @@
 
         .status {
             font-size: var(--statusschriftgroesse);
+            display: inline-block;
+            margin: 0;
+        }
+
+        .statustext {
+            font-size: var(--statusschriftgroesse);
             color: var(--statuscolor);
             display: inline-block;
             margin: 0;
@@ -305,7 +311,7 @@
     <div class="main_container">
         <div id="div1" class="div1"><img id="image"></div>
         <div class="div2">
-            <b><p class="status">Status:&nbsp;</p></b><span class="status" id="status"></span><br>
+            <b><p class="status">Status:&nbsp;</p></b><span class="statustext" id="status"></span><br>
             <div class="programm"><span class="programm"><b>Programm:&nbsp;</b><span id="programm"></span></span></div>
             <div class="balkendiagramm">
                 <div class="balken_rechts">
