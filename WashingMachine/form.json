@@ -23,7 +23,6 @@
         "rowCount": 5,
         "add": false,
         "delete": false,
-        "loadValuesFromConfiguration": true, 
         "columns": [
           {
             "caption": "Assoziation Name",
@@ -52,6 +51,7 @@
               }
           }
         ],
+        "loadValuesFromConfiguration": true,
         "values": [
 
         ]
