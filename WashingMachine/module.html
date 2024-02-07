@@ -219,24 +219,24 @@
                 switch (parameter2) {
                     
                     case 'status':
-                        
-                    let index = decodedData[parameter];
-                    console.log(index);
-                        if (!statusImages[index]) {
-                            index = 0;
-                        }
-                        if (statusImages[index] === 'wm_an') {
-                            document.getElementById('image').src = window.assets.img_wm_an;
-                        }
-                        else if (statusImages[index] === 'wm_aus') {
-                            document.getElementById('image').src = window.assets.img_wm_aus;
-                        }
-                        else {
-                            document.getElementById('image').src = window.assets.img_wm_aus;
-                        }
                         element.textContent = decodedData[parameter];
                         break;
-                    case 'programm':
+                    case 'statusvalue':
+                        let index = decodedData[parameter];
+                            if (!statusImages[index]) {
+                                index = 0;
+                            }
+                            if (statusImages[index] === 'wm_an') {
+                                document.getElementById('image').src = window.assets.img_wm_an;
+                            }
+                            else if (statusImages[index] === 'wm_aus') {
+                                document.getElementById('image').src = window.assets.img_wm_aus;
+                            }
+                            else {
+                                document.getElementById('image').src = window.assets.img_wm_aus;
+                            }
+                            break;
+                        case 'programm':
                         //element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
                         break;    
