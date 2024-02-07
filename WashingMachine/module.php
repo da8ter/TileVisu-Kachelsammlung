@@ -186,6 +186,7 @@ class TileVisuWashingMaschine extends IPSModule
                     $listData[] = [
                         'AssoziationName' => $association['Name'],
                         'AssoziationValue' => $association['Value'],
+                        'Bildauswahl' => 'wm_aus'
                     ];
                 }
             }
