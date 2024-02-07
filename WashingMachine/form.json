@@ -38,6 +38,15 @@
             "visible": false 
           },
           {
+            "caption": "Status Farbe",
+            "name": "StatusColor",
+            "width": "300px",
+            "save": true,
+            "edit": {
+                "type": "SelectColor"  
+              }
+          },
+          {
             "caption": "Bild",
             "name": "Bildauswahl",
             "width": "200px",
