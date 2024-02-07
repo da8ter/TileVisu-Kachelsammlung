@@ -43,7 +43,8 @@
             "width": "100px",
             "save": true,
             "edit": {
-                "type": "SelectColor"  
+                "type": "SelectColor",
+                "allowTransparent": true  
               }
           },
           {
