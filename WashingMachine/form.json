@@ -44,9 +44,8 @@
             "edit": {
                 "type": "Select",
                 "options": [
-                  { "caption": "Bild 1", "value": 0 },
-                  { "caption": "Bild 2", "value": 1 },
-                  { "caption": "Bild 3", "value": 2 }
+                  { "caption": "Waschmaschine an", "value": "wm_an" },
+                  { "caption": "Waschmaschine aus", "value": "wm_aus" }
               ]
               }
           }
