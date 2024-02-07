@@ -19,7 +19,7 @@
       {
         "type": "List",
         "name": "ProfilAssoziazionen",
-        "caption": "Profilassoziationen",
+        "caption": "ProfilAssoziazionen",
         "rowCount": 5,
         "add": false,
         "delete": false,
