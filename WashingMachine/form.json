@@ -20,14 +20,14 @@
         "type": "List",
         "name": "ProfilAssoziazionen",
         "caption": "Bild <=> Status Zuordnung",
-        "rowCount": 5,
+        "rowCount": 10,
         "add": false,
         "delete": false,
         "columns": [
           {
             "caption": "Status",
             "name": "AssoziationName",
-            "width": "400px",
+            "width": "300px",
             "save": true
           },
           {
@@ -40,7 +40,7 @@
           {
             "caption": "Bild",
             "name": "Bildauswahl",
-            "width": "300px",
+            "width": "200px",
             "save": true,
             "edit": {
                 "type": "Select",
