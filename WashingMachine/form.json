@@ -13,7 +13,7 @@
         "type": "SelectVariable",
         "name": "Status",
         "caption": "Status:",
-        "onChange": "echo $ident;",
+        "onChange": "echo $Status;",
         "validVariableTypes": []
       },
       {
