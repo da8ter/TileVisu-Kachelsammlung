@@ -111,19 +111,16 @@ class TileVisuWashingMaschine extends IPSModule
         $assets .= '</script>';
 
 
-        $statusMapping = array(
-            0 => $this->ReadPropertyString('Statusimage0'),
-            1 => $this->ReadPropertyString('Statusimage1'),
-            2 => $this->ReadPropertyString('Statusimage2'),
-            4 => $this->ReadPropertyString('Statusimage4'),
-            5 => $this->ReadPropertyString('Statusimage5'),
-            3 => $this->ReadPropertyString('Statusimage3'),
-            6 => $this->ReadPropertyString('Statusimage6'),
-            7 => $this->ReadPropertyString('Statusimage7'),
-            8 => $this->ReadPropertyString('Statusimage8'),
-            9 => $this->ReadPropertyString('Statusimage9'),
-        );
 
+        // Konvertiere den JSON-String in ein PHP-Array
+        $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
+        // Initialisiere das statusMapping Array
+        $statusMapping = [];
+        // Befülle das statusMapping Array mit AssoziationValue als Schlüssel und dem zugehörigen Bildnamen als Wert
+        foreach ($assoziationsArray as $item) {
+            $statusMapping[$item['AssoziationValue']] = $item['Bildauswahl'];
+        }
+      
         $statusImagesJson = json_encode($statusMapping);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
