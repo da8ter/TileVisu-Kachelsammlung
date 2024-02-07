@@ -106,7 +106,10 @@ class TileVisuWashingMaschine extends IPSModule
         $statusMappingImage = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
-            $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'];
+
+            $color = '#' . sprintf('%06X', $item['StatusColor']);
+            $statusMappingColor[$item['AssoziationValue']] = $color;
+
         }
 
         $statusImagesJson = json_encode($statusMappingImage);
