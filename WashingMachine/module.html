@@ -221,13 +221,14 @@
                     case 'status':
                         
                     let index = decodedData[parameter];
+                    console.log(statusImages[index])
                         if (!statusImages[index]) {
                             index = 0;
                         }
                         if (statusImages[index] === 'wm_an') {
                             document.getElementById('image').src = window.assets.img_wm_an;
                         }
-                        else if (statusImages[index] === 'wp_aus') {
+                        else if (statusImages[index] === 'wm_aus') {
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
                         else {
