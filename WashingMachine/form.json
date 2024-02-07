@@ -10,6 +10,12 @@
         "caption": "Beispiel einer voll konfigurierten Kachel"
       },
       {
+        "type": "SelectVariable",
+        "name": "Status",
+        "caption": "Status:",
+        "validVariableTypes": []
+      },
+      {
         "type": "List",
         "name": "ProfilAssoziazionen",
         "caption": "Profilassoziationen",
@@ -45,13 +51,7 @@
           }
         ],
         "values": [
-          {
-            "InstanceID": 12435,
-            "Name": "ABCD",
-            "State": "OK!",
-            "Temperature": 23.31,
-            "rowColor": "#ff0000"
-          }
+
         ]
       },
       {
