@@ -166,7 +166,7 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    public function UpdateList($ident)
+    public function UpdateList($id, $ident)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
