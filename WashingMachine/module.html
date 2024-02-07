@@ -213,7 +213,7 @@
 
                 const element = document.getElementById(parameter.toLowerCase());
                 const parameter2 = String(parameter).toLowerCase();
-                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
@@ -222,8 +222,6 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'statusvalue':
-                    console.log('fsadgvdfgadgadfgdfgfdga:', parameter, 'Wert:', decodedData[parameter]);
-
                         let index = decodedData[parameter];
                             if (!statusImages[index]) {
                                 index = 0;
