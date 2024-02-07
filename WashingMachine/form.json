@@ -34,7 +34,8 @@
             "caption": "Assoziation Wert",
             "name": "AssoziationValue",
             "width": "400px",
-            "save": true
+            "save": true,
+            "visible": false 
           },
           {
             "caption": "Bild",
