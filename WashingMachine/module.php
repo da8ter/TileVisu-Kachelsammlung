@@ -166,11 +166,11 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    public function UpdateList()
+    public function UpdateList($StatusID)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
-        $id = $this->ReadPropertyFloat('Status');
+        $id = $StatusID;
 
         // Prüfen, ob die übergebene ID einer existierenden Variable entspricht
         if (IPS_VariableExists($id)) {
