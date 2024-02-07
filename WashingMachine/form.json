@@ -28,19 +28,19 @@
             "caption": "Assoziation Name",
             "name": "AssoziationName",
             "width": "400px",
-            "save": "true"
+            "save": true
           },
           {
             "caption": "Assoziation Wert",
             "name": "AssoziationValue",
             "width": "400px",
-            "save": "true"
+            "save": true
           },
           {
             "caption": "Bild",
             "name": "Bildauswahl",
             "width": "300px",
-            "save": "true",
+            "save": true,
             "edit": {
                 "type": "Select",
                 "options": [
