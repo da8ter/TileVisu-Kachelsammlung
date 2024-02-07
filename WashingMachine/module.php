@@ -299,8 +299,5 @@ class TileVisuWashingMaschine extends IPSModule
         return $icon;
     }
 
-var_dump($this->ReadPropertyString('ProfilAssoziazionen'));
-
-
 }
 ?>
