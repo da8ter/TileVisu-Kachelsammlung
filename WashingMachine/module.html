@@ -32,7 +32,7 @@
         }
 
         .div1 {
-            width: 20%;
+            width: var(--bildbreite);
         }
 
         .div1 img {
@@ -279,6 +279,9 @@
                         break;
                     case 'balkenschriftgroesse':
                         root.style.setProperty('--balkenschriftgroesse', decodedData[parameter] + 'em');
+                        break;
+                    case 'bildbreite':
+                        root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
                         break;
                     default:
                         //console.log('Setze innerHTML für', parameter);
