@@ -33,8 +33,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyString('Statusimage7', 'wm_aus');
         $this->RegisterPropertyString('Statusimage8', 'wm_aus');
         $this->RegisterPropertyString('Statusimage9', 'wm_aus');
-        $this->RegisterVariableString('ProfilAssoziazionen', '[]');
-
+        $this->RegisterPropertyString('ProfilAssoziazionen', '[]');
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
