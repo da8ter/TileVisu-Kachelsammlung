@@ -11,8 +11,8 @@
       },
       {
         "type": "List",
-        "name": "Devices",
-        "caption": "Devices",
+        "name": "ProfilAssoziazionen",
+        "caption": "Profilassoziationen",
         "rowCount": 5,
         "add": false,
         "delete": false,
@@ -20,21 +20,26 @@
           {
             "caption": "Assoziation Name",
             "name": "AssoziationName",
-            "width": "500px",
+            "width": "400px",
+            "add": 0
+          },
+          {
+            "caption": "Assoziation Wert",
+            "name": "AssoziationValue",
+            "width": "400px",
             "add": 0
           },
           {
             "caption": "Bild",
             "name": "Bildauswahl",
-            "width": "500px",
+            "width": "300px",
             "add": 0,
             "edit": {
                 "type": "Select",
                 "options": [
-                  { "caption": "Bit (1Bit)", "value": 0 },
-                  { "caption": "Bits (2Bit)", "value": 1 },
-                  { "caption": "Bits (4Bit)", "value": 2 },
-                  { "caption": "Byte (8Bit)", "value": 3 }
+                  { "caption": "Bild 1", "value": 0 },
+                  { "caption": "Bild 2", "value": 1 },
+                  { "caption": "Bild 3", "value": 2 }
               ]
               }
           }
