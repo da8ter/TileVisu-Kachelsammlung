@@ -165,6 +165,40 @@ class TileVisuWashingMaschine extends IPSModule
     }
 
 
+
+    private function UpdateList($id)
+    {
+        $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
+    
+        // Die ID der Variable, deren Profil ausgelesen werden soll
+        $variableId = $id; // Ersetzen Sie 12345 durch die tatsächliche ID Ihrer Variable
+    
+        // Auslesen des Variablenprofils
+        $profileName = IPS_GetVariable($variableId)['VariableProfile'];
+        if ($profileName != '') {
+            $profile = IPS_GetVariableProfile($profileName);
+    
+            // Durchlaufen der Profilassoziationen
+            foreach ($profile['Associations'] as $association) {
+                $listData[] = [
+                    'AssoziationName' => $association['Name'],
+                    'AssoziationValue' => $association['Value'],
+                ];
+            }
+        }
+    
+        // Konvertieren Sie Ihre Liste in JSON
+        $jsonListData = json_encode($listData);
+    
+        // Aktualisieren Sie das Konfigurationsformular mit der neuen Liste
+        $this->UpdateFormField('ProfilAssoziazionen', 'values', $jsonListData);
+    }
+    
+
+
+
+
+
     private function CheckAndGetValueFormatted($property) {
         $id = $this->ReadPropertyInteger($property);
         if (IPS_VariableExists($id)) {
