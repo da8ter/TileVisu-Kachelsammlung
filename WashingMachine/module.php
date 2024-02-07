@@ -166,33 +166,36 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    private function UpdateList($id)
+    public function UpdateList($id)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
-        // Die ID der Variable, deren Profil ausgelesen werden soll
-        $variableId = $id; // Ersetzen Sie 12345 durch die tatsächliche ID Ihrer Variable
+        // Prüfen, ob die übergebene ID einer existierenden Variable entspricht
+        if (IPS_VariableExists($id)) {
+            // Auslesen des Variablenprofils
+            $variable = IPS_GetVariable($id);
+            $profileName = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
+            
+            if ($profileName != '') {
+                $profile = IPS_GetVariableProfile($profileName);
     
-        // Auslesen des Variablenprofils
-        $profileName = IPS_GetVariable($variableId)['VariableProfile'];
-        if ($profileName != '') {
-            $profile = IPS_GetVariableProfile($profileName);
-    
-            // Durchlaufen der Profilassoziationen
-            foreach ($profile['Associations'] as $association) {
-                $listData[] = [
-                    'AssoziationName' => $association['Name'],
-                    'AssoziationValue' => $association['Value'],
-                ];
+                // Durchlaufen der Profilassoziationen
+                foreach ($profile['Associations'] as $association) {
+                    $listData[] = [
+                        'AssoziationName' => $association['Name'],
+                        'AssoziationValue' => $association['Value'],
+                    ];
+                }
             }
+        } else {
+            IPS_LogMessage("TileVisuWashingMaschine", "Die übergebene ID $id entspricht keiner existierenden Variable.");
         }
     
-        // Konvertieren Sie Ihre Liste in JSON
+        // Konvertieren Sie Ihre Liste in JSON und aktualisieren Sie das Konfigurationsformular
         $jsonListData = json_encode($listData);
-    
-        // Aktualisieren Sie das Konfigurationsformular mit der neuen Liste
         $this->UpdateFormField('ProfilAssoziazionen', 'values', $jsonListData);
     }
+    
     
 
 
