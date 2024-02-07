@@ -40,7 +40,7 @@
           {
             "caption": "Status Farbe",
             "name": "StatusColor",
-            "width": "300px",
+            "width": "100px",
             "save": true,
             "edit": {
                 "type": "SelectColor"  
