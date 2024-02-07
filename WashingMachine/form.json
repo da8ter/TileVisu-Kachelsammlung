@@ -13,7 +13,7 @@
         "type": "SelectVariable",
         "name": "Status",
         "caption": "Status:",
-        "onChange": "UpdateList($id);",
+        "onChange": "WMA_UpdateList($id);",
         "validVariableTypes": []
       },
       {
