@@ -27,20 +27,17 @@
           {
             "caption": "Assoziation Name",
             "name": "AssoziationName",
-            "width": "400px",
-            "add": 0
+            "width": "400px"
           },
           {
             "caption": "Assoziation Wert",
             "name": "AssoziationValue",
-            "width": "400px",
-            "add": 0
+            "width": "400px"
           },
           {
             "caption": "Bild",
             "name": "Bildauswahl",
             "width": "300px",
-            "add": 0,
             "edit": {
                 "type": "Select",
                 "options": [
