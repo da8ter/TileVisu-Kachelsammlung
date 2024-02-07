@@ -143,6 +143,11 @@ class TileVisuWashingMaschine extends IPSModule
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
 
+        $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
+
+        // Ausgabe des Wertes zur Debugging-Zwecken
+        var_dump($profilAssoziationen);
+
         $result = [];
     
             $result['status'] = $this->CheckAndGetValueFormatted('Status');
@@ -298,12 +303,6 @@ class TileVisuWashingMaschine extends IPSModule
         }
         return $icon;
     }
-
-    $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
-
-    // Ausgabe des Wertes zur Debugging-Zwecken
-    var_dump($profilAssoziationen);
-
 
 }
 ?>
