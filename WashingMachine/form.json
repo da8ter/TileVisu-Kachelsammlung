@@ -19,7 +19,7 @@
       {
         "type": "List",
         "name": "ProfilAssoziazionen",
-        "caption": "ProfilAssoziazionen",
+        "caption": "Bild <=> Status Zuordnung",
         "rowCount": 5,
         "add": false,
         "delete": false,
