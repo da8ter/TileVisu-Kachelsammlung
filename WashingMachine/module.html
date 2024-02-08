@@ -270,7 +270,7 @@
                     case 'laufzeit':
                         element.textContent = decodedData[parameter];
                         if(decodedData[parameter]){
-                            balkendiagram.className = 'balkendiagram';
+                            balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
                         break;    
@@ -280,7 +280,7 @@
                     case 'programmfortschritt':
                         element.textContent = decodedData[parameter];
                         if(decodedData[parameter]){
-                            balkendiagram.className = 'balkendiagram';
+                            balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                         }
                         break;
@@ -343,7 +343,7 @@
         <div class="div2">
             <div class="hidden" id="statusdiv"><b><p class="status">Status:&nbsp;</p></b><span class="statustext" id="status"></span></div>
             <div class="hidden" id="programmdiv"><span class="programm"><b>Programm:&nbsp;</b><span id="programm"></span></span></div>
-            <div class="hidden" id="balkendiagram">
+            <div class="hidden" id="balkendiagramm">
                 <div class="balken_rechts">
                     <div class="balken_links_fortschritt">
                         <span class="hidden" id="balken_links_text"><i class="fa-regular fa-circle-right fa-sm" style="color: #ffffff;"></i>&nbsp;&nbsp;<span class="balkentext" id="programmfortschritt">0</span></span>
