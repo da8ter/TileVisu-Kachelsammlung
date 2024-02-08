@@ -102,7 +102,7 @@
             {
                 "type": "NumberSpinner",
                 "name": "ProgrammSchriftgroesse",
-                "caption": "Programm Schriftgröße:",
+                "caption": "Schriftgröße:",
                 "digits": 1,
                 "minimum": 0.5,
                 "maximum": 10.0,
@@ -110,70 +110,81 @@
             }
         ]
     },
-
-
-      {
-        "type": "SelectVariable",
-        "name": "Programmfortschritt",
-        "caption": "Programmfortschritt:",
-        "validVariableTypes": []
+    {
+        "type": "Label",
+        "caption": "Fortschrittsbalken"
       },
-      {
-        "type": "SelectVariable",
-        "name": "Restlaufzeit",
-        "caption": "Restlaufzeit:",
-        "validVariableTypes": []
+      { 
+        "type": "RowLayout",
+        "items": [
+            {
+                "type": "SelectVariable",
+                "name": "Programmfortschritt",
+                "caption": "Programmfortschritt (0-100):",
+                "validVariableTypes": []
+              },
+              {
+                "type": "SelectVariable",
+                "name": "Restlaufzeit",
+                "caption": "Restlaufzeit (Sekunden):",
+                "validVariableTypes": []
+              },
+              {
+                "type": "NumberSpinner",
+                "name": "BalkenSchriftgroesse",
+                "caption": "Schriftgröße:",
+                "digits": 1,
+                "minimum": 0.5,
+                "maximum": 10.0,
+                "suffix": "em"
+              },
+              {
+                "type": "SelectColor",
+                "allowTransparent": false,
+                "name": "BalkenVerlaufFarbe1",
+                "caption": "Balken Verlauf Farbe 1:"
+              },
+              {
+                "type": "SelectColor",
+                "allowTransparent": false,
+                "name": "BalkenVerlaufFarbe2",
+                "caption": "Balken Verlauf Farbe 2:"
+              }
+        ]
+    },
+    {
+        "type": "Label",
+        "caption": "Energieverbrauch"
       },
-      {
-        "type": "SelectVariable",
-        "name": "Verbrauch",
-        "caption": "Verbrauch:",
-        "validVariableTypes": []
-      },
-      {
-        "type": "SelectVariable",
-        "name": "VerbrauchTag",
-        "caption": "Verbrauch Tag:",
-        "validVariableTypes": []
-      },
-      {
-        "type": "NumberSpinner",
-        "name": "ProgrammSchriftgroesse",
-        "caption": "Programm Schriftgröße:",
-        "digits": 1,
-        "minimum": 0.5,
-        "maximum": 10.0,
-        "suffix": "em"
-      },
-      {
-        "type": "NumberSpinner",
-        "name": "BalkenSchriftgroesse",
-        "caption": "Balken Schriftgröße:",
-        "digits": 1,
-        "minimum": 0.5,
-        "maximum": 10.0,
-        "suffix": "em"
-      },
-      {
-        "type": "NumberSpinner",
-        "name": "InfoSchriftgroesse",
-        "caption": "Info Schriftgröße:",
-        "digits": 1,
-        "minimum": 0.5,
-        "maximum": 10.0,
-        "suffix": "em"
-      },
-      {
-        "type": "SelectColor",
-        "allowTransparent": false,
-        "name": "BalkenVerlaufFarbe1",
-        "caption": "Balken Verlauf Farbe 1:"
-      },
-      {
-        "type": "SelectColor",
-        "allowTransparent": false,
-        "name": "BalkenVerlaufFarbe2",
-        "caption": "Balken Verlauf Farbe 2:"
+      { 
+        "type": "RowLayout",
+        "items": [
+            {
+                "type": "SelectVariable",
+                "name": "Verbrauch",
+                "caption": "Aktuelle Leistungsaufnahme:",
+                "validVariableTypes": []
+              },
+              {
+                "type": "SelectVariable",
+                "name": "VerbrauchTag",
+                "caption": "Verbrauch Heute:",
+                "validVariableTypes": []
+              },
+              {
+                "type": "NumberSpinner",
+                "name": "InfoSchriftgroesse",
+                "caption": "Schriftgröße:",
+                "digits": 1,
+                "minimum": 0.5,
+                "maximum": 10.0,
+                "suffix": "em"
+              }
+        ]
+    },
+    {
+        "type": "Label",
+        "caption": "Bilder"
       },
       {
         "type": "NumberSpinner",
