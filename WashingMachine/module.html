@@ -202,6 +202,10 @@
         }
 
         .programm {
+            white-space: nowrap; /* Verhindert den Zeilenumbruch */
+            overflow: hidden; /* Verbirgt den überfließenden Inhalt */
+            text-overflow: ellipsis; /* Fügt "..." am Ende des sichtbaren Inhalts ein */
+
             font-size: var(--programmschriftgroesse);
             margin: 0px 0px 5px 0px;
             padding: 0px 0px 0px 0px;
