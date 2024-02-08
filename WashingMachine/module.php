@@ -145,20 +145,19 @@ class TileVisuWashingMaschine extends IPSModule
             //$result['status'] = $this->CheckAndGetValueFormatted('Status');
             $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
             $result['statusvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
-            $result['programm'] = $this->CheckAndGetValueFormatted('Programm');
-            $result['programmfortschritt'] = $this->CheckAndGetValueFormatted('Programmfortschritt');
+            $result['programm'] = IPS_VariableExists($this->ReadPropertyInteger('programm')) ? $this->CheckAndGetValueFormatted('programm') : null;
+            $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('programmfortschritt')) ? $this->CheckAndGetValueFormatted('programmfortschritt') : null;
             $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
-            $result['restlaufzeit'] = $this->CheckAndGetValueFormatted('Restlaufzeit');
+            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('restlaufzeit')) ? $this->CheckAndGetValueFormatted('restlaufzeit') : null;
             $result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-            $result['verbrauch'] = $this->CheckAndGetValueFormatted('Verbrauch');
-            $result['verbrauchtag'] = $this->CheckAndGetValueFormatted('VerbrauchTag');
+            $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('verbrauch')) ? $this->CheckAndGetValueFormatted('verbrauch') : null;
+            $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('verbrauchtag')) ? $this->CheckAndGetValueFormatted('verbrauchtag') : null;
             $result['statusschriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
             $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
             $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
             $result['balkenschriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
-            //$result['Bild'] =  $this->GetColor($this->ReadPropertyInteger('Bild'));
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
         return json_encode($result);
     }
