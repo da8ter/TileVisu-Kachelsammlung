@@ -236,7 +236,9 @@
                     
                     case 'status':
                         element.textContent = decodedData[parameter];
-                        statusdiv.className = 'visible';
+                        if(decodedData[parameter] != ''){
+                            statusdiv.className = 'visible';
+                        }
                         break;
                     case 'statusvalue':
                         let index = decodedData[parameter];
