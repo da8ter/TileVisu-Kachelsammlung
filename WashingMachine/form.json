@@ -11,7 +11,7 @@
       },
       {
         "type": "Label",
-        "caption": "Status"
+        "caption": "Waschmaschinen-Status"
       },
       { 
         "type": "RowLayout",
@@ -56,7 +56,7 @@
             "visible": false 
           },
           {
-            "caption": "Status Farbe",
+            "caption": "Farbe",
             "name": "StatusColor",
             "width": "100px",
             "save": true,
@@ -84,12 +84,34 @@
 
         ]
       },
+
+      
       {
-        "type": "SelectVariable",
-        "name": "Programm",
-        "caption": "Programm:",
-        "validVariableTypes": []
+        "type": "Label",
+        "caption": "Waschprogramm"
       },
+      { 
+        "type": "RowLayout",
+        "items": [
+            {
+                "type": "SelectVariable",
+                "name": "Programm",
+                "caption": "Waschprogrammvariable:",
+                "validVariableTypes": []
+            },
+            {
+                "type": "NumberSpinner",
+                "name": "ProgrammSchriftgroesse",
+                "caption": "Programm Schriftgröße:",
+                "digits": 1,
+                "minimum": 0.5,
+                "maximum": 10.0,
+                "suffix": "em"
+            }
+        ]
+    },
+
+
       {
         "type": "SelectVariable",
         "name": "Programmfortschritt",
@@ -113,15 +135,6 @@
         "name": "VerbrauchTag",
         "caption": "Verbrauch Tag:",
         "validVariableTypes": []
-      },
-      {
-        "type": "NumberSpinner",
-        "name": "StatusSchriftgroesse",
-        "caption": "Schriftgröße Status:",
-        "digits": 1,
-        "minimum": 0.5,
-        "maximum": 10.0,
-        "suffix": "em"
       },
       {
         "type": "NumberSpinner",
