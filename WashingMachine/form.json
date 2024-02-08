@@ -10,12 +10,30 @@
         "caption": "Beispiel einer voll konfigurierten Kachel"
       },
       {
-        "type": "SelectVariable",
-        "name": "Status",
-        "caption": "Status:",
-        "onChange": "WMA_UpdateList($id, $Status);",
-        "validVariableTypes": []
+        "type": "Label",
+        "caption": "Status"
       },
+      { 
+        "type": "RowLayout",
+        "items": [
+            {
+                "type": "SelectVariable",
+                "name": "Status",
+                "caption": "Statusvariable:",
+                "onChange": "WMA_UpdateList($id, $Status);",
+                "validVariableTypes": []
+            },
+            {
+                "type": "NumberSpinner",
+                "name": "StatusSchriftgroesse",
+                "caption": "Schriftgröße:",
+                "digits": 1,
+                "minimum": 0.5,
+                "maximum": 10.0,
+                "suffix": "em"
+            }
+        ]
+    },
       {
         "type": "List",
         "name": "ProfilAssoziazionen",
