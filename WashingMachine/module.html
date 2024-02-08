@@ -269,10 +269,6 @@
                         break;    
                     case 'laufzeit':
                         element.textContent = decodedData[parameter];
-                        if(decodedData[parameter]){
-                            balkendiagramm.className = 'balkendiagramm';
-                            balken_links_text_finish.className = 'balken_links_text_finish';
-                        }
                         break;    
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%');
@@ -287,6 +283,10 @@
                     case 'restlaufzeitvalue':
                         let restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
+                        if(decodedData[parameter]){
+                            balkendiagramm.className = 'balkendiagramm';
+                            balken_links_text_finish.className = 'balken_links_text_finish';
+                        }
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
