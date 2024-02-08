@@ -262,6 +262,7 @@
                         //element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
                         if(decodedData[parameter]){
+                            programmdiv.className = 'visible';
                             programm.className = 'programm';
                         }
                         break;    
@@ -340,7 +341,7 @@
         <div id="div1" class="div1"><img id="image"></div>
         <div class="div2">
             <div class="hidden" id="statusdiv"><b><p class="status">Status:&nbsp;</p></b><span class="statustext" id="status"></span></div>
-            <div class="hidden" id="programm"><span class="programm"><b>Programm:&nbsp;</b><span id="programm"></span></span></div>
+            <div class="hidden" id="programmdiv"><span class="programm"><b>Programm:&nbsp;</b><span id="programm"></span></span></div>
             <div class="hidden" id="balkendiagram">
                 <div class="balken_rechts">
                     <div class="balken_links_fortschritt">
