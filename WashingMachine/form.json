@@ -34,7 +34,8 @@
                 "digits": 1,
                 "minimum": 0.5,
                 "maximum": 10.0,
-                "suffix": "em"
+                "suffix": "em",
+                "width": 50
             },
             {
               "type": "NumberSpinner",
@@ -43,7 +44,8 @@
               "digits": 0,
               "minimum": 1.0,
               "maximum": 50.0,
-              "suffix": "%"
+              "suffix": "%",
+              "width": 50
             }
         ]
     },
