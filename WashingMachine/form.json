@@ -35,7 +35,7 @@
                 "minimum": 0.5,
                 "maximum": 10.0,
                 "suffix": "em",
-                "width": 50
+                "width": "50px"
             },
             {
               "type": "NumberSpinner",
@@ -45,7 +45,7 @@
               "minimum": 1.0,
               "maximum": 50.0,
               "suffix": "%",
-              "width": 50
+              "width": "50px"
             }
         ]
     },
