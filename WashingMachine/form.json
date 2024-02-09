@@ -35,7 +35,7 @@
                 "minimum": 0.5,
                 "maximum": 10.0,
                 "suffix": "em",
-                "width": "100px"
+                "width": "150px"
             },
             {
               "type": "NumberSpinner",
@@ -45,7 +45,7 @@
               "minimum": 1.0,
               "maximum": 50.0,
               "suffix": "%",
-              "width": "100px"
+              "width": "150px"
             }
         ]
     },
@@ -122,7 +122,8 @@
                 "digits": 1,
                 "minimum": 0.5,
                 "maximum": 10.0,
-                "suffix": "em"
+                "suffix": "em",
+                "width": "150px"
             }
         ]
     }
@@ -154,19 +155,22 @@
                 "digits": 1,
                 "minimum": 0.5,
                 "maximum": 10.0,
-                "suffix": "em"
+                "suffix": "em",
+                "width": "150px"
               },
               {
                 "type": "SelectColor",
                 "allowTransparent": false,
                 "name": "BalkenVerlaufFarbe1",
-                "caption": "Farbe 1:"
+                "caption": "Farbe 1:",
+                "width": "150px"
               },
               {
                 "type": "SelectColor",
                 "allowTransparent": false,
                 "name": "BalkenVerlaufFarbe2",
-                "caption": "Farbe 2:"
+                "caption": "Farbe 2:",
+                "width": "150px"
               }
         ]
     }
@@ -198,7 +202,8 @@
                 "digits": 1,
                 "minimum": 0.5,
                 "maximum": 10.0,
-                "suffix": "em"
+                "suffix": "em",
+                "width": "150px"
               }
         ]
     }
