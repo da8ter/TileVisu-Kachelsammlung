@@ -117,10 +117,10 @@
     }
   ]
 },
-    {
-        "type": "Label",
-        "caption": "Fortschrittsbalken"
-      },
+{
+  "type": "ExpansionPanel",
+  "caption": "Fortschrittsbalken",
+  "items": [
       { 
         "type": "RowLayout",
         "items": [
@@ -158,7 +158,9 @@
                 "caption": "Farbe 2:"
               }
         ]
-    },
+    }
+  ]
+},
     {
         "type": "Label",
         "caption": "Energieverbrauch"
