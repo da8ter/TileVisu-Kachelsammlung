@@ -138,7 +138,7 @@ class TileVisuPVoverview extends IPSModule
             $produktion = GetValue($this->ReadPropertyInteger('Produktion'));
             $export = GetValue($this->ReadPropertyInteger('Export'));
             $import = GetValue($this->ReadPropertyInteger('Import'));
-            $verbrauch = GetValue($this->ReadPropertyInteger('Veerbrauch'));
+            $verbrauch = GetValue($this->ReadPropertyInteger('Verbrauch'));
             $result['eigenverbrauch'] =  $eigenverbrauch = $produktion - $export;
             $result['eigenproduktion'] =  $verbrauch - $eigenverbrauch;
 
