@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Grundlegende Stildefinitionen, keine Änderungen hier */
+
+        :root {
+            --background-image: #000000;
+            --eigenverbrauchverlauffarbe1: #28CDAB;
+            /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
+            --eigenverbrauchverlauffarbe2: #208A74;
+            /* Ergänzende Farbe setzen */
+            --eigenproduktionverlauffarbe1: #28CDAB;
+            /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
+            --eigenproduktionverlauffarbe2: #208A74;
+            /* Ergänzende Farbe setzen */
+            --schriftgroesse: 1em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 10;
+            font-size: 0.9em;
+        }
+
+        .container2 {
+            width: 100%;
+            display: flex;
+            position: relative;
+            padding-top: 0px;
+            padding-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .einspeisungsubtext {
+            width: 50%;
+            direction: rtl;
+        }
+
+        .eigenverbrauchsubtext {
+            width: 50%;
+        }
+
+        .bezugsubtext {
+            width: 50%;
+            direction: rtl;
+        }
+
+        .eigenproduktionsubtext {
+            width: 50%;
+        }
+
+
+
+
+
+
+
+
+
+        .balkendiagramm {
+            width: 100%;
+            display: flex;
+            position: relative;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            box-sizing: border-box;
+        }
+
+
+
+        @keyframes gradient_forschritt {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .balken_links_eigenverbrauch {
+            width: 96%;
+            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_forschritt 10s infinite;
+            /* Hier die Animation ändern */
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            height: calc(var(--div-height) + var(--div-height) /5);
+            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            font-size: 1.1em;
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+        .balken_links_eigenproduktion {
+            width: 20%;
+            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_forschritt 10s infinite;
+            /* Hier die Animation ändern */
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            height: calc(var(--div-height) + var(--div-height) /5);
+            border-radius: 0px 0px 0px 0px;
+            font-size: 1.1em;
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+        .balken_links_text {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            transform: translate(-0%, -50%);
+            color: white;
+            z-index: 2;
+            padding: 2px;
+            font-size: 0.9em;
+        }
+
+        .balken_links_text_finish {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+            transform: translate(-0%, -50%);
+            color: white;
+            z-index: 3;
+            padding: 0px;
+            font-size: 0.9em;
+        }
+
+        .balken_rechts {
+            width: 100%;
+            height: calc(var(--div-height) + var(--div-height) /5);
+            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
+            font-size: 0.9em;
+            transition: width 2s;
+            transition-timing-function: ease;
+            overflow: hidden;
+        }
+
+        .balken_rechts_zukauf {
+            height: calc(var(--div-height) + var(--div-height) /5);
+            width: 100%;
+            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            background: #d00000;
+            overflow: hidden;
+            font-size: 0.9em;
+        }
+    </style>
+
+
+    <script>
+        function handleMessage(data) {
+            //console.log('Rohdaten empfangen:', data);
+
+            const decodedData = JSON.parse(data);
+
+            console.log('Decodierte Daten:', decodedData);
+
+            for (const parameter in decodedData) {
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
+                const element = document.getElementById(parameter.toLowerCase());
+                const parameter2 = String(parameter).toLowerCase();
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                var root = document.documentElement;
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter2) {
+
+                    case 'produktion':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'eigenverbrauch':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'eigenproduktion':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'verbrauch':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'zukauf':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'verkauf':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'eigenverbrauchverlauffarbe1':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe1', decodedData[parameter]);
+                        break;
+                    case 'eigenverbrauchverlauffarbe2':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe2', decodedData[parameter]);
+                        break;
+                    case 'eigenproduktionverlauffarbe1':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe1', decodedData[parameter]);
+                        break;
+                    case 'eigenproduktionverlauffarbe2':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe2', decodedData[parameter]);
+                        break;
+                    case 'bildtransparenz':
+                        root.style.setProperty('--bildtransparenz', decodedData[parameter] + '%');
+                        break;
+                    case 'kachelhintergrundfarbe':
+                        root.style.setProperty('--kachelhintergrundfarbe', decodedData[parameter]);
+                        break;
+                    case 'schriftfarbe':
+                        root.style.setProperty('--schriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'schriftgroesse':
+                        root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
+                        break;
+                    case 'einspeisungfarbe':
+                        root.style.setProperty('--einspeisungfarbe', decodedData[parameter]);
+                        break;
+                    case 'zukauffarbe':
+                        root.style.setProperty('--zukauffarbe', decodedData[parameter]);
+                        break;
+                    default:
+                        //console.log('Setze innerHTML für', parameter);
+                        // Setze innerHTML nur, wenn das Element gefunden wurde
+                        //element.innerHTML = decodedData[parameter];<i id="temp_icon" class="fa-solid fa-house-chimney-user icon"></i>
+                        break;
+                }
+
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div class="balkendiagramm">
+        <div class="balken_rechts">
+            <div class="balken_links_eigenverbrauch">
+                <div class="overlay">Produktion: <p class="production" id="produktion">2.08 kWh</p>
+                </div>
+                <span class="balken_links_text"><span id="">96</span>&nbsp;%</span>
+                <span class="balken_links_text_finish"><span id="">0.07</span>&nbsp;kWh</span>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="eigenverbrauchsubtext">Eigenverbrauch: <font style="color: #28cdab;">1.75&nbsp;kWh</font>
+        </div>
+        <div class="einspeisungsubtext">Einspeisung: <font style="color: #15c603;">0.07&nbsp;kWh</font>
+        </div>
+    </div>
+
+    <div class="balkendiagramm">
+        <div class="balken_rechts_zukauf">
+            <div class="balken_links_eigenproduktion">
+                <div class="overlay"><b>Verbrauch: 8.95 kWh</b></div>
+                <span class="balken_links_text"><span id="">20</span>&nbsp;%</span>
+                <span class="balken_links_text_finish"><span id="">80</span>&nbsp;%</span>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="eigenproduktionsubtext">Eigenproduktion: <font style="color: #28cdab;">1.76&nbsp;kWh</font>
+        </div>
+        <div class="bezugsubtext">Zukauf: <font style="color: #d00000;">7.19&nbsp;kWh&nbsp;</font>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
