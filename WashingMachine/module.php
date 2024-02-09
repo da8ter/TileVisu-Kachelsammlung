@@ -95,7 +95,7 @@ class TileVisuWashingMaschine extends IPSModule
         $initialHandling = '<script>handleMessage(' . json_encode($this->GetFullUpdateMessage()) . ')</script>';
 
 
-        $bildauswahl = $this->ReadPropertyInteger('Bildauswahl')
+        $bildauswahl = $this->ReadPropertyInteger('Bildauswahl');
 
         if($bildauswahl == '0') {
             $assets = '<script>';
