@@ -74,11 +74,10 @@
         }
     ]
 },
-        {
-            "type": "Label", 
-            "caption": "Infobereich:",
-            "bold": true
-        },
+{
+    "type": "ExpansionPanel",
+    "caption": "Infobereich",
+    "items": [
         {
             "type": "RowLayout",
             "items": [
@@ -170,7 +169,9 @@
             ]
         
         }]
-        },
+        }
+    ]
+},
         {
             "type": "Label", 
             "caption": "Menüleiste:",
