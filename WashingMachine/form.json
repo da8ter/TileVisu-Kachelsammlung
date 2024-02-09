@@ -35,7 +35,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Waschmaschinen-Status",
+      "caption": "Gerätestatus-Status",
       "items": [
         {
           "type": "RowLayout",
@@ -127,7 +127,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Waschprogramm",
+      "caption": "Programm",
       "items": [
         {
           "type": "RowLayout",
@@ -135,7 +135,7 @@
             {
               "type": "SelectVariable",
               "name": "Programm",
-              "caption": "Waschprogrammvariable:",
+              "caption": "Programmvariable:",
               "validVariableTypes": []
             },
             {
