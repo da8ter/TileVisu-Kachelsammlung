@@ -33,7 +33,6 @@
             color: white;
             z-index: 10;
             font-size: 0.9em;
-            display: inline-block;
         }
 
         .container2 {
@@ -154,6 +153,12 @@
             overflow: hidden;
             font-size: 0.9em;
         }
+
+        .production{
+            font-size: var(--statusschriftgroesse);
+            display: inline-block;
+            margin: 0;
+        }
     </style>
 
 
@@ -241,7 +246,7 @@
     <div class="balkendiagramm">
         <div class="balken_rechts">
             <div class="balken_links_eigenverbrauch">
-                <div class="overlay">Produktion: <p class="production" id="produktion">2.08 kWh</p>
+                <div class="overlay"><p class="production">Produktion: <p class="production" id="produktion">2.08 kWh</p>
                 </div>
                 <span class="balken_links_text"><span id="">96</span>&nbsp;%</span>
                 <span class="balken_links_text_finish"><span id="">0.07</span>&nbsp;kWh</span>
