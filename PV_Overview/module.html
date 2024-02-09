@@ -62,14 +62,6 @@
             width: 50%;
         }
 
-
-
-
-
-
-
-
-
         .balkendiagramm {
             width: 100%;
             display: flex;
@@ -78,10 +70,7 @@
             margin-top: 2%;
             box-sizing: border-box;
         }
-
-
-
-        @keyframes gradient_forschritt {
+       @keyframes gradient_forschritt {
             0% {
                 background-position: 0 0;
             }
@@ -100,8 +89,8 @@
             /* Hier die Animation ändern */
             animation-fill-mode: forwards;
             animation-timing-function: linear;
-            height: calc(var(--div-height) + var(--div-height) /5);
-            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            height: 30px;
+            border-radius: 5px;
             font-size: 1.1em;
             transition: width 2s;
             transition-timing-function: ease;
@@ -116,7 +105,7 @@
             /* Hier die Animation ändern */
             animation-fill-mode: forwards;
             animation-timing-function: linear;
-            height: calc(var(--div-height) + var(--div-height) /5);
+            height: 30px;
             border-radius: 0px 0px 0px 0px;
             font-size: 1.1em;
             transition: width 2s;
@@ -147,8 +136,8 @@
 
         .balken_rechts {
             width: 100%;
-            height: calc(var(--div-height) + var(--div-height) /5);
-            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            height: 30px;
+            border-radius: 5px;
             background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
             font-size: 0.9em;
             transition: width 2s;
@@ -157,9 +146,9 @@
         }
 
         .balken_rechts_zukauf {
-            height: calc(var(--div-height) + var(--div-height) /5);
+            height: 30px;
             width: 100%;
-            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            border-radius: 5px;
             background: #d00000;
             overflow: hidden;
             font-size: 0.9em;
