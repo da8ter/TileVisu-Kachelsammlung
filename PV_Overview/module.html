@@ -154,7 +154,7 @@
             font-size: 0.9em;
         }
 
-        .production, .eigenverbrauch{
+        .production, .eigenverbrauch, .import, .eigenproduktion, .export{
             font-size: var(--statusschriftgroesse);
             display: inline-block;
             margin: 0;
@@ -255,8 +255,7 @@
     </div>
     <div class="container2">
         <div class="eigenverbrauchsubtext"><p class="eigenverbrauch">Eigenverbrauch:&nbsp;</p><p class="eigenverbrauch" id="eigenverbrauch"></p></div>
-        <div class="einspeisungsubtext">Einspeisung: <font style="color: #15c603;">0.07&nbsp;kWh</font>
-        </div>
+        <div class="einspeisungsubtext"><p class="export">Export:&nbsp;</p><p class="export" id="export"></p></div>
     </div>
 
     <div class="balkendiagramm">
@@ -269,10 +268,8 @@
         </div>
     </div>
     <div class="container2">
-        <div class="eigenproduktionsubtext">Eigenproduktion: <font style="color: #28cdab;">1.76&nbsp;kWh</font>
-        </div>
-        <div class="bezugsubtext">Zukauf: <font style="color: #d00000;">7.19&nbsp;kWh&nbsp;</font>
-        </div>
+        <div class="eigenproduktionsubtext"><p class="eigenproduktion">Eigenproduktion:&nbsp;</p><p class="eigenproduktion" id="eigenproduktion"></p></div>
+        <div class="bezugsubtext"><p class="import">Import:&nbsp;</p><p class="import" id="import"></p></div>
     </div>
 
 
