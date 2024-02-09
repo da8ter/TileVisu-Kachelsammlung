@@ -20,6 +20,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 2132596);
+        $this->RegisterPropertyInteger("Bildauswahl", 0);
         //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 20);
         $this->RegisterPropertyString('ProfilAssoziazionen', '[]');
@@ -93,11 +94,23 @@ class TileVisuWashingMaschine extends IPSModule
         // Füge ein Skript hinzu, um beim Laden, analog zu Änderungen bei Laufzeit, die Werte zu setzen
         $initialHandling = '<script>handleMessage(' . json_encode($this->GetFullUpdateMessage()) . ')</script>';
 
-        $assets = '<script>';
-        $assets .= 'window.assets = {};' . PHP_EOL;
-        $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.webp')) . '";' . PHP_EOL;
-        $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
-        $assets .= '</script>';
+
+        $bildauswahl = $this->ReadPropertyInteger('Bildauswahl')
+
+        if($bildauswahl == '0') {
+            $assets = '<script>';
+            $assets .= 'window.assets = {};' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
+            $assets .= '</script>';
+        }
+        else {
+            $assets = '<script>';
+            $assets .= 'window.assets = {};' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_aus.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_an.webp')) . '";' . PHP_EOL;
+            $assets .= '</script>';
+        }
 
 
 

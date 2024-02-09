@@ -25,8 +25,8 @@
               "name": "Bildauswahl",
               "caption": "Bildauswahl",
               "options": [
-                  { "caption": "Waschmaschine", "value": "wm" },
-                  { "caption": "Wäschetrockner", "value": "dryer" }
+                  { "caption": "Waschmaschine", "value": 0 },
+                  { "caption": "Wäschetrockner", "value": 1 }
               ]
           }
           ]
