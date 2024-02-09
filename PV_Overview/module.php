@@ -135,6 +135,14 @@ class TileVisuPVoverview extends IPSModule
             $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
             $result['einspeisungfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EinspeisungFarbe'));
             $result['zukauffarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('ZukaufFarbe'));
+            $produktion = GetValue($this->ReadPropertyInteger('Produktion'));
+            $export = GetValue($this->ReadPropertyInteger('Export'));
+            $import = GetValue($this->ReadPropertyInteger('Import'));
+            $verbrauch = GetValue($this->ReadPropertyInteger('Veerbrauch'));
+            $result['eigenverbrauch'] =  $eigenverbrauch = $produktion - $export;
+            $result['eigenproduktion'] =  $verbrauch - $eigenverbrauch;
+
+
         return json_encode($result);
     }
 
