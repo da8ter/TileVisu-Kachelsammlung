@@ -35,6 +35,15 @@
                 "minimum": 0.5,
                 "maximum": 10.0,
                 "suffix": "em"
+            },
+            {
+              "type": "NumberSpinner",
+              "name": "BildBreite",
+              "caption": "Bild Breite:",
+              "digits": 0,
+              "minimum": 1.0,
+              "maximum": 50.0,
+              "suffix": "%"
             }
         ]
     },
@@ -161,10 +170,10 @@
     }
   ]
 },
-    {
-        "type": "Label",
-        "caption": "Energieverbrauch"
-      },
+{
+  "type": "ExpansionPanel",
+  "caption": "Energieverbruch",
+  "items": [
       { 
         "type": "RowLayout",
         "items": [
@@ -190,20 +199,11 @@
                 "suffix": "em"
               }
         ]
-    },
-    {
-        "type": "Label",
-        "caption": "Bilder"
-      },
-      {
-        "type": "NumberSpinner",
-        "name": "BildBreite",
-        "caption": "Bild Breite:",
-        "digits": 0,
-        "minimum": 1.0,
-        "maximum": 50.0,
-        "suffix": "%"
-      }
+    }
+  ]
+}
+
+      
     ]
   }
   
