@@ -15,19 +15,49 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Waschmaschinen-Status",
+      "caption": "Bild",
       "items": [
-    { 
-      "type": "RowLayout",
+        {
+          "type": "RowLayout",
+          "items": [
+            {
+              "type": "Select",
+              "name": "Bildauswahl",
+              "caption": "Bildauswahl",
+              "options": [
+                  { "caption": "Waschmaschine", "value": 0 },
+                  { "caption": "Wäschetrockner", "value": 1 }
+              ]
+          },
+            {
+              "type": "NumberSpinner",
+              "name": "BildBreite",
+              "caption": "Bild Breite:",
+              "digits": 0,
+              "minimum": 1.0,
+              "maximum": 50.0,
+              "suffix": "%",
+              "width": "150px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Gerätestatus",
       "items": [
-          {
+        {
+          "type": "RowLayout",
+          "items": [
+            {
               "type": "SelectVariable",
               "name": "Status",
               "caption": "Statusvariable:",
               "onChange": "WMA_UpdateList($id, $Status);",
               "validVariableTypes": []
-          },
-          {
+            },
+            {
               "type": "NumberSpinner",
               "name": "StatusSchriftgroesse",
               "caption": "Schriftgröße:",
@@ -36,86 +66,79 @@
               "maximum": 10.0,
               "suffix": "em",
               "width": "150px"
-          },
-          {
-            "type": "NumberSpinner",
-            "name": "BildBreite",
-            "caption": "Bild Breite:",
-            "digits": 0,
-            "minimum": 1.0,
-            "maximum": 50.0,
-            "suffix": "%",
-            "width": "150px"
-          }
-      ]
-  },
-    {
-      "type": "List",
-      "name": "ProfilAssoziazionen",
-      "caption": "Bild <=> Status Zuordnung und Textfarbe",
-      "rowCount": 10,
-      "add": false,
-      "delete": false,
-      "columns": [
-        {
-          "caption": "Status",
-          "name": "AssoziationName",
-          "width": "300px",
-          "save": true
-        },
-        {
-          "caption": "Assoziation Wert",
-          "name": "AssoziationValue",
-          "width": "400px",
-          "save": true,
-          "visible": false 
-        },
-        {
-          "caption": "Farbe",
-          "name": "StatusColor",
-          "width": "100px",
-          "save": true,
-          "edit": {
-              "type": "SelectColor",
-              "allowTransparent": true  
             }
+          ]
         },
         {
-          "caption": "Bild",
-          "name": "Bildauswahl",
-          "width": "200px",
-          "save": true,
-          "edit": {
-              "type": "Select",
-              "options": [
-                { "caption": "Waschmaschine an", "value": "wm_an" },
-                { "caption": "Waschmaschine aus", "value": "wm_aus" }
-            ]
+          "type": "List",
+          "name": "ProfilAssoziazionen",
+          "caption": "Bild <=> Status Zuordnung und Textfarbe",
+          "rowCount": 10,
+          "add": false,
+          "delete": false,
+          "columns": [
+            {
+              "caption": "Status",
+              "name": "AssoziationName",
+              "width": "300px",
+              "save": true
+            },
+            {
+              "caption": "Assoziation Wert",
+              "name": "AssoziationValue",
+              "width": "400px",
+              "save": true,
+              "visible": false
+            },
+            {
+              "caption": "Farbe",
+              "name": "StatusColor",
+              "width": "100px",
+              "save": true,
+              "edit": {
+                "type": "SelectColor",
+                "allowTransparent": true
+              }
+            },
+            {
+              "caption": "Bild",
+              "name": "Bildauswahl",
+              "width": "200px",
+              "save": true,
+              "edit": {
+                "type": "Select",
+                "options": [
+                  {
+                    "caption": "An",
+                    "value": "wm_an"
+                  },
+                  {
+                    "caption": "Aus",
+                    "value": "wm_aus"
+                  }
+                ]
+              }
             }
+          ],
+          "loadValuesFromConfiguration": true,
+          "values": []
         }
-      ],
-      "loadValuesFromConfiguration": true,
-      "values": [
-
       ]
-    }
-  ]
-},
-    
-{
-  "type": "ExpansionPanel",
-  "caption": "Waschprogramm",
-  "items": [
-    { 
-      "type": "RowLayout",
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Programm",
       "items": [
-          {
+        {
+          "type": "RowLayout",
+          "items": [
+            {
               "type": "SelectVariable",
               "name": "Programm",
-              "caption": "Waschprogrammvariable:",
+              "caption": "Programmvariable:",
               "validVariableTypes": []
-          },
-          {
+            },
+            {
               "type": "NumberSpinner",
               "name": "ProgrammSchriftgroesse",
               "caption": "Schriftgröße:",
@@ -124,19 +147,19 @@
               "maximum": 10.0,
               "suffix": "em",
               "width": "150px"
-          }
+            }
+          ]
+        }
       ]
-  }
-]
-},
-{
-"type": "ExpansionPanel",
-"caption": "Fortschrittsbalken",
-"items": [
-    { 
-      "type": "RowLayout",
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Fortschrittsbalken",
       "items": [
-          {
+        {
+          "type": "RowLayout",
+          "items": [
+            {
               "type": "SelectVariable",
               "name": "Programmfortschritt",
               "caption": "Programmfortschritt (0-100):",
@@ -172,18 +195,18 @@
               "caption": "Farbe 2:",
               "width": "150px"
             }
+          ]
+        }
       ]
-  }
-]
-},
-{
-"type": "ExpansionPanel",
-"caption": "Energieverbruch",
-"items": [
-    { 
-      "type": "RowLayout",
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "Energieverbruch",
       "items": [
-          {
+        {
+          "type": "RowLayout",
+          "items": [
+            {
               "type": "SelectVariable",
               "name": "Verbrauch",
               "caption": "Aktuelle Leistungsaufnahme:",
@@ -205,11 +228,9 @@
               "suffix": "em",
               "width": "150px"
             }
+          ]
+        }
       ]
-  }
-]
-}
-
-    
+    }
   ]
 }
