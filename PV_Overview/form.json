@@ -27,14 +27,14 @@
     },
     {
       "type": "SelectVariable",
-      "name": "Zukauf",
-      "caption": "Zukauf:",
+      "name": "Import",
+      "caption": "Import:",
       "validVariableTypes": []
     },
     {
       "type": "SelectVariable",
-      "name": "Einspeisung",
-      "caption": "Einspeisung:",
+      "name": "Export",
+      "caption": "Export:",
       "validVariableTypes": []
     },
     {

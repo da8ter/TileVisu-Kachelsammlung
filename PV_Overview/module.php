@@ -9,9 +9,9 @@ class TileVisuPVoverview extends IPSModule
 // Eigenproduktion = Verbrauch - Eigenverbrauch
 //Benötigte Werte: Produktion, Export, Verbrauch, Import
         $this->RegisterPropertyInteger("Produktion", 0);
-        $this->RegisterPropertyInteger("Einspeisung", 0);
+        $this->RegisterPropertyInteger("Export", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
-        $this->RegisterPropertyInteger("Zukauf", 0);
+        $this->RegisterPropertyInteger("Import", 0);
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe2", 2132596);
         $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe1", 2674091);
@@ -45,7 +45,7 @@ class TileVisuPVoverview extends IPSModule
         }
 
 
-        foreach (['Produktion', 'Einspeisung', 'Verbrauch', 'Zukauf'] as $VariableProperty)        {
+        foreach (['Produktion', 'Export', 'Verbrauch', 'Import'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -56,7 +56,7 @@ class TileVisuPVoverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Produktion', 'Einspeisung', 'Verbrauch', 'Zukauf'] as $index => $VariableProperty)
+        foreach (['Produktion', 'Export', 'Verbrauch', 'Import'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -121,10 +121,10 @@ class TileVisuPVoverview extends IPSModule
             $result['produktionvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Produktion')) ? GetValue($this->ReadPropertyInteger('Produktion')) : null;
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
             $result['verbrauchvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? GetValue($this->ReadPropertyInteger('Verbrauch')) : null;
-            $result['zukauf'] = IPS_VariableExists($this->ReadPropertyInteger('Zukauf')) ? $this->CheckAndGetValueFormatted('Zukauf') : null;
-            $result['zukaufvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Zukauf')) ? GetValue($this->ReadPropertyInteger('Zukauf')) : null;
-            $result['verkauf'] = IPS_VariableExists($this->ReadPropertyInteger('Verkauf')) ? $this->CheckAndGetValueFormatted('Verkauf') : null;
-            $result['verkaufvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Verkauf')) ? GetValue($this->ReadPropertyInteger('Verkauf')) : null;
+            $result['import'] = IPS_VariableExists($this->ReadPropertyInteger('Import')) ? $this->CheckAndGetValueFormatted('Import') : null;
+            $result['importvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Import')) ? GetValue($this->ReadPropertyInteger('Import')) : null;
+            $result['export'] = IPS_VariableExists($this->ReadPropertyInteger('Export')) ? $this->CheckAndGetValueFormatted('Export') : null;
+            $result['exportvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Export')) ? GetValue($this->ReadPropertyInteger('Export')) : null;
             $result['eigenverbrauchverlauffarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenverbrauchVerlaufFarbe1'));
             $result['eigenverbrauchverlauffarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenverbrauchVerlaufFarbe2'));
             $result['eigenproduktionverlauffarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenproduktionVerlaufFarbe1'));
