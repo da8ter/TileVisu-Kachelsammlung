@@ -91,10 +91,10 @@
     ]
   },
       
-      {
-        "type": "Label",
-        "caption": "Waschprogramm"
-      },
+  {
+    "type": "ExpansionPanel",
+    "caption": "Waschprogramm",
+    "items": [
       { 
         "type": "RowLayout",
         "items": [
@@ -114,7 +114,9 @@
                 "suffix": "em"
             }
         ]
-    },
+    }
+  ]
+},
     {
         "type": "Label",
         "caption": "Fortschrittsbalken"
