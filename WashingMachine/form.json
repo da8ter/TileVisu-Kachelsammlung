@@ -28,7 +28,17 @@
                   { "caption": "Waschmaschine", "value": 0 },
                   { "caption": "Wäschetrockner", "value": 1 }
               ]
-          }
+          },
+            {
+              "type": "NumberSpinner",
+              "name": "BildBreite",
+              "caption": "Bild Breite:",
+              "digits": 0,
+              "minimum": 1.0,
+              "maximum": 50.0,
+              "suffix": "%",
+              "width": "150px"
+            }
           ]
         }
       ]
@@ -55,16 +65,6 @@
               "minimum": 0.5,
               "maximum": 10.0,
               "suffix": "em",
-              "width": "150px"
-            },
-            {
-              "type": "NumberSpinner",
-              "name": "BildBreite",
-              "caption": "Bild Breite:",
-              "digits": 0,
-              "minimum": 1.0,
-              "maximum": 50.0,
-              "suffix": "%",
               "width": "150px"
             }
           ]
@@ -109,11 +109,11 @@
                 "type": "Select",
                 "options": [
                   {
-                    "caption": "Waschmaschine an",
+                    "caption": "An",
                     "value": "wm_an"
                   },
                   {
-                    "caption": "Waschmaschine aus",
+                    "caption": "Aus",
                     "value": "wm_aus"
                   }
                 ]
