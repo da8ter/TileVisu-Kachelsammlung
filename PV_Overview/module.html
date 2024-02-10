@@ -19,6 +19,8 @@
             --eigenproduktionverlauffarbe2: #208A74;
             /* Ergänzende Farbe setzen */
             --schriftgroesse: 1em;
+            --eigenverbrauch_prozent: 50%;
+            --eigenproduktion_prozent: 50%;
         }
 
         .hidden {
@@ -83,7 +85,7 @@
         }
 
         .balken_links_eigenverbrauch {
-            width: 96%;
+            width: var(--eigenverbrauch_prozent);
             background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
             background-size: 200% auto;
             background-position: 0 100%;
@@ -99,7 +101,7 @@
         }
 
         .balken_links_eigenproduktion {
-            width: 20%;
+            width: var(--eigenproduktion_prozent);
             background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
             background-size: 200% auto;
             background-position: 0 100%;
@@ -188,8 +190,14 @@
                     case 'eigenverbrauch':
                         element.textContent = decodedData[parameter] + ' kWh';
                         break;
+                    case 'eigenverbrauch_prozent':
+                        root.style.setProperty('--eigenverbrauch_prozent', decodedData[parameter] + '%');
+                        break;
                     case 'eigenproduktion':
                         element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'eigenproduktion_prozent':
+                        root.style.setProperty('--eigenproduktion_prozent', decodedData[parameter] + '%');
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
