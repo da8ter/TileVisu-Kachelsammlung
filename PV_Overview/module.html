@@ -18,6 +18,8 @@
             /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
             --eigenproduktionverlauffarbe2: #208A74;
             /* Ergänzende Farbe setzen */
+            --einspeisungfarbe: #00ff1a;
+            --zukauffarbe: #c40303;
             --schriftgroesse: 1em;
             --eigenverbrauch_prozent: 50%;
             --eigenproduktion_prozent: 50%;
@@ -148,7 +150,7 @@
             width: 100%;
             height: 30px;
             border-radius: 8px;
-            background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
+            background: var(--einspeisungfarbe);
             font-size: 0.9em;
             transition: width 2s;
             transition-timing-function: ease;
@@ -159,7 +161,7 @@
             height: 30px;
             width: 100%;
             border-radius: 8px;
-            background: #d00000;
+            background: var(--zukauffarbe);
             overflow: hidden;
             font-size: 0.9em;
         }
