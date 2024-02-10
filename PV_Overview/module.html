@@ -192,12 +192,14 @@
                         break;
                     case 'eigenverbrauch_prozent':
                         root.style.setProperty('--eigenverbrauch_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
                         break;
                     case 'eigenproduktion':
                         element.textContent = decodedData[parameter] + ' kWh';
                         break;
                     case 'eigenproduktion_prozent':
                         root.style.setProperty('--eigenproduktion_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
@@ -264,7 +266,7 @@
         </div>
     </div>
     <div class="container2">
-        <div class="eigenverbrauchsubtext"><p class="eigenverbrauch">Eigenverbrauch:&nbsp;</p><p class="eigenverbrauch" id="eigenverbrauch"></p></div>
+        <div class="eigenverbrauchsubtext"><p class="eigenverbrauch">Eigenverbrauch:&nbsp;</p><p class="eigenverbrauch" id="eigenverbrauch_prozent"></p></div>
         <div class="einspeisungsubtext"><p class="export">Export:&nbsp;</p><p class="export" id="export"></p></div>
     </div>
 
@@ -278,7 +280,7 @@
         </div>
     </div>
     <div class="container2">
-        <div class="eigenproduktionsubtext"><p class="eigenproduktion">Eigenproduktion:&nbsp;</p><p class="eigenproduktion" id="eigenproduktion"></p></div>
+        <div class="eigenproduktionsubtext"><p class="eigenproduktion">Eigenproduktion:&nbsp;</p><p class="eigenproduktion" id="eigenproduktion_prozent"></p></div>
         <div class="bezugsubtext"><p class="import">Import:&nbsp;</p><p class="import" id="import"></p></div>
     </div>
 
