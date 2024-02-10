@@ -117,10 +117,10 @@ class TileVisuPVoverview extends IPSModule
                         $export_prozent = round($export / $produktion * 100, 0);
                         $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
                         $eigenverbrauch = round($produktion / 100 * $eigenverbrauch_prozent,2);
-                        $eigenproduktion_prozent = round(100 - $import_prozent, 0);
                         $eigenproduktion = round($produktion - $export, 2);
                         $verbrauch = $import + $eigenproduktion;
                         $import_prozent = round($import / $verbrauch * 100, 0);
+                        $eigenproduktion_prozent = round(100 - $import_prozent, 0);
 
                         $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
@@ -247,11 +247,10 @@ class TileVisuPVoverview extends IPSModule
             $export_prozent = round($export / $produktion * 100, 0);
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
             $eigenverbrauch = round($produktion / 100 * $eigenverbrauch_prozent,2);
-            $eigenproduktion_prozent = round(100 - $import_prozent, 0);
             $eigenproduktion = round($produktion - $export, 2);
             $verbrauch = $import + $eigenproduktion;
             $import_prozent = round($import / $verbrauch * 100, 0);
-
+            $eigenproduktion_prozent = round(100 - $import_prozent, 0);
             
             $result['produktion'] = $produktion;
             $result['export'] = $export;
