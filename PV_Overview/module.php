@@ -71,26 +71,47 @@ class TileVisuPVoverview extends IPSModule
                         //$this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
 
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
-                        $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Produktion'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                        $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
+
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Produktion'));) {
+                            $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Produktion'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
+                        }
+                        else {
+                            $produktion = 0;
+                        }
                         
-                        $export_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Export'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                        $export = round($export_heute_archiv[0]['Avg'], 2);
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Import'));) {
+                            $import_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Import'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            $import = round($import_heute_archiv[0]['Avg'], 2); 
+                        }
+                        else {
+                            $import = 0;
+                        }
+
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Verbrauch'));) {
+                            $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Verbrauch'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2); 
+                        }
+                        else {
+                            $verbrauch = 0;
+                        }       
                         
-                        $import_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Import'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                        $import = round($import_heute_archiv[0]['Avg'], 2); 
-            
-                        $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Verbrauch'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                        $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2); 
-            
-                        $export_prozent = round($wxport / $produktion * 100, 0);
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Export'));) {
+                            $export_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Export'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            $export = round($export_heute_archiv[0]['Avg'], 2); 
+                        }
+                        else {
+                            $export = 0;
+                        } 
+ 
+                        $export_prozent = round($export / $produktion * 100, 0);
                         $import_prozent = round($import / $verbrauch * 100, 0);
                         $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
                         $eigenproduktion_prozent = round(100 - $import_prozent, 0);
-                        $this->UpdateVisualizationValue(json_encode(['produktion' => round($produktion_heute_archiv[0]['Avg'], 2)]));
-                        $this->UpdateVisualizationValue(json_encode(['export' => round($export_heute_archiv[0]['Avg'], 2)]));
-                        $this->UpdateVisualizationValue(json_encode(['import' => round($import_heute_archiv[0]['Avg'], 2)]));
-                        $this->UpdateVisualizationValue(json_encode(['verbrauch' => round($verbrauch_heute_archiv[0]['Avg'], 2)]));
+                        $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['import' => $import]));
+                        $this->UpdateVisualizationValue(json_encode(['verbrauch' => $verbrauch]));
+                        $this->UpdateVisualizationValue(json_encode(['export' => $export]));
                         $this->UpdateVisualizationValue(json_encode(['export_prozent' => round($wxport / $produktion * 100, 0)]));
                         $this->UpdateVisualizationValue(json_encode(['import_prozent' => round($import / $verbrauch * 100, 0)]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch_prozent' => round(100 - $export_prozent, 0)]));
@@ -166,27 +187,50 @@ class TileVisuPVoverview extends IPSModule
             
             
             $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
-            $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Produktion'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-            $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
-            
-            $export_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Export'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-            $export = round($export_heute_archiv[0]['Avg'], 2);
-            
-            $import_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Import'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-            $import = round($import_heute_archiv[0]['Avg'], 2); 
 
-            $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Verbrauch'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-            $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2); 
 
-            $export_prozent = round($wxport / $produktion * 100, 0);
+
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Produktion'));) {
+                $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Produktion'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
+            }
+            else {
+                $produktion = 0;
+            }
+            
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Import'));) {
+                $import_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Import'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                $import = round($import_heute_archiv[0]['Avg'], 2); 
+            }
+            else {
+                $import = 0;
+            }
+
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Verbrauch'));) {
+                $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Verbrauch'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2); 
+            }
+            else {
+                $verbrauch = 0;
+            }  
+             
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Export'));) {
+                $export_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Export'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                $export = round($export_heute_archiv[0]['Avg'], 2); 
+            }
+            else {
+                $export = 0;
+            } 
+
+            $export_prozent = round($export / $produktion * 100, 0);
             $import_prozent = round($import / $verbrauch * 100, 0);
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
             $eigenproduktion_prozent = round(100 - $import_prozent, 0);
 
-            $result['produktion'] = round($produktion_heute_archiv[0]['Avg'], 2);
-            $result['export'] = round($export_heute_archiv[0]['Avg'], 2);
-            $result['import'] = round($import_heute_archiv[0]['Avg'], 2); 
-            $result['verbrauch'] = round($verbrauch_heute_archiv[0]['Avg'], 2); 
+            $result['produktion'] = $produktion;
+            $result['export'] = $export;
+            $result['import'] = $import; 
+            $result['verbrauch'] = $verbrauch; 
 
             $result['export_prozent'] = round($wxport / $produktion * 100, 0);
             $result['import_prozent'] = round($import / $verbrauch * 100, 0);
