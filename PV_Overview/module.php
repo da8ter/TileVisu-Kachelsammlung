@@ -108,7 +108,7 @@ class TileVisuPVoverview extends IPSModule
                         if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                             $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($export_heute_archiv)) {
-                                $export = round($v´export_heute_archiv[0]['Avg'], 2);
+                                $export = round($export_heute_archiv[0]['Avg'], 2);
                             }
                         }
 
