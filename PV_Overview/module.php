@@ -73,7 +73,7 @@ class TileVisuPVoverview extends IPSModule
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
                         $produktionsID = $this->ReadPropertyInteger('Produktion');
-                        $produktion = 0; // Standardwert setzen
+                        $produktion = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -83,7 +83,7 @@ class TileVisuPVoverview extends IPSModule
                         }
                         
                         $importID = $this->ReadPropertyInteger('Import');
-                        $import = 0; // Standardwert setzen
+                        $import = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
                             $import_heute_archiv = AC_GetAggregatedValues($archivID, $importID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -93,7 +93,7 @@ class TileVisuPVoverview extends IPSModule
                         }
             
                         $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
-                        $verbrauch = 0; // Standardwert setzen
+                        $verbrauch = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
                             $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -103,7 +103,7 @@ class TileVisuPVoverview extends IPSModule
                         }
             
                         $exportID = $this->ReadPropertyInteger('Export');
-                        $vexport = 0; // Standardwert setzen
+                        $vexport = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                             $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -199,7 +199,7 @@ class TileVisuPVoverview extends IPSModule
 
 
             $produktionsID = $this->ReadPropertyInteger('Produktion');
-            $produktion = 0; // Standardwert setzen
+            $produktion = 1; // Standardwert setzen
             
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -209,7 +209,7 @@ class TileVisuPVoverview extends IPSModule
             }
             
             $importID = $this->ReadPropertyInteger('Import');
-            $import = 0; // Standardwert setzen
+            $import = 1; // Standardwert setzen
             
             if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
                 $import_heute_archiv = AC_GetAggregatedValues($archivID, $importID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -219,7 +219,7 @@ class TileVisuPVoverview extends IPSModule
             }
 
             $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
-            $verbrauch = 0; // Standardwert setzen
+            $verbrauch = 1; // Standardwert setzen
             
             if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
                 $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -229,7 +229,7 @@ class TileVisuPVoverview extends IPSModule
             }
 
             $exportID = $this->ReadPropertyInteger('Export');
-            $export = 0; // Standardwert setzen
+            $export = 1; // Standardwert setzen
             
             if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                 $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
