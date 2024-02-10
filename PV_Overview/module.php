@@ -112,10 +112,11 @@ class TileVisuPVoverview extends IPSModule
                             }
                         }
                         $export_prozent = round($export / $produktion * 100, 0);
-                        $import_prozent = round($import / $verbrauch * 100, 0);
                         $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
+                        $eigenverbrauch = round($produktion / 100 * $eigenverbrauch_prozent,2);
+                        $import_prozent = round($import / $verbrauch * 100, 0);
                         $eigenproduktion_prozent = round(100 - $import_prozent, 0);
-                        $eigenverbrauch = $produktion - $export;
+                        $eigenproduktion = round($produktion - $export, 2);
 
                         $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
@@ -235,17 +236,18 @@ class TileVisuPVoverview extends IPSModule
             if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                 $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($export_heute_archiv)) {
-                    $export = round($v´export_heute_archiv[0]['Avg'], 2);
+                    $export = round($export_heute_archiv[0]['Avg'], 2);
                 }
             }
 
-
- 
             $export_prozent = round($export / $produktion * 100, 0);
-            $import_prozent = round($import / $verbrauch * 100, 0);
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
+            $eigenverbrauch = round($produktion / 100 * $eigenverbrauch_prozent,2);
+            $import_prozent = round($import / $verbrauch * 100, 0);
             $eigenproduktion_prozent = round(100 - $import_prozent, 0);
-            $eigenverbrauch = $produktion - $export;
+            $eigenproduktion = round($produktion - $export, 2);
+
+            
             $result['produktion'] = $produktion;
             $result['export'] = $export;
             $result['import'] = $import; 
