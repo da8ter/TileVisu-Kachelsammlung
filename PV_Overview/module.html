@@ -207,8 +207,16 @@
                     case 'import':
                         element.textContent = decodedData[parameter];
                         break;
+                    case 'import_prozent':
+                        root.style.setProperty('--import_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
+                        break;
                     case 'export':
                         element.textContent = decodedData[parameter];
+                        break;
+                    case 'export_prozent':
+                        root.style.setProperty('--export_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
                         break;
                     case 'eigenverbrauchverlauffarbe1':
                         root.style.setProperty('--eigenverbrauchverlauffarbe1', decodedData[parameter]);
@@ -260,8 +268,8 @@
             <div class="balken_links_eigenverbrauch">
                 <div class="overlay"><b><p class="production">Produktion:&nbsp;<p class="production" id="produktion">2.08 kWh</p></b>
                 </div>
-                <span class="balken_links_text"><span id="eigenverbrauch_prozent">96</span>&nbsp;%</span>
-                <span class="balken_links_text_finish"><span id="">0.07</span>&nbsp;kWh</span>
+                <span class="balken_links_text"><span id="eigenverbrauch_prozent"></span>&nbsp;%</span>
+                <span class="balken_links_text_finish"><span id="export_prozent"></span>&nbsp;kWh</span>
             </div>
         </div>
     </div>
@@ -275,7 +283,7 @@
             <div class="balken_links_eigenproduktion">
                 <div class="overlay"><b><p class="verbrauch">Verbrauch:&nbsp;<p class="verbrauch" id="verbrauch"></p></b></b></div>
                 <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
-                <span class="balken_links_text_finish"><span id="">80</span>&nbsp;%</span>
+                <span class="balken_links_text_finish"><span id="import_prozent"></span>&nbsp;%</span>
             </div>
         </div>
     </div>
