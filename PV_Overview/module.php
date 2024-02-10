@@ -92,15 +92,15 @@ class TileVisuPVoverview extends IPSModule
                             }
                         }
             
-                        //$verbrauchID = $this->ReadPropertyInteger('Verbrauch');
-                        //$verbrauch = 1; // Standardwert setzen
+                        $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
+                        $verbrauch = 1; // Standardwert setzen
                         
-                        //if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
-                         //   $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                         //   if (!empty($verbrauch_heute_archiv)) {
-                         //       $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
-                         //   }
-                        //}
+                        if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
+                            $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            if (!empty($verbrauch_heute_archiv)) {
+                                $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
+                            }
+                        }
 
 
             
@@ -118,7 +118,7 @@ class TileVisuPVoverview extends IPSModule
                         $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
                         $eigenverbrauch = round($produktion / 100 * $eigenverbrauch_prozent,2);
                         $eigenproduktion = round($produktion - $export, 2);
-                        $verbrauch = $import + $eigenproduktion;
+                        //$verbrauch = $import + $eigenproduktion;
                         $import_prozent = round($import / $verbrauch * 100, 0);
                         $eigenproduktion_prozent = round(100 - $import_prozent, 0);
 
@@ -224,15 +224,15 @@ class TileVisuPVoverview extends IPSModule
                 }
             }
 
-           // $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
-          //  $verbrauch = 1; // Standardwert setzen
+            $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
+            $verbrauch = 1; // Standardwert setzen
             
-          //  if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
-           //     $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-           //     if (!empty($verbrauch_heute_archiv)) {
-           //         $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
-           //     }
-           // }
+            if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
+                $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                if (!empty($verbrauch_heute_archiv)) {
+                    $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
+                }
+            }
 
             $exportID = $this->ReadPropertyInteger('Export');
             $export = 1; // Standardwert setzen
@@ -248,7 +248,7 @@ class TileVisuPVoverview extends IPSModule
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
             $eigenverbrauch = round($produktion / 100 * $eigenverbrauch_prozent, 2);
             $eigenproduktion = round($produktion - $export, 2);
-            $verbrauch = $import + $eigenproduktion;
+            //$verbrauch = $import + $eigenproduktion;
             $import_prozent = round($import / $verbrauch * 100, 0);
             $eigenproduktion_prozent = round(100 - $import_prozent, 0);
             
