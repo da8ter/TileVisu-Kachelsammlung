@@ -72,7 +72,7 @@ class TileVisuPVoverview extends IPSModule
 
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
-                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Produktion'));) {
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Produktion'))) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Produktion'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                         }
@@ -80,7 +80,7 @@ class TileVisuPVoverview extends IPSModule
                             $produktion = 0;
                         }
                         
-                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Import'));) {
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Import'))) {
                             $import_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Import'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $import = round($import_heute_archiv[0]['Avg'], 2); 
                         }
@@ -88,7 +88,7 @@ class TileVisuPVoverview extends IPSModule
                             $import = 0;
                         }
 
-                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Verbrauch'));) {
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Verbrauch'))) {
                             $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Verbrauch'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2); 
                         }
@@ -96,7 +96,7 @@ class TileVisuPVoverview extends IPSModule
                             $verbrauch = 0;
                         }       
                         
-                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Export'));) {
+                        if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Export'))) {
                             $export_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Export'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $export = round($export_heute_archiv[0]['Avg'], 2); 
                         }
@@ -190,7 +190,7 @@ class TileVisuPVoverview extends IPSModule
 
 
 
-            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Produktion'));) {
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Produktion'))) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Produktion'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
             }
@@ -198,7 +198,7 @@ class TileVisuPVoverview extends IPSModule
                 $produktion = 0;
             }
             
-            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Import'));) {
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Import'))) {
                 $import_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Import'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $import = round($import_heute_archiv[0]['Avg'], 2); 
             }
@@ -206,15 +206,15 @@ class TileVisuPVoverview extends IPSModule
                 $import = 0;
             }
 
-            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Verbrauch'));) {
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Verbrauch'))) {
                 $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Verbrauch'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2); 
             }
             else {
                 $verbrauch = 0;
             }  
-             
-            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Export'));) {
+
+            if (AC_GetLoggingStatus($archivID, $this->ReadPropertyInteger('Export'))) {
                 $export_heute_archiv = AC_GetAggregatedValues($archivID, $this->ReadPropertyInteger('Export'), 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $export = round($export_heute_archiv[0]['Avg'], 2); 
             }
