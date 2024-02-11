@@ -40,7 +40,8 @@
     {
       "type": "SelectMedia",
       "name": "bgImage",
-      "caption": "Fotos"
+      "caption": "Fotos",
+      "visible": false
     },
     {
       "type": "NumberSpinner",
