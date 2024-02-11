@@ -232,6 +232,9 @@ class TileVisuPVoverview extends IPSModule
                 if (!empty($verbrauch_heute_archiv)) {
                     $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
                 }
+                if ($verbrauch < '0') {
+                    $verbrauch = '0.1';
+                }
             }
 
             $exportID = $this->ReadPropertyInteger('Export');
