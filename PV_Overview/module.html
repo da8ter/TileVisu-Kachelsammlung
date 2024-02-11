@@ -23,6 +23,7 @@
             --schriftgroesse: 1em;
             --eigenverbrauch_prozent: 50%;
             --eigenproduktion_prozent: 50%;
+            --bildtransparenz: 50%;
         }
 
         body {
@@ -47,6 +48,41 @@
             z-index: 10;
             font-size: 0.9em;
         }
+
+        .maindiv {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
+        display: flex;
+        justify-content: center;
+        /* Zentriert horizontal */
+        align-items: center;
+        /* Zentriert vertikal */
+
+    }
+
+    .maindiv:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: var(--bildtransparenz);
+        background: var(--background-image, none) center / cover no-repeat;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .maindiv>* {
+        position: relative;
+        z-index: 1;
+    }
+
+
 
         .container2 {
             width: 100%;
@@ -280,6 +316,7 @@
 </head>
 
 <body>
+    <div class="maindiv">
     <div class="balkendiagramm">
         <div class="balken_rechts">
             <div class="balken_links_eigenverbrauch">
@@ -326,7 +363,7 @@
             <p class="import" id="import"></p>
         </div>
     </div>
-
+</div>
 
 </body>
 
