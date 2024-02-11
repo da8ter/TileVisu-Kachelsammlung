@@ -80,7 +80,7 @@ class TileVisuPVoverview extends IPSModule
                             if (!empty($produktion_heute_archiv)) {
                                 $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                                 if ($produktion <= 0) {
-                                    $produktion = 0.1;
+                                    $produktion = 0.01;
                                 }
                             }
                         }
@@ -93,7 +93,7 @@ class TileVisuPVoverview extends IPSModule
                             if (!empty($import_heute_archiv)) {
                                 $import = round($import_heute_archiv[0]['Avg'], 2);
                                 if ($import <= 0) {
-                                    $import = 0.1;
+                                    $import = 0.01;
                                 }
                             }
                         }
@@ -106,7 +106,7 @@ class TileVisuPVoverview extends IPSModule
                             if (!empty($verbrauch_heute_archiv)) {
                                 $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
                                 if ($verbrauch <= 0) {
-                                    $verbrauch = 0.1;
+                                    $verbrauch = 0.01;
                                 }
                             }
                                                         
@@ -122,7 +122,7 @@ class TileVisuPVoverview extends IPSModule
                             if (!empty($export_heute_archiv)) {
                                 $export = round($export_heute_archiv[0]['Avg'], 2);
                                 if ($export <= 0) {
-                                    $export = 0.1;
+                                    $export = 0.01;
                                 }
                             }
                         }
@@ -225,7 +225,7 @@ class TileVisuPVoverview extends IPSModule
                 if (!empty($produktion_heute_archiv)) {
                     $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                     if ($produktion <= 0) {
-                        $produktion = 0.1;
+                        $produktion = 0.01;
                     }
                 }
             }
@@ -238,7 +238,7 @@ class TileVisuPVoverview extends IPSModule
                 if (!empty($import_heute_archiv)) {
                     $import = round($import_heute_archiv[0]['Avg'], 2);
                     if ($import <= 0) {
-                        $import = 0.1;
+                        $import = 0.01;
                     }
                 }
             }
@@ -252,7 +252,7 @@ class TileVisuPVoverview extends IPSModule
                     $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
                 }
                 if ($verbrauch <= 0) {
-                    $verbrauch = 0.1;
+                    $verbrauch = 0.01;
                 }
             }
 
