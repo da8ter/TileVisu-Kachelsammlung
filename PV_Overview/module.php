@@ -129,6 +129,7 @@ class TileVisuPVoverview extends IPSModule
 
                         if ($export <= 0.1) {
                             $export_prozent = 0;
+                            $export = 0;
                         }
                         else {
                             $export_prozent = round($export / $produktion * 100, 0);
@@ -140,6 +141,7 @@ class TileVisuPVoverview extends IPSModule
             
                         if ($import <= 0.1) {
                             $import_prozent = 0;
+                            $import = 0;
                         }
                         else {
                             $import_prozent = round($import / $verbrauch * 100, 0);
