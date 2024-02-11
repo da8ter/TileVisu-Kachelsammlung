@@ -254,8 +254,10 @@ class TileVisuPVoverview extends IPSModule
                         $verbrauch = 0.01;
                     }
                 }
-
+                                            
             }
+
+
 
             $exportID = $this->ReadPropertyInteger('Export');
             $export = 1; // Standardwert setzen
@@ -265,7 +267,7 @@ class TileVisuPVoverview extends IPSModule
                 if (!empty($export_heute_archiv)) {
                     $export = round($export_heute_archiv[0]['Avg'], 2);
                     if ($export <= 0) {
-                        $export = 0.1;
+                        $export = 0.01;
                     }
                 }
             }
@@ -277,6 +279,7 @@ class TileVisuPVoverview extends IPSModule
             //$verbrauch = $import + $eigenproduktion;
             $import_prozent = round($import / $verbrauch * 100, 0);
             $eigenproduktion_prozent = round(100 - $import_prozent, 0);
+            
             
             $result['produktion'] = $produktion;
             $result['export'] = $export;
