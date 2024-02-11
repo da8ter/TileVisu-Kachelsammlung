@@ -73,7 +73,7 @@
 
     .maindiv>* {
         position: relative;
-        z-index: 1;
+        z-index: 100;
     }
 
 
@@ -295,6 +295,7 @@
                     case 'zukauffarbe':
                         root.style.setProperty('--zukauffarbe', decodedData[parameter]);
                         break;
+
                     case 'image1':
                     mainDiv = document.querySelector('.maindiv');
                     mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
