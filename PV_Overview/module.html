@@ -296,6 +296,10 @@
                     case 'zukauffarbe':
                         root.style.setProperty('--zukauffarbe', decodedData[parameter]);
                         break;
+                    case 'image1':
+                    //const mainDiv = document.querySelector('.maindiv');
+                    maindiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                    break;
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
