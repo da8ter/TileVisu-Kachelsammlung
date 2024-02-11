@@ -127,12 +127,25 @@ class TileVisuPVoverview extends IPSModule
                             }
                         }
 
-                        $export_prozent = round($export / $produktion * 100, 0);
+                        if ($export <= 0.1) {
+                            $export_prozent = 0;
+                        }
+                        else {
+                            $export_prozent = round($export / $produktion * 100, 0);
+                        }
                         $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
                         $eigenverbrauch = round($produktion - $export,2);
                         $eigenproduktion = $eigenverbrauch;
                         //$verbrauch = $import + $eigenproduktion;
-                        $import_prozent = round($import / $verbrauch * 100, 0);
+            
+                        if ($import <= 0.1) {
+                            $import_prozent = 0;
+                        }
+                        else {
+                            $import_prozent = round($import / $verbrauch * 100, 0);
+                        }
+            
+                      
                         $eigenproduktion_prozent = round(100 - $import_prozent, 0);
 
                         $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
@@ -272,12 +285,26 @@ class TileVisuPVoverview extends IPSModule
                 }
             }
 
-            $export_prozent = round($export / $produktion * 100, 0);
+
+            if ($export <= 0.1) {
+                $export_prozent = 0;
+            }
+            else {
+                $export_prozent = round($export / $produktion * 100, 0);
+            }
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
             $eigenverbrauch = round($produktion - $export,2);
             $eigenproduktion = $eigenverbrauch;
             //$verbrauch = $import + $eigenproduktion;
-            $import_prozent = round($import / $verbrauch * 100, 0);
+
+            if ($import <= 0.1) {
+                $import_prozent = 0;
+            }
+            else {
+                $import_prozent = round($import / $verbrauch * 100, 0);
+            }
+
+          
             $eigenproduktion_prozent = round(100 - $import_prozent, 0);
             
             
