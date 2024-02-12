@@ -22,10 +22,10 @@ class TileVisuPVoverview extends IPSModule
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
-        $this->RegisterPropertyFloat("SchriftgroesseSub", 1);
-        $this->RegisterPropertyFloat("Eckenradius", 10);
-        $this->RegisterPropertyInteger("EinspeisungFarbe", 2132596);
-        $this->RegisterPropertyInteger("ZukaufFarbe", 2132596);
+        $this->RegisterPropertyFloat("SchriftgroesseSub", 0.8);
+        $this->RegisterPropertyFloat("Eckenradius", 6);
+        $this->RegisterPropertyInteger("EinspeisungFarbe", 2598689);
+        $this->RegisterPropertyInteger("ZukaufFarbe", 9830400);
 
 
 
