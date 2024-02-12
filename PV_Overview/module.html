@@ -28,6 +28,10 @@
 
 
 
+        html {
+            background-color: var(--hintergrundfarbe);
+        }
+
         body:before {
             content: '';
             display: block;
@@ -39,13 +43,14 @@
             z-index: -1;
             background-repeat: no-repeat;
             background-size: cover;
-            background-color: var(--hintergrundfarbe);
+            
             box-sizing: border-box;
             opacity: var(--bildtransparenz);
             background: var(--background-image, none) center / cover no-repeat;
         }
 
-        body {}
+        body {
+        }
 
 
         .hidden {
