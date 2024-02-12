@@ -76,7 +76,7 @@
       "digits": 1,
       "minimum": 0.0,
       "maximum": 50.0,
-      "suffix": "%"
+      "suffix": "px"
     },
     {
       "type": "SelectColor",
