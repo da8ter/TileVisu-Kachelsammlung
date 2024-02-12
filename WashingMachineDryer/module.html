@@ -358,6 +358,16 @@
                     case 'bildbreite':
                         root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
                         break;
+                    case 'image1':
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'bildtransparenz':
+                        root.style.setProperty('--bildtransparenz', decodedData[parameter]);
+                        break;
+                    case 'kachelhintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        break;    
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
