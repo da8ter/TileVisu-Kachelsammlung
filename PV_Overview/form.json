@@ -18,6 +18,10 @@
       "caption": "Produktion, Verbrauch, Export, Import",
       "items": [
         {
+          "type": "Label",
+          "caption": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh. "
+        },
+        {
           "type": "RowLayout",
           "items": [
             {
@@ -55,7 +59,8 @@
         
           {
             "type": "Label",
-            "caption": "Kachel"
+            "caption": "Kachel",
+            "bold": true
           },
           {
           "type": "RowLayout",
@@ -93,7 +98,8 @@
         },
         {
           "type": "Label",
-          "caption": "Balkendesign"
+          "caption": "Balkendesign",
+          "bold": true
         },
         {
           "type": "RowLayout",
