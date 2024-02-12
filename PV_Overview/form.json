@@ -73,12 +73,12 @@
             {
               "type": "SelectMedia",
               "name": "bgImage",
-              "caption": "Fotos"
+              "caption": "Hintergrundbild"
             },
             {
               "type": "NumberSpinner",
               "name": "Bildtransparenz",
-              "caption": "Transparenz Bild (Werte von 0 bis 1",
+              "caption": "Transparenz Bild (Werte von 0 bis 1)",
               "digits": 1,
               "minimum": 0.0,
               "maximum": 1.0,
