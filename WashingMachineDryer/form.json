@@ -26,7 +26,8 @@
               "caption": "Bildauswahl",
               "options": [
                   { "caption": "Waschmaschine", "value": 0 },
-                  { "caption": "Wäschetrockner", "value": 1 }
+                  { "caption": "Wäschetrockner", "value": 1 },
+                  { "caption": "Eigene Bilder", "value": 2 }
               ]
           },
             {
@@ -38,6 +39,16 @@
               "maximum": 50.0,
               "suffix": "%",
               "width": "150px"
+            }, 
+            {
+              "type": "SelectMedia",
+              "name": "Bild_An",
+              "caption": "Eigenes Bild AN"
+            },
+            {
+              "type": "SelectMedia",
+              "name": "Bild_Aus",
+              "caption": "Eigenes Bild AUS"
             }
           ]
         }

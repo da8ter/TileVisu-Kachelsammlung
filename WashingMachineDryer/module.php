@@ -24,6 +24,8 @@ class TileVisuWashingMaschine extends IPSModule
         //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 20);
         $this->RegisterPropertyString('ProfilAssoziazionen', '[]');
+        $this->RegisterPropertyInteger("Bild_An", 0);
+        $this->RegisterPropertyInteger("Bild_Aus", 0);
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
@@ -93,9 +95,9 @@ class TileVisuWashingMaschine extends IPSModule
     {
         // Füge ein Skript hinzu, um beim Laden, analog zu Änderungen bei Laufzeit, die Werte zu setzen
         $initialHandling = '<script>handleMessage(' . json_encode($this->GetFullUpdateMessage()) . ')</script>';
-
-
         $bildauswahl = $this->ReadPropertyInteger('Bildauswahl');
+
+
 
         if($bildauswahl == '0') {
             $assets = '<script>';
@@ -104,14 +106,101 @@ class TileVisuWashingMaschine extends IPSModule
             $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
-        else {
+        elseif($bildauswahl == '1') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
             $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_aus.webp')) . '";' . PHP_EOL;
             $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_an.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
+        else {
 
+        // Prüfe vorweg, ob ein Bild ausgewählt wurde
+        $imageID_Bild_An = $this->ReadPropertyInteger('Bild_An');
+        if (IPS_MediaExists($imageID_Bild_An)) {
+            $image = IPS_GetMedia($imageID_Bild_An);
+            if ($image['MediaType'] === MEDIATYPE_IMAGE) {
+                $imageFile = explode('.', $image['MediaFile']);
+                $imageContent = '';
+                // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
+                switch (end($imageFile)) {
+                    case 'bmp':
+                        $imageContent = 'data:image/bmp;base64,';
+                        break;
+
+                    case 'jpg':
+                    case 'jpeg':
+                        $imageContent = 'data:image/jpeg;base64,';
+                        break;
+
+                    case 'gif':
+                        $imageContent = 'data:image/gif;base64,';
+                        break;
+
+                    case 'png':
+                        $imageContent = 'data:image/png;base64,';
+                        break;
+
+                    case 'ico':
+                        $imageContent = 'data:image/x-icon;base64,';
+                        break;
+                }
+
+                // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
+                if ($imageContent) {
+                    // Hänge base64-codierten Inhalt des Bildes an
+                    $imageContent .= IPS_GetMediaContent($imageID_Bild_An);
+                }
+
+            }
+        }
+
+                // Prüfe vorweg, ob ein Bild ausgewählt wurde
+                $imageID_Bild_Aus = $this->ReadPropertyInteger('Bild_Aus');
+                if (IPS_MediaExists($imageID_Bild_An)) {
+                    $image2 = IPS_GetMedia($imageID_Bild_Aus);
+                    if ($image2['MediaType'] === MEDIATYPE_IMAGE) {
+                        $imageFile2 = explode('.', $image2['MediaFile']);
+                        $imageContent2 = '';
+                        // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
+                        switch (end($imageFile2)) {
+                            case 'bmp':
+                                $imageContent2 = 'data:image/bmp;base64,';
+                                break;
+        
+                            case 'jpg':
+                            case 'jpeg':
+                                $imageContent2 = 'data:image/jpeg;base64,';
+                                break;
+        
+                            case 'gif':
+                                $imageContent2 = 'data:image/gif;base64,';
+                                break;
+        
+                            case 'png':
+                                $imageContent2 = 'data:image/png;base64,';
+                                break;
+        
+                            case 'ico':
+                                $imageContent2 = 'data:image/x-icon;base64,';
+                                break;
+                        }
+        
+                        // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
+                        if ($imageContent2) {
+                            // Hänge base64-codierten Inhalt des Bildes an
+                            $imageContent2 .= IPS_GetMediaContent($imageID_Bild_Aus);
+                        }
+        
+                    }
+                }
+
+            $assets = '<script>';
+            $assets .= 'window.assets = {};' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(IPS_GetMediaContent($imageID_Bild_An)) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(IPS_GetMediaContent($imageID_Bild_Aus)) . '";' . PHP_EOL;
+            $assets .= '</script>';
+        }
 
 
         // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
