@@ -120,6 +120,7 @@ class TileVisuPVoverview extends IPSModule
             
                         $exportID = $this->ReadPropertyInteger('Export');
                         $export = 1; // Standardwert setzen
+                        $export_prozent = 0;
                         
                         if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                             $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -267,6 +268,7 @@ class TileVisuPVoverview extends IPSModule
 
             $exportID = $this->ReadPropertyInteger('Export');
             $export = 1; // Standardwert setzen
+            $export_prozent = 0;
             
             if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                 $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
