@@ -207,8 +207,8 @@ class TileVisuWashingMaschine extends IPSModule
 
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(IPS_GetMediaContent($imageID_Bild_An)) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(IPS_GetMediaContent($imageID_Bild_Aus)) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode($imageContent) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode($imageContent2) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
 
