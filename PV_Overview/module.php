@@ -27,6 +27,7 @@ class TileVisuPVoverview extends IPSModule
         $this->RegisterPropertyFloat("Eckenradius", 6);
         $this->RegisterPropertyInteger("EinspeisungFarbe", 2598689);
         $this->RegisterPropertyInteger("ZukaufFarbe", 9830400);
+        $this->RegisterPropertyBoolean('BG_Off', 1);
 
 
 
@@ -200,25 +201,9 @@ class TileVisuPVoverview extends IPSModule
 
 
 
-// Eigenverbrauch = Produktion - Export
-// Eigenproduktion = Verbrauch - Eigenverbrauch
-
-//Benötigte Werte: Produktion, Export, Verbrauch, Import
-
-
-
-    // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
 
         $result = [];
-            //$result['produktion'] = IPS_VariableExists($this->ReadPropertyInteger('Produktion')) ? $this->CheckAndGetValueFormatted('Produktion') : null;
-            //$result['produktionvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Produktion')) ? GetValue($this->ReadPropertyInteger('Produktion')) : null;
-            //$result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
-            //$result['verbrauchvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? GetValue($this->ReadPropertyInteger('Verbrauch')) : null;
-            //$result['import'] = IPS_VariableExists($this->ReadPropertyInteger('Import')) ? $this->CheckAndGetValueFormatted('Import') : null;
-            //$result['importvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Import')) ? GetValue($this->ReadPropertyInteger('Import')) : null;
-            //$result['export'] = IPS_VariableExists($this->ReadPropertyInteger('Export')) ? $this->CheckAndGetValueFormatted('Export') : null;
-            //$result['exportvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Export')) ? GetValue($this->ReadPropertyInteger('Export')) : null;
             $result['eigenverbrauchverlauffarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenverbrauchVerlaufFarbe1'));
             $result['eigenverbrauchverlauffarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenverbrauchVerlaufFarbe2'));
             $result['eigenproduktionverlauffarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenproduktionVerlaufFarbe1'));
@@ -300,7 +285,6 @@ class TileVisuPVoverview extends IPSModule
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
             $eigenverbrauch = round($produktion - $export,2);
             $eigenproduktion = $eigenverbrauch;
-            //$verbrauch = $import + $eigenproduktion;
 
          
             $eigenproduktion_prozent = round(($eigenproduktion / $verbrauch) * 100, 0);
@@ -368,7 +352,10 @@ class TileVisuPVoverview extends IPSModule
             else{
                 $imageContent = 'data:image/png;base64,';
                 $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
-                $result['image1'] = $imageContent;
+
+                if (!$this->ReadPropertyBoolean('BG_Off')) {
+                    $result['image1'] = $imageContent;
+                }
             }     
 
 
