@@ -48,7 +48,7 @@
 
         body {
             position: fixed;
-            width: 100vw;
+            width: calc(100vw - var(--body-margin-right));
             height: 100%;
             max-width: 100%;
 
@@ -85,7 +85,7 @@
         }
 
         .div2 {
-            width: calc(100% - var(--body-margin-right));
+            width: 100%;
             box-sizing: border-box;
             padding: 0px 5px 5px 2.5%;
             margin: 0px 0px 0px 2.5%;
@@ -397,7 +397,29 @@
 
 <body>
     <div class="main_container">
-test
+        <div id="div1" class="div1"><img id="image"></div>
+        <div class="div2">
+            <div class="hidden" id="statusdiv"><b>
+                    <p class="status">Status:&nbsp;</p>
+                </b><span class="statustext" id="status"></span></div>
+            <div class="hidden" id="programmdiv"><span class="programm"><b>Programm:&nbsp;</b><span
+                        id="programm"></span></span></div>
+            <div class="hidden" id="balkendiagramm">
+                <div class="balken_rechts">
+                    <div class="balken_links_fortschritt">
+                        <span class="hidden" id="balken_links_text"><i class="fa-regular fa-circle-right fa-sm"
+                                style="color: #ffffff;"></i>&nbsp;&nbsp;<span class="balkentext"
+                                id="programmfortschritt">0</span></span>
+                        <span class="hidden" id="balken_links_text_finish"><i class="fa-regular fa-clock fa-sm"
+                                style="color: #ffffff;"></i>&nbsp;&nbsp;<span class="balkentext"
+                                id="restlaufzeit">0</span>&nbsp;m</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden" id="info"> <i class="fa-solid fa-bolt fa-sm"
+                    style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden"
+                    id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span></div>
+        </div>
     </div>
 </body>
 
