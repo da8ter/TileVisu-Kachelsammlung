@@ -151,7 +151,8 @@
         },
         {
           "type": "Label",
-          "caption": "Schriftgrößen"
+          "caption": "Schriftgrößen",
+          "bold": true
         },
         {
           "type": "RowLayout",
