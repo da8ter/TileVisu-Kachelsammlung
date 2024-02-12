@@ -23,6 +23,7 @@ class TileVisuPVoverview extends IPSModule
         $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
         $this->RegisterPropertyFloat("SchriftgroesseSub", 1);
+        $this->RegisterPropertyFloat("Eckenradius", 10);
         $this->RegisterPropertyInteger("EinspeisungFarbe", 2132596);
         $this->RegisterPropertyInteger("ZukaufFarbe", 2132596);
 
@@ -227,6 +228,7 @@ class TileVisuPVoverview extends IPSModule
             $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
             $result['schriftgroessebalken'] =  $this->ReadPropertyFloat('SchriftgroesseBalken');
             $result['schriftgroessesub'] =  $this->ReadPropertyFloat('SchriftgroesseSub');
+            $result['eckenradius'] =  $this->ReadPropertyFloat('Eckenradius');
             $result['einspeisungfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EinspeisungFarbe'));
             $result['zukauffarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('ZukaufFarbe'));
             
