@@ -149,7 +149,7 @@ class TileVisuWashingMaschine extends IPSModule
                 // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
                 if ($imageContent) {
                     // Hänge base64-codierten Inhalt des Bildes an
-                    $imageContent .= base64_encode(IPS_GetMediaContent($imageID_Bild_An));
+                    $imageContent .= IPS_GetMediaContent($imageID_Bild_An);
                 }
 
             }
@@ -194,7 +194,7 @@ class TileVisuWashingMaschine extends IPSModule
                         // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
                         if ($imageContent2) {
                             // Hänge base64-codierten Inhalt des Bildes an
-                            $imageContent2 .= base64_encode(IPS_GetMediaContent($imageID_Bild_Aus));
+                            $imageContent2 .= IPS_GetMediaContent($imageID_Bild_Aus);
                         }
         
                     }
