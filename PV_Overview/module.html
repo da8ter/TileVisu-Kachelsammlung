@@ -22,6 +22,7 @@
             --schriftgroesse: 1em;
             --eigenverbrauch_prozent: 50%;
             --eigenproduktion_prozent: 50%;
+            --schriftfarbe: #ffffff;
         }
 
         body {
@@ -160,7 +161,7 @@
             top: 50%;
             left: 2%;
             transform: translate(-0%, -50%);
-            color: white;
+            color: var(--schriftfarbe);
             z-index: 2;
             padding: 2px;
             font-size: var(--schriftgroessebalken);
@@ -171,7 +172,7 @@
             top: 50%;
             right: 2%;
             transform: translate(-0%, -50%);
-            color: white;
+            color: var(--schriftfarbe);
             z-index: 3;
             padding: 0px;
             font-size: var(--schriftgroessebalken);
@@ -198,6 +199,7 @@
             font-size: var(--schriftgroessebalken);
             display: inline-block;
             margin: 0;
+            color: var(--schriftfarbe);
         }
 
         .eigenverbrauch,
@@ -207,6 +209,7 @@
             font-size: var(--schriftgroessesub);
             display: inline-block;
             margin: 0;
+            color: var(--schriftfarbe);
         }
     </style>
 
