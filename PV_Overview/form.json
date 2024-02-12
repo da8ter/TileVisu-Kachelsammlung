@@ -73,9 +73,9 @@
       "type": "NumberSpinner",
       "name": "Eckenradius",
       "caption": "Eckenradius",
-      "digits": 1,
-      "minimum": 0.0,
-      "maximum": 50.0,
+      "digits": 0,
+      "minimum": 0,
+      "maximum": 50,
       "suffix": "px"
     },
     {
