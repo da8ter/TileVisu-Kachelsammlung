@@ -5,9 +5,7 @@ class TileVisuPVOverview extends IPSModule
     {
         // Nie diese Zeile löschen!
         parent::Create();
-// Eigenverbrauch = Produktion - Export
-// Eigenproduktion = Verbrauch - Eigenverbrauch
-//Benötigte Werte: Produktion, Export, Verbrauch, Import
+
         $this->RegisterPropertyInteger("Produktion", 0);
         $this->RegisterPropertyInteger("Export", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
