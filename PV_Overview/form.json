@@ -112,7 +112,31 @@
               "allowTransparent": "false",
               "name": "ZukaufFarbe",
               "caption": "Farbe Import"
-            }
+            },
+            {
+              "type": "SelectColor",
+              "allowTransparent": "false",
+              "name": "EigenverbrauchVerlaufFarbe1",
+              "caption": "Farbe Balken Eigenverbrauch 1"
+            },
+            {
+              "type": "SelectColor",
+              "allowTransparent": "false",
+              "name": "EigenverbrauchVerlaufFarbe2",
+              "caption": "Farbe Balken Eigenverbrauch 2"
+            },
+            {
+              "type": "SelectColor",
+              "allowTransparent": "false",
+              "name": "EigenproduktionVerlaufFarbe1",
+              "caption": "Farbe Balken Eigenproduktion 1"
+            },
+            {
+              "type": "SelectColor",
+              "allowTransparent": "false",
+              "name": "EigenproduktionVerlaufFarbe2",
+              "caption": "Farbe Balken Eigenproduktion 2"
+            },
           ]
         },
         {
