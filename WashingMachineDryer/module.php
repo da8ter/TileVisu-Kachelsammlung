@@ -26,6 +26,10 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyString('ProfilAssoziazionen', '[]');
         $this->RegisterPropertyInteger("Bild_An", 0);
         $this->RegisterPropertyInteger("Bild_Aus", 0);
+        $this->RegisterPropertyBoolean('BG_Off', 1);
+        $this->RegisterPropertyInteger("bgImage", 0);
+        $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
+        $this->RegisterPropertyInteger('Kachelhintergrundfarbe', -1);
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
@@ -271,6 +275,60 @@ class TileVisuWashingMaschine extends IPSModule
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
+            $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
+            $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
+
+
+            $imageID = $this->ReadPropertyInteger('bgImage');
+            if (IPS_MediaExists($imageID)) {
+                $image = IPS_GetMedia($imageID);
+                if ($image['MediaType'] === MEDIATYPE_IMAGE) {
+                    $imageFile = explode('.', $image['MediaFile']);
+                    $imageContent = '';
+                    // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
+                    switch (end($imageFile)) {
+                        case 'bmp':
+                            $imageContent = 'data:image/bmp;base64,';
+                            break;
+    
+                        case 'jpg':
+                        case 'jpeg':
+                            $imageContent = 'data:image/jpeg;base64,';
+                            break;
+    
+                        case 'gif':
+                            $imageContent = 'data:image/gif;base64,';
+                            break;
+    
+                        case 'png':
+                            $imageContent = 'data:image/png;base64,';
+                            break;
+    
+                        case 'ico':
+                            $imageContent = 'data:image/x-icon;base64,';
+                            break;
+                    }
+
+                    // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
+                    if ($imageContent) {
+                        // Hänge base64-codierten Inhalt des Bildes an
+                        $imageContent .= IPS_GetMediaContent($imageID);
+                        $result['image1'] = $imageContent;
+                    }
+
+                }
+            }
+            else{
+                $imageContent = 'data:image/png;base64,';
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+
+                if ($this->ReadPropertyBoolean('BG_Off')) {
+                    $result['image1'] = $imageContent;
+                }
+            } 
+
+
+
         return json_encode($result);
     }
 
