@@ -139,7 +139,7 @@
             animation-timing-function: linear;
             height: 1.8em;
             border-radius: 0px 0px 0px 0px;
-            font-size: 1.1em;
+
             transition: width 2s;
             transition-timing-function: ease;
         }
@@ -155,7 +155,7 @@
             animation-timing-function: linear;
             height: 1.8em;
             border-radius: 0px 0px 0px 0px;
-            font-size: 1.1em;
+
             transition: width 2s;
             transition-timing-function: ease;
         }
@@ -168,7 +168,7 @@
             color: white;
             z-index: 2;
             padding: 2px;
-            font-size: 0.9em;
+            font-size: var(--schriftgroessebalken);
         }
 
         .balken_links_text_finish {
@@ -179,7 +179,7 @@
             color: white;
             z-index: 3;
             padding: 0px;
-            font-size: 0.9em;
+            font-size: var(--schriftgroessebalken);
         }
 
         .balken_rechts {
@@ -203,12 +203,17 @@
         }
 
         .production,
+        .verbrauch {
+            font-size: var(--schriftgroessebalken);
+            display: inline-block;
+            margin: 0;
+        }
+
         .eigenverbrauch,
         .import,
         .eigenproduktion,
-        .export,
-        .verbrauch {
-            font-size: var(--statusschriftgroesse);
+        .export {
+            font-size: var(--schriftgroessesub);
             display: inline-block;
             margin: 0;
         }
@@ -288,8 +293,11 @@
                     case 'schriftfarbe':
                         root.style.setProperty('--schriftfarbe', decodedData[parameter]);
                         break;
-                    case 'schriftgroesse':
-                        root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
+                    case 'schriftgroessebalken':
+                        root.style.setProperty('--schriftgroessebalken', decodedData[parameter] + 'em');
+                        break;
+                    case 'schriftgroessesub':
+                        root.style.setProperty('--schriftgroessesub', decodedData[parameter] + 'em');
                         break;
                     case 'einspeisungfarbe':
                         root.style.setProperty('--einspeisungfarbe', decodedData[parameter]);

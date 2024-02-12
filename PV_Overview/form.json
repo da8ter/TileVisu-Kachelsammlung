@@ -53,7 +53,16 @@
     },
     {
       "type": "NumberSpinner",
-      "name": "Schriftgroesse",
+      "name": "SchriftgroesseBalken",
+      "caption": "Schriftgröße Balken",
+      "digits": 1,
+      "minimum": 0.5,
+      "maximum": 10.0,
+      "suffix": "em"
+    },
+    {
+      "type": "NumberSpinner",
+      "name": "SchriftgroesseSub",
       "caption": "Schriftgröße",
       "digits": 1,
       "minimum": 0.5,

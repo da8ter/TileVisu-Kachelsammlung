@@ -21,7 +21,8 @@ class TileVisuPVoverview extends IPSModule
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
         $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
-        $this->RegisterPropertyFloat("Schriftgroesse", 1);
+        $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
+        $this->RegisterPropertyFloat("SchriftgroesseSub", 1);
         $this->RegisterPropertyInteger("EinspeisungFarbe", 2132596);
         $this->RegisterPropertyInteger("ZukaufFarbe", 2132596);
 
@@ -224,7 +225,8 @@ class TileVisuPVoverview extends IPSModule
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
             $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
-            $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
+            $result['schriftgroessebalken'] =  $this->ReadPropertyFloat('SchriftgroesseBalken');
+            $result['schriftgroessesub'] =  $this->ReadPropertyFloat('SchriftgroesseSub');
             $result['einspeisungfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EinspeisungFarbe'));
             $result['zukauffarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('ZukaufFarbe'));
             
