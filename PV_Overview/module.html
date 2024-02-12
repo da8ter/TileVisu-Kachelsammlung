@@ -26,18 +26,27 @@
             --schriftfarbebsub: ;
         }
 
-        body {
-            margin: 0px;
-            position: fixed;
+
+
+        body:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
             background-color: var(--hintergrundfarbe);
-            padding-left: 22px;
-            padding-right: 22px;
-            padding-top: 50px;
             box-sizing: border-box;
-
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
         }
+
+        body {}
+
 
         .hidden {
             display: none;
@@ -60,25 +69,7 @@
 
         }
 
-        .maindiv:before {
-            content: ' ';
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: var(--bildtransparenz);
-            background: var(--background-image, none) center / cover no-repeat;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
 
-        .maindiv>* {
-            position: relative;
-            z-index: 100;
-        }
 
 
 
@@ -304,7 +295,7 @@
                         root.style.setProperty('--zukauffarbe', decodedData[parameter]);
                         break;
                     case 'image1':
-                        mainDiv = document.querySelector('.maindiv');
+                        mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
                     case 'eckenradius':
