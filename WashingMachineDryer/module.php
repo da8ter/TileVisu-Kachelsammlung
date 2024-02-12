@@ -149,7 +149,7 @@ class TileVisuWashingMaschine extends IPSModule
                 // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
                 if ($imageContent) {
                     // Hänge base64-codierten Inhalt des Bildes an
-                    $imageContent .= IPS_GetMediaContent($imageID_Bild_An);
+                    $imageContent .= base64_encode(IPS_GetMediaContent($imageID_Bild_An));
                 }
 
             }
@@ -194,7 +194,7 @@ class TileVisuWashingMaschine extends IPSModule
                         // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
                         if ($imageContent2) {
                             // Hänge base64-codierten Inhalt des Bildes an
-                            $imageContent2 .= IPS_GetMediaContent($imageID_Bild_Aus);
+                            $imageContent2 .= base64_encode(IPS_GetMediaContent($imageID_Bild_Aus));
                         }
         
                     }
@@ -207,8 +207,8 @@ class TileVisuWashingMaschine extends IPSModule
 
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "' . base64_encode($imageContent) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "' . base64_encode($imageContent2) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "' . $imageContent . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "' . $imageContent2 . '";' . PHP_EOL;
             $assets .= '</script>';
         }
 
