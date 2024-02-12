@@ -55,7 +55,7 @@
         
           {
             "type": "Label",
-            "caption": "Bild und Kachelhintergrundfarbe"
+            "caption": "Kachel"
           },
           {
           "type": "RowLayout",
@@ -94,6 +94,10 @@
         {
           "type": "RowLayout",
           "items": [
+            {
+              "type": "Label",
+              "caption": "Balkendesign"
+            },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
@@ -145,12 +149,16 @@
           ]
         },
         {
+          "type": "Label",
+          "caption": "Schriftgrößen"
+        },
+        {
           "type": "RowLayout",
           "items": [
             {
               "type": "NumberSpinner",
               "name": "SchriftgroesseBalken",
-              "caption": "Schriftgröße Balken",
+              "caption": "Balken",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -159,7 +167,7 @@
             {
               "type": "NumberSpinner",
               "name": "SchriftgroesseSub",
-              "caption": "Schriftgröße",
+              "caption": "Zusatzinfos",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
