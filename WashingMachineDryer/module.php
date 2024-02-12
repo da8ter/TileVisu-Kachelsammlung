@@ -154,6 +154,11 @@ class TileVisuWashingMaschine extends IPSModule
 
             }
         }
+        else {
+            $imageContent = 'data:image/png;base64,';
+            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+            
+        } 
 
                 // Prüfe vorweg, ob ein Bild ausgewählt wurde
                 $imageID_Bild_Aus = $this->ReadPropertyInteger('Bild_Aus');
@@ -194,6 +199,11 @@ class TileVisuWashingMaschine extends IPSModule
         
                     }
                 }
+                else {
+                    $imageContent2 = 'data:image/png;base64,';
+                    $imageContent2 .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                    
+                }  
 
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
