@@ -52,11 +52,12 @@
       "type": "ExpansionPanel",
       "caption": "Kacheldesign",
       "items": [
-        {
+        
           {
             "type": "Label",
             "caption": "Bild und Kachelhintergrundfarbe"
           },
+          {
           "type": "RowLayout",
           "items": [
             {
