@@ -126,17 +126,16 @@ class TileVisuPVoverview extends IPSModule
                                 $export = round($export_heute_archiv[0]['Avg'], 2);
                                 if ($export <= 0) {
                                     $export = 0.01;
+                                    $export_prozent = 0;
+                                }
+                                else {
+                                    $export_prozent = round($export / $produktion * 100, 0);
+        
                                 }
                             }
                         }
 
-                        if ($export <= 0.1) {
-                            $export_prozent = 0;
-                            $export = 0;
-                        }
-                        else {
-                            $export_prozent = round($export / $produktion * 100, 0);
-                        }
+
                         $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
                         $eigenverbrauch = round($produktion - $export,2);
                         $eigenproduktion = $eigenverbrauch;
@@ -290,17 +289,13 @@ class TileVisuPVoverview extends IPSModule
                     $export = round($export_heute_archiv[0]['Avg'], 2);
                     if ($export <= 0) {
                         $export = 0.01;
+                        $export_prozent = 0;
+                    }
+                    else {
+                        $export_prozent = round($export / $produktion * 100, 0);
+
                     }
                 }
-            }
-
-
-            if ($export <= 0.1) {
-                $export_prozent = 0;
-                $export = 0;
-            }
-            else {
-                $export_prozent = round($export / $produktion * 100, 0);
             }
             $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
             $eigenverbrauch = round($produktion - $export,2);
