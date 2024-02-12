@@ -20,7 +20,8 @@ class TileVisuPVoverview extends IPSModule
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', -1);
-        $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
+        $this->RegisterPropertyInteger('SchriftfarbeBalken', 0xFFFFFF);
+        $this->RegisterPropertyInteger('SchriftfarbeSub', 0xFFFFFF);
         $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
         $this->RegisterPropertyFloat("SchriftgroesseSub", 0.8);
         $this->RegisterPropertyFloat("Eckenradius", 6);
@@ -225,7 +226,8 @@ class TileVisuPVoverview extends IPSModule
             $result['eigenproduktionverlauffarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EigenproduktionVerlaufFarbe2'));
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
-            $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
+            $result['schriftfarbebalken'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('SchriftfarbeBalken'));
+            $result['schriftfarbesub'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('SchriftfarbeSub'));
             $result['schriftgroessebalken'] =  $this->ReadPropertyFloat('SchriftgroesseBalken');
             $result['schriftgroessesub'] =  $this->ReadPropertyFloat('SchriftgroesseSub');
             $result['eckenradius'] =  $this->ReadPropertyFloat('Eckenradius');

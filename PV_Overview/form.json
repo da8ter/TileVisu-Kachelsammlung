@@ -87,8 +87,14 @@
     {
       "type": "SelectColor",
       "allowTransparent": "false",
-      "name": "Schriftfarbe",
-      "caption": "Schriftfarbe"
+      "name": "SchriftfarbeBalken",
+      "caption": "Schriftfarbe Balken"
+    },
+    {
+      "type": "SelectColor",
+      "allowTransparent": "false",
+      "name": "SchriftfarbeSub",
+      "caption": "Schriftfarbe Zusatzinfos"
     },
     {
       "type": "SelectColor",
