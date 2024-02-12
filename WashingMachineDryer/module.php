@@ -207,8 +207,8 @@ class TileVisuWashingMaschine extends IPSModule
 
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "' . $imageContent . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "' . $imageContent2 . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "' . $imageContent2 . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "' . $imageContent . '";' . PHP_EOL;
             $assets .= '</script>';
         }
 
