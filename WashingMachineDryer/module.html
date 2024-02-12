@@ -429,3 +429,14 @@
 </body>
 
 </html>
+
+<script>
+            // Schritt 1: Wert auslesen
+    const bodyStyle = getComputedStyle(document.body);
+    const marginRight = bodyStyle.getPropertyValue('margin-right');
+
+    // Schritt 2: Wert als CSS-Variable setzen
+    const root = document.documentElement; // Das :root-Element auswählen
+    root.style.setProperty('--body-margin-right', marginRight); // CSS-Variable auf :root setzen
+
+</script>
