@@ -26,24 +26,10 @@
             --schriftfarbebsub: ;
         }
 
-        body {
-            margin: 0px;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: var(--hintergrundfarbe);
-            padding-left: 22px;
-            padding-right: 22px;
-            padding-top: 50px;
-            box-sizing: border-box;
-            opacity: var(--bildtransparenz);
-            background: var(--background-image, none) center / cover no-repeat;
-
-        }
-
-
+ 
+ 
         body:before {
-            content: ' ';
+            content: '';
             display: block;
             position: absolute;
             left: 0;
@@ -51,15 +37,19 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-
             background-repeat: no-repeat;
             background-size: cover;
+            background-color: var(--hintergrundfarbe);
+            box-sizing: border-box;
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+ 
+        body {
+            position: relative;
+
         }
 
-        body>* {
-            position: relative;
-            z-index: 100;
-        }
 
         .hidden {
             display: none;
