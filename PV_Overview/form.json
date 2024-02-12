@@ -92,12 +92,13 @@
           ]
         },
         {
+          "type": "Label",
+          "caption": "Balkendesign"
+        },
+        {
           "type": "RowLayout",
           "items": [
-            {
-              "type": "Label",
-              "caption": "Balkendesign"
-            },
+
             {
               "type": "SelectColor",
               "allowTransparent": "false",
