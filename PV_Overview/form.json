@@ -31,11 +31,21 @@
               "validVariableTypes": []
             },
             {
+              "type": "ValidationTextBox",
+              "name": "ProduktionLabel",
+              "caption": "Label Produktion"
+          },
+            {
               "type": "SelectVariable",
               "name": "Verbrauch",
               "caption": "Verbrauch:",
               "validVariableTypes": []
             },
+            {
+              "type": "ValidationTextBox",
+              "name": "VerbrauchLabel",
+              "caption": "Label Verbrauch"
+          },
             {
               "type": "SelectVariable",
               "name": "Import",
@@ -43,11 +53,31 @@
               "validVariableTypes": []
             },
             {
+              "type": "ValidationTextBox",
+              "name": "ImportLabel",
+              "caption": "Label Import"
+          },
+            {
               "type": "SelectVariable",
               "name": "Export",
               "caption": "Export:",
               "validVariableTypes": []
             }
+            {
+              "type": "ValidationTextBox",
+              "name": "ExportLabel",
+              "caption": "Label Export"
+          },
+          {
+            "type": "ValidationTextBox",
+            "name": "EigenproduktionLabel",
+            "caption": "Label Eigenproduktion"
+        },
+        {
+          "type": "ValidationTextBox",
+          "name": "EigenverbrauchLabel",
+          "caption": "Label Eigenverbrauch"
+      }
           ]
         }
       ]
