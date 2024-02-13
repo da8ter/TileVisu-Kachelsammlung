@@ -8,11 +8,11 @@ class TileVisuPVOverview extends IPSModule
 
         $this->RegisterPropertyInteger("ProduktionWert", 0);
         $this->RegisterPropertyString("ProduktionLabel", "Produktion1");
-        $this->RegisterPropertyInteger("Export", 0);
+        $this->RegisterPropertyInteger("ExporWert", 0);
         $this->RegisterPropertyString("ExportLabel", "Export1");
-        $this->RegisterPropertyInteger("Verbrauch", 0);
+        $this->RegisterPropertyInteger("VerbrauchWert", 0);
         $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch1");
-        $this->RegisterPropertyInteger("Import", 0);
+        $this->RegisterPropertyInteger("ImportWert", 0);
         $this->RegisterPropertyString("ImportLabel", "Import1");
         $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch2");
         $this->RegisterPropertyString("EigenproduktionLabel", "Eigenproduktion3");
@@ -53,7 +53,7 @@ class TileVisuPVOverview extends IPSModule
         }
 
 
-        foreach (['ProduktionWert', 'Export', 'Verbrauch', 'Import'] as $VariableProperty)        {
+        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -64,7 +64,7 @@ class TileVisuPVOverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['ProduktionWert', 'Export', 'Verbrauch', 'Import'] as $index => $VariableProperty)
+        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -93,7 +93,7 @@ class TileVisuPVOverview extends IPSModule
                             }
                         }
                         
-                        $importID = $this->ReadPropertyInteger('Import');
+                        $importID = $this->ReadPropertyInteger('ImportWert');
                         $import = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
@@ -106,7 +106,7 @@ class TileVisuPVOverview extends IPSModule
                             }
                         }
             
-                        $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
+                        $verbrauchID = $this->ReadPropertyInteger('VerbrauchWert');
                         $verbrauch = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
@@ -122,7 +122,7 @@ class TileVisuPVOverview extends IPSModule
 
 
             
-                        $exportID = $this->ReadPropertyInteger('Export');
+                        $exportID = $this->ReadPropertyInteger('ExportWert');
                         $export = 1; // Standardwert setzen
                         $export_prozent = 0;
                         
@@ -241,7 +241,7 @@ class TileVisuPVOverview extends IPSModule
                 }
             }
             
-            $importID = $this->ReadPropertyInteger('Import');
+            $importID = $this->ReadPropertyInteger('ImportWert');
             $import = 1; // Standardwert setzen
             
             if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
@@ -254,7 +254,7 @@ class TileVisuPVOverview extends IPSModule
                 }
             }
 
-            $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
+            $verbrauchID = $this->ReadPropertyInteger('VerbrauchWert');
             $verbrauch = 1; // Standardwert setzen
             
             if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
@@ -270,7 +270,7 @@ class TileVisuPVOverview extends IPSModule
 
 
 
-            $exportID = $this->ReadPropertyInteger('Export');
+            $exportID = $this->ReadPropertyInteger('ExportWert');
             $export = 1; // Standardwert setzen
             $export_prozent = 0;
             
