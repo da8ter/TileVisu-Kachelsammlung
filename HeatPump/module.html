@@ -560,10 +560,11 @@
                         document.getElementById("temp_row").className = 'temp_row';
                         document.getElementById("temp_ruecklauf").className = 'temp_ruecklauf';
                         divElement.textContent = data.ValueFormatted;
-                    break;                   
+                    break;       
+                                
                     default:
                         divElement.textContent = data.ValueFormatted;
-                        break;
+                    break;
                 }
             } else {
                 console.error('Ungültiges JSON-Format oder fehlende Daten.');
@@ -581,6 +582,8 @@
                         root.style.setProperty('--durchflussbalkenfarbe2', cssvar[8]);
                         root.style.setProperty('--luefterbalkenfarbe1', cssvar[9]);
                         root.style.setProperty('--luefterbalkenfarbe2', cssvar[10]);
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
 
         }
 
