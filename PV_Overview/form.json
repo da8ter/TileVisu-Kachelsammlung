@@ -27,13 +27,13 @@
             {
               "type": "SelectVariable",
               "name": "ProduktionWert",
-              "caption": "Produktion:",
+              "caption": "Produktion/Erzeugung:",
               "validVariableTypes": []
             },
             {
               "type": "ValidationTextBox",
               "name": "ProduktionLabel",
-              "caption": "Label Produktion"
+              "caption": "Label Produktion/Erzeugung"
           },
             {
               "type": "SelectVariable",
@@ -49,24 +49,24 @@
             {
               "type": "SelectVariable",
               "name": "ImportWert",
-              "caption": "Import:",
+              "caption": "Import/Bezug:",
               "validVariableTypes": []
             },
             {
               "type": "ValidationTextBox",
               "name": "ImportLabel",
-              "caption": "Label Import"
+              "caption": "Label Import/Bezug"
           },
             {
               "type": "SelectVariable",
               "name": "ExportWert",
-              "caption": "Export:",
+              "caption": "Export/Einspeisung:",
               "validVariableTypes": []
             },
             {
               "type": "ValidationTextBox",
               "name": "ExportLabel",
-              "caption": "Label Export"
+              "caption": "Label Export/Einspeisung"
           },
           {
             "type": "ValidationTextBox",
