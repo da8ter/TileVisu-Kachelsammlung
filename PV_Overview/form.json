@@ -26,7 +26,7 @@
           "items": [
             {
               "type": "SelectVariable",
-              "name": "Produktion",
+              "name": "ProduktionWert",
               "caption": "Produktion:",
               "validVariableTypes": []
             },
@@ -34,7 +34,7 @@
               "type": "ValidationTextBox",
               "name": "ProduktionLabel",
               "caption": "Label Produktion",
-              "value ": "Produktion"
+              "value": "Produktion"
           },
             {
               "type": "SelectVariable",
@@ -46,7 +46,7 @@
               "type": "ValidationTextBox",
               "name": "VerbrauchLabel",
               "caption": "Label Verbrauch",
-              "value ": "Verbrauch"
+              "value": "Verbrauch"
           },
             {
               "type": "SelectVariable",
@@ -58,7 +58,7 @@
               "type": "ValidationTextBox",
               "name": "ImportLabel",
               "caption": "Label Import",
-              "value ": "Import"
+              "value": "Import"
           },
             {
               "type": "SelectVariable",
@@ -70,19 +70,19 @@
               "type": "ValidationTextBox",
               "name": "ExportLabel",
               "caption": "Label Export",
-              "value ": "Export"
+              "value": "Export"
           },
           {
             "type": "ValidationTextBox",
             "name": "EigenproduktionLabel",
             "caption": "Label Eigenproduktion",
-            "value ": "Eigenproduktion"
+            "value": "Eigenproduktion"
         },
         {
           "type": "ValidationTextBox",
           "name": "EigenverbrauchLabel",
           "caption": "Label Eigenverbrauch",
-          "value ": "Eigenverbrauch"
+          "value": "Eigenverbrauch"
       }
           ]
         }
