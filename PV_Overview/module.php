@@ -14,8 +14,8 @@ class TileVisuPVOverview extends IPSModule
         $this->RegisterPropertyString("VerbrauchLabel", 'Verbrauch');
         $this->RegisterPropertyInteger("Import", 0);
         $this->RegisterPropertyString("ImportLabel", 'Import');
-        this->RegisterPropertyString("EigenverbrauchLabel", 'Eigenverbrauch');
-        this->RegisterPropertyString("EigenproduktionLabel", 'Eigenproduktion');
+        $this->RegisterPropertyString("EigenverbrauchLabel", 'Eigenverbrauch');
+        $this->RegisterPropertyString("EigenproduktionLabel", 'Eigenproduktion');
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe2", 2132596);
         $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe1", 2674091);
