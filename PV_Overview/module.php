@@ -6,31 +6,31 @@ class TileVisuPVOverview extends IPSModule
         // Nie diese Zeile löschen!
         parent::Create();
 
-        $this->RegisterPropertyInteger("ProduktionWert", 0);
-        $this->RegisterPropertyString("ProduktionLabel", 'Produktion1');
-        $this->RegisterPropertyInteger("Export", 0);
-        $this->RegisterPropertyString("ExportLabel", 'Export1');
-        $this->RegisterPropertyInteger("Verbrauch", 0);
-        $this->RegisterPropertyString("VerbrauchLabel", 'Verbrauch1');
-        $this->RegisterPropertyInteger("Import", 0);
-        $this->RegisterPropertyString("ImportLabel", 'Import1');
-        $this->RegisterPropertyString("EigenverbrauchLabel", 'Eigenverbrauch');
-        $this->RegisterPropertyString("EigenproduktionLabel", 'Eigenproduktion');
-        $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe1", 2674091);
-        $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe2", 2132596);
-        $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe1", 2674091);
-        $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe2", 2132596);
+        $this->RegisterPropertyInteger('ProduktionWert', 0);
+        $this->RegisterPropertyString('ProduktionLabel', 'Produktion1');
+        $this->RegisterPropertyInteger('Export', 0);
+        $this->RegisterPropertyString('ExportLabel', 'Export1');
+        $this->RegisterPropertyInteger('Verbrauch', 0);
+        $this->RegisterPropertyString('VerbrauchLabel', 'Verbrauch1');
+        $this->RegisterPropertyInteger('Import', 0);
+        $this->RegisterPropertyString('ImportLabel', 'Import1');
+        $this->RegisterPropertyString('EigenverbrauchLabel', 'Eigenverbrauch');
+        $this->RegisterPropertyString('EigenproduktionLabel', 'Eigenproduktion');
+        $this->RegisterPropertyInteger('EigenverbrauchVerlaufFarbe1', 2674091);
+        $this->RegisterPropertyInteger('EigenverbrauchVerlaufFarbe2', 2132596);
+        $this->RegisterPropertyInteger('EigenproduktionVerlaufFarbe1', 2674091);
+        $this->RegisterPropertyInteger('EigenproduktionVerlaufFarbe2', 2132596);
         //Kachellayout
-        $this->RegisterPropertyInteger("bgImage", 0);
+        $this->RegisterPropertyInteger('bgImage', 0);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', -1);
         $this->RegisterPropertyInteger('SchriftfarbeBalken', 0xFFFFFF);
         $this->RegisterPropertyInteger('SchriftfarbeSub', 0xFFFFFF);
-        $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
-        $this->RegisterPropertyFloat("SchriftgroesseSub", 0.8);
-        $this->RegisterPropertyFloat("Eckenradius", 6);
-        $this->RegisterPropertyInteger("EinspeisungFarbe", 2598689);
-        $this->RegisterPropertyInteger("ZukaufFarbe", 9830400);
+        $this->RegisterPropertyFloat('SchriftgroesseBalken', 1);
+        $this->RegisterPropertyFloat('SchriftgroesseSub', 0.8);
+        $this->RegisterPropertyFloat('Eckenradius', 6);
+        $this->RegisterPropertyInteger('EinspeisungFarbe', 2598689);
+        $this->RegisterPropertyInteger('ZukaufFarbe', 9830400);
         $this->RegisterPropertyBoolean('BG_Off', 1);
 
 
