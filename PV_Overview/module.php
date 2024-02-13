@@ -6,26 +6,32 @@ class TileVisuPVOverview extends IPSModule
         // Nie diese Zeile löschen!
         parent::Create();
 
-        $this->RegisterPropertyInteger("Produktion", 0);
-        $this->RegisterPropertyInteger("Export", 0);
-        $this->RegisterPropertyInteger("Verbrauch", 0);
-        $this->RegisterPropertyInteger("Import", 0);
+        $this->RegisterPropertyInteger("ProduktionWert", 0);
+        $this->RegisterPropertyString("ProduktionLabel", "Produktion");
+        $this->RegisterPropertyInteger("ExportWert", 0);
+        $this->RegisterPropertyString("ExportLabel", "Export");
+        $this->RegisterPropertyInteger("VerbrauchWert", 0);
+        $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch");
+        $this->RegisterPropertyInteger("ImportWert", 0);
+        $this->RegisterPropertyString("ImportLabel", "Import");
+        $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch");
+        $this->RegisterPropertyString("EigenproduktionLabel", "Eigenproduktion");
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe2", 2132596);
         $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe2", 2132596);
         //Kachellayout
         $this->RegisterPropertyInteger("bgImage", 0);
-        $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
-        $this->RegisterPropertyInteger('Kachelhintergrundfarbe', -1);
-        $this->RegisterPropertyInteger('SchriftfarbeBalken', 0xFFFFFF);
-        $this->RegisterPropertyInteger('SchriftfarbeSub', 0xFFFFFF);
+        $this->RegisterPropertyFloat("Bildtransparenz", 0.7);
+        $this->RegisterPropertyInteger("Kachelhintergrundfarbe", -1);
+        $this->RegisterPropertyInteger("SchriftfarbeBalken", 0xFFFFFF);
+        $this->RegisterPropertyInteger("SchriftfarbeSub", 0xFFFFFF);
         $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
         $this->RegisterPropertyFloat("SchriftgroesseSub", 0.8);
         $this->RegisterPropertyFloat("Eckenradius", 6);
         $this->RegisterPropertyInteger("EinspeisungFarbe", 2598689);
         $this->RegisterPropertyInteger("ZukaufFarbe", 9830400);
-        $this->RegisterPropertyBoolean('BG_Off', 1);
+        $this->RegisterPropertyBoolean("BG_Off", 1);
 
 
 
@@ -47,7 +53,7 @@ class TileVisuPVOverview extends IPSModule
         }
 
 
-        foreach (['Produktion', 'Export', 'Verbrauch', 'Import'] as $VariableProperty)        {
+        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -58,7 +64,7 @@ class TileVisuPVOverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Produktion', 'Export', 'Verbrauch', 'Import'] as $index => $VariableProperty)
+        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -74,7 +80,7 @@ class TileVisuPVOverview extends IPSModule
 
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
-                        $produktionsID = $this->ReadPropertyInteger('Produktion');
+                        $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
                         $produktion = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
@@ -87,7 +93,7 @@ class TileVisuPVOverview extends IPSModule
                             }
                         }
                         
-                        $importID = $this->ReadPropertyInteger('Import');
+                        $importID = $this->ReadPropertyInteger('ImportWert');
                         $import = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
@@ -100,7 +106,7 @@ class TileVisuPVOverview extends IPSModule
                             }
                         }
             
-                        $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
+                        $verbrauchID = $this->ReadPropertyInteger('VerbrauchWert');
                         $verbrauch = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
@@ -116,7 +122,7 @@ class TileVisuPVOverview extends IPSModule
 
 
             
-                        $exportID = $this->ReadPropertyInteger('Export');
+                        $exportID = $this->ReadPropertyInteger('ExportWert');
                         $export = 1; // Standardwert setzen
                         $export_prozent = 0;
                         
@@ -153,7 +159,7 @@ class TileVisuPVOverview extends IPSModule
                             $import_prozent = round(100 - $eigenproduktion_prozent, 0);
                         }
 
-                        $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['produktionwert' => $produktion]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
                         $this->UpdateVisualizationValue(json_encode(['verbrauch' => $verbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['export' => $export]));
@@ -216,13 +222,20 @@ class TileVisuPVOverview extends IPSModule
             $result['eckenradius'] =  $this->ReadPropertyFloat('Eckenradius');
             $result['einspeisungfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EinspeisungFarbe'));
             $result['zukauffarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('ZukaufFarbe'));
+            $result['produktionlabel'] =  $this->ReadPropertyString('ProduktionLabel');
+            $result['exportlabel'] =  $this->ReadPropertyString('ExportLabel');
+            $result['importlabel'] =  $this->ReadPropertyString('ImportLabel');
+            $result['verbrauchlabel'] =  $this->ReadPropertyString('VerbrauchLabel');
+            $result['eigenverbrauchlabel'] =  $this->ReadPropertyString('EigenverbrauchLabel');
+            $result['eigenproduktionlabel'] =  $this->ReadPropertyString('EigenproduktionLabel');
+
             
             
             $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
 
 
-            $produktionsID = $this->ReadPropertyInteger('Produktion');
+            $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
             $produktion = 1; // Standardwert setzen
             
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
@@ -235,7 +248,7 @@ class TileVisuPVOverview extends IPSModule
                 }
             }
             
-            $importID = $this->ReadPropertyInteger('Import');
+            $importID = $this->ReadPropertyInteger('ImportWert');
             $import = 1; // Standardwert setzen
             
             if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
@@ -248,7 +261,7 @@ class TileVisuPVOverview extends IPSModule
                 }
             }
 
-            $verbrauchID = $this->ReadPropertyInteger('Verbrauch');
+            $verbrauchID = $this->ReadPropertyInteger('VerbrauchWert');
             $verbrauch = 1; // Standardwert setzen
             
             if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
@@ -264,7 +277,7 @@ class TileVisuPVOverview extends IPSModule
 
 
 
-            $exportID = $this->ReadPropertyInteger('Export');
+            $exportID = $this->ReadPropertyInteger('ExportWert');
             $export = 1; // Standardwert setzen
             $export_prozent = 0;
             
