@@ -260,7 +260,7 @@
             $module = file_get_contents(__DIR__ . '/module.html');
 
             // Return everything to render our fancy tile!
-            return $module . $varexist . $images . $assets . $cssvar . $messages;
+            return $module . $varexist . $images . $assets . $cssvar . $bgimages . $messages;
         }
 
         private function GetUpdatedValue($variableIdent, $variableID) {
