@@ -26,28 +26,58 @@
           "items": [
             {
               "type": "SelectVariable",
-              "name": "Produktion",
-              "caption": "Produktion:",
+              "name": "ProduktionWert",
+              "caption": "Produktion/Erzeugung:",
               "validVariableTypes": []
             },
             {
+              "type": "ValidationTextBox",
+              "name": "ProduktionLabel",
+              "caption": "Label Produktion/Erzeugung"
+          },
+            {
               "type": "SelectVariable",
-              "name": "Verbrauch",
+              "name": "VerbrauchWert",
               "caption": "Verbrauch:",
               "validVariableTypes": []
             },
             {
+              "type": "ValidationTextBox",
+              "name": "VerbrauchLabel",
+              "caption": "Label Verbrauch"
+          },
+            {
               "type": "SelectVariable",
-              "name": "Import",
-              "caption": "Import:",
+              "name": "ImportWert",
+              "caption": "Import/Bezug:",
               "validVariableTypes": []
             },
             {
+              "type": "ValidationTextBox",
+              "name": "ImportLabel",
+              "caption": "Label Import/Bezug"
+          },
+            {
               "type": "SelectVariable",
-              "name": "Export",
-              "caption": "Export:",
+              "name": "ExportWert",
+              "caption": "Export/Einspeisung:",
               "validVariableTypes": []
-            }
+            },
+            {
+              "type": "ValidationTextBox",
+              "name": "ExportLabel",
+              "caption": "Label Export/Einspeisung"
+          },
+          {
+            "type": "ValidationTextBox",
+            "name": "EigenproduktionLabel",
+            "caption": "Label Eigenproduktion"
+        },
+        {
+          "type": "ValidationTextBox",
+          "name": "EigenverbrauchLabel",
+          "caption": "Label Eigenverbrauch"
+      }
           ]
         }
       ]
@@ -65,7 +95,7 @@
           {
             "type": "CheckBox",
             "name": "BG_Off",
-            "caption": "Standard-Hintergrundbild"
+            "caption": "Standart-Hintergrundbild"
         },
           {
           "type": "RowLayout",
