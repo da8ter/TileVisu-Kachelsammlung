@@ -224,11 +224,13 @@
                 }
             }
             else{
+                if ($this->ReadPropertyBoolean('BG_Off')) {
                 $imageContent = 'data:image/png;base64,';
                 $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
-
-                if ($this->ReadPropertyBoolean('BG_Off')) {
-                    $result['image1'] = $imageContent;
+                }
+                else {
+                    $imageContent = 'data:image/webp;base64,';
+                    $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.webp'));
                 }
             }  
 
