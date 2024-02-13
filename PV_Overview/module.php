@@ -8,7 +8,7 @@ class TileVisuPVOverview extends IPSModule
 
         $this->RegisterPropertyInteger("ProduktionWert", 0);
         $this->RegisterPropertyString("ProduktionLabel", "Produktion1");
-        $this->RegisterPropertyInteger("ExporWert", 0);
+        $this->RegisterPropertyInteger("ExportWert", 0);
         $this->RegisterPropertyString("ExportLabel", "Export1");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
         $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch1");
