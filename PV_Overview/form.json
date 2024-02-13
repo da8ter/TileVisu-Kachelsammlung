@@ -44,8 +44,7 @@
             {
               "type": "ValidationTextBox",
               "name": "VerbrauchLabel",
-              "caption": "Label Verbrauch",
-              "value": "Verbrauch"
+              "caption": "Label Verbrauch"
           },
             {
               "type": "SelectVariable",
@@ -56,8 +55,7 @@
             {
               "type": "ValidationTextBox",
               "name": "ImportLabel",
-              "caption": "Label Import",
-              "value": "Import"
+              "caption": "Label Import"
           },
             {
               "type": "SelectVariable",
@@ -68,20 +66,17 @@
             {
               "type": "ValidationTextBox",
               "name": "ExportLabel",
-              "caption": "Label Export",
-              "value": "Export"
+              "caption": "Label Export"
           },
           {
             "type": "ValidationTextBox",
             "name": "EigenproduktionLabel",
-            "caption": "Label Eigenproduktion",
-            "value": "Eigenproduktion4"
+            "caption": "Label Eigenproduktion"
         },
         {
           "type": "ValidationTextBox",
           "name": "EigenverbrauchLabel",
-          "caption": "Label Eigenverbrauch",
-          "value": "Eigenverbrauch5"
+          "caption": "Label Eigenverbrauch"
       }
           ]
         }
