@@ -50,7 +50,7 @@
             $this->RegisterPropertyInteger('luefterbalkenfarbe2', 0x23B3FB);
             $this->RegisterPropertyInteger("bgImage", 0);
             $this->RegisterPropertyFloat("Bildtransparenz", 0.7);
-            $this->RegisterPropertyInteger("Kachelhintergrundfarbe", -1);
+            $this->RegisterPropertyInteger("Kachelhintergrundfarbe", 0x000000);
             $this->RegisterPropertyBoolean("BG_Off", 1);
             $this->SetVisualizationType(1);
         }
