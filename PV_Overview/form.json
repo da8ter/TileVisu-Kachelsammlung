@@ -75,13 +75,13 @@
             "type": "ValidationTextBox",
             "name": "EigenproduktionLabel",
             "caption": "Label Eigenproduktion",
-            "value": "Eigenproduktion"
+            "value": "Eigenproduktion4"
         },
         {
           "type": "ValidationTextBox",
           "name": "EigenverbrauchLabel",
           "caption": "Label Eigenverbrauch",
-          "value": "Eigenverbrauch"
+          "value": "Eigenverbrauch5"
       }
           ]
         }
