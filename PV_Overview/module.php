@@ -7,15 +7,15 @@ class TileVisuPVOverview extends IPSModule
         parent::Create();
 
         $this->RegisterPropertyInteger("ProduktionWert", 0);
-        $this->RegisterPropertyString("ProduktionLabel", "Produktion1");
+        $this->RegisterPropertyString("ProduktionLabel", "Produktion");
         $this->RegisterPropertyInteger("ExportWert", 0);
-        $this->RegisterPropertyString("ExportLabel", "Export1");
+        $this->RegisterPropertyString("ExportLabel", "Export");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
-        $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch1");
+        $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch");
         $this->RegisterPropertyInteger("ImportWert", 0);
-        $this->RegisterPropertyString("ImportLabel", "Import1");
-        $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch2");
-        $this->RegisterPropertyString("EigenproduktionLabel", "Eigenproduktion3");
+        $this->RegisterPropertyString("ImportLabel", "Import");
+        $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch");
+        $this->RegisterPropertyString("EigenproduktionLabel", "Eigenproduktion");
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("EigenverbrauchVerlaufFarbe2", 2132596);
         $this->RegisterPropertyInteger("EigenproduktionVerlaufFarbe1", 2674091);
