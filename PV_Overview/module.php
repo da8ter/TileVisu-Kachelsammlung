@@ -222,6 +222,13 @@ class TileVisuPVOverview extends IPSModule
             $result['eckenradius'] =  $this->ReadPropertyFloat('Eckenradius');
             $result['einspeisungfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('EinspeisungFarbe'));
             $result['zukauffarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('ZukaufFarbe'));
+            $result['produktionlabel'] =  $this->ReadPropertyString('ProduktionLabel');
+            $result['exportlabel'] =  $this->ReadPropertyString('ExportLabel');
+            $result['importlabel'] =  $this->ReadPropertyString('ImportLabel');
+            $result['verbrauchlabel'] =  $this->ReadPropertyString('VerbrauchLabel');
+            $result['eigenverbrauchlabel'] =  $this->ReadPropertyString('EigenverbrauchLabel');
+            $result['eigenproduktionlabel'] =  $this->ReadPropertyString('EigenproduktionLabel');
+
             
             
             $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];

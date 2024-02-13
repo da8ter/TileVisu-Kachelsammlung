@@ -307,9 +307,7 @@
                         root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
                         break;
                     default:
-                        //console.log('Setze innerHTML für', parameter);
-                        // Setze innerHTML nur, wenn das Element gefunden wurde
-                        //element.innerHTML = decodedData[parameter];<i id="temp_icon" class="fa-solid fa-house-chimney-user icon"></i>
+                        element.textContent = decodedData[parameter];
                         break;
                 }
 
@@ -326,7 +324,7 @@
             <div class="balken_rechts">
                 <div class="balken_links_eigenverbrauch">
                     <div class="overlay"><b>
-                            <p class="production">Produktion:&nbsp;
+                            <p class="produktion" id="produktionlabel">Produktion:</p>&nbsp;
                             <p class="production" id="produktion">2.08 kWh</p>
                         </b>
                     </div>
@@ -337,11 +335,11 @@
         </div>
         <div class="container2">
             <div class="eigenverbrauchsubtext">
-                <p class="eigenverbrauch">Eigenverbrauch:&nbsp;</p>
+                <p class="eigenverbrauch" id="eigenverbrauchlabel">Eigenverbrauch:</p>&nbsp;
                 <p class="eigenverbrauch" id="eigenverbrauch"></p>
             </div>
             <div class="einspeisungsubtext">
-                <p class="export">Export:&nbsp;</p>
+                <p class="export" id="exportlabel">Export:</p>&nbsp;
                 <p class="export" id="export"></p>
             </div>
         </div>
@@ -350,9 +348,9 @@
             <div class="balken_rechts_zukauf">
                 <div class="balken_links_eigenproduktion">
                     <div class="overlay"><b>
-                            <p class="verbrauch">Verbrauch:&nbsp;
+                            <p class="verbrauch" id="verbrauchlabel">Verbrauch:</p>&nbsp;
                             <p class="verbrauch" id="verbrauch"></p>
-                        </b></b></div>
+                        </b></div>
                     <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
                     <span class="balken_links_text_finish"><span id="import_prozent"></span></span>
                 </div>
@@ -360,11 +358,11 @@
         </div>
         <div class="container2">
             <div class="eigenproduktionsubtext">
-                <p class="eigenproduktion">Eigenproduktion:&nbsp;</p>
+                <p class="eigenproduktion" id="eigenproduktionlabel">Eigenproduktion:</p>&nbsp;
                 <p class="eigenproduktion" id="eigenproduktion"></p>
             </div>
             <div class="bezugsubtext">
-                <p class="import">Import:&nbsp;</p>
+                <p class="import" id="importlabel">Import:</p>&nbsp;
                 <p class="import" id="import"></p>
             </div>
         </div>
