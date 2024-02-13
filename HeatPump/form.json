@@ -53,7 +53,7 @@
                 ]
               }              
             ]
-          }
+          },
         {
             "type": "Label", 
             "caption": "Heat pump status and modes:",
