@@ -6,7 +6,7 @@ class TileVisuPVOverview extends IPSModule
         // Nie diese Zeile löschen!
         parent::Create();
 
-        $this->RegisterPropertyInteger("Produktion", 0);
+        $this->RegisterPropertyInteger("ProduktionWert", 0);
         $this->RegisterPropertyString("ProduktionLabel", 'Produktion1');
         $this->RegisterPropertyInteger("Export", 0);
         $this->RegisterPropertyString("ExportLabel", 'Export1');
@@ -53,7 +53,7 @@ class TileVisuPVOverview extends IPSModule
         }
 
 
-        foreach (['Produktion', 'Export', 'Verbrauch', 'Import'] as $VariableProperty)        {
+        foreach (['ProduktionWert', 'Export', 'Verbrauch', 'Import'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -64,7 +64,7 @@ class TileVisuPVOverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Produktion', 'Export', 'Verbrauch', 'Import'] as $index => $VariableProperty)
+        foreach (['ProduktionWert', 'Export', 'Verbrauch', 'Import'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -80,7 +80,7 @@ class TileVisuPVOverview extends IPSModule
 
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
-                        $produktionsID = $this->ReadPropertyInteger('Produktion');
+                        $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
                         $produktion = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
@@ -159,7 +159,7 @@ class TileVisuPVOverview extends IPSModule
                             $import_prozent = round(100 - $eigenproduktion_prozent, 0);
                         }
 
-                        $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['produktionwert' => $produktion]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
                         $this->UpdateVisualizationValue(json_encode(['verbrauch' => $verbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['export' => $export]));
@@ -228,7 +228,7 @@ class TileVisuPVOverview extends IPSModule
 
 
 
-            $produktionsID = $this->ReadPropertyInteger('Produktion');
+            $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
             $produktion = 1; // Standardwert setzen
             
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
