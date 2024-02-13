@@ -33,8 +33,7 @@
             {
               "type": "ValidationTextBox",
               "name": "ProduktionLabel",
-              "caption": "Label Produktion",
-              "value": "Produktion"
+              "caption": "Label Produktion"
           },
             {
               "type": "SelectVariable",
