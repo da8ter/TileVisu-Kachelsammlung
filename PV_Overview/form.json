@@ -62,7 +62,7 @@
               "name": "Export",
               "caption": "Export:",
               "validVariableTypes": []
-            }
+            },
             {
               "type": "ValidationTextBox",
               "name": "ExportLabel",
