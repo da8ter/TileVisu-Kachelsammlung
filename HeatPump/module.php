@@ -67,6 +67,7 @@
             foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $HeatPumpProperty) {
                 $this->RegisterMessage($this->ReadPropertyInteger($HeatPumpProperty), VM_UPDATE);
             }
+            $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
         }
 
 
