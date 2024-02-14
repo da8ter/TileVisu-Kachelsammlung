@@ -560,25 +560,21 @@
                         document.getElementById("temp_row").className = 'temp_row';
                         document.getElementById("temp_ruecklauf").className = 'temp_ruecklauf';
                         divElement.textContent = data.ValueFormatted;
-                    break;    
-                    case 'fontsizebalken':
-                    case 'fontsizedetails':
-                    case 'fontsizestatus':
-                    case 'powerbalkenfarbe1':
-                    case 'powerbalkenfarbe2':
-                    case 'kompressorbalkenfarbe1':
-                    case 'kompressorbalkenfarbe2':
-                    case 'durchflussbalkenfarbe1':
-                    case 'durchflussbalkenfarbe2':
-                    case 'luefterbalkenfarbe1':
-                    case 'luefterbalkenfarbe2':
-                    case 'bildtransparenz':
-                    case 'hintergrundfarbe':
-                    case 'bgimages':
-                    var root = document.documentElement;
+                    break;       
+                                
+                    default:
+                        divElement.textContent = data.ValueFormatted;
+                    break;
+                    
+                }
+            } else {
+                console.error('Ungültiges JSON-Format oder fehlende Daten.');
+            }
+            var root = document.documentElement;
                         root.style.setProperty('--fontsizebalken', cssvar[0]+'em');
                         root.style.setProperty('--fontsizedetails', cssvar[1]+'em');
                         root.style.setProperty('--fontsizestatus', cssvar[2]+'em');
+
                         root.style.setProperty('--powerbalkenfarbe1', cssvar[3]);
                         root.style.setProperty('--powerbalkenfarbe2', cssvar[4]);
                         root.style.setProperty('--kompressorbalkenfarbe1', cssvar[5]);
@@ -591,19 +587,6 @@
                         root.style.setProperty('--hintergrundfarbe', cssvar[12]);
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + BGImages + ')');
-                    window.location.reload();
-
-                    break;
-                                
-                    default:
-                        divElement.textContent = data.ValueFormatted;
-                    break;
-                
-                }
-            } else {
-                console.error('Ungültiges JSON-Format oder fehlende Daten.');
-            }
-
                         
 
         }
