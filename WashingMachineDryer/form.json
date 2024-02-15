@@ -26,7 +26,7 @@
         {
           "type": "CheckBox",
           "name": "BG_Off",
-          "caption": "Standard-Hintergrundbild"
+          "caption": "Standart-Hintergrundbild"
       },
         {
         "type": "RowLayout",
@@ -254,7 +254,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Energieverbrauch",
+      "caption": "Energieverbruch",
       "items": [
         {
           "type": "RowLayout",
