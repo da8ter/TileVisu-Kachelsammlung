@@ -106,15 +106,15 @@ class TileVisuWashingMaschine extends IPSModule
         if($bildauswahl == '0') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/wm_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/wm_an.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
         elseif($bildauswahl == '1') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/trockner_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/trockner_an.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_aus.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_an.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
         else {
