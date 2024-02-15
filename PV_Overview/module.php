@@ -24,6 +24,7 @@ class TileVisuPVOverview extends IPSModule
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyFloat("Bildtransparenz", 0.7);
         $this->RegisterPropertyInteger("Kachelhintergrundfarbe", -1);
+        $this->RegisterPropertyBoolean("BG_Off", 1);
         $this->RegisterPropertyInteger("SchriftfarbeBalken", 0xFFFFFF);
         $this->RegisterPropertyInteger("SchriftfarbeSub", 0xFFFFFF);
         $this->RegisterPropertyFloat("SchriftgroesseBalken", 1);
@@ -32,8 +33,6 @@ class TileVisuPVOverview extends IPSModule
         $this->RegisterPropertyInteger("EinspeisungFarbe", 2598689);
         $this->RegisterPropertyInteger("ZukaufFarbe", 9830400);
         $this->RegisterPropertyBoolean("BG_Off", 1);
-
-
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
@@ -364,7 +363,8 @@ class TileVisuPVOverview extends IPSModule
             }
             else{
                 $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/kachelhintergrund1.png'));
+
 
                 if ($this->ReadPropertyBoolean('BG_Off')) {
                     $result['image1'] = $imageContent;
