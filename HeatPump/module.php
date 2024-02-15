@@ -227,11 +227,11 @@
             else{
                 if ($this->ReadPropertyBoolean('BG_Off')) {
                 $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/kachelhintergrund1.png'));
                 }
                 else {
                     $imageContent = 'data:image/webp;base64,';
-                    $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.webp'));
+                    $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/transparent.webp'));
                 }
             }  
 
