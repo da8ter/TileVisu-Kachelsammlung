@@ -205,7 +205,7 @@ class TileVisuWashingMaschine extends IPSModule
                 }
                 else {
                     $imageContent2 = 'data:image/png;base64,';
-                    $imageContent2 .= base64_encode(file_get_contents(__DIR__ . '/../imgs/placeholder.webp'));
+                    $imageContent2 .= base64_encode(file_get_contents(__DIR__ . '/../imgs/transparent.webp'));
                     
                 }  
 
