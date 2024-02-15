@@ -2,8 +2,35 @@
     /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
 
   
-    body {
-}
+    html {
+            background-color: var(--hintergrundfarbe);
+        }
+
+        body:before {
+            content: '';
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100%;
+            max-width: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+
+        body {
+            position: fixed;
+            width: calc(100vw - var(--body-margin-right) * 2);
+            height: 100%;
+            max-width: 100%;
+
+        }
 
 .hidden {
     display: none;
@@ -11,7 +38,6 @@
 
 .container_anwesenheit {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
@@ -69,7 +95,7 @@
             console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
             const element = document.getElementById(parameter);
-
+            var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter) {
                     case 'Bewohner1':
@@ -125,10 +151,17 @@
                         cornerElements.forEach(element => {
                             element.style.borderRadius = decodedData[parameter]+'%'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
                         });
-
-
                     break;
-
+                    case 'bgimage':
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'bildtransparenz':
+                        root.style.setProperty('--bildtransparenz', decodedData[parameter]);
+                        break;
+                    case 'kachelhintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        break;  
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
@@ -167,3 +200,14 @@
         <div class="name" id="name5">5</div>
     </div>    
 </div>
+
+<script>
+    // Schritt 1: Wert auslesen
+const bodyStyle = getComputedStyle(document.body);
+const marginRight = bodyStyle.getPropertyValue('margin-right');
+
+// Schritt 2: Wert als CSS-Variable setzen
+const root = document.documentElement; // Das :root-Element auswählen
+root.style.setProperty('--body-margin-right', marginRight); // CSS-Variable auf :root setzen
+
+</script>
