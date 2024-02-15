@@ -160,7 +160,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
         else {
             $imageContent = 'data:image/png;base64,';
-            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/placeholder.webp'));
+            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/transparent.webp'));
             
         } 
 
@@ -319,7 +319,7 @@ class TileVisuWashingMaschine extends IPSModule
             }
             else{
                 $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../assets/placeholder.png'));
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/kachelhintergrund1.png'));
 
                 if ($this->ReadPropertyBoolean('BG_Off')) {
                     $result['image1'] = $imageContent;
