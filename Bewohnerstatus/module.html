@@ -2,8 +2,35 @@
     /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
 
   
-    body {
-}
+    html {
+            background-color: var(--hintergrundfarbe);
+        }
+
+        body:before {
+            content: '';
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100%;
+            max-width: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+
+        body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+
+        }
 
 .hidden {
     display: none;
@@ -125,10 +152,17 @@
                         cornerElements.forEach(element => {
                             element.style.borderRadius = decodedData[parameter]+'%'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
                         });
-
-
                     break;
-
+                    case 'bgimage':
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'bildtransparenz':
+                        root.style.setProperty('--bildtransparenz', decodedData[parameter]);
+                        break;
+                    case 'kachelhintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        break;  
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
