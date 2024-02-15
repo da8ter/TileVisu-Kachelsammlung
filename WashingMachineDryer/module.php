@@ -106,15 +106,15 @@ class TileVisuWashingMaschine extends IPSModule
         if($bildauswahl == '0') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/wm_aus.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/wm_an.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
         elseif($bildauswahl == '1') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_an.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/trockner_aus.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/ ../assets/trockner_an.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
         else {
@@ -160,7 +160,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
         else {
             $imageContent = 'data:image/png;base64,';
-            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.webp'));
+            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/ ../assets/placeholder.webp'));
             
         } 
 
@@ -205,7 +205,7 @@ class TileVisuWashingMaschine extends IPSModule
                 }
                 else {
                     $imageContent2 = 'data:image/png;base64,';
-                    $imageContent2 .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.webp'));
+                    $imageContent2 .= base64_encode(file_get_contents(__DIR__ . '/ ../assets/placeholder.webp'));
                     
                 }  
 
@@ -319,7 +319,7 @@ class TileVisuWashingMaschine extends IPSModule
             }
             else{
                 $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/ ../assets/placeholder.png'));
 
                 if ($this->ReadPropertyBoolean('BG_Off')) {
                     $result['image1'] = $imageContent;
