@@ -608,6 +608,12 @@
                         element.className = 'info2name';
                         element.textContent = decodedData[parameter];
                         break;
+                    case 'info2altname':
+                        if(decodedData[parameter] != ''){
+                        info2name.className = 'info2name';
+                        info2name.textContent = decodedData[parameter];
+                        }
+                        break; 
                     case 'info3asso':
                         element.className = 'info3asso';
                         element.textContent = decodedData[parameter];
