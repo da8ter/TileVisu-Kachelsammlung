@@ -106,7 +106,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "InfoLinksNameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -170,7 +170,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "InfoRechtsNameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -247,7 +247,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Info1NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -292,7 +292,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Info2NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -337,7 +337,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Info3NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -382,7 +382,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Info4NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -427,7 +427,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Info5NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -493,7 +493,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Schalter1NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -549,7 +549,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Schalter2NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -605,7 +605,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Schalter3NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -661,7 +661,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Schalter4NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
@@ -717,7 +717,7 @@
                                                     {
                                                         "type": "CheckBox",
                                                         "name": "Schalter5NameSwitch",
-                                                        "caption": "Valiablenname anzeigen"
+                                                        "caption": "Variablenname anzeigen"
                                                     },
                                                     {
                                                         "type": "CheckBox",
