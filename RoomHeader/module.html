@@ -626,6 +626,16 @@
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
+                    case 'info3name':
+                        element.className = 'info3name';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'info3altname':
+                        if(decodedData[parameter] != ''){
+                        info3name.className = 'info3name';
+                        info3name.textContent = decodedData[parameter];
+                        }
+                        break; 
                     case 'info4asso':
                         element.className = 'info4asso';
                         element.textContent = decodedData[parameter];
@@ -638,6 +648,16 @@
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
+                    case 'info4name':
+                        element.className = 'info4name';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'info4altname':
+                        if(decodedData[parameter] != ''){
+                        info4name.className = 'info4name';
+                        info4name.textContent = decodedData[parameter];
+                        }
+                        break; 
                     case 'info5asso':
                         element.className = 'info5asso';
                         element.textContent = decodedData[parameter];
@@ -649,6 +669,16 @@
                         element.className = 'infoicon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
+                    case 'info5name':
+                        element.className = 'info5name';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'info5altname':
+                        if(decodedData[parameter] != ''){
+                        info5name.className = 'info5name';
+                        info5name.textContent = decodedData[parameter];
+                        }
+                        break; 
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
