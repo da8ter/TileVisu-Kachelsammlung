@@ -143,9 +143,15 @@
               "save": true,
               "visible": false
             },
-            { "type": "CheckBox",
+            {
+              "caption": "Statusbalken",
               "name": "StatusBalken",
-              "caption": "Statusbalken" },
+              "width": "400px",
+              "save": true,
+              "edit": {
+                "type": "CheckBox"
+              }
+            },
             {
               "caption": "Farbe",
               "name": "StatusColor",
