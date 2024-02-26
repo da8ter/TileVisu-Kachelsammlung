@@ -221,22 +221,24 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
+        // Formulardaten lesen und Statusmapping Array für Bild, Balkenstatus und Farbe erstellen
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
         $statusMappingColor = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
-                      
+            $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];      
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
         }
 
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
+        $statusBalkenJson = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
+        $images .= 'var statusBalken = ' . $statusBalkenJson . ';';    
         $images .= '</script>';
 
 
