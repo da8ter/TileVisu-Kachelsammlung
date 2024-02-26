@@ -225,6 +225,7 @@ class TileVisuWashingMaschine extends IPSModule
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
         $statusMappingColor = [];
+        $statusMappingBalken = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
             $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];      
