@@ -359,7 +359,8 @@ class TileVisuWashingMaschine extends IPSModule
                         'AssoziationName' => $association['Name'],
                         'AssoziationValue' => $association['Value'],
                         'Bildauswahl' => 'wm_aus',
-                        'StatusColor' => '-1'
+                        'StatusColor' => '-1',
+                        'StatusBalken' => 'true'
                     ];
                 }
             }
