@@ -146,7 +146,7 @@
             {
               "caption": "Statusbalken aktiv",
               "name": "StatusBalken",
-              "width": "400px",
+              "width": "150px",
               "save": true,
               "edit": {
                 "type": "CheckBox"
