@@ -273,7 +273,7 @@
             //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
-                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
                 const element = document.getElementById(parameter.toLowerCase());
                 const parameter2 = String(parameter).toLowerCase();
@@ -332,6 +332,7 @@
                         }
                         break;
                     case 'restlaufzeitvalue':
+
                         let restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
                         break;
