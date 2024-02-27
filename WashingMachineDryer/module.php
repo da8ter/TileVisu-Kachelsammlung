@@ -479,30 +479,7 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    public function Migrate($JSONData) {
 
-        // Diese Zeile nicht entfernen
-        parent::Migrate($JSONData);
-    
-        // Beispielinhalt von JSONData
-        /*
-        {
-            "attributes": {
-                "MeinAttribut": "MeinWert"
-            },
-            "configuration": {
-                "MeineKonfiguration": "MeinWert"
-            }
-        }
-        */
-    
-        // Eigenschaften/Attribute migrieren
-        $j = json_decode($JSONString);
-        $j->attributes->NeuesAttribut = $j->attributes->MeinAttribut;
-        $j->configuration->NeueKonfiguration = $j->configuration->MeineKonfiguration;
-        return json_encode($j);
-    
-    }
 
 
 
