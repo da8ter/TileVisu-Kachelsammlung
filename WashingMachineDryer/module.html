@@ -290,7 +290,6 @@
                         break;
                     case 'statusvalue':
                         let index = decodedData[parameter];
-                        let balkenswitch = false;
                         if (!statusImages[index]) {
                             index = 0;
                         }
@@ -334,7 +333,7 @@
                         break;
                     case 'restlaufzeitvalue':
                         let restmin = 0;
-
+                        let index = decodedData[parameter];
                         if (statusImages[index] === 'wm_an') {
                             restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
