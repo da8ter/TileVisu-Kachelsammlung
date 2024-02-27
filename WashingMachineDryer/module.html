@@ -290,11 +290,14 @@
                         break;
                     case 'statusvalue':
                         let index = decodedData[parameter];
+                        let balkenswitch = false;
                         if (!statusImages[index]) {
                             index = 0;
                         }
                         if (statusImages[index] === 'wm_an') {
                             document.getElementById('image').src = window.assets.img_wm_an;
+                            //Wenn Bild für WM an dann Statusbalken aktiv.
+                            balkenswitch = true;
                         }
                         else if (statusImages[index] === 'wm_aus') {
                             document.getElementById('image').src = window.assets.img_wm_aus;
@@ -332,9 +335,11 @@
                         }
                         break;
                     case 'restlaufzeitvalue':
-
-                        let restmin = Math.round(decodedData[parameter] / 60);
+                        let restmin = 0;
+                        if (balkenswitch === true) {
+                        restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
+                    }
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
