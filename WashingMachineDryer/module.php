@@ -262,7 +262,7 @@ class TileVisuWashingMaschine extends IPSModule
         $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
 
         // Ausgabe des Wertes zur Debugging-Zwecken
-        //var_dump($profilAssoziationen);
+        var_dump($profilAssoziationen);
 
         $result = [];
     
@@ -476,6 +476,35 @@ class TileVisuWashingMaschine extends IPSModule
         }
         return $icon;
     }
+
+
+
+    public function Migrate($JSONData) {
+
+        // Diese Zeile nicht entfernen
+        parent::Migrate($JSONData);
+    
+        // Beispielinhalt von JSONData
+        /*
+        {
+            "attributes": {
+                "MeinAttribut": "MeinWert"
+            },
+            "configuration": {
+                "MeineKonfiguration": "MeinWert"
+            }
+        }
+        */
+    
+        // Eigenschaften/Attribute migrieren
+        $j = json_decode($JSONString);
+        $j->attributes->NeuesAttribut = $j->attributes->MeinAttribut;
+        $j->configuration->NeueKonfiguration = $j->configuration->MeineKonfiguration;
+        return json_encode($j);
+    
+    }
+
+
 
 }
 ?>
