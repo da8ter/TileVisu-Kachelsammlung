@@ -278,7 +278,7 @@ class TileVisuWashingMaschine extends IPSModule
         $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
 
         // Ausgabe des Wertes zur Debugging-Zwecken
-        var_dump($profilAssoziationen);
+        //var_dump($profilAssoziationen);
 
         $result = [];
     
