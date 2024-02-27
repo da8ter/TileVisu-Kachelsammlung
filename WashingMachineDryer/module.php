@@ -37,20 +37,6 @@ class TileVisuWashingMaschine extends IPSModule
         $this->SetVisualizationType(1);
     }
 
-    public function Migrate($JSONString) {
-        parent::Migrate($JSONString);
-        IPS_LogMessage("MIGRATE", $JSONString);
-
-        $j = json_decode($JSONString);
-        $j->configuration->StatusBlaken = false;
-        $JSONString = json_encode($j);
-
-        return $JSONString;
-    }
-
-
-
-
     public function ApplyChanges()
     {
         parent::ApplyChanges();
