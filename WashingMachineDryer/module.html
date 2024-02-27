@@ -332,14 +332,9 @@
                         }
                         break;
                     case 'restlaufzeitvalue':
-                        let restmin = 0;
-                        index = decodedData[parameter];
-                        if (statusImages[index] === 'wm_an') {
+
                             restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-                        }
-
-
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
