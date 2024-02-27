@@ -1,6 +1,8 @@
 <?php
 class TileVisuWashingMaschine extends IPSModule
 {
+
+
     public function Create()
     {
         // Nie diese Zeile löschen!
@@ -34,6 +36,20 @@ class TileVisuWashingMaschine extends IPSModule
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
+
+    public function Migrate($JSONString) {
+        parent::Migrate($JSONString);
+        IPS_LogMessage("MIGRATE", $JSONString);
+
+        $j = json_decode($JSONString);
+        $j->configuration->StatusBlaken = false;
+        $JSONString = json_encode($j);
+
+        return $JSONString;
+    }
+
+
+
 
     public function ApplyChanges()
     {
