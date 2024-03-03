@@ -369,7 +369,10 @@
                         break;
                     case 'bildbreite':
                         root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
-                        break;
+                        if (!decodedData[parameter] === 0) {
+                            div1.className = 'div1';
+                        }                       
+                         break;
                     case 'image1':
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
@@ -397,7 +400,7 @@
 
 <body>
     <div class="main_container">
-        <div id="div1" class="div1"><img id="image"></div>
+        <div id="div1" class="hidden"><img id="image"></div>
         <div class="div2">
             <div class="hidden" id="statusdiv"><b>
                     <p class="status">Status:&nbsp;</p>
