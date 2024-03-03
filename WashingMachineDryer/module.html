@@ -286,7 +286,7 @@
 
                     case 'status':
                         element.textContent = decodedData[parameter];
-                        if (decodedData[parameter]) {
+                        if (!decodedData[parameter]) {
                             statusdiv.className = 'visible';
                         }
                         break;
