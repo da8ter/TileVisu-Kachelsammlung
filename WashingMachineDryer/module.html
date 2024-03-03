@@ -298,7 +298,7 @@
                     case 'statusvalue':
                         let index = decodedData[parameter];
                         if (!statusImages[index]) {
-                            index = 0;
+                            index = 1;
                         }
                         if (statusImages[index] === 'wm_an') {
                             document.getElementById('image').src = window.assets.img_wm_an;
