@@ -77,6 +77,8 @@
         .div1 {
             width: var(--bildbreite);
             box-sizing: border-box;
+            border-right: 1px dotted #28cdab;
+            padding: 0px 2.5% 5px 0px;
 
         }
 
@@ -88,9 +90,9 @@
             width: 100%;
             box-sizing: border-box;
             padding: 0px 5px 5px 2.5%;
-            margin: 0px 0px 0px 2.5%;
+            margin: 0px 0px 0px 0px;
             border-radius: 0px;
-            border-left: 1px dotted #28cdab;
+
 
         }
 
@@ -273,7 +275,7 @@
             //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
-                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
                 const element = document.getElementById(parameter.toLowerCase());
                 const parameter2 = String(parameter).toLowerCase();
@@ -332,7 +334,7 @@
                         }
                         break;
                     case 'restlaufzeitvalue':
-                        let restmin = Math.round(decodedData[parameter] / 60);
+                        restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
                         break;
                     case 'verbrauch':
@@ -369,7 +371,14 @@
                         break;
                     case 'bildbreite':
                         root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
-                        break;
+                        if (decodedData[parameter] !== 0) {
+                            div1.className = 'div1';
+                        }      
+                        else{
+                        div2.style.padding = '0px 5px 5px 0px';
+                            div2.style.margin = '0px 0px 0px 0px';                 
+                        }
+                            break;
                     case 'image1':
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
@@ -397,8 +406,8 @@
 
 <body>
     <div class="main_container">
-        <div id="div1" class="div1"><img id="image"></div>
-        <div class="div2">
+        <div id="div1" class="hidden"><img id="image"></div>
+        <div class="div2" id="div2">
             <div class="hidden" id="statusdiv"><b>
                     <p class="status">Status:&nbsp;</p>
                 </b><span class="statustext" id="status"></span></div>
