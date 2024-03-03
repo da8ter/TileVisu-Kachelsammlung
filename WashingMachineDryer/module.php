@@ -236,13 +236,21 @@ class TileVisuWashingMaschine extends IPSModule
 
         }
 
+
+        //Prüft ob eine Statusvariable konfiguriert wurde
+        $variableID = $this->ReadPropertyInteger('Status');
+        if (!IPS_VariableExists($variableID)) {
+            $noStatusImage = true;
+        }
+
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
         $statusBalkenJson = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusBalkenJson . ';';    
+        $images .= 'var statusBalken = ' . $statusBalkenJson . ';';
+        $images .= 'var noStatusImage = ' . $noStatusImage . ';';
         $images .= '</script>';
 
 
