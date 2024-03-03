@@ -170,7 +170,7 @@ class TileVisuWashingMaschine extends IPSModule
 
                 // Prüfe vorweg, ob ein Bild ausgewählt wurde
                 $imageID_Bild_Aus = $this->ReadPropertyInteger('Bild_Aus');
-                if (IPS_MediaExists($imageID_Bild_An)) {
+                if (IPS_MediaExists($imageID_Bild_Aus)) {
                     $image2 = IPS_GetMedia($imageID_Bild_Aus);
                     if ($image2['MediaType'] === MEDIATYPE_IMAGE) {
                         $imageFile2 = explode('.', $image2['MediaFile']);
@@ -239,7 +239,7 @@ class TileVisuWashingMaschine extends IPSModule
 
         //Prüft ob eine Statusvariable konfiguriert wurde
         $variableID = $this->ReadPropertyInteger('Status');
-        if (!IPS_VariableExists($variableID)) {
+        if (IPS_VariableExists($variableID)) {
             $noStatusImage = true;
         }
 
