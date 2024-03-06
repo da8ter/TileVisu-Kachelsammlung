@@ -353,7 +353,7 @@
                         break;
                     case 'kostentag':
                         element.textContent = decodedData[parameter];
-                        if (decodedData[parameter]) {
+                        if (decodedData[parameter] != null) {
                             kostentag.className = 'info';
                             info.className = 'info';
                             kosten.className = 'info';
