@@ -345,7 +345,7 @@
                         }
                         break;
                     case 'verbrauchtag':
-                        element.textContent = decodedData[parameter];
+                        element.textContent = decodedData[parameter] + ' ';
                         if (decodedData[parameter]) {
                             verbrauchtag.className = 'info';
                             info.className = 'info';
