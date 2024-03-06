@@ -150,7 +150,8 @@
               "save": true,
               "edit": {
                 "type": "CheckBox"
-              }
+              },
+              "visible": false 
             },
             {
               "caption": "Farbe",
