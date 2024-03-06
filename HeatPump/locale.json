@@ -8,6 +8,7 @@
             "OFF": "AUS",
             "HEATING": "HEIZEN",
             "HOT WATER": "WARMWASSER",
+            "COOLING": "KÜHLEN",
             "Mode:": "Modus:",
             "Temperatures": "Temperaturen",
             "Outdoor temperature:": "Außentemperatur:",
