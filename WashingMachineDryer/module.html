@@ -352,9 +352,9 @@
                         }
                         break;
                     case 'kostentag':
-                        element.textContent = decodedData[parameter];
+                        element.textContent = '&nbsp;/&nbsp;' + decodedData[parameter];
                         if (decodedData[parameter]) {
-                            verbrauchtag.className = 'info';
+                            kostentag.className = 'info';
                             info.className = 'info';
                         }
                         break;
