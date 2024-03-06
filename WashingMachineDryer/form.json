@@ -282,6 +282,12 @@
               "validVariableTypes": []
             },
             {
+              "type": "SelectVariable",
+              "name": "KostenTag",
+              "caption": "Kosten Heute:",
+              "validVariableTypes": []
+            },
+            {
               "type": "NumberSpinner",
               "name": "InfoSchriftgroesse",
               "caption": "Schriftgröße:",

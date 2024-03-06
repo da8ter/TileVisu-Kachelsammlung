@@ -351,6 +351,13 @@
                             info.className = 'info';
                         }
                         break;
+                    case 'kostentag':
+                        element.textContent = decodedData[parameter];
+                        if (decodedData[parameter]) {
+                            verbrauchtag.className = 'info';
+                            info.className = 'info';
+                        }
+                        break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
                         break;
@@ -428,7 +435,7 @@
             </div>
             <div class="hidden" id="info"> <i class="fa-solid fa-bolt fa-sm"
                     style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden"
-                    id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span></div>
+                    id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span>&nbsp;/&nbsp;<span class="hidden" id="kostentag"></span></div>
         </div>
     </div>
 </body>
