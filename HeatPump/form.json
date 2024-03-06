@@ -82,7 +82,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -92,7 +93,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -102,7 +104,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -112,7 +115,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -122,7 +126,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -132,7 +137,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -142,7 +148,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -152,7 +159,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -162,7 +170,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             },
                             {
@@ -172,7 +181,8 @@
                                 "options": [
                                     { "caption": "OFF", "value": "wp_aus" },
                                     { "caption": "HEATING", "value": "wp_heizen" },
-                                    { "caption": "HOT WATER", "value": "wp_ww" }
+                                    { "caption": "HOT WATER", "value": "wp_ww" },
+                                    { "caption": "COOLING", "value": "wp_kuehlen" }
                                 ]
                             }
                         ]
