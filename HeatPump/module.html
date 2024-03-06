@@ -1,321 +1,608 @@
-<?php
+<!DOCTYPE html>
+<html>
 
-    class TileVisuHeatPump extends IPSModule
-    {
-        
-        public function Create() {
-            //Never delete this line!
-            parent::Create();
-
-            $this->RegisterPropertyInteger('Status', 0);
-            $this->RegisterPropertyInteger('Mode', 0);
-            $this->RegisterPropertyInteger('OutdoorTemperature', 0);
-            $this->RegisterPropertyInteger('WaterTemperature', 0);
-            $this->RegisterPropertyInteger('FlowTemperature', 0);
-            $this->RegisterPropertyInteger('ReturnTemperature', 0);
-            $this->RegisterPropertyInteger('HeaterRodBackupStatus', 0);
-            $this->RegisterPropertyInteger('HeaterRodPhase1', 0);
-            $this->RegisterPropertyInteger('HeaterRodPhase2', 0);
-            $this->RegisterPropertyInteger('HeaterRodPhase3', 0);
-            $this->RegisterPropertyInteger('Flow', 0);
-            $this->RegisterPropertyInteger('FanRotations', 0);
-            $this->RegisterPropertyInteger('CompressorPower', 0);        
-            $this->RegisterPropertyInteger('COP', 0);
-            $this->RegisterPropertyInteger('SPF', 0);
-            $this->RegisterPropertyInteger('SPFHeating', 0);
-            $this->RegisterPropertyInteger('SPFCooling', 0);
-            $this->RegisterPropertyInteger('SPFWater', 0);
-            $this->RegisterPropertyInteger('Power', 0);
-            $this->RegisterPropertyInteger('Consumption', 0);
-            $this->RegisterPropertyInteger('ConsumptionToday', 0);
-            $this->RegisterPropertyString('Statusimage0', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage1', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage2', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage3', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage4', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage5', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage6', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage7', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage8', 'wp_aus');
-            $this->RegisterPropertyString('Statusimage9', 'wp_aus');
-            $this->RegisterPropertyFloat('SchriftgroesseBalken', 1);
-            $this->RegisterPropertyFloat('SchriftgroesseDetails', 1);
-            $this->RegisterPropertyFloat('SchriftgroesseStatus', 1);
-            $this->RegisterPropertyInteger('powerbalkenfarbe1', 0xFBA123);
-            $this->RegisterPropertyInteger('powerbalkenfarbe2', 0xFF5900);
-            $this->RegisterPropertyInteger('kompressorbalkenfarbe1', 0xFF0000);
-            $this->RegisterPropertyInteger('kompressorbalkenfarbe2', 0xA70101);
-            $this->RegisterPropertyInteger('durchflussbalkenfarbe1', 0x0091FF);
-            $this->RegisterPropertyInteger('durchflussbalkenfarbe2', 0x005CAD);
-            $this->RegisterPropertyInteger('luefterbalkenfarbe1', 0x7AD3FF);
-            $this->RegisterPropertyInteger('luefterbalkenfarbe2', 0x23B3FB);
-            $this->RegisterPropertyInteger("bgImage", 0);
-            $this->RegisterPropertyFloat("Bildtransparenz", 0.7);
-            $this->RegisterPropertyInteger("Kachelhintergrundfarbe", 0x000000);
-            $this->RegisterPropertyBoolean("BG_Off", 1);
-            $this->SetVisualizationType(1);
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --div-height: 25px;
         }
-        public function ApplyChanges() {
-            parent::ApplyChanges();
 
-            // Aktualisiere registrierte Nachrichten
-            foreach ($this->GetMessageList() as $senderID => $messageIDs) {
-                foreach($messageIDs as $messageID) {
-                    $this->UnregisterMessage($senderID, $messageID);
-                }
-            }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFCooling', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $HeatPumpProperty) {
-                $this->RegisterMessage($this->ReadPropertyInteger($HeatPumpProperty), VM_UPDATE);
-            }
-            $this->UpdateVisualizationValue($this->GetVisualizationTile());
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
 
-        public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
-            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFCooling', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $index => $HeatPumpProperty) {
-                if ($SenderID === $this->ReadPropertyInteger($HeatPumpProperty)) {
-                    switch ($Message) {
-                        case VM_UPDATE:
-                            $updatedValue = $this->GetUpdatedValue($HeatPumpProperty, $this->ReadPropertyInteger($HeatPumpProperty));
-                            
-                            $this->UpdateVisualizationValue($updatedValue);
-                            break;
-                    }
-                }
-            }
+
+        html {
+            background-color: var(--hintergrundfarbe);
+        }
+
+        body:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            box-sizing: border-box;
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+
+        body {
         }
 
 
 
 
-
-        public function RequestAction($Ident, $Value) {
-            $variableID = $this->ReadPropertyInteger($Ident);
-            SetValue($variableID, $Value);
-
-            $updatedValue = $this->GetUpdatedValue($Ident, $this->ReadPropertyInteger($Ident));
-
-        }
-        
-        public function GetVisualizationTile() {
-            $initialHandling = [];
-            $statusArray = [];
-            $cssArray = [];
-            $childs = array(
-                array('Name' => 'Status', 'VariableID' => $this->ReadPropertyInteger('Status')),
-                array('Name' => 'Mode', 'VariableID' => $this->ReadPropertyInteger('Mode')),
-                array('Name' => 'OutdoorTemperature', 'VariableID' => $this->ReadPropertyInteger('OutdoorTemperature')),
-                array('Name' => 'WaterTemperature', 'VariableID' => $this->ReadPropertyInteger('WaterTemperature')),
-                array('Name' => 'FlowTemperature', 'VariableID' => $this->ReadPropertyInteger('FlowTemperature')),
-                array('Name' => 'ReturnTemperature', 'VariableID' => $this->ReadPropertyInteger('ReturnTemperature')),
-                array('Name' => 'HeaterRodBackupStatus', 'VariableID' => $this->ReadPropertyInteger('HeaterRodBackupStatus')),
-                array('Name' => 'HeaterRodPhase1', 'VariableID' => $this->ReadPropertyInteger('HeaterRodPhase1')),
-                array('Name' => 'HeaterRodPhase2', 'VariableID' => $this->ReadPropertyInteger('HeaterRodPhase2')),
-                array('Name' => 'HeaterRodPhase3', 'VariableID' => $this->ReadPropertyInteger('HeaterRodPhase3')),
-                array('Name' => 'Flow', 'VariableID' => $this->ReadPropertyInteger('Flow')),
-                array('Name' => 'FanRotations', 'VariableID' => $this->ReadPropertyInteger('FanRotations')),
-                array('Name' => 'CompressorPower', 'VariableID' => $this->ReadPropertyInteger('CompressorPower')),
-                array('Name' => 'COP', 'VariableID' => $this->ReadPropertyInteger('COP')),
-                array('Name' => 'SPF', 'VariableID' => $this->ReadPropertyInteger('SPF')),
-                array('Name' => 'SPFHeating', 'VariableID' => $this->ReadPropertyInteger('SPFHeating')),
-                array('Name' => 'SPFCooling', 'VariableID' => $this->ReadPropertyInteger('SPFCooling')),
-                array('Name' => 'SPFWater', 'VariableID' => $this->ReadPropertyInteger('SPFWater')),
-                array('Name' => 'Power', 'VariableID' => $this->ReadPropertyInteger('Power')),
-                array('Name' => 'Consumption', 'VariableID' => $this->ReadPropertyInteger('Consumption')),
-                array('Name' => 'ConsumptionToday', 'VariableID' => $this->ReadPropertyInteger('ConsumptionToday'))
-            );
-            
-            foreach ($childs as $child) {
-                $variableID = $child['VariableID'];  // Holt die VariableID aus dem Kind-Array
-                $ident = $child['Name'];  // Holt den Namen als Ident
-            
-                $variableExists = IPS_VariableExists($variableID);  // Überprüft, ob die Variable existiert
-                if ($variableExists) {
-                    $initialHandling[] = 'handleMessage(\'' . $this->GetUpdatedValue($ident, $variableID) . '\');';
-                }
-            
-                // Füge den Namen und den Status der Existenz der Variable in das neue Array ein
-                $statusArray[] = [
-                    'Name' => $ident,
-                    'Status' => $variableExists
-                ];
-            }
-
-            $messages = '<script>' . implode(' ', $initialHandling) . '</script>';
-
-            $assets = '<script>';
-            $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wp_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wp_heizen = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_heizen.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wp_ww = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_ww.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wp_kuehlen = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wp_kuehlen.webp')) . '";' . PHP_EOL;
-            $assets .= '</script>';
-
-          
-            $statusMapping = array(
-                0 => $this->ReadPropertyString('Statusimage0'),
-                1 => $this->ReadPropertyString('Statusimage1'),
-                2 => $this->ReadPropertyString('Statusimage2'),
-                4 => $this->ReadPropertyString('Statusimage4'),
-                5 => $this->ReadPropertyString('Statusimage5'),
-                3 => $this->ReadPropertyString('Statusimage3'),
-                6 => $this->ReadPropertyString('Statusimage6'),
-                7 => $this->ReadPropertyString('Statusimage7'),
-                8 => $this->ReadPropertyString('Statusimage8'),
-                9 => $this->ReadPropertyString('Statusimage9'),
-
-            );
-
-
-
-            $cssArray = array(
-                0 => $this->ReadPropertyFloat('SchriftgroesseBalken'),
-                1 => $this->ReadPropertyFloat('SchriftgroesseDetails'),
-                2 => $this->ReadPropertyFloat('SchriftgroesseStatus'),
-                3 => '#' . sprintf('%06X',$this->ReadPropertyInteger('powerbalkenfarbe1')),
-                4 => '#' . sprintf('%06X',$this->ReadPropertyInteger('powerbalkenfarbe2')),
-                5 => '#' . sprintf('%06X',$this->ReadPropertyInteger('kompressorbalkenfarbe1')),
-                6 => '#' . sprintf('%06X',$this->ReadPropertyInteger('kompressorbalkenfarbe2')),
-                7 => '#' . sprintf('%06X',$this->ReadPropertyInteger('durchflussbalkenfarbe1')),
-                8 => '#' . sprintf('%06X',$this->ReadPropertyInteger('durchflussbalkenfarbe2')),
-                9 => '#' . sprintf('%06X',$this->ReadPropertyInteger('luefterbalkenfarbe1')),
-                10 => '#' . sprintf('%06X',$this->ReadPropertyInteger('luefterbalkenfarbe2')),
-                11 => $this->ReadPropertyFloat('Bildtransparenz'),
-                12 => '#' . sprintf('%06X',$this->ReadPropertyInteger('Kachelhintergrundfarbe')),
-            );
-
-
-
-
-            $imageID = $this->ReadPropertyInteger('bgImage');
-            if (IPS_MediaExists($imageID)) {
-                $image = IPS_GetMedia($imageID);
-                if ($image['MediaType'] === MEDIATYPE_IMAGE) {
-                    $imageFile = explode('.', $image['MediaFile']);
-                    $imageContent = '';
-                    // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
-                    switch (end($imageFile)) {
-                        case 'bmp':
-                            $imageContent = 'data:image/bmp;base64,';
-                            break;
-    
-                        case 'jpg':
-                        case 'jpeg':
-                            $imageContent = 'data:image/jpeg;base64,';
-                            break;
-    
-                        case 'gif':
-                            $imageContent = 'data:image/gif;base64,';
-                            break;
-    
-                        case 'png':
-                            $imageContent = 'data:image/png;base64,';
-                            break;
-    
-                        case 'ico':
-                            $imageContent = 'data:image/x-icon;base64,';
-                            break;
-                    }
-
-                    // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
-                    if ($imageContent) {
-                        // Hänge base64-codierten Inhalt des Bildes an
-                        $imageContent .= IPS_GetMediaContent($imageID);
-                        $result['image1'] = $imageContent;
-                    }
-
-                }
-            }
-            else{
-                if ($this->ReadPropertyBoolean('BG_Off')) {
-                $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/kachelhintergrund1.png'));
-                }
-                else {
-                    $imageContent = 'data:image/webp;base64,';
-                    $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/transparent.webp'));
-                }
-            }  
-
-
-            $BGImagesJson = json_encode($imageContent);
-            $bgimages = '<script type="text/javascript">';
-            $bgimages .= 'var BGImages = ' . $BGImagesJson . ';';
-            $bgimages .= '</script>';
-
-
-
-
-            $statusImagesJson = json_encode($statusMapping);
-            $images = '<script type="text/javascript">';
-            $images .= 'var statusImages = ' . $statusImagesJson . ';';
-            $images .= '</script>';
-
-            $cssJson = json_encode($cssArray);
-            $cssvar = '<script type="text/javascript">';
-            $cssvar .= 'var cssvar = ' . $cssJson . ';';
-            $cssvar .= '</script>';
-            
-            $statusArrayJson = json_encode($statusArray);
-            $varexist = '<script type="text/javascript">';
-            $varexist .= 'var varexist = ' . $statusArrayJson . ';';
-            $varexist .= '</script>';
-
-            // Add static HTML content from file to make editing easier
-            $module = file_get_contents(__DIR__ . '/module.html');
-
-            // Return everything to render our fancy tile!
-            return $module . $varexist . $images . $assets . $cssvar . $bgimages . $messages;
+        .hidden {
+            display: none;
         }
 
-        private function GetUpdatedValue($variableIdent, $variableID) {
-         
-            if (($variableID === false) || (!IPS_VariableExists($variableID))) {
-                return false;
+        .main_container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .div1 {
+            width: 20%;
+            box-sizing: border-box;
+        }
+
+        .div1 img {
+            box-sizing: border-box;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .div2 {
+            width: 80%;
+            padding: 5px 5px 5px 2.5%;
+            margin: 0px 0px 0px 2.5%;
+            box-sizing: border-box;
+            border-radius: 0px;
+            border-left: 1px dotted #28cdab;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .balkendiagramm {
+            width: 100%;
+            display: flex;
+            position: relative;
+            margin-bottom: 2%;
+            box-sizing: border-box;
+        }
+
+        .balken_links_leistung,
+        .balken_links_durchfluss,
+        .balken_links_luefterdrehzahl,
+        .balken_links_kompressor,
+        .balken_rechts_leistung,
+        .balken_rechts_durchfluss,
+        .balken_rechts_luefterdrehzahl,
+        .balken_rechts_kompressor {
+            height: 1.8em;
+            font-size: var(--fontsizebalken);
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+        @keyframes gradient_leistung {
+            0% {
+                background-position: 0 0;
             }
 
-            $variable = IPS_GetVariable($variableID);
-                        
-            $Value = GetValue($variableID);
-            $ValueFormatted = GetValueFormatted($variableID);
-            $profile = $variable['VariableCustomProfile'];
-            if ($profile === '') {
-                $profile = $variable['VariableProfile'];
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        @keyframes gradient_durchfluss {
+            0% {
+                background-position: 0 0;
             }
 
-            $p = IPS_VariableProfileExists($profile) ? IPS_GetVariableProfile($profile) : null;
+            100% {
+                background-position: -200% 0;
+            }
+        }
 
-            if (IPS_VariableProfileExists($profile)) {
-                $p = IPS_GetVariableProfile($profile);
+        @keyframes gradient_luefterdrehzahl {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        @keyframes gradient_kompressor {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .balken_links_leistung {
+            background: repeating-linear-gradient(to right, var(--powerbalkenfarbe1) 0%, var(--powerbalkenfarbe2) 50%, var(--powerbalkenfarbe1) 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_leistung 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+
+        .balken_links_durchfluss {
+            background: repeating-linear-gradient(to right, var(--durchflussbalkenfarbe1) 0%, var(--durchflussbalkenfarbe2) 50%, var(--durchflussbalkenfarbe1) 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_leistung 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+
+        .balken_links_luefterdrehzahl {
+            background: repeating-linear-gradient(to right, var(--luefterbalkenfarbe1) 0%, var(--luefterbalkenfarbe2) 50%, var(--luefterbalkenfarbe1) 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_leistung 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+
+        .balken_links_kompressor {
+            background: repeating-linear-gradient(to right, var(--kompressorbalkenfarbe1) 0%, var(--kompressorbalkenfarbe2) 50%, var(--kompressorbalkenfarbe1) 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_leistung 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+
+        .balken_links_text {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            transform: translate(-0%, -50%);
+            color: #fff;
+            z-index: 2;
+            padding: 5px;
+        }
+
+        .balken_rechts {
+            width: 100%;
+            border-radius: 6px;
+            background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
+            overflow: hidden;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0
+            }
+
+            50% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        .icon {
+            color: #26d4b9;
+
+        }
+
+        .right-space {
+            padding-right: 0.3em;
+        }
+
+        .right-padding {
+            padding-right: 0.3em;
+        }
+
+        #status,
+        #mode,
+        .title {
             
-                $colorhexWert = "";
+            font-size: var(--fontsizestatus);
+        }
+
+        .statusdiv, .modediv {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 5px;
+        }
+
+
+        .clickable {
+            cursor: pointer;
+        }
+
+
+        .mode_0 .mode-normal,
+        .mode_1 .mode-silent,
+        .mode_2 .mode-eco {
+            color: #26d4b9 !important;
+            font-size: var(--fontsizestatus);
+        }
+
+        th,
+        td {
+            padding: 2;
+            text-align: left;
+            border: none;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+
+
+        }
+        .spf {
+            display: inline;
+            margin-right: 10px;
+        }
+        .spf_row,
+        .cop_row,
+        .consumption_row,
+        .temp_row,
+        .heizstaebe_row {
+            display: table-row;
+        }
+        .wp_jaz_heizen, 
+        .wp_jaz_kuehlen,
+        .wp_jaz_ww,
+        .consumption_watt, 
+        .consumption_today,
+        .temp_outside,
+        .temp_ww,
+        .temp_vorlauf,
+        .temp_ruecklauf,
+        .heizstab_backup,
+        .heizstab_ww {
+            display: inline;
+            margin-right: 7px;
+
+        }
+
+        table {
+        font-size: var(--fontsizedetails);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="main_container">
+        <div id="div1" class="div1">
+            <img id="image">
+        </div>
+        <div class="div2">
+            <div class="hidden" id="statusdiv">
+                <b class="title right-space">Status:</b>
+                <div id="status"></div>
+            </div>
+            <div class="hidden" id="modediv">
+                <b class="title right-space">Mode:</b>
+                <div id="mode"></div>
+            </div>
+            <div class="hidden" id="power_div">
+                <div class="balken_rechts">
+                    <div class="balken_links_leistung">
+                        <span class="balken_links_text">
+                            <b class="right-space">Power:</b>
+                            <span id="power"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden" id="compressorpower_div">
+                <div class="balken_rechts">
+                    <div class="balken_links_kompressor">
+                        <span class="balken_links_text">
+                            <b class="right-space">Compressor:</b>
+                            <span id="compressorpower"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden" id="flow_div">
+                <div class="balken_rechts">
+                    <div class="balken_links_durchfluss">
+                        <span class="balken_links_text">
+                            <b class="right-space">Flow:</b>
+                            <span id="flow"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden" id="fanrotations_div">
+                <div class="balken_rechts">
+                    <div class="balken_links_luefterdrehzahl">
+                        <span class="balken_links_text">
+                            <b class="right-space">Fan rotations:</b>
+                            <span id="fanrotations"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <table>
+                <tr id="spf_row" class="hidden">
+                    <td style="padding-right: 10px;">SPF:</td>
+                    <td>
+                        <i id="spf_icon" class="fa-solid fa-house fa-sm icon fa-fw hidden"></i>
+                        <span id="spf" class="hidden"></span>
+
+                        <span id="wp_jaz_heizen" class="hidden">
+                            <i class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i>
+                            <span id="spfheating"></span>
+                        </span>
+
+                        <span id="wp_jaz_kuehlen" class="hidden">
+                            <i class="fa-solid fa-snowflake fa-sm icon fa-fw"></i>
+                            <span id="spfcooling"></span>
+                        </span>
+
+                        <span id="wp_jaz_ww" class="hidden">
+                            <i class="fa-solid fa-droplet fa-sm icon fa-fw"></i>
+                            <span id="spfwater"></span>
+                        </span>
+                    </td>
+                </tr>
+                
+                <tr id="cop_row" class="hidden">
+                    <td style="padding-right: 10px;">COP:</td>
+                    <td><i class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i>&nbsp;<span id="cop">0</span></td>
+                </tr>
+                <tr id="consumption_row" class="hidden">
+                    <td style="padding-right: 10px;">Consumption:</td>
+                    <td>
+                        <span id="consumption_watt" class="hidden">
+                            <i class="fa-solid fa-bolt fa-sm icon fa-fw"></i>
+                            <span id="consumption"></span>
+                        </span>
+                        <span id="consumption_today" class="hidden">
+                            <i class="fa-solid fa-bolt fa-sm icon fa-fw"></i>
+                            Heute: <span id="consumptiontoday"></span>
+                        </span>
+                        </td>
+                </tr>
+                <tr id="temp_row" class="hidden">
+                    <td style="padding-right: 10px;">Temp.:</td>
+                    <td><span id="temp_outside" class="hidden"><i class="fa-solid fa-tree fa-sm icon fa-fw"></i>&nbsp;<span id="outdoortemperature">0</span></span>
+                        <span id="temp_ww" class="hidden"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i>&nbsp;<span id="watertemperature">0</span></span>
+                        <span id="temp_vorlauf" class="hidden"><i class="fa-solid fa-circle-down fa-sm icon fa-fw"></i>&nbsp;<span id="flowtemperature">0</span></span>
+                        <span id="temp_ruecklauf" class="hidden"><i class="fa-solid fa-circle-up fa-sm icon fa-fw"></i>&nbsp;<span id="returntemperature">0</span></span>
+                    </td>
+                </tr>
+                <tr id="heizstaebe" class="hidden">
+                    <td style="padding-right: 10px;"><span class="hz_alle">Heater Rods:</span></td>
+                    <td>
+                        <span id="heizstab_backup" class="hidden"><i class="fa-solid fa-fan fa-sm icon fa-fw"></i><span class="hz_wp_backup">&nbsp;WP:&nbsp;<i id="heaterrodbackupstatus" class="fa-solid fa-circle fa-sm icon fa-fw"></i></span></span>
+                        <span id="heizstab_ww" class="hidden"><i class="fa-solid fa-droplet fa-sm icon fa-fw"></i> WW-Speicher:&nbsp;
+                            <i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
+                            <i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
+                            <i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+
             
-                if (!empty($p['Associations']) && is_array($p['Associations'])) {
-                    foreach ($p['Associations'] as $association) {
-                        // Prüfe, ob der aktuelle Wert dem gesuchten Wert entspricht
-                        if (isset($association['Value'], $association['Color']) && $association['Value'] == $Value) {
-                            // Überprüfe, ob $color -1 ist und setze $colorhexWert entsprechend
-                            $colorhexWert = $association['Color'] === -1 ? "" : sprintf('%06X', $association['Color']);
-                            break; // Beende die Schleife, da der passende Wert gefunden wurde
+        </div>
+    </div>
+    <script type="text/javascript" charset="UTF-8">
+        function handleMessage(message) {
+            const data = JSON.parse(message);
+            const divID = data.Ident.toLowerCase();
+            const value = data.result;
+            const divElement = document.getElementById(divID);
+            const divElementBalken = document.getElementById(divID + '_div');
+            if (divElement) {
+                switch (data.Ident) {
+                    case 'Status': {
+                        let index = data.Value;
+                        if (!statusImages[index]) {
+                            index = 0;
                         }
+                        if (statusImages[index] === 'wp_heizen') {
+                            document.getElementById('image').src = window.assets.img_wp_heizen;
+                        }
+                        else if (statusImages[index] === 'wp_ww') {
+                            document.getElementById('image').src = window.assets.img_wp_ww;
+                        }
+                        else if (statusImages[index] === 'wp_kuehlen') {
+                            document.getElementById('image').src = window.assets.img_wp_kuehlen;
+                        }
+                        else {
+                            document.getElementById('image').src = window.assets.img_wp_aus;
+                        }
+                        divElement.className = 'status_' + data.Value;
+                        divElement.textContent = data.ValueFormatted;
+                        divElement.style.color = data.Color;
+
+                        statusdiv.className = 'statusdiv';
+
+                        break;
                     }
+
+                    case 'Mode':
+                        divElement.className = 'mode_' + data.Value;
+                        divElement.textContent = data.ValueFormatted;
+                        modediv.className = 'modediv';
+                        break;
+
+                    case 'ConsumptionToday':
+                        
+                        document.getElementById("consumption_row").className = 'consumption_row';
+                        document.getElementById("consumption_today").className = 'consumption_today';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+
+                    case 'Consumption':
+                        
+                        document.getElementById("consumption_row").className = 'consumption_row';
+                        document.getElementById("consumption_watt").className = 'consumption_watt';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+                    case 'HeaterRodBackupStatus':
+                    document.getElementById("heizstaebe").className = 'heizstaebe_row';
+                    document.getElementById("heizstab_backup").className = 'heizstab_backup';
+
+
+                        if (data.Value) {
+                            divElement.classList.remove('fa-regular');
+                            divElement.classList.add('fa-solid');
+                        }
+                        else {
+                            divElement.classList.remove('fa-solid');
+                            divElement.classList.add('fa-regular');
+                        }
+                        break;
+
+                    case 'HeaterRodPhase1':
+                    case 'HeaterRodPhase2':
+                    case 'HeaterRodPhase3':
+                    document.getElementById("heizstaebe").className = 'heizstaebe_row';
+                    document.getElementById("heizstab_ww").className = 'heizstaebe_ww';
+                    divElement.classList.remove('hidden');
+                        if (data.Value) {
+                            divElement.classList.remove('fa-regular');
+                            divElement.classList.add('fa-solid');
+                        }
+                        else {
+                            divElement.classList.remove('fa-solid');
+                            divElement.classList.add('fa-regular');
+                        }
+                    break;
+
+
+
+                    case 'Power':
+                    case 'CompressorPower':
+                    case 'Flow':
+                    case 'FanRotations':
+                        divElement.textContent = data.ValueFormatted;
+                        divElement.parentElement.parentElement.style.width = `${(data.Value / data.Max) * 100}%`;
+                        divElementBalken.className = 'balkendiagramm';
+                    break;
+
+                    case 'SPF':
+                        document.getElementById("spf_row").className = 'spf_row';
+                        document.getElementById("spf_icon").className = 'fa-solid fa-house fa-sm icon fa-fw';
+                        divElement.className = 'spf';
+                        divElement.textContent = data.ValueFormatted;
+                    break;
+
+                    case 'SPFHeating':
+                        document.getElementById("spf_row").className = 'spf_row';
+                        document.getElementById("wp_jaz_heizen").className = 'wp_jaz_heizen';
+                        divElement.textContent = data.ValueFormatted;
+                    break;    
+                    case 'SPFCooling':
+                        document.getElementById("spf_row").className = 'spf_row';
+                        document.getElementById("wp_jaz_kuehlen").className = 'wp_jaz_kuehlen';
+                        divElement.textContent = data.ValueFormatted;
+                    break;   
+                    case 'SPFWater':
+                        document.getElementById("spf_row").className = 'spf_row';
+                        document.getElementById("wp_jaz_ww").className = 'wp_jaz_ww';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+                    case 'COP':
+                        document.getElementById("cop_row").className = 'cop_row';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+                    case 'Consumption':
+                        document.getElementById("consumption_row").className = 'consumption_row';
+                        document.getElementById("consumption_watt").className = 'consumption_watt';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+                    case 'ConsumptionToday':
+                        document.getElementById("consumption_row").className = 'consumption_row';
+                        document.getElementById("consumption_today").className = 'consumption_today';
+                        divElement.textContent = data.ValueFormatted;
+                    break; 
+                    case 'OutdoorTemperature':
+                        document.getElementById("temp_row").className = 'temp_row';
+                        document.getElementById("temp_outside").className = 'temp_outside';
+                        divElement.textContent = data.ValueFormatted;
+                    break;                    
+                    case 'WaterTemperature':
+                        document.getElementById("temp_row").className = 'temp_row';
+                        document.getElementById("temp_ww").className = 'temp_ww';
+                        divElement.textContent = data.ValueFormatted;
+                    break;    
+                    case 'FlowTemperature':
+                        document.getElementById("temp_row").className = 'temp_row';
+                        document.getElementById("temp_vorlauf").className = 'temp_vorlauf';
+                        divElement.textContent = data.ValueFormatted;
+                    break;   
+                    case 'ReturnTemperature':
+                        document.getElementById("temp_row").className = 'temp_row';
+                        document.getElementById("temp_ruecklauf").className = 'temp_ruecklauf';
+                        divElement.textContent = data.ValueFormatted;
+                    break;       
+                                
+                    default:
+                        divElement.textContent = data.ValueFormatted;
+                    break;
+                    
                 }
             } else {
-                $colorhexWert = "";
+                console.error('Ungültiges JSON-Format oder fehlende Daten.');
             }
+            var root = document.documentElement;
+                        root.style.setProperty('--fontsizebalken', cssvar[0]+'em');
+                        root.style.setProperty('--fontsizedetails', cssvar[1]+'em');
+                        root.style.setProperty('--fontsizestatus', cssvar[2]+'em');
 
-            return json_encode([
-                'Ident' => $variableIdent,
-                'Value' => $Value,  
-                'ValueFormatted' => $ValueFormatted, 
-                'Min' => $p ? $p['MinValue'] : false,
-                'Max' => $p ? $p['MaxValue'] : false,
-                'Color' => '#' . $colorhexWert,
-            ]);
-            
+                        root.style.setProperty('--powerbalkenfarbe1', cssvar[3]);
+                        root.style.setProperty('--powerbalkenfarbe2', cssvar[4]);
+                        root.style.setProperty('--kompressorbalkenfarbe1', cssvar[5]);
+                        root.style.setProperty('--kompressorbalkenfarbe2', cssvar[6]);
+                        root.style.setProperty('--durchflussbalkenfarbe1', cssvar[7]);
+                        root.style.setProperty('--durchflussbalkenfarbe2', cssvar[8]);
+                        root.style.setProperty('--luefterbalkenfarbe1', cssvar[9]);
+                        root.style.setProperty('--luefterbalkenfarbe2', cssvar[10]);
+                        root.style.setProperty('--bildtransparenz', cssvar[11]);
+                        root.style.setProperty('--hintergrundfarbe', cssvar[12]);
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--background-image', 'url(' + BGImages + ')');
+                        
+
         }
-    
-    }
 
-?>
+    </script>
