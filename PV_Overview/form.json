@@ -34,7 +34,18 @@
               "type": "ValidationTextBox",
               "name": "ProduktionLabel",
               "caption": "Label Produktion/Erzeugung"
-          },
+            },
+            {
+              "type": "SelectVariable",
+              "name": "ProduktionSpeicherWert",
+              "caption": "Produktion/Erzeugung Speicher:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "ValidationTextBox",
+              "name": "ProduktionSpeicherLabel",
+              "caption": "Label Produktion/Erzeugung Speicher"
+            },
             {
               "type": "SelectVariable",
               "name": "VerbrauchWert",

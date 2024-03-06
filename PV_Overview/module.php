@@ -8,6 +8,9 @@ class TileVisuPVOverview extends IPSModule
 
         $this->RegisterPropertyInteger("ProduktionWert", 0);
         $this->RegisterPropertyString("ProduktionLabel", "Produktion");
+        $this->RegisterPropertyInteger("ProduktionSpeicherEntladenWert", 0);
+        $this->RegisterPropertyInteger("ProduktionSpeicherLadenWert", 0);
+        $this->RegisterPropertyString("ProduktionLabel", "Produktion Speicher");
         $this->RegisterPropertyInteger("ExportWert", 0);
         $this->RegisterPropertyString("ExportLabel", "Export");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
@@ -51,7 +54,7 @@ class TileVisuPVOverview extends IPSModule
         }
 
 
-        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
+        foreach (['ProduktionWert', 'ProduktionSpeicherEntladenWert','ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -62,7 +65,7 @@ class TileVisuPVOverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
+        foreach (['ProduktionWert', 'ProduktionSpeicherEntladenWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -90,7 +93,20 @@ class TileVisuPVOverview extends IPSModule
                                 }
                             }
                         }
-                        
+
+                        $produktionSpeicherID = $this->ReadPropertyInteger('ProduktionSpeicherEntladenWert');
+                        $produktionSpeicher = 1; // Standardwert setzen 
+
+                        if (IPS_VariableExists($produktionSpeicherID) && AC_GetLoggingStatus($archivID, $produktionSpeicherID)) {
+                            $produktion_speicher_heute_archiv = AC_GetAggregatedValues($archivID, $produktionSpeicherID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            if (!empty($produktion_speicher_heute_archiv)) {
+                                $produktion_speicher = round($produktion_speicher_heute_archiv[0]['Avg'], 2);
+                                if ($produktion_speicher <= 0) {
+                                    $produktion_speicher = 0.0;
+                                }
+                            }
+                        }
+
                         $importID = $this->ReadPropertyInteger('ImportWert');
                         $import = 1; // Standardwert setzen
                         
@@ -158,6 +174,7 @@ class TileVisuPVOverview extends IPSModule
                         }
 
                         $this->UpdateVisualizationValue(json_encode(['produktionwert' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['produktionspeicherwert' => $produktion]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
                         $this->UpdateVisualizationValue(json_encode(['verbrauch' => $verbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['export' => $export]));
@@ -242,6 +259,19 @@ class TileVisuPVOverview extends IPSModule
                     $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                     if ($produktion <= 0) {
                         $produktion = 0.01;
+                    }
+                }
+            }
+
+            $produktionSpeicherID = $this->ReadPropertyInteger('ProduktionSpeicherWert');
+            $produktionSpeicher = 1; // Standardwert setzen 
+
+            if (IPS_VariableExists($produktionSpeicherID) && AC_GetLoggingStatus($archivID, $produktionSpeicherID)) {
+                $produktion_speicher_heute_archiv = AC_GetAggregatedValues($archivID, $produktionSpeicherID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                if (!empty($produktion_speicher_heute_archiv)) {
+                    $produktion_speicher = round($produktion_speicher_heute_archiv[0]['Avg'], 2);
+                    if ($produktion_speicher <= 0) {
+                        $produktion_speicher = 0.0;
                     }
                 }
             }
