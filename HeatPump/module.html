@@ -280,6 +280,7 @@
             display: table-row;
         }
         .wp_jaz_heizen, 
+        .wp_jaz_kuehlen,
         .wp_jaz_ww,
         .consumption_watt, 
         .consumption_today,
@@ -367,6 +368,11 @@
                         <span id="wp_jaz_heizen" class="hidden">
                             <i class="fa-solid fa-fire-flame-curved fa-sm icon fa-fw"></i>
                             <span id="spfheating"></span>
+                        </span>
+
+                        <span id="wp_jaz_kuehlen" class="hidden">
+                            <i class="fa-solid fa-snowflake fa-sm icon fa-fw"></i>
+                            <span id="spfcooling"></span>
                         </span>
 
                         <span id="wp_jaz_ww" class="hidden">
@@ -525,6 +531,11 @@
                         document.getElementById("wp_jaz_heizen").className = 'wp_jaz_heizen';
                         divElement.textContent = data.ValueFormatted;
                     break;    
+                    case 'SPFCooling':
+                        document.getElementById("spf_row").className = 'spf_row';
+                        document.getElementById("wp_jaz_kuehlen").className = 'wp_jaz_kuehlen';
+                        divElement.textContent = data.ValueFormatted;
+                    break;   
                     case 'SPFWater':
                         document.getElementById("spf_row").className = 'spf_row';
                         document.getElementById("wp_jaz_ww").className = 'wp_jaz_ww';

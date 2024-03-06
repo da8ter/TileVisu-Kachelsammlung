@@ -23,6 +23,7 @@
             $this->RegisterPropertyInteger('COP', 0);
             $this->RegisterPropertyInteger('SPF', 0);
             $this->RegisterPropertyInteger('SPFHeating', 0);
+            $this->RegisterPropertyInteger('SPFCooling', 0);
             $this->RegisterPropertyInteger('SPFWater', 0);
             $this->RegisterPropertyInteger('Power', 0);
             $this->RegisterPropertyInteger('Consumption', 0);
@@ -64,7 +65,7 @@
                 }
             }
 
-            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $HeatPumpProperty) {
+            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFCooling', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $HeatPumpProperty) {
                 $this->RegisterMessage($this->ReadPropertyInteger($HeatPumpProperty), VM_UPDATE);
             }
             $this->UpdateVisualizationValue($this->GetVisualizationTile());
@@ -72,7 +73,7 @@
 
 
         public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
-            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $index => $HeatPumpProperty) {
+            foreach(['Status', 'Mode', 'OutdoorTemperature', 'WaterTemperature', 'FlowTemperature', 'ReturnTemperature', 'HeaterRodBackupStatus', 'HeaterRodPhase1', 'HeaterRodPhase2', 'HeaterRodPhase3', 'Flow', 'FanRotations', 'CompressorPower', 'COP', 'SPF', 'SPFHeating', 'SPFCooling', 'SPFWater', 'Power', 'Consumption', 'ConsumptionToday'] as $index => $HeatPumpProperty) {
                 if ($SenderID === $this->ReadPropertyInteger($HeatPumpProperty)) {
                     switch ($Message) {
                         case VM_UPDATE:
@@ -118,6 +119,7 @@
                 array('Name' => 'COP', 'VariableID' => $this->ReadPropertyInteger('COP')),
                 array('Name' => 'SPF', 'VariableID' => $this->ReadPropertyInteger('SPF')),
                 array('Name' => 'SPFHeating', 'VariableID' => $this->ReadPropertyInteger('SPFHeating')),
+                array('Name' => 'SPFCooling', 'VariableID' => $this->ReadPropertyInteger('SPFCooling')),
                 array('Name' => 'SPFWater', 'VariableID' => $this->ReadPropertyInteger('SPFWater')),
                 array('Name' => 'Power', 'VariableID' => $this->ReadPropertyInteger('Power')),
                 array('Name' => 'Consumption', 'VariableID' => $this->ReadPropertyInteger('Consumption')),

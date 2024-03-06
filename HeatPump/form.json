@@ -258,6 +258,12 @@
                         },
                         {
                             "type": "SelectVariable",
+                            "name": "SPFCooling",
+                            "caption": "SPF cooling:",
+                            "validVariableTypes": [1, 2]
+                        },
+                        {
+                            "type": "SelectVariable",
                             "name": "SPFWater",
                             "caption": "SPF hot water:",
                             "validVariableTypes": [1, 2]
