@@ -327,6 +327,10 @@
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         body.style.setProperty('--image_speicher',  'url(' + image_speicher + ')');
                         break;
+                    case 'image_speicher':
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--image_speicher',  'url(' + decodedData[parameter] + ')');
+                        break;
                     case 'eckenradius':
                         root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
                         break;
