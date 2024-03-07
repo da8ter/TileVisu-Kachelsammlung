@@ -190,7 +190,7 @@ class TileVisuPVOverview extends IPSModule
             $beladungSpeicher = 200; // in kWh
             $entladungSpeicher = 200; // in kWh
             $import = 800; // in kWh
-            $export = 500; // in kWh
+            $export = 50; // in kWh
             $verbrauch = 1500;
 
             // Berechnungen
