@@ -106,7 +106,7 @@ class TileVisuPVOverview extends IPSModule
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($produktion_heute_archiv)) {
-                                $produktion = round($speicherbeladung + $produktion_heute_archiv[0]['Avg'], 2);
+                                $produktion = round($beladungSpeicher + $produktion_heute_archiv[0]['Avg'], 2);
                             }
                         }
             
@@ -273,7 +273,7 @@ class TileVisuPVOverview extends IPSModule
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($produktion_heute_archiv)) {
-                    $produktion = round($speicherbeladung + $produktion_heute_archiv[0]['Avg'], 2);
+                    $produktion = round($beladungSpeicher + $produktion_heute_archiv[0]['Avg'], 2);
                 }
             }
 
