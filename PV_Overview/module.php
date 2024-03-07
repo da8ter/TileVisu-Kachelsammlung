@@ -95,10 +95,10 @@ class TileVisuPVOverview extends IPSModule
                         $eigenproduktion = $eigenverbrauch; // In diesem Kontext ist Eigenproduktion gleich dem Eigenverbrauch
 
                         // Vermeidung von Division durch Null und Berechnung der Prozentwerte
-                        $eigenverbrauch_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
+                        $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
                         $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
                         $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-                        $eigenproduktion_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;
+                        $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
 
 
 
@@ -197,10 +197,10 @@ class TileVisuPVOverview extends IPSModule
             $eigenproduktion = $eigenverbrauch; // In diesem Kontext ist Eigenproduktion gleich dem Eigenverbrauch
 
             // Vermeidung von Division durch Null und Berechnung der Prozentwerte
-            $eigenverbrauch_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
+            $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
             $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
             $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-            $eigenproduktion_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
+            $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
 
             
             $result['produktion'] = $produktion;
