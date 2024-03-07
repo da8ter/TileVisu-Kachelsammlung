@@ -116,6 +116,7 @@ class TileVisuPVOverview extends IPSModule
                         $this->UpdateVisualizationValue(json_encode(['import_prozent' => $import_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch_prozent' => $eigenverbrauch_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion_prozent' => $eigenproduktion_prozent]));
+                        $this->UpdateVisualizationValue(json_encode(['eigenproduktion_prozent_ohne_speicher' => $eigenproduktion_prozent - $eigenproduktion_speicher_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion_speicher_prozent' => $eigenproduktion_speicher_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch' => $eigenverbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion' => $eigenproduktion]));
