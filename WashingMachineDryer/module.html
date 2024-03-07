@@ -293,7 +293,7 @@
                     case 'statusvalue':
                         let index = decodedData[parameter];
                         if (!statusImages[index]) {
-                            index = 1;
+                            index = 0;
                         }
                         if (statusImages[index] === 'wm_an') {
                             document.getElementById('image').src = window.assets.img_wm_an;
@@ -349,6 +349,14 @@
                         if (decodedData[parameter]) {
                             verbrauchtag.className = 'info';
                             info.className = 'info';
+                        }
+                        break;
+                    case 'kostentag':
+                        element.textContent = decodedData[parameter];
+                        if (decodedData[parameter] != null) {
+                            kostentag.className = 'info';
+                            info.className = 'info';
+                            kosten.className = 'info';
                         }
                         break;
                     case 'balkenverlauffarbe1':
@@ -428,7 +436,8 @@
             </div>
             <div class="hidden" id="info"> <i class="fa-solid fa-bolt fa-sm"
                     style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden"
-                    id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span></div>
+                    id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span>
+                    <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span></div>
         </div>
     </div>
 </body>

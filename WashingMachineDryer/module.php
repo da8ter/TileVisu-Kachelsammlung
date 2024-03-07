@@ -1,8 +1,6 @@
 <?php
 class TileVisuWashingMaschine extends IPSModule
 {
-
-
     public function Create()
     {
         // Nie diese Zeile löschen!
@@ -16,6 +14,7 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyInteger("Restlaufzeit", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
+        $this->RegisterPropertyInteger("KostenTag", 0);
         $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
         $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
         $this->RegisterPropertyFloat("InfoSchriftgroesse", 1);
@@ -51,7 +50,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag'] as $VariableProperty)        {
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -62,7 +61,7 @@ class TileVisuWashingMaschine extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag'] as $index => $VariableProperty)
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -223,27 +222,22 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        // Formulardaten lesen und Statusmapping Array für Bild, Balkenstatus und Farbe erstellen
+        // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
-        //var_dump($assoziationsArray);
         $statusMappingImage = [];
         $statusMappingColor = [];
-        $statusMappingBalken = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
-            $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];      
+                      
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
         }
 
-
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
-        $statusBalkenJson = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusBalkenJson . ';';
         $images .= '</script>';
 
 
@@ -262,10 +256,10 @@ class TileVisuWashingMaschine extends IPSModule
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
 
-        $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
+       // $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
 
         // Ausgabe des Wertes zur Debugging-Zwecken
-        //var_dump($profilAssoziationen);
+       // var_dump($profilAssoziationen);
 
         $result = [];
     
@@ -279,6 +273,7 @@ class TileVisuWashingMaschine extends IPSModule
             $result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
+            $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;
             $result['statusschriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
             $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
             $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
@@ -366,8 +361,7 @@ class TileVisuWashingMaschine extends IPSModule
                         'AssoziationName' => $association['Name'],
                         'AssoziationValue' => $association['Value'],
                         'Bildauswahl' => 'wm_aus',
-                        'StatusColor' => '-1',
-                        'StatusBalken' => true
+                        'StatusColor' => '-1'
                     ];
                 }
             }
@@ -479,12 +473,6 @@ class TileVisuWashingMaschine extends IPSModule
         }
         return $icon;
     }
-
-
-
-
-
-
 
 }
 ?>
