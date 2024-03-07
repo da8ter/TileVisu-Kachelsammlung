@@ -307,19 +307,7 @@ class TileVisuPVOverview extends IPSModule
                 }
             }
 
-            $produktionSpeicherID = $this->ReadPropertyInteger('ProduktionSpeicherWert');
-            $produktionSpeicher = 1; // Standardwert setzen 
-
-            if (IPS_VariableExists($produktionSpeicherID) && AC_GetLoggingStatus($archivID, $produktionSpeicherID)) {
-                $produktion_speicher_heute_archiv = AC_GetAggregatedValues($archivID, $produktionSpeicherID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                if (!empty($produktion_speicher_heute_archiv)) {
-                    $produktion_speicher = round($produktion_speicher_heute_archiv[0]['Avg'], 2);
-                    if ($produktion_speicher <= 0) {
-                        $produktion_speicher = 0.0;
-                    }
-                }
-            }
-            
+          
             $importID = $this->ReadPropertyInteger('ImportWert');
             $import = 1; // Standardwert setzen
             
