@@ -37,14 +37,15 @@
             },
             {
               "type": "SelectVariable",
-              "name": "ProduktionSpeicherWert",
-              "caption": "Produktion/Erzeugung Speicher:",
+              "name": "SpeicherEntladungWert",
+              "caption": "Entladung Speicher:",
               "validVariableTypes": []
             },
             {
-              "type": "ValidationTextBox",
-              "name": "ProduktionSpeicherLabel",
-              "caption": "Label Produktion/Erzeugung Speicher"
+              "type": "SelectVariable",
+              "name": "SpeicherBeladungWert",
+              "caption": "Beladung Speicher:",
+              "validVariableTypes": []
             },
             {
               "type": "SelectVariable",

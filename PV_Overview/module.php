@@ -8,9 +8,8 @@ class TileVisuPVOverview extends IPSModule
 
         $this->RegisterPropertyInteger("ProduktionWert", 0);
         $this->RegisterPropertyString("ProduktionLabel", "Produktion");
-        $this->RegisterPropertyInteger("ProduktionSpeicherEntladenWert", 0);
-        $this->RegisterPropertyInteger("ProduktionSpeicherLadenWert", 0);
-        $this->RegisterPropertyString("ProduktionLabel", "Produktion Speicher");
+        $this->RegisterPropertyInteger("SpeicherEntladungWert", 0);
+        $this->RegisterPropertyInteger("SpeicherBeladungWert", 0);
         $this->RegisterPropertyInteger("ExportWert", 0);
         $this->RegisterPropertyString("ExportLabel", "Export");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
@@ -54,7 +53,7 @@ class TileVisuPVOverview extends IPSModule
         }
 
 
-        foreach (['ProduktionWert', 'ProduktionSpeicherEntladenWert','ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
+        foreach (['ProduktionWert', 'SpeicherEntladungWert', 'SpeicherBeladungWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -65,7 +64,7 @@ class TileVisuPVOverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['ProduktionWert', 'ProduktionSpeicherEntladenWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
+        foreach (['ProduktionWert', 'SpeicherEntladungWert', 'SpeicherBeladungWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -81,31 +80,48 @@ class TileVisuPVOverview extends IPSModule
 
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
+
+                        $SpeicherEntladungID = $this->ReadPropertyInteger('SpeicherEntladungWert');
+                        $SpeicherEntladung = 1; // Standardwert setzen 
+
+                        if (IPS_VariableExists($SpeicherEntladungID) && AC_GetLoggingStatus($archivID, $SpeicherEntladungID)) {
+                            $SpeicherEntladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherEntladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            if (!empty($SpeicherEntladung_heute_archiv)) {
+                                $speicherentladung = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
+                                if ($speicherentladung <= 0) {
+                                    $speicherentladung = 0.0;
+                                }
+                            }
+                        }
+
+                        $SpeicherBeladungID = $this->ReadPropertyInteger('SpeicherBeladungWert');
+                        $SpeicherBeladung = 1; // Standardwert setzen 
+
+                        if (IPS_VariableExists($SpeicherBeladungID) && AC_GetLoggingStatus($archivID, $SpeicherBeladungID)) {
+                            $SpeicherBeladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherBeladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            if (!empty($SpeicherBeladung_heute_archiv)) {
+                                $speicherbeladung = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
+                                if ($speicherbeladung <= 0) {
+                                    $speicherbeladung = 0.0;
+                                }
+                            }
+                        }
+
+
                         $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
                         $produktion = 1; // Standardwert setzen
                         
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($produktion_heute_archiv)) {
-                                $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
+                                $produktion = round($SpeicherBeladung + $produktion_heute_archiv[0]['Avg'], 2);
                                 if ($produktion <= 0) {
                                     $produktion = 0.01;
                                 }
                             }
                         }
 
-                        $produktionSpeicherID = $this->ReadPropertyInteger('ProduktionSpeicherEntladenWert');
-                        $produktionSpeicher = 1; // Standardwert setzen 
 
-                        if (IPS_VariableExists($produktionSpeicherID) && AC_GetLoggingStatus($archivID, $produktionSpeicherID)) {
-                            $produktion_speicher_heute_archiv = AC_GetAggregatedValues($archivID, $produktionSpeicherID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
-                            if (!empty($produktion_speicher_heute_archiv)) {
-                                $produktion_speicher = round($produktion_speicher_heute_archiv[0]['Avg'], 2);
-                                if ($produktion_speicher <= 0) {
-                                    $produktion_speicher = 0.0;
-                                }
-                            }
-                        }
 
                         $importID = $this->ReadPropertyInteger('ImportWert');
                         $import = 1; // Standardwert setzen
@@ -174,7 +190,8 @@ class TileVisuPVOverview extends IPSModule
                         }
 
                         $this->UpdateVisualizationValue(json_encode(['produktionwert' => $produktion]));
-                        $this->UpdateVisualizationValue(json_encode(['produktionspeicherwert' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['speicherentladungwert' => $speicherentladung]));
+                        $this->UpdateVisualizationValue(json_encode(['speicherbeladungwert' => $speicherbeladung]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
                         $this->UpdateVisualizationValue(json_encode(['verbrauch' => $verbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['export' => $export]));
@@ -250,13 +267,40 @@ class TileVisuPVOverview extends IPSModule
 
 
 
+            $SpeicherEntladungID = $this->ReadPropertyInteger('SpeicherEntladungWert');
+            $speicherentladung = 1; // Standardwert setzen 
+
+            if (IPS_VariableExists($SpeicherEntladungID) && AC_GetLoggingStatus($archivID, $SpeicherEntladungID)) {
+                $SpeicherEntladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherEntladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                if (!empty($SpeicherEntladung_heute_archiv)) {
+                    $speicherentladung = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
+                    if ($speicherentladung <= 0) {
+                        $speicherentladung = 0.0;
+                    }
+                }
+            }
+
+            $SpeicherBeladungID = $this->ReadPropertyInteger('SpeicherBeladungWert');
+            $speicherbeladung = 1; // Standardwert setzen 
+
+            if (IPS_VariableExists($SpeicherBeladungID) && AC_GetLoggingStatus($archivID, $SpeicherBeladungID)) {
+                $SpeicherBeladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherBeladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                if (!empty($SpeicherBeladung_heute_archiv)) {
+                    $speicherbeladung = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
+                    if ($speicherbeladung <= 0) {
+                        $speicherbeladung = 0.0;
+                    }
+                }
+            }
+
+
             $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
             $produktion = 1; // Standardwert setzen
             
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($produktion_heute_archiv)) {
-                    $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
+                    $produktion = round($SpeicherBeladung + $produktion_heute_archiv[0]['Avg'], 2);
                     if ($produktion <= 0) {
                         $produktion = 0.01;
                     }
@@ -338,6 +382,8 @@ class TileVisuPVOverview extends IPSModule
             }          
             
             $result['produktion'] = $produktion;
+            $result['speicherentladungwert'] = $speicherentladung;
+            $result['speicherbeladungwert'] = $speicherbeladung;
             $result['export'] = $export;
             $result['import'] = $import; 
             $result['verbrauch'] = $verbrauch; 
