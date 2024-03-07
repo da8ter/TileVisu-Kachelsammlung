@@ -96,9 +96,9 @@ class TileVisuPVOverview extends IPSModule
 
                         // Vermeidung von Division durch Null und Berechnung der Prozentwerte
                         $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
+                        $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
                         $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
                         $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-                        $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
 
 
 
@@ -115,6 +115,7 @@ class TileVisuPVOverview extends IPSModule
                         $this->UpdateVisualizationValue(json_encode(['import_prozent' => $import_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch_prozent' => $eigenverbrauch_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion_prozent' => $eigenproduktion_prozent]));
+                        $this->UpdateVisualizationValue(json_encode(['eigenproduktion_speicher_prozent' => $eigenproduktion_speicher_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch' => $eigenverbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion' => $eigenproduktion]));
                         break; // Beende die Schleife, da der passende Wert gefunden wurde
@@ -198,9 +199,11 @@ class TileVisuPVOverview extends IPSModule
 
             // Vermeidung von Division durch Null und Berechnung der Prozentwerte
             $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
+            $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
             $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
             $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-            $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
+            
+
 
             
             $result['produktion'] = $produktion;
@@ -214,6 +217,7 @@ class TileVisuPVOverview extends IPSModule
             $result['export_prozent'] = $export_prozent;
             $result['import_prozent'] = $import_prozent;
             $result['eigenverbrauch_prozent'] = $eigenverbrauch_prozent;
+            $result['eigenproduktion_speicher_prozent'] = $eigenproduktion_speicher_prozent;
             $result['eigenproduktion_prozent'] = $eigenproduktion_prozent;
             $result['eigenverbrauch'] =  $eigenverbrauch;
             $result['eigenproduktion'] =  $eigenproduktion;
