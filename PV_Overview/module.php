@@ -104,7 +104,8 @@ class TileVisuPVOverview extends IPSModule
 
 
 
-                        $this->UpdateVisualizationValue(json_encode(['produktionwert' => $produktionGesamt]));
+                        $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['produktiongesamt' => $produktionGesamt]));
                         $this->UpdateVisualizationValue(json_encode(['speicherentladungwert' => $entladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['speicherbeladungwert' => $beladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
@@ -202,7 +203,8 @@ class TileVisuPVOverview extends IPSModule
             $eigenproduktion_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
 
             
-            $result['produktion'] = $produktionGesamt;
+            $result['produktion'] = $produktion;
+            $result['produktiongesamt'] = $produktionGesamt;
             $result['speicherentladungwert'] = $entladungSpeicher;
             $result['speicherbeladungwert'] = $beladungSpeicher;
             $result['export'] = $export;
