@@ -82,7 +82,7 @@ class TileVisuPVOverview extends IPSModule
 
 
                         $SpeicherEntladungID = $this->ReadPropertyInteger('SpeicherEntladungWert');
-                        $speicherentladung = 0; // Standardwert setzen 
+                        $entladungSpeicher = 0; // Standardwert setzen 
             
                         if (IPS_VariableExists($SpeicherEntladungID) && AC_GetLoggingStatus($archivID, $SpeicherEntladungID)) {
                             $SpeicherEntladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherEntladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -91,7 +91,7 @@ class TileVisuPVOverview extends IPSModule
                             }
                         }
                         $SpeicherBeladungID = $this->ReadPropertyInteger('SpeicherBeladungWert');
-                        $speicherbeladung = 0; // Standardwert setzen 
+                        $beladungSpeicher = 0; // Standardwert setzen 
             
                         if (IPS_VariableExists($SpeicherBeladungID) && AC_GetLoggingStatus($archivID, $SpeicherBeladungID)) {
                             $SpeicherBeladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherBeladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -249,7 +249,7 @@ class TileVisuPVOverview extends IPSModule
 
 
             $SpeicherEntladungID = $this->ReadPropertyInteger('SpeicherEntladungWert');
-            $speicherentladung = 0; // Standardwert setzen 
+            $entladungSpeicher = 0; // Standardwert setzen 
 
             if (IPS_VariableExists($SpeicherEntladungID) && AC_GetLoggingStatus($archivID, $SpeicherEntladungID)) {
                 $SpeicherEntladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherEntladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
@@ -258,7 +258,7 @@ class TileVisuPVOverview extends IPSModule
                 }
             }
             $SpeicherBeladungID = $this->ReadPropertyInteger('SpeicherBeladungWert');
-            $speicherbeladung = 0; // Standardwert setzen 
+            $beladungSpeicher = 0; // Standardwert setzen 
 
             if (IPS_VariableExists($SpeicherBeladungID) && AC_GetLoggingStatus($archivID, $SpeicherBeladungID)) {
                 $SpeicherBeladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherBeladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
