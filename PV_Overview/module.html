@@ -325,12 +325,10 @@
                     case 'image1':
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        balken_links_eigenproduktion_speicher.style.setProperty('--image_speicher', $image_speicher);
                         break;
                     case 'eckenradius':
                         root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
-                        break;
-                    case 'imagespeicher':
-                    balken_links_eigenproduktion_speicher.style.setProperty('--image_speicher', 'url(' + decodedData[parameter] + ')');
                         break;
                     default:
                         //element.textContent = decodedData[parameter];
@@ -340,6 +338,7 @@
             }
         }
     </script>
+
 
 
 </head>
