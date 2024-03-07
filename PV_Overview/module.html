@@ -263,8 +263,10 @@
                     case 'eigenproduktion':
                         element.textContent = decodedData[parameter] + ' kWh';
                         break;
+                    case 'eigenproduktion_prozent_ohne_speicher':
+                        root.style.setProperty('--eigenproduktion_prozent_ohne_speicher', decodedData[parameter] + '%');
+                        break;
                     case 'eigenproduktion_prozent':
-                        root.style.setProperty('--eigenproduktion_prozent', decodedData[parameter] + '%');
                         element.textContent = decodedData[parameter] + ' %';
                         break;
                     case 'eigenproduktion_speicher_prozent':

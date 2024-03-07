@@ -220,6 +220,7 @@ class TileVisuPVOverview extends IPSModule
             $result['eigenverbrauch_prozent'] = $eigenverbrauch_prozent;
             $result['eigenproduktion_speicher_prozent'] = $eigenproduktion_speicher_prozent;
             $result['eigenproduktion_prozent'] = $eigenproduktion_prozent;
+            $result['eigenproduktion_prozent_ohne_speicher'] = $eigenproduktion_prozent - $eigenproduktion_speicher_prozent;
             $result['eigenverbrauch'] =  $eigenverbrauch;
             $result['eigenproduktion'] =  $eigenproduktion;
 
