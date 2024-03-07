@@ -89,7 +89,7 @@ class TileVisuPVOverview extends IPSModule
                             $SpeicherEntladung_heute_archiv = 150;
             
                             if (!empty($SpeicherEntladung_heute_archiv)) {
-                                $speicherentladung = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
+                             //   $speicherentladung = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
                                 if ($speicherentladung <= 0) {
                                     $speicherentladung = 0.0;
                                 }
@@ -104,7 +104,7 @@ class TileVisuPVOverview extends IPSModule
                             $SpeicherBeladung_heute_archiv = 200;
             
                             if (!empty($SpeicherBeladung_heute_archiv)) {
-                                $speicherbeladung = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
+                             //  $speicherbeladung = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
                                 if ($speicherbeladung <= 0) {
                                     $speicherbeladung = 0.0;
                                 }
@@ -119,7 +119,7 @@ class TileVisuPVOverview extends IPSModule
                             //$produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $produktion_heute_archiv = 1000;
                             if (!empty($produktion_heute_archiv)) {
-                                $produktion = round($speicherbeladung + $produktion_heute_archiv[0]['Avg'], 2);
+                            //    $produktion = round($speicherbeladung + $produktion_heute_archiv[0]['Avg'], 2);
                                 if ($produktion <= 0) {
                                     $produktion = 0.01;
                                 }
@@ -134,7 +134,7 @@ class TileVisuPVOverview extends IPSModule
                             //$import_heute_archiv = AC_GetAggregatedValues($archivID, $importID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $import_heute_archiv = 300;
                             if (!empty($import_heute_archiv)) {
-                                $import = round($import_heute_archiv[0]['Avg'], 2);
+                           //     $import = round($import_heute_archiv[0]['Avg'], 2);
                                 if ($import <= 0) {
                                     $import = 0.01;
                                 }
@@ -147,7 +147,7 @@ class TileVisuPVOverview extends IPSModule
                         if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
                             $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($verbrauch_heute_archiv)) {
-                                $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
+                             //   $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
                                 if ($verbrauch <= 0) {
                                     $verbrauch = 0.01;
                                 }
@@ -165,7 +165,7 @@ class TileVisuPVOverview extends IPSModule
                             //$export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             $export_heute_archiv = 500;
                             if (!empty($export_heute_archiv)) {
-                                $export = round($export_heute_archiv[0]['Avg'], 2);
+                            //    $export = round($export_heute_archiv[0]['Avg'], 2);
                                 if ($export <= 0) {
                                     $export = 0.01;
                                     $export_prozent = 0;
@@ -276,7 +276,7 @@ class TileVisuPVOverview extends IPSModule
                 $SpeicherEntladung_heute_archiv = 150;
 
                 if (!empty($SpeicherEntladung_heute_archiv)) {
-                    $speicherentladung = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
+                   // $speicherentladung = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
                     if ($speicherentladung <= 0) {
                         $speicherentladung = 0.0;
                     }
@@ -291,7 +291,7 @@ class TileVisuPVOverview extends IPSModule
                 $SpeicherBeladung_heute_archiv = 200;
 
                 if (!empty($SpeicherBeladung_heute_archiv)) {
-                    $speicherbeladung = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
+                   // $speicherbeladung = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
                     if ($speicherbeladung <= 0) {
                         $speicherbeladung = 0.0;
                     }
@@ -306,7 +306,7 @@ class TileVisuPVOverview extends IPSModule
                 //$produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $produktion_heute_archiv = 1000;
                 if (!empty($produktion_heute_archiv)) {
-                    $produktion = round($speicherbeladung + $produktion_heute_archiv[0]['Avg'], 2);
+                //    $produktion = round($speicherbeladung + $produktion_heute_archiv[0]['Avg'], 2);
                     if ($produktion <= 0) {
                         $produktion = 0.01;
                     }
@@ -321,7 +321,7 @@ class TileVisuPVOverview extends IPSModule
                 //$import_heute_archiv = AC_GetAggregatedValues($archivID, $importID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $import_heute_archiv = 300;
                 if (!empty($import_heute_archiv)) {
-                    $import = round($import_heute_archiv[0]['Avg'], 2);
+                  //  $import = round($import_heute_archiv[0]['Avg'], 2);
                     if ($import <= 0) {
                         $import = 0.01;
                     }
@@ -334,7 +334,7 @@ class TileVisuPVOverview extends IPSModule
             if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
                 $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($verbrauch_heute_archiv)) {
-                    $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
+                  //  $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
                     if ($verbrauch <= 0) {
                         $verbrauch = 0.01;
                     }
@@ -352,7 +352,7 @@ class TileVisuPVOverview extends IPSModule
                 //$export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 $export_heute_archiv = 500;
                 if (!empty($export_heute_archiv)) {
-                    $export = round($export_heute_archiv[0]['Avg'], 2);
+                   // $export = round($export_heute_archiv[0]['Avg'], 2);
                     if ($export <= 0) {
                         $export = 0.01;
                         $export_prozent = 0;
