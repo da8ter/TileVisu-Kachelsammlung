@@ -400,8 +400,9 @@ class TileVisuPVOverview extends IPSModule
                 }
             }     
 
-
-
+            $imagespeicher = 'data:image/png;base64,';
+            $imagespeicher .= base64_encode(file_get_contents(__DIR__ . '/assets/speicher.png'));
+            $result['image_speicher'] = $imagespeicher;
 
 
 
