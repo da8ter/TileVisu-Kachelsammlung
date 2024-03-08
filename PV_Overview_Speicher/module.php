@@ -320,7 +320,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
 
             // Berechnungen
             $produktionGesamt = round($produktion, 2);
-            $eigenverbrauch = round(($produktion - $export) + $beladungSpeicher, 2);
+            $eigenverbrauch = round(($produktion - $export), 2);
             $eigenproduktion = round(($produktion - $export) + $entladungSpeicher, 2);
 
             // Vermeidung von Division durch Null und Berechnung der Prozentwerte
