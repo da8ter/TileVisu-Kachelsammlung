@@ -1,0 +1,12 @@
+{
+    "id": "{CFE3497F-D8E8-472B-2F02-E59B7783A580}",
+    "name": "Tile Visu PV Overview Speicher",
+    "type": 3,
+    "vendor": "",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "PVO",
+    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/tree/main/PV_Overview"
+}

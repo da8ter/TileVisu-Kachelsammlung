@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Grundlegende Stildefinitionen, keine Änderungen hier */
+
+        :root {
+            --eigenverbrauchverlauffarbe1: #28CDAB;
+            /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
+            --eigenverbrauchverlauffarbe2: #208A74;
+            /* Ergänzende Farbe setzen */
+            --eigenproduktionverlauffarbe1: #28CDAB;
+            /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
+            --eigenproduktionverlauffarbe2: #208A74;
+            /* Ergänzende Farbe setzen */
+            --einspeisungfarbe: #00ff1a;
+            --zukauffarbe: #c40303;
+            --schriftgroesse: 1em;
+            --eigenverbrauch_prozent: 50%;
+            --eigenproduktion_prozent: 50%;
+            --schriftfarbebalken: #ffffff;
+            --schriftfarbebsub: ;
+        }
+
+
+
+        html {
+            background-color: var(--hintergrundfarbe);
+        }
+
+        body:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            box-sizing: border-box;
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+
+        body {
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--schriftfarbebalken);
+            z-index: 10;
+            font-size: 0.9em;
+        }
+
+        .maindiv {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+
+        }
+
+
+
+
+
+        .container2 {
+            width: 100%;
+            display: flex;
+            position: relative;
+            padding-top: 0px;
+            padding-bottom: 5px;
+        }
+
+        .einspeisungsubtext {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .eigenverbrauchsubtext {
+            width: 50%;
+        }
+
+        .bezugsubtext {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .eigenproduktionsubtext {
+            width: 50%;
+        }
+
+        .balkendiagramm {
+            width: 100%;
+            display: flex;
+            position: relative;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradient_forschritt {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .balken_links_eigenverbrauch {
+            width: var(--eigenverbrauch_prozent);
+            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_forschritt 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+        .balken_links_eigenproduktion {
+            display: flex;
+            justify-content: right;
+            width: var(--eigenproduktion_prozent);
+            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_forschritt 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+
+        .balken_links_eigenproduktion_speicher {
+            display: flex;
+            align-items: center;
+            width: var(--eigenproduktion_speicher_prozent);
+            background: rgba(0, 0, 0, 0.2);
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            background-image: var(--image_speicher, none);
+            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
+            background-position: left bottom; /* Positioniert das Bild unten links */
+            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+        }
+
+        .balken_links_eigenproduktion_pv {
+            display: flex;
+            align-items: center;
+            width: 20px;
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            background-image: var(--image_pv, none);
+            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
+            background-position: right bottom; /* Positioniert das Bild unten links */
+            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+            margin-right: 3px;
+        }
+
+        .balken_links_text {
+            position: absolute;
+            top: 50%;
+            left: 2%;
+            transform: translate(-0%, -50%);
+            color: var(--schriftfarbebalken);
+            z-index: 2;
+            padding: 2px;
+            font-size: var(--schriftgroessebalken);
+        }
+
+        .balken_links_text_finish {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+            transform: translate(-0%, -50%);
+            color: var(--schriftfarbebalken);
+            z-index: 3;
+            padding: 0px;
+            font-size: var(--schriftgroessebalken);
+        }
+
+        .balken_rechts {
+            width: 100%;
+            height: 1.8em;
+            border-radius: var(--eckenradius);
+            background: var(--einspeisungfarbe);
+            overflow: hidden;
+        }
+
+        .balken_rechts_zukauf {
+            display: flex;
+            height: 1.8em;
+            width: 100%;
+            border-radius: var(--eckenradius);
+            background: var(--zukauffarbe);
+            overflow: hidden;
+        }
+
+        .produktion,
+        .verbrauch {
+            font-size: var(--schriftgroessebalken);
+            display: inline-block;
+            margin: 0;
+            color: var(--schriftfarbebalken);
+        }
+
+        .eigenverbrauch,
+        .import,
+        .eigenproduktion,
+        .export {
+            font-size: var(--schriftgroessesub);
+            display: inline-block;
+            margin: 0;
+            color: var(--schriftfarbesub);
+        }
+    </style>
+
+
+    <script>
+        function handleMessage(data) {
+            //console.log('Rohdaten empfangen:', data);
+
+            const decodedData = JSON.parse(data);
+
+
+            console.log('Decodierte Daten:', decodedData);
+
+            for (const parameter in decodedData) {
+                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
+                const element = document.getElementById(parameter.toLowerCase());
+                const parameter2 = String(parameter).toLowerCase();
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                var root = document.documentElement;
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter2) {
+
+                    case 'produktiongesamt':
+                        element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'eigenverbrauch':
+                        element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'eigenverbrauch_prozent':
+                        root.style.setProperty('--eigenverbrauch_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
+                        break;
+                    case 'eigenproduktion':
+                        element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'eigenproduktion_prozent':
+                        root.style.setProperty('--eigenproduktion_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
+                        break;
+                    case 'eigenproduktion_speicher_prozent':
+                        root.style.setProperty('--eigenproduktion_speicher_prozent', decodedData[parameter] + '%');
+                        break;
+                    case 'verbrauch':
+                        element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'import':
+                        element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'import_prozent':
+                        root.style.setProperty('--import_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
+                        break;
+                    case 'export':
+                        element.textContent = decodedData[parameter] + ' kWh';
+                        break;
+                    case 'export_prozent':
+                        root.style.setProperty('--export_prozent', decodedData[parameter] + '%');
+                        element.textContent = decodedData[parameter] + ' %';
+                        break;
+                    case 'eigenverbrauchverlauffarbe1':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe1', decodedData[parameter]);
+                        break;
+                    case 'eigenverbrauchverlauffarbe2':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe2', decodedData[parameter]);
+                        break;
+                    case 'eigenproduktionverlauffarbe1':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe1', decodedData[parameter]);
+                        break;
+                    case 'eigenproduktionverlauffarbe2':
+                        root.style.setProperty('--eigenverbrauchverlauffarbe2', decodedData[parameter]);
+                        break;
+                    case 'bildtransparenz':
+                        root.style.setProperty('--bildtransparenz', decodedData[parameter]);
+                        break;
+                    case 'kachelhintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        break;
+                    case 'schriftfarbebalken':
+                        root.style.setProperty('--schriftfarbebalken', decodedData[parameter]);
+                        break;
+                    case 'schriftfarbesub':
+                        root.style.setProperty('--schriftfarbesub', decodedData[parameter]);
+                        break;
+                    case 'schriftgroessebalken':
+                        root.style.setProperty('--schriftgroessebalken', decodedData[parameter] + 'em');
+                        break;
+                    case 'schriftgroessesub':
+                        root.style.setProperty('--schriftgroessesub', decodedData[parameter] + 'em');
+                        break;
+                    case 'einspeisungfarbe':
+                        root.style.setProperty('--einspeisungfarbe', decodedData[parameter]);
+                        break;
+                    case 'zukauffarbe':
+                        root.style.setProperty('--zukauffarbe', decodedData[parameter]);
+                        break;
+                    case 'image1':
+                        mainDiv = document.querySelector('body');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'image_speicher':
+                        root.style.setProperty('--image_speicher',  'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'image_pv':
+
+                        root.style.setProperty('--image_pv',  'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'eckenradius':
+                        root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
+                        break;
+                    default:
+                        if (element) {
+                        element.textContent = decodedData[parameter];
+}
+                        break;
+                }
+
+            }
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="balkendiagramm">
+            <div class="balken_rechts">
+                <div class="balken_links_eigenverbrauch">
+                    <div class="overlay"><b>
+                            <p class="produktion" id="produktionlabel">Produktion:</p>&nbsp;
+                            <p class="produktion" id="produktiongesamt">2.08 kWh</p>
+                        </b>
+                    </div>
+                    <span class="balken_links_text"><span id="eigenverbrauch_prozent"></span></span>
+                    <span class="balken_links_text_finish"><span id="export_prozent"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="eigenverbrauchsubtext">
+                <p class="eigenverbrauch" id="eigenverbrauchlabel">Eigenverbrauch:</p>&nbsp;
+                <p class="eigenverbrauch" id="eigenverbrauch"></p>
+            </div>
+            <div class="einspeisungsubtext">
+                <p class="export" id="exportlabel">Export:</p>&nbsp;
+                <p class="export" id="export"></p>
+            </div>
+        </div>
+
+        <div class="balkendiagramm">
+            <div class="balken_rechts_zukauf">
+                <div class="balken_links_eigenproduktion">
+                    <div class="overlay"><b>
+                            <p class="verbrauch" id="verbrauchlabel">Verbrauch:</p>&nbsp;
+                            <p class="verbrauch" id="verbrauch"></p>
+                        </b>
+                    </div>
+                    <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
+                    <span class="balken_links_text_finish"><span id="import_prozent"></span></span>
+                    <div class="balken_links_eigenproduktion_pv"></div><div class="balken_links_eigenproduktion_speicher"></div>
+
+                </div>
+                
+            </div>
+        </div>
+        <div class="container2">
+            <div class="eigenproduktionsubtext">
+                <p class="eigenproduktion" id="eigenproduktionlabel">Eigenproduktion:</p>
+                <p class="eigenproduktion" id="eigenproduktion"></p>
+            </div>
+            <div class="bezugsubtext">
+                <p class="import" id="importlabel">Import:</p>&nbsp;
+                <p class="import" id="import"></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
