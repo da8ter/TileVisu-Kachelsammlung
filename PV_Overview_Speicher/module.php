@@ -311,12 +311,12 @@ class TileVisuPVOverviewSpeicher extends IPSModule
 
 
             // Eingabewerte
-            //$produktion = 50; // in kWh
-            //$beladungSpeicher = 20; // in kWh
-            //$entladungSpeicher = 10; // in kWh
-            //$import = 25; // in kWh
-            //$export = 5; // in kWh
-            //$verbrauch = 80;
+            $produktion = 63; // in kWh
+            $beladungSpeicher = 27; // in kWh
+            $entladungSpeicher = 0.1; // in kWh
+            $import = 6.8; // in kWh
+            $export = 7.3; // in kWh
+            $verbrauch = 35.6;
 
             // Berechnungen
             $produktionGesamt = round($produktion + $beladungSpeicher, 2);
