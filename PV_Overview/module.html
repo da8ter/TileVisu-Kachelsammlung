@@ -116,13 +116,8 @@
         }
 
         @keyframes gradient_forschritt {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: -200% 0;
-            }
+            0% { background-position: 0 100%; }
+            100% { background-position: -200% 100%; }
         }
 
         .balken_links_eigenverbrauch {
@@ -143,22 +138,33 @@
             display: flex;
             justify-content: flex-end;
             width: var(--eigenproduktion_prozent);
-
-            background-size: 200% auto;
-            background-position: 0 100%;
-            animation: gradient_forschritt 10s infinite;
-            animation-fill-mode: forwards;
-            animation-timing-function: linear;
+            position: relative; /* Ermöglicht die Positionierung des Pseudo-Elements */
             height: 1.8em;
             border-radius: 0px 0px 0px 0px;
             transition: width 2s;
             transition-timing-function: ease;
-            background-image: var(--image_pv, none), repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background-image: var(--image_pv, none); /* Hintergrundbild */
             background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
             background-position: left bottom; /* Positioniert das Bild unten links */
             background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
-            
         }
+
+        .balken_links_eigenproduktion::before {
+            .balken_links_eigenproduktion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            z-index: -1; /* Stellt sicher, dass der Farbverlauf hinter dem Inhalt liegt */
+            animation: gradient_forschritt 10s infinite linear;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+
+
         .balken_links_eigenproduktion_speicher {
             display: flex;
             align-items: center;
