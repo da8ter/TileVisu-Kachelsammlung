@@ -157,7 +157,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
                         $eigenproduktion = round(($produktion - $export) + $entladungSpeicher, 2);
 
                         // Vermeidung von Division durch Null und Berechnung der Prozentwerte
-                        $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
+                        $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
                         $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
                         $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
                         $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
@@ -324,7 +324,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
             $eigenproduktion = round(($produktion - $export) + $entladungSpeicher, 2);
 
             // Vermeidung von Division durch Null und Berechnung der Prozentwerte
-            $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenverbrauch / $verbrauch) * 100, 2) : 0;
+            $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
             $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
             $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
             $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
