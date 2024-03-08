@@ -106,7 +106,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($produktion_heute_archiv)) {
-                                $produktion = round($beladungSpeicher + $produktion_heute_archiv[0]['Avg'], 2);
+                                $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                             }
                         }
             
@@ -144,24 +144,25 @@ class TileVisuPVOverviewSpeicher extends IPSModule
             
             
                         // Eingabewerte
-                        //$produktion = 300; // in kWh
-                        //$beladungSpeicher = 200; // in kWh
-                        //$entladungSpeicher = 90; // in kWh
-                        //$import = 1050; // in kWh
-                        //$export = 10; // in kWh
-                        //$verbrauch = 1500;
+                        //$produktion = 63; // in kWh
+                        //$beladungSpeicher = 27; // in kWh
+                        //$entladungSpeicher = 0.1; // in kWh
+                        //$import = 6.8; // in kWh
+                        //$export = 7.3; // in kWh
+                        //$verbrauch = 35.5;
 
                         // Berechnungen
-                        $produktionGesamt = round($produktion + $beladungSpeicher, 2);
-                        $eigenverbrauch = round(($produktion - $export) + $beladungSpeicher, 2);
-                        $eigenproduktion = round(($produktion - $export) + $entladungSpeicher, 2);
+                        $produktionGesamt = round($produktion, 2);
+                        $eigenverbrauch = round(($produktion - $export), 2);
+                        $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
 
                         // Vermeidung von Division durch Null und Berechnung der Prozentwerte
                         $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
                         $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
                         $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
                         $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-                        $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
+                        $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenverbrauch / $produktionGesamt) * 100, 2) : 0;  
+
 
 
 
@@ -273,7 +274,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($produktion_heute_archiv)) {
-                    $produktion = round($beladungSpeicher + $produktion_heute_archiv[0]['Avg'], 2);
+                    $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                 }
             }
 
@@ -311,12 +312,12 @@ class TileVisuPVOverviewSpeicher extends IPSModule
 
 
             // Eingabewerte
-            $produktion = 63; // in kWh
-            $beladungSpeicher = 27; // in kWh
-            $entladungSpeicher = 0.1; // in kWh
-            $import = 6.8; // in kWh
-            $export = 7.3; // in kWh
-            $verbrauch = 35.5;
+            //$produktion = 63; // in kWh
+            //$beladungSpeicher = 27; // in kWh
+            //$entladungSpeicher = 0.1; // in kWh
+            //$import = 6.8; // in kWh
+            //$export = 7.3; // in kWh
+            //$verbrauch = 35.5;
 
             // Berechnungen
             $produktionGesamt = round($produktion, 2);
