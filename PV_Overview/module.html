@@ -335,8 +335,8 @@
                         mainDiv.style.setProperty('--image_speicher',  'url(' + decodedData[parameter] + ')');
                         break;
                     case 'image_pv':
-                        mainDiv = document.querySelector('body');
-                        mainDiv.style.setProperty('--image_pv',  'url(' + decodedData[parameter] + ')');
+
+                        root.style.setProperty('--image_pv',  'url(' + decodedData[parameter] + ')');
                         break;
                     case 'eckenradius':
                         root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
