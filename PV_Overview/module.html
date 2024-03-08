@@ -154,6 +154,8 @@
             transition: width 2s;
             transition-timing-function: ease;
         }
+
+
         .balken_links_eigenproduktion_speicher {
             display: flex;
             align-items: center;
@@ -165,8 +167,17 @@
             background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
             background-position: left bottom; /* Positioniert das Bild unten links */
             background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+        }
 
-            
+        .balken_links_eigenproduktion_pv {
+            display: flex;
+            align-items: center;
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            background-image: var(--image_pv, none);
+            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
+            background-position: left bottom; /* Positioniert das Bild unten links */
+            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
         }
 
         .balken_links_text {
@@ -383,7 +394,7 @@
                     </div>
                     <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
                     <span class="balken_links_text_finish"><span id="import_prozent"></span></span>
-                    <div class="balken_links_eigenproduktion_speicher"></div><div class="balken_links_eigenproduktion_speicher"></div>
+                    <div class="balken_links_eigenproduktion_pv"></div><div class="balken_links_eigenproduktion_speicher"></div>
 
                 </div>
                 
