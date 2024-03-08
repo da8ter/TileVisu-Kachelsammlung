@@ -404,6 +404,10 @@ class TileVisuPVOverview extends IPSModule
             $imagespeicher .= base64_encode(file_get_contents(__DIR__ . '/assets/speicher.png'));
             $result['image_speicher'] = $imagespeicher;
 
+            $imagepv = 'data:image/png;base64,';
+            $imagepv .= base64_encode(file_get_contents(__DIR__ . '/assets/pv.png'));
+            $result['image_speicher'] = $imagepv;
+
 
 
 
