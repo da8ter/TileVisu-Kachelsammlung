@@ -327,7 +327,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
 
 
             if ($this->ReadPropertyBoolean('VerbrauchBerechnen') == true) {
-                $verbrauch = $produktion - $export - $beladungSpeicher + $entladungSpeicher + $import;
+                $verbrauch = round($produktion - $export - $beladungSpeicher + $entladungSpeicher + $import, 2);
                                           
             }
 
