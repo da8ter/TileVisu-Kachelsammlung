@@ -152,7 +152,6 @@ class TileVisuPVOverviewSpeicher extends IPSModule
                         //$verbrauch = 35.5;
 
                         // Berechnungen
-                        $produktionGesamt = round($produktion, 2);
                         $eigenverbrauch = round(($produktion - $export), 2);
                         $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
 
@@ -160,8 +159,8 @@ class TileVisuPVOverviewSpeicher extends IPSModule
                         $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
                         $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
                         $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
-                        $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-                        $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenverbrauch / $produktionGesamt) * 100, 2) : 0;  
+                        $export_prozent = $produktion > 0 ? round(($export / $produktion) * 100, 2) : 0;
+                        $eigenverbrauch_prozent = $produktion > 0 ? round(($eigenverbrauch / $produktion) * 100, 2) : 0;  
 
 
 
@@ -169,7 +168,6 @@ class TileVisuPVOverviewSpeicher extends IPSModule
 
 
                         $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
-                        $this->UpdateVisualizationValue(json_encode(['produktiongesamt' => $produktionGesamt]));
                         $this->UpdateVisualizationValue(json_encode(['speicherentladungwert' => $entladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['speicherbeladungwert' => $beladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
@@ -320,7 +318,6 @@ class TileVisuPVOverviewSpeicher extends IPSModule
             //$verbrauch = 35.5;
 
             // Berechnungen
-            $produktionGesamt = round($produktion, 2);
             $eigenverbrauch = round(($produktion - $export), 2);
             $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
 
@@ -328,13 +325,12 @@ class TileVisuPVOverviewSpeicher extends IPSModule
             $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
             $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
             $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
-            $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-            $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenverbrauch / $produktionGesamt) * 100, 2) : 0;  
+            $export_prozent = $produktion > 0 ? round(($export / $produktion) * 100, 2) : 0;
+            $eigenverbrauch_prozent = $produktion > 0 ? round(($eigenverbrauch / $produktion) * 100, 2) : 0;  
 
 
             
             $result['produktion'] = $produktion;
-            $result['produktiongesamt'] = $produktionGesamt;
             $result['speicherentladungwert'] = $entladungSpeicher;
             $result['speicherbeladungwert'] = $beladungSpeicher;
             $result['export'] = $export;
