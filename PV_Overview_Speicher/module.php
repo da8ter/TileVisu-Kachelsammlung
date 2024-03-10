@@ -295,6 +295,8 @@ class TileVisuPVOverviewSpeicher extends IPSModule
                 }
                                             
             }
+      
+
 
             $exportID = $this->ReadPropertyInteger('ExportWert');
             $export = 0; // Standardwert setzen
@@ -316,10 +318,18 @@ class TileVisuPVOverviewSpeicher extends IPSModule
             $import = 6.8; // in kWh
             $export = 7.3; // in kWh
             $verbrauch = 35.5;
+            $test = 10;
 
             // Berechnungen
             $eigenverbrauch = round(($produktion - $export), 2);
             $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
+
+
+            if ($this->ReadPropertyInteger('VerbrauchBerechnen') == true) {
+                $verbrauch = $produktion - $export - $beladungSpeicher + $entladungSpeicher + $import+ $test;
+                                          
+            }
+
 
             // Vermeidung von Division durch Null und Berechnung der Prozentwerte
             $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
