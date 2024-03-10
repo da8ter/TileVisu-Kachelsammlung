@@ -21,7 +21,7 @@
           "type": "Label",
           "caption": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh. "
         },
-        { "type": "CheckBox", "name": "VerbrauchBerechnen", "caption": "Verbrauch berechnen", "value": "false" },
+        { "type": "CheckBox", "name": "VerbrauchBerechnen", "caption": "Verbrauch berechnen", "value": "false", "onChange": "PVO_UpdateVisible($id, $Visible);" },
         {
           "type": "RowLayout",
           "items": [
@@ -52,7 +52,8 @@
               "type": "SelectVariable",
               "name": "VerbrauchWert",
               "caption": "Verbrauch:",
-              "validVariableTypes": []
+              "validVariableTypes": [],
+              "visible": "true"
             },
             {
               "type": "ValidationTextBox",
