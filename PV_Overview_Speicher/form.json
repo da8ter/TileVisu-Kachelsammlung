@@ -53,7 +53,7 @@
               "name": "VerbrauchWert",
               "caption": "Verbrauch:",
               "validVariableTypes": [],
-              "visible": "true"
+              "visible": ""
             },
             {
               "type": "ValidationTextBox",
