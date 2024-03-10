@@ -520,7 +520,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
 
 
     public function UpdateVisible($Visible) {
-        $this->UpdateFormField('VerbrauchBerechnen', 'visible', !$Visible);
+        $this->UpdateFormField('VerbrauchWert', 'visible', !$Visible);
     }
 
 }
