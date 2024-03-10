@@ -14,6 +14,7 @@ class TileVisuPVOverviewSpeicher extends IPSModule
         $this->RegisterPropertyString("ExportLabel", "Export");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
         $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch");
+        $this->RegisterPropertyBoolean("VerbrauchBerechnen", 0);
         $this->RegisterPropertyInteger("ImportWert", 0);
         $this->RegisterPropertyString("ImportLabel", "Import");
         $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch");
