@@ -279,6 +279,7 @@
                         break;
                     case 'eigenproduktion_speicher_prozent':
                         root.style.setProperty('--eigenproduktion_speicher_prozent', decodedData[parameter] + '%');
+                        balken_links_eigenproduktion_speicher.className = 'balken_links_eigenproduktion_speicher';
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter] + ' kWh';
@@ -398,7 +399,7 @@
                     </div>
                     <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
                     <span class="balken_links_text_finish"><span id="import_prozent"></span></span>
-                    <div class="balken_links_eigenproduktion_pv"></div><div class="balken_links_eigenproduktion_speicher"></div>
+                    <div class="balken_links_eigenproduktion_pv"></div><div class="hidden" id="balken_links_eigenproduktion_speicher"></div>
 
                 </div>
                 
