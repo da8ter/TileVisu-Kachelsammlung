@@ -1,5 +1,5 @@
 <?php
-class TileVisuPVOverview extends IPSModule
+class TileVisuPVOverviewSpeicher extends IPSModule
 {
     public function Create()
     {
@@ -14,6 +14,7 @@ class TileVisuPVOverview extends IPSModule
         $this->RegisterPropertyString("ExportLabel", "Export");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
         $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch");
+        $this->RegisterPropertyBoolean("VerbrauchBerechnen", 0);
         $this->RegisterPropertyInteger("ImportWert", 0);
         $this->RegisterPropertyString("ImportLabel", "Import");
         $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch");
@@ -106,7 +107,7 @@ class TileVisuPVOverview extends IPSModule
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($produktion_heute_archiv)) {
-                                $produktion = round($beladungSpeicher + $produktion_heute_archiv[0]['Avg'], 2);
+                                $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                             }
                         }
             
@@ -144,31 +145,35 @@ class TileVisuPVOverview extends IPSModule
             
             
                         // Eingabewerte
-                        //$produktion = 300; // in kWh
-                        //$beladungSpeicher = 200; // in kWh
-                        //$entladungSpeicher = 90; // in kWh
-                        //$import = 1050; // in kWh
-                        //$export = 10; // in kWh
-                        //$verbrauch = 1500;
+                        //$produktion = 63; // in kWh
+                        //$beladungSpeicher = 27; // in kWh
+                        //$entladungSpeicher = 0.1; // in kWh
+                        //$import = 6.8; // in kWh
+                        //$export = 7.3; // in kWh
+                        //$verbrauch = 35.5;
 
                         // Berechnungen
-                        $produktionGesamt = round($produktion + $beladungSpeicher, 2);
-                        $eigenverbrauch = round(($produktion - $export) + $beladungSpeicher, 2);
-                        $eigenproduktion = round(($produktion - $export) + $entladungSpeicher, 2);
+                        $eigenverbrauch = round(($produktion - $export), 2);
+                        $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
+
+                        if ($this->ReadPropertyBoolean('VerbrauchBerechnen') == true) {
+                            $verbrauch = round($produktion - $export - $beladungSpeicher + $entladungSpeicher + $import, 2);
+                                                      
+                        }
 
                         // Vermeidung von Division durch Null und Berechnung der Prozentwerte
                         $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
                         $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
                         $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
-                        $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-                        $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenproduktion / $produktionGesamt) * 100, 2) : 0;  
+                        $export_prozent = $produktion > 0 ? round(($export / $produktion) * 100, 2) : 0;
+                        $eigenverbrauch_prozent = $produktion > 0 ? round(($eigenverbrauch / $produktion) * 100, 2) : 0;  
+
 
 
 
 
 
                         $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
-                        $this->UpdateVisualizationValue(json_encode(['produktiongesamt' => $produktionGesamt]));
                         $this->UpdateVisualizationValue(json_encode(['speicherentladungwert' => $entladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['speicherbeladungwert' => $beladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
@@ -273,7 +278,7 @@ class TileVisuPVOverview extends IPSModule
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($produktion_heute_archiv)) {
-                    $produktion = round($beladungSpeicher + $produktion_heute_archiv[0]['Avg'], 2);
+                    $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
                 }
             }
 
@@ -296,6 +301,8 @@ class TileVisuPVOverview extends IPSModule
                 }
                                             
             }
+      
+
 
             $exportID = $this->ReadPropertyInteger('ExportWert');
             $export = 0; // Standardwert setzen
@@ -311,29 +318,35 @@ class TileVisuPVOverview extends IPSModule
 
 
             // Eingabewerte
-            $produktion = 50; // in kWh
-            $beladungSpeicher = 20; // in kWh
-            $entladungSpeicher = 10; // in kWh
-            $import = 25; // in kWh
-            $export = 5; // in kWh
-            $verbrauch = 80;
+            //$produktion = 63; // in kWh
+            //$beladungSpeicher = 27; // in kWh
+            //$entladungSpeicher = 5; // in kWh
+            //$import = 6.8; // in kWh
+            //$export = 7.3; // in kWh
+            //$verbrauch = 35.5;
+            //$test = 10;
 
             // Berechnungen
-            $produktionGesamt = round($produktion + $beladungSpeicher, 2);
-            $eigenverbrauch = round(($produktion - $export) + $beladungSpeicher, 2);
-            $eigenproduktion = round(($produktion - $export) + $entladungSpeicher, 2);
+            $eigenverbrauch = round(($produktion - $export), 2);
+            $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
+
+
+            if ($this->ReadPropertyBoolean('VerbrauchBerechnen') == true) {
+                $verbrauch = round($produktion - $export - $beladungSpeicher + $entladungSpeicher + $import, 2);
+                                          
+            }
+
 
             // Vermeidung von Division durch Null und Berechnung der Prozentwerte
             $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
             $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
             $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
-            $export_prozent = $produktionGesamt > 0 ? round(($export / $produktionGesamt) * 100, 2) : 0;
-            $eigenverbrauch_prozent = $produktionGesamt > 0 ? round(($eigenverbrauch / $produktionGesamt) * 100, 2) : 0;  
+            $export_prozent = $produktion > 0 ? round(($export / $produktion) * 100, 2) : 0;
+            $eigenverbrauch_prozent = $produktion > 0 ? round(($eigenverbrauch / $produktion) * 100, 2) : 0;  
 
 
             
             $result['produktion'] = $produktion;
-            $result['produktiongesamt'] = $produktionGesamt;
             $result['speicherentladungwert'] = $entladungSpeicher;
             $result['speicherbeladungwert'] = $beladungSpeicher;
             $result['export'] = $export;
@@ -508,6 +521,11 @@ class TileVisuPVOverview extends IPSModule
         
         }
         return $icon;
+    }
+
+
+    public function UpdateVisible($Visible) {
+        $this->UpdateFormField('VerbrauchWert', 'visible', !$Visible);
     }
 
 }
