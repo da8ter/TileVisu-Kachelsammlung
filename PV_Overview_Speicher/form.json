@@ -236,6 +236,10 @@
     },
     {
       "type": "Label",
+      "caption": ""
+  },
+    {
+      "type": "Label",
       "caption": "Spenden / Schenkung"
   },
   {
