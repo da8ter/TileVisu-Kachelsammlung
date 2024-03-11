@@ -1,5 +1,5 @@
 <?php
-class TileVisuPVOverviewSpeicher extends IPSModule
+class TileVisuPVOverview extends IPSModule
 {
     public function Create()
     {
