@@ -6,7 +6,7 @@
       "bold": true
     },
     {
-      "type": "Label:",
+      "type": "Label",
       "caption": "Die Kachel Photovoltaik Übersicht bietet einen schnellen Überblick über die Verwendung der erzeugten PV-Energie, Verbrauch, Import und Export. Alle Quellvariablen benötigen ein aktives Logging. Erwartete Werte: kWh. Der Tagesverbrauch kann optional durch das Modul berechnet werden. "
     },
     {
