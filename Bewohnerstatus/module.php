@@ -31,6 +31,32 @@
         public function ApplyChanges() {
             parent::ApplyChanges();
 
+        //Referenzen Registrieren
+        $ids = [
+            $this->ReadPropertyInteger('Bewohner1'),
+            $this->ReadPropertyInteger('Bewohner2'),
+            $this->ReadPropertyInteger('Bewohner3'),
+            $this->ReadPropertyInteger('Bewohner4'),
+            $this->ReadPropertyInteger('Bewohner5'),
+            $this->ReadPropertyInteger('Bewohner1Image'),
+            $this->ReadPropertyInteger('Bewohner2Image'),
+            $this->ReadPropertyInteger('Bewohner3Image'),
+            $this->ReadPropertyInteger('Bewohner4Image'),
+            $this->ReadPropertyInteger('Bewohner5Image'),
+            $this->ReadPropertyInteger('bgImage')
+        ];
+        $refs = $this->GetReferenceList();
+            foreach($refs as $ref) {
+                $this->UnregisterReference($ref);
+            } 
+            foreach ($ids as $id) {
+                if ($id !== '') {
+                    $this->RegisterReference($id);
+                }
+            }
+
+
+
             // Aktualisiere registrierte Nachrichten
             foreach ($this->GetMessageList() as $senderID => $messageIDs) {
                 foreach($messageIDs as $messageID) {
