@@ -40,16 +40,16 @@ class TileVisuWashingMaschine extends IPSModule
     {
         parent::ApplyChanges();
 
-        $refs = array(
-            array( $this->ReadPropertyInteger('Status')),
-            array( $this->ReadPropertyInteger('Programm')),
-            array( $this->ReadPropertyInteger('Programmfortschritt')),
-            array( $this->ReadPropertyInteger('Restlaufzeit')),
-            array( $this->ReadPropertyInteger('Verbrauch')),
-            array( $this->ReadPropertyInteger('VerbrauchTag')),
-            array( $this->ReadPropertyInteger('KostenTag')),
-            array( $this->ReadPropertyInteger('bgImage'))
-        );
+        $propertiesValues = [
+            $this->ReadPropertyInteger('Status'),
+            $this->ReadPropertyInteger('Programm'),
+            $this->ReadPropertyInteger('Programmfortschritt'),
+            $this->ReadPropertyInteger('Restlaufzeit'),
+            $this->ReadPropertyInteger('Verbrauch'),
+            $this->ReadPropertyInteger('VerbrauchTag'),
+            $this->ReadPropertyInteger('KostenTag'),
+            $this->ReadPropertyInteger('bgImage')
+        ];
         
             foreach($refs as $ref) {
                 $this->UnregisterReference($ref);
