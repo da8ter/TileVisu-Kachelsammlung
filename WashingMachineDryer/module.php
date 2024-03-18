@@ -40,6 +40,8 @@ class TileVisuWashingMaschine extends IPSModule
     {
         parent::ApplyChanges();
 
+        
+        //Referenzen Registrieren
         $ids = [
             $this->ReadPropertyInteger('Status'),
             $this->ReadPropertyInteger('Programm'),
@@ -59,6 +61,8 @@ class TileVisuWashingMaschine extends IPSModule
                     $this->RegisterReference($id);
                 }
             }
+
+
 
         // Aktualisiere registrierte Nachrichten
         foreach ($this->GetMessageList() as $senderID => $messageIDs)
