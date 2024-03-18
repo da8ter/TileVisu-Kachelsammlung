@@ -40,7 +40,7 @@ class TileVisuWashingMaschine extends IPSModule
     {
         parent::ApplyChanges();
 
-        $refs = [
+        $ids = [
             $this->ReadPropertyInteger('Status'),
             $this->ReadPropertyInteger('Programm'),
             $this->ReadPropertyInteger('Programmfortschritt'),
@@ -50,11 +50,11 @@ class TileVisuWashingMaschine extends IPSModule
             $this->ReadPropertyInteger('KostenTag'),
             $this->ReadPropertyInteger('bgImage')
         ];
-        
+        $refs = $this->GetReferenceList();
             foreach($refs as $ref) {
                 $this->UnregisterReference($ref);
             } 
-            foreach ($refs as $id) {
+            foreach ($ids as $id) {
                 if ($id !== '') {
                     $this->RegisterReference($id);
                 }
