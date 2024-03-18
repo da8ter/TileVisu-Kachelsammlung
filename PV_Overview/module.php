@@ -8,10 +8,13 @@ class TileVisuPVOverview extends IPSModule
 
         $this->RegisterPropertyInteger("ProduktionWert", 0);
         $this->RegisterPropertyString("ProduktionLabel", "Produktion");
+        $this->RegisterPropertyInteger("SpeicherEntladungWert", 0);
+        $this->RegisterPropertyInteger("SpeicherBeladungWert", 0);
         $this->RegisterPropertyInteger("ExportWert", 0);
         $this->RegisterPropertyString("ExportLabel", "Export");
         $this->RegisterPropertyInteger("VerbrauchWert", 0);
         $this->RegisterPropertyString("VerbrauchLabel", "Verbrauch");
+        $this->RegisterPropertyBoolean("VerbrauchBerechnen", 0);
         $this->RegisterPropertyInteger("ImportWert", 0);
         $this->RegisterPropertyString("ImportLabel", "Import");
         $this->RegisterPropertyString("EigenverbrauchLabel", "Eigenverbrauch");
@@ -41,6 +44,27 @@ class TileVisuPVOverview extends IPSModule
     {
         parent::ApplyChanges();
 
+
+                //Referenzen Registrieren
+                $ids = [
+                    $this->ReadPropertyInteger('ProduktionWert'),
+                    $this->ReadPropertyInteger('SpeicherEntladungWert'),
+                    $this->ReadPropertyInteger('SpeicherBeladungWert'),
+                    $this->ReadPropertyInteger('ExportWert'),
+                    $this->ReadPropertyInteger('VerbrauchWert'),
+                    $this->ReadPropertyInteger('ImportWert'),
+                    $this->ReadPropertyInteger('bgImage')
+                ];
+                $refs = $this->GetReferenceList();
+                    foreach($refs as $ref) {
+                        $this->UnregisterReference($ref);
+                    } 
+                    foreach ($ids as $id) {
+                        if ($id !== '') {
+                            $this->RegisterReference($id);
+                        }
+                    }
+
         // Aktualisiere registrierte Nachrichten
         foreach ($this->GetMessageList() as $senderID => $messageIDs)
         {
@@ -51,7 +75,7 @@ class TileVisuPVOverview extends IPSModule
         }
 
 
-        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
+        foreach (['ProduktionWert', 'SpeicherEntladungWert', 'SpeicherBeladungWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -62,7 +86,7 @@ class TileVisuPVOverview extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['ProduktionWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
+        foreach (['ProduktionWert', 'SpeicherEntladungWert', 'SpeicherBeladungWert', 'ExportWert', 'VerbrauchWert', 'ImportWert'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -78,86 +102,101 @@ class TileVisuPVOverview extends IPSModule
 
                         $archivID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
+
+                        $SpeicherEntladungID = $this->ReadPropertyInteger('SpeicherEntladungWert');
+                        $entladungSpeicher = 0; // Standardwert setzen 
+            
+                        if (IPS_VariableExists($SpeicherEntladungID) && AC_GetLoggingStatus($archivID, $SpeicherEntladungID)) {
+                            $SpeicherEntladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherEntladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            if (!empty($SpeicherEntladung_heute_archiv)) {
+                                $entladungSpeicher = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
+                            }
+                        }
+                        $SpeicherBeladungID = $this->ReadPropertyInteger('SpeicherBeladungWert');
+                        $beladungSpeicher = 0; // Standardwert setzen 
+            
+                        if (IPS_VariableExists($SpeicherBeladungID) && AC_GetLoggingStatus($archivID, $SpeicherBeladungID)) {
+                            $SpeicherBeladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherBeladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                            if (!empty($SpeicherBeladung_heute_archiv)) {
+                                $beladungSpeicher = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
+                            }
+                        }
+            
                         $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
-                        $produktion = 1; // Standardwert setzen
+                        $produktion = 0; // Standardwert setzen
                         
                         if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                             $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($produktion_heute_archiv)) {
                                 $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
-                                if ($produktion <= 0) {
-                                    $produktion = 0.01;
-                                }
                             }
                         }
-                        
+            
                         $importID = $this->ReadPropertyInteger('ImportWert');
-                        $import = 1; // Standardwert setzen
+                        $import = 0; // Standardwert setzen
                         
                         if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
                             $import_heute_archiv = AC_GetAggregatedValues($archivID, $importID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($import_heute_archiv)) {
                                 $import = round($import_heute_archiv[0]['Avg'], 2);
-                                if ($import <= 0) {
-                                    $import = 0.01;
-                                }
                             }
                         }
-            
                         $verbrauchID = $this->ReadPropertyInteger('VerbrauchWert');
-                        $verbrauch = 1; // Standardwert setzen
+                        $verbrauch = 0; // Standardwert setzen
                         
                         if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
                             $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($verbrauch_heute_archiv)) {
                                 $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
-                                if ($verbrauch <= 0) {
-                                    $verbrauch = 0.01;
-                                }
                             }
                                                         
                         }
-
-
             
                         $exportID = $this->ReadPropertyInteger('ExportWert');
-                        $export = 1; // Standardwert setzen
-                        $export_prozent = 0;
+                        $export = 0; // Standardwert setzen
                         
                         if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                             $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                             if (!empty($export_heute_archiv)) {
                                 $export = round($export_heute_archiv[0]['Avg'], 2);
-                                if ($export <= 0) {
-                                    $export = 0.01;
-                                    $export_prozent = 0;
-                                }
-                                else {
-                                    $export_prozent = round($export / $produktion * 100, 0);
-        
-                                }
                             }
                         }
+            
+            
+            
+            
+                        // Eingabewerte
+                        //$produktion = 63; // in kWh
+                        //$beladungSpeicher = 27; // in kWh
+                        //$entladungSpeicher = 0.1; // in kWh
+                        //$import = 6.8; // in kWh
+                        //$export = 7.3; // in kWh
+                        //$verbrauch = 35.5;
 
+                        // Berechnungen
+                        $eigenverbrauch = round(($produktion - $export), 2);
+                        $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
 
-                        $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
-                        $eigenverbrauch = round($produktion - $export,2);
-                        $eigenproduktion = $eigenverbrauch;
-                        //$verbrauch = $import + $eigenproduktion;
-                   
-                      
-                        $eigenproduktion_prozent = round(($eigenproduktion / $verbrauch) * 100, 0);
-
-
-                        if ($import <= 0.1) {
-                            $import_prozent = 0;
-                            $import = 0;
+                        if ($this->ReadPropertyBoolean('VerbrauchBerechnen') == true) {
+                            $verbrauch = round($produktion - $export - $beladungSpeicher + $entladungSpeicher + $import, 2);
+                                                      
                         }
-                        else {
-                            $import_prozent = round(100 - $eigenproduktion_prozent, 0);
-                        }
 
-                        $this->UpdateVisualizationValue(json_encode(['produktionwert' => $produktion]));
+                        // Vermeidung von Division durch Null und Berechnung der Prozentwerte
+                        $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
+                        $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
+                        $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
+                        $export_prozent = $produktion > 0 ? round(($export / $produktion) * 100, 2) : 0;
+                        $eigenverbrauch_prozent = $produktion > 0 ? round(($eigenverbrauch / $produktion) * 100, 2) : 0;  
+
+
+
+
+
+
+                        $this->UpdateVisualizationValue(json_encode(['produktion' => $produktion]));
+                        $this->UpdateVisualizationValue(json_encode(['speicherentladungwert' => $entladungSpeicher]));
+                        $this->UpdateVisualizationValue(json_encode(['speicherbeladungwert' => $beladungSpeicher]));
                         $this->UpdateVisualizationValue(json_encode(['import' => $import]));
                         $this->UpdateVisualizationValue(json_encode(['verbrauch' => $verbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['export' => $export]));
@@ -165,6 +204,8 @@ class TileVisuPVOverview extends IPSModule
                         $this->UpdateVisualizationValue(json_encode(['import_prozent' => $import_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch_prozent' => $eigenverbrauch_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion_prozent' => $eigenproduktion_prozent]));
+                        $this->UpdateVisualizationValue(json_encode(['eigenproduktion_prozent_ohne_speicher' => $eigenproduktion_prozent - $eigenproduktion_speicher_prozent]));
+                        $this->UpdateVisualizationValue(json_encode(['eigenproduktion_speicher_prozent' => $eigenproduktion_speicher_prozent]));
                         $this->UpdateVisualizationValue(json_encode(['eigenverbrauch' => $eigenverbrauch]));
                         $this->UpdateVisualizationValue(json_encode(['eigenproduktion' => $eigenproduktion]));
                         break; // Beende die Schleife, da der passende Wert gefunden wurde
@@ -233,81 +274,102 @@ class TileVisuPVOverview extends IPSModule
 
 
 
+            $SpeicherEntladungID = $this->ReadPropertyInteger('SpeicherEntladungWert');
+            $entladungSpeicher = 0; // Standardwert setzen 
+
+            if (IPS_VariableExists($SpeicherEntladungID) && AC_GetLoggingStatus($archivID, $SpeicherEntladungID)) {
+                $SpeicherEntladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherEntladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                if (!empty($SpeicherEntladung_heute_archiv)) {
+                    $entladungSpeicher = round($SpeicherEntladung_heute_archiv[0]['Avg'], 2);
+                }
+            }
+            $SpeicherBeladungID = $this->ReadPropertyInteger('SpeicherBeladungWert');
+            $beladungSpeicher = 0; // Standardwert setzen 
+
+            if (IPS_VariableExists($SpeicherBeladungID) && AC_GetLoggingStatus($archivID, $SpeicherBeladungID)) {
+                $SpeicherBeladung_heute_archiv = AC_GetAggregatedValues($archivID, $SpeicherBeladungID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
+                if (!empty($SpeicherBeladung_heute_archiv)) {
+                    $beladungSpeicher = round($SpeicherBeladung_heute_archiv[0]['Avg'], 2);
+                }
+            }
+
             $produktionsID = $this->ReadPropertyInteger('ProduktionWert');
-            $produktion = 1; // Standardwert setzen
+            $produktion = 0; // Standardwert setzen
             
             if (IPS_VariableExists($produktionsID) && AC_GetLoggingStatus($archivID, $produktionsID)) {
                 $produktion_heute_archiv = AC_GetAggregatedValues($archivID, $produktionsID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($produktion_heute_archiv)) {
                     $produktion = round($produktion_heute_archiv[0]['Avg'], 2);
-                    if ($produktion <= 0) {
-                        $produktion = 0.01;
-                    }
                 }
             }
-            
+
             $importID = $this->ReadPropertyInteger('ImportWert');
-            $import = 1; // Standardwert setzen
+            $import = 0; // Standardwert setzen
             
             if (IPS_VariableExists($importID) && AC_GetLoggingStatus($archivID, $importID)) {
                 $import_heute_archiv = AC_GetAggregatedValues($archivID, $importID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($import_heute_archiv)) {
                     $import = round($import_heute_archiv[0]['Avg'], 2);
-                    if ($import <= 0) {
-                        $import = 0.01;
-                    }
                 }
             }
-
             $verbrauchID = $this->ReadPropertyInteger('VerbrauchWert');
-            $verbrauch = 1; // Standardwert setzen
+            $verbrauch = 0; // Standardwert setzen
             
             if (IPS_VariableExists($verbrauchID) && AC_GetLoggingStatus($archivID, $verbrauchID)) {
                 $verbrauch_heute_archiv = AC_GetAggregatedValues($archivID, $verbrauchID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($verbrauch_heute_archiv)) {
                     $verbrauch = round($verbrauch_heute_archiv[0]['Avg'], 2);
-                    if ($verbrauch <= 0) {
-                        $verbrauch = 0.01;
-                    }
                 }
                                             
             }
-
+      
 
 
             $exportID = $this->ReadPropertyInteger('ExportWert');
-            $export = 1; // Standardwert setzen
-            $export_prozent = 0;
+            $export = 0; // Standardwert setzen
             
             if (IPS_VariableExists($exportID) && AC_GetLoggingStatus($archivID, $exportID)) {
                 $export_heute_archiv = AC_GetAggregatedValues($archivID, $exportID, 1 /* Täglich */, strtotime("today 00:00"), time(), 0);
                 if (!empty($export_heute_archiv)) {
                     $export = round($export_heute_archiv[0]['Avg'], 2);
-                    if ($export <= 0) {
-                        $export = 0.01;
-                        $export_prozent = 0;
-                    }
-                    else {
-                        $export_prozent = round($export / $produktion * 100, 0);
-
-                    }
                 }
             }
-            $eigenverbrauch_prozent = round(100 - $export_prozent, 0);
-            $eigenverbrauch = round($produktion - $export,2);
-            $eigenproduktion = $eigenverbrauch;
 
-         
-            $eigenproduktion_prozent = round(($eigenproduktion / $verbrauch) * 100, 0);
-            if ($import <= 0.1) {
-                $import_prozent = 0;
-                $import = 0;
+
+
+
+            // Eingabewerte
+            //$produktion = 63; // in kWh
+            //$beladungSpeicher = 27; // in kWh
+            //$entladungSpeicher = 5; // in kWh
+            //$import = 6.8; // in kWh
+            //$export = 7.3; // in kWh
+            //$verbrauch = 35.5;
+            //$test = 10;
+
+            // Berechnungen
+            $eigenverbrauch = round(($produktion - $export), 2);
+            $eigenproduktion = round(($produktion - $export - $beladungSpeicher) + $entladungSpeicher, 2);
+
+
+            if ($this->ReadPropertyBoolean('VerbrauchBerechnen') == true) {
+                $verbrauch = round($produktion - $export - $beladungSpeicher + $entladungSpeicher + $import, 2);
+                                          
             }
-            else {
-                $import_prozent = round(100 - $eigenproduktion_prozent, 0);
-            }          
+
+
+            // Vermeidung von Division durch Null und Berechnung der Prozentwerte
+            $eigenproduktion_prozent = $verbrauch > 0 ? round(($eigenproduktion / $verbrauch) * 100, 2) : 0;
+            $eigenproduktion_speicher_prozent = $verbrauch > 0 ? round(($entladungSpeicher / $verbrauch) * 100, 2) : 0;
+            $import_prozent = $verbrauch > 0 ? round(($import / $verbrauch) * 100, 2) : 0;
+            $export_prozent = $produktion > 0 ? round(($export / $produktion) * 100, 2) : 0;
+            $eigenverbrauch_prozent = $produktion > 0 ? round(($eigenverbrauch / $produktion) * 100, 2) : 0;  
+
+
             
             $result['produktion'] = $produktion;
+            $result['speicherentladungwert'] = $entladungSpeicher;
+            $result['speicherbeladungwert'] = $beladungSpeicher;
             $result['export'] = $export;
             $result['import'] = $import; 
             $result['verbrauch'] = $verbrauch; 
@@ -315,7 +377,9 @@ class TileVisuPVOverview extends IPSModule
             $result['export_prozent'] = $export_prozent;
             $result['import_prozent'] = $import_prozent;
             $result['eigenverbrauch_prozent'] = $eigenverbrauch_prozent;
+            $result['eigenproduktion_speicher_prozent'] = $eigenproduktion_speicher_prozent;
             $result['eigenproduktion_prozent'] = $eigenproduktion_prozent;
+            $result['eigenproduktion_prozent_ohne_speicher'] = $eigenproduktion_prozent - $eigenproduktion_speicher_prozent;
             $result['eigenverbrauch'] =  $eigenverbrauch;
             $result['eigenproduktion'] =  $eigenproduktion;
 
@@ -370,8 +434,13 @@ class TileVisuPVOverview extends IPSModule
                 }
             }     
 
+            $imagespeicher = 'data:image/png;base64,';
+            $imagespeicher .= base64_encode(file_get_contents(__DIR__ . '/assets/speicher.png'));
+            $result['image_speicher'] = $imagespeicher;
 
-
+            $imagepv = 'data:image/png;base64,';
+            $imagepv .= base64_encode(file_get_contents(__DIR__ . '/assets/pv.png'));
+            $result['image_pv'] = $imagepv;
 
 
 
@@ -473,6 +542,11 @@ class TileVisuPVOverview extends IPSModule
         
         }
         return $icon;
+    }
+
+
+    public function UpdateVisible($Visible) {
+        $this->UpdateFormField('VerbrauchWert', 'visible', !$Visible);
     }
 
 }
