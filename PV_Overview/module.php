@@ -56,7 +56,6 @@ class TileVisuPVOverview extends IPSModule
                     $this->ReadPropertyInteger('bgImage')
                 ];
                 $refs = $this->GetReferenceList();
-                var_dump($refs);
                     foreach($refs as $ref) {
                         $this->UnregisterReference($ref);
                     } 
