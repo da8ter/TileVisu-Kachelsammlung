@@ -40,7 +40,7 @@ class TileVisuWashingMaschine extends IPSModule
     {
         parent::ApplyChanges();
 
-        $propertiesValues = [
+        $refs = [
             $this->ReadPropertyInteger('Status'),
             $this->ReadPropertyInteger('Programm'),
             $this->ReadPropertyInteger('Programmfortschritt'),
