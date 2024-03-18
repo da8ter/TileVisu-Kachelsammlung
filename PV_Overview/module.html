@@ -140,6 +140,8 @@
         }
 
         .balken_links_eigenproduktion {
+            display: flex;
+            justify-content: right;
             width: var(--eigenproduktion_prozent);
             background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
             background-size: 200% auto;
@@ -151,6 +153,33 @@
             border-radius: 0px 0px 0px 0px;
             transition: width 2s;
             transition-timing-function: ease;
+        }
+
+
+        .balken_links_eigenproduktion_speicher {
+            display: flex;
+            align-items: center;
+            width: var(--eigenproduktion_speicher_prozent);
+            background: rgba(0, 0, 0, 0.2);
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            background-image: var(--image_speicher, none);
+            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
+            background-position: left bottom; /* Positioniert das Bild unten links */
+            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+        }
+
+        .balken_links_eigenproduktion_pv {
+            display: flex;
+            align-items: center;
+            width: 20px;
+            height: 1.8em;
+            border-radius: 0px 0px 0px 0px;
+            background-image: var(--image_pv, none);
+            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
+            background-position: right bottom; /* Positioniert das Bild unten links */
+            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+            margin-right: 3px;
         }
 
         .balken_links_text {
@@ -184,6 +213,7 @@
         }
 
         .balken_rechts_zukauf {
+            display: flex;
             height: 1.8em;
             width: 100%;
             border-radius: var(--eckenradius);
@@ -218,7 +248,7 @@
             const decodedData = JSON.parse(data);
 
 
-           // console.log('Decodierte Daten:', decodedData);
+            //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
@@ -246,6 +276,12 @@
                     case 'eigenproduktion_prozent':
                         root.style.setProperty('--eigenproduktion_prozent', decodedData[parameter] + '%');
                         element.textContent = decodedData[parameter] + ' %';
+                        break;
+                    case 'eigenproduktion_speicher_prozent':
+                        root.style.setProperty('--eigenproduktion_speicher_prozent', decodedData[parameter] + '%');
+                        if (decodedData[parameter] > 0) {
+                            balken_links_eigenproduktion_pv.className = 'balken_links_eigenproduktion_pv';
+                        }
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter] + ' kWh';
@@ -304,17 +340,27 @@
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
+                    case 'image_speicher':
+                        root.style.setProperty('--image_speicher',  'url(' + decodedData[parameter] + ')');
+                        break;
+                    case 'image_pv':
+
+                        root.style.setProperty('--image_pv',  'url(' + decodedData[parameter] + ')');
+                        break;
                     case 'eckenradius':
                         root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
                         break;
                     default:
+                        if (element) {
                         element.textContent = decodedData[parameter];
+                        }
                         break;
                 }
 
             }
         }
     </script>
+
 
 
 </head>
@@ -326,7 +372,7 @@
                 <div class="balken_links_eigenverbrauch">
                     <div class="overlay"><b>
                             <p class="produktion" id="produktionlabel">Produktion:</p>&nbsp;
-                            <p class="produktion" id="produktion">2.08 kWh</p>
+                            <p class="produktion" id="produktion"></p>
                         </b>
                     </div>
                     <span class="balken_links_text"><span id="eigenverbrauch_prozent"></span></span>
@@ -355,12 +401,15 @@
                     </div>
                     <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
                     <span class="balken_links_text_finish"><span id="import_prozent"></span></span>
+                    <div class="hidden" id="balken_links_eigenproduktion_pv"></div><div class="hidden" id="balken_links_eigenproduktion_speicher"></div>
+
                 </div>
+                
             </div>
         </div>
         <div class="container2">
             <div class="eigenproduktionsubtext">
-                <p class="eigenproduktion" id="eigenproduktionlabel">Eigenproduktion:</p>&nbsp;
+                <p class="eigenproduktion" id="eigenproduktionlabel">Eigenproduktion:</p>
                 <p class="eigenproduktion" id="eigenproduktion"></p>
             </div>
             <div class="bezugsubtext">
@@ -373,4 +422,3 @@
 </body>
 
 </html>
-
