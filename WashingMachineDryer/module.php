@@ -43,7 +43,7 @@ class TileVisuWashingMaschine extends IPSModule
 
         $refs = $this->GetReferenceList();
 
-        IPS_LogMessage(string 'Wschmaschine', string $refs);
+        IPS_LogMessage(string "Wschmaschine", string $refs);
             foreach($refs as $ref) {
                 $this->UnregisterReference($ref);
             }
