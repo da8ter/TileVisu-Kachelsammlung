@@ -45,7 +45,7 @@ class TileVisuWashingMaschine extends IPSModule
             foreach($refs as $ref) {
                 $this->UnregisterReference($ref);
             }
-            $ids = IPS_GetInstanceListByModuleID("{43192F0B-135B-4CE7-A0A7-1475603F3060}");
+            $ids = IPS_GetInstanceListByModuleID("{890EBD29-00C8-2146-711C-1BF7C5030AE9}");
             foreach($ids as $id) {
                 $this->RegisterReference($id);
             }
