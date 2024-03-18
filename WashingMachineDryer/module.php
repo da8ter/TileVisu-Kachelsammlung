@@ -56,7 +56,7 @@ class TileVisuWashingMaschine extends IPSModule
                 $this->UnregisterReference($ref);
             } 
             foreach ($refs as $id) {
-                if ($id !== 0) {
+                if ($id !== '') {
                     $this->RegisterReference($id);
                 }
             }
