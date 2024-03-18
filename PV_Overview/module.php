@@ -44,6 +44,28 @@ class TileVisuPVOverview extends IPSModule
     {
         parent::ApplyChanges();
 
+
+                //Referenzen Registrieren
+                $ids = [
+                    $this->ReadPropertyInteger('ProduktionWert'),
+                    $this->ReadPropertyInteger('SpeicherEntladungWert'),
+                    $this->ReadPropertyInteger('SpeicherBeladungWert'),
+                    $this->ReadPropertyInteger('ExportWert'),
+                    $this->ReadPropertyInteger('VerbrauchWert'),
+                    $this->ReadPropertyInteger('ImportWert'),
+                    $this->ReadPropertyInteger('bgImage')
+                ];
+                $refs = $this->GetReferenceList();
+                var_dump($refs);
+                    foreach($refs as $ref) {
+                        $this->UnregisterReference($ref);
+                    } 
+                    foreach ($ids as $id) {
+                        if ($id !== '') {
+                            $this->RegisterReference($id);
+                        }
+                    }
+
         // Aktualisiere registrierte Nachrichten
         foreach ($this->GetMessageList() as $senderID => $messageIDs)
         {
