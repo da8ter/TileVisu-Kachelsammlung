@@ -58,6 +58,42 @@
         public function ApplyChanges() {
             parent::ApplyChanges();
 
+
+                    //Referenzen Registrieren
+        $ids = [
+            $this->ReadPropertyInteger('Status'),
+            $this->ReadPropertyInteger('Mode'),
+            $this->ReadPropertyInteger('OutdoorTemperature'),
+            $this->ReadPropertyInteger('WaterTemperature'),
+            $this->ReadPropertyInteger('FlowTemperature'),
+            $this->ReadPropertyInteger('ReturnTemperature'),
+            $this->ReadPropertyInteger('HeaterRodBackupStatus'),
+            $this->ReadPropertyInteger('HeaterRodPhase1'),
+            $this->ReadPropertyInteger('HeaterRodPhase2'),
+            $this->ReadPropertyInteger('HeaterRodPhase3'),
+            $this->ReadPropertyInteger('Flow'),
+            $this->ReadPropertyInteger('FanRotations'),
+            $this->ReadPropertyInteger('CompressorPower'),
+            $this->ReadPropertyInteger('COP'),
+            $this->ReadPropertyInteger('SPF'),
+            $this->ReadPropertyInteger('SPFHeating'),
+            $this->ReadPropertyInteger('SPFCooling'),
+            $this->ReadPropertyInteger('SPFWater'),
+            $this->ReadPropertyInteger('Power'),
+            $this->ReadPropertyInteger('Consumption'),
+            $this->ReadPropertyInteger('ConsumptionToday'),
+            $this->ReadPropertyInteger('bgImage')
+        ];
+        $refs = $this->GetReferenceList();
+            foreach($refs as $ref) {
+                $this->UnregisterReference($ref);
+            } 
+            foreach ($ids as $id) {
+                if ($id !== '') {
+                    $this->RegisterReference($id);
+                }
+            }
+
             // Aktualisiere registrierte Nachrichten
             foreach ($this->GetMessageList() as $senderID => $messageIDs) {
                 foreach($messageIDs as $messageID) {
