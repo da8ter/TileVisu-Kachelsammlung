@@ -9,20 +9,38 @@ Zusammenstellung von HTML-Kacheln für die Tile-Visualisierung von IPSymcon. Gru
 Diese Kachel zeigt den Anwesenheitsstatus von bis zu 5 Bewohnern mit Foto und Namen an. Der Status kann auch durch Klicken auf das Bild geändert werden.
 
 - Wärmepumpe-Kachel:
+
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/waermepumpe.jpg)
+
 Diese Kachel ermöglicht die Darstellung einer Wärmepumpe, inklusive Leistungswerten, Temperaturen und Effizienzwerten.
 
 - Bild-Kachel:
+
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/bild.jpg)
+
 Diese Kachel dient der Anzeige eines Fotos.
 
 - Bild+Variable Kachel:
+
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/variable_bild.jpg)
+
 Diese Kachel dient der Anzeige eines Fotos und einer Variable.
 
 - Fortschritt/Stautus Kachel (Waschmaschine, Wäschetrockner etc.):
+
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/waschmaschine.jpg)
+
 Bildet den Fortschritt sowie die Restlaufzeit eines Gerätes ab.
 
 - PV-Übersicht:
+
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/pv_uebersicht.jpg)
+
 Dient der Visualisierung von PV-Produktion, Export, Import, Eigenverbrauch etc.
 
 - Header Kachel:
+
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/raum_header.jpg)
+
 Die Header-Kachel ermöglicht es ein Bild und einen Rumnamen abzubilden. Links und Rechts kann jeweils eine Variable eingeblendet werden (z.B. die Rsumtemperatur) Im unteren Bereich können links 5 Informationen und rechts 5 Button eingeblendet werden. (z.B. Zentral AUS oder Lichtszene starten)
 
