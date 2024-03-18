@@ -111,6 +111,37 @@ class TileVisuRoomHeader extends IPSModule
     {
         parent::ApplyChanges();
 
+
+        //Referenzen Registrieren
+        $ids = [
+            $this->ReadPropertyInteger('bgImage'),
+            $this->ReadPropertyInteger('InfoLinks'),
+            $this->ReadPropertyInteger('InfoRechts'),
+            $this->ReadPropertyInteger('Schalter1'),
+            $this->ReadPropertyInteger('Schalter2'),
+            $this->ReadPropertyInteger('Schalter3'),
+            $this->ReadPropertyInteger('Schalter4'),
+            $this->ReadPropertyInteger('Schalter5'),
+            $this->ReadPropertyInteger('Info1'),
+            $this->ReadPropertyInteger('Info2'),
+            $this->ReadPropertyInteger('Info3'),
+            $this->ReadPropertyInteger('Info4'),
+            $this->ReadPropertyInteger('Info5'),
+            $this->ReadPropertyInteger('Schalter3'),
+            $this->ReadPropertyInteger('Schalter4'),
+            $this->ReadPropertyInteger('Schalter5')
+        ];
+        $refs = $this->GetReferenceList();
+            foreach($refs as $ref) {
+                $this->UnregisterReference($ref);
+            } 
+            foreach ($ids as $id) {
+                if ($id !== '') {
+                    $this->RegisterReference($id);
+                }
+            }
+
+        
         // Aktualisiere registrierte Nachrichten
         foreach ($this->GetMessageList() as $senderID => $messageIDs)
         {
