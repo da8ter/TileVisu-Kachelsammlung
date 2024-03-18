@@ -48,6 +48,7 @@ class TileVisuWashingMaschine extends IPSModule
             $ids = IPS_GetInstanceListByModuleID("{890EBD29-00C8-2146-711C-1BF7C5030AE9}");
             foreach($ids as $id) {
                 $this->RegisterReference($id);
+                console.error('Reference:' $id);
             }
 
         // Aktualisiere registrierte Nachrichten
@@ -350,7 +351,7 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    public function UpdateList($StatusID)
+    private function UpdateList($StatusID)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
