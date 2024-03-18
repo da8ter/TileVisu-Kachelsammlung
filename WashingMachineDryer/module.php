@@ -40,16 +40,24 @@ class TileVisuWashingMaschine extends IPSModule
     {
         parent::ApplyChanges();
 
-
-        $refs = $this->GetReferenceList();
-
+        $refs = array(
+            array( $this->ReadPropertyInteger('Status')),
+            array( $this->ReadPropertyInteger('Programm')),
+            array( $this->ReadPropertyInteger('Programmfortschritt')),
+            array( $this->ReadPropertyInteger('Restlaufzeit')),
+            array( $this->ReadPropertyInteger('Verbrauch')),
+            array( $this->ReadPropertyInteger('VerbrauchTag')),
+            array( $this->ReadPropertyInteger('KostenTag')),
+            array( $this->ReadPropertyInteger('bgImage'))
+        );
+        
             foreach($refs as $ref) {
                 $this->UnregisterReference($ref);
             }
-            $ids = IPS_GetInstanceListByModuleID("{890EBD29-00C8-2146-711C-1BF7C5030AE9}");
-            foreach($ids as $id) {
-                $this->RegisterReference($id);
-                
+            foreach ($refss as $id) {
+                if ($id !== 0) {
+                    $this->RegisterReference($id);
+                }
             }
 
         // Aktualisiere registrierte Nachrichten
