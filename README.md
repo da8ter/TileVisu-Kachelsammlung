@@ -9,4 +9,17 @@ Diese Kachel zeigt den Anwesenheitsstatus von bis zu 5 Bewohnern mit Foto und Na
 Diese Kachel ermöglicht die Darstellung einer Wärmepumpe, inklusive Leistungswerten, Temperaturen und Effizienzwerten.
 
 - Bild-Kachel:
-Diese Kachel dient der Anzeige eines Fotos. Bei Vergrößerung der Kachel werden alle Objekte, die unterhalb der Instanz liegen, als Liste angezeigt.
+Diese Kachel dient der Anzeige eines Fotos.
+
+- Bild+Variable Kachel:
+Diese Kachel dient der Anzeige eines Fotos und einer Variable.
+
+- Fortschritt/Stautus Kachel (Waschmaschine, Wäschetrockner etc.):
+Bildet den Fortschritt sowie die Restlaufzeit eines Gerätes ab.
+
+- PV-Übersicht:
+Dient der Visualisierung von PV-Produktion, Export, Import, Eigenverbrauch etc.
+
+- Header Kachel:
+Die Header-Kachel ermöglicht es ein Bild und einen Rumnamen abzubilden. Links und Rechts kann jeweils eine Variable eingeblendet werden (z.B. die Rsumtemperatur) Im unteren Bereich können links 5 Informationen und rechts 5 Button eingeblendet werden. (z.B. Zentral AUS oder Lichtszene starten)
+
