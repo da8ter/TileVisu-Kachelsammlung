@@ -373,7 +373,7 @@
                         }
                         break;
                     case 'verbrauchtag':
-                        element.textContent = '&nbsp;&nbsp;&nbsp;Tag: ' + decodedData[parameter];
+                        element.innerHTML = '&nbsp;&nbsp;&nbsp;Tag: ' + decodedData[parameter];
                         if (decodedData[parameter]) {
                             verbrauchtag.className = 'info';
                             infodiv.className = 'infodiv';
