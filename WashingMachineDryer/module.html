@@ -243,11 +243,13 @@
         .daten_rechts {
             border: 0px solid #000;
         }
-
-
-        .info {
+        .infodiv {
             font-size: var(--infoschriftgroesse);
             margin-top: 10px;
+            padding: 0px 0px 0px 0px;
+        }
+
+        .info {
             padding: 0px 0px 0px 0px;
         }
 
@@ -279,7 +281,7 @@
 
                 const element = document.getElementById(parameter.toLowerCase());
                 const parameter2 = String(parameter).toLowerCase();
-                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
@@ -291,7 +293,7 @@
                         }
                         break;
                     case 'statusvalue':
-                        let index = decodedData[parameter];
+                        var index = decodedData[parameter];
                         if (!statusImages[index]) {
                             index = 0;
                         }
@@ -306,6 +308,15 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
+                        var statusbalken = statusBalken[index];
+
+                        if (statusbalken === false) {
+                            restlaufzeit.textContent = '0';
+                            programmfortschritt.textContent = '0'; 
+                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+
+                        }
+                    
 
                         break;
                     case 'programm':
@@ -322,40 +333,57 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
+
+                       // if (statusBalken === false) {
+                        //    restlaufzeit.textContent = '0';
+                       // }
+
                         break;
                     case 'programmfortschrittvalue':
-                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%');
+                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                        if (statusbalken === false) {
+                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+                        }
+
                         break;
                     case 'programmfortschritt':
-                        element.textContent = decodedData[parameter];
+                        
                         if (decodedData[parameter]) {
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
+                            element.textContent = decodedData[parameter];
+                            if (statusbalken === false) {
+                                programmfortschritt.textContent = '0'; 
+                        }
+                          
                         }
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
+                        if (statusbalken === false) {
+                            restlaufzeit.textContent = '0'; 
+                        }
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter]) {
                             verbrauch.className = 'info';
-                            info.className = 'info';
+                            infodiv.className = 'infodiv';
                         }
                         break;
                     case 'verbrauchtag':
-                        element.textContent = decodedData[parameter];
+                        element.innerHTML = '&nbsp;&nbsp;&nbsp;Tag: ' + decodedData[parameter];
                         if (decodedData[parameter]) {
                             verbrauchtag.className = 'info';
-                            info.className = 'info';
+                            infodiv.className = 'infodiv';
                         }
                         break;
                     case 'kostentag':
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter] != null) {
                             kostentag.className = 'info';
-                            info.className = 'info';
+                            infodiv.className = 'infodiv';
                             kosten.className = 'info';
                         }
                         break;
@@ -398,6 +426,7 @@
                     case 'kachelhintergrundfarbe':
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;    
+
                     default:
                         //console.log('Setze innerHTML für', parameter);
                         // Setze innerHTML nur, wenn das Element gefunden wurde
@@ -434,11 +463,11 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden" id="info"> <i class="fa-solid fa-bolt fa-sm"
-                    style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden"
-                    id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span>
-                    <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span></div>
-        </div>
+            <div class="hidden" id="infodiv">
+                <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="verbrauch"></span><span class="hidden" id="verbrauchtag"></span>
+                <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span>
+            </div>
+            </div>
     </div>
 </body>
 
