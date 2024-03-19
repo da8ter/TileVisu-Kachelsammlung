@@ -399,9 +399,11 @@
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;    
                     case 'statusbalken':
+                        if (decodedData[parameter] === false) {
                             root.style.setProperty('--programmfortschrittvalue', '0%');
                             programmfortschritt.textContent ='0 %';
-                            restlaufzeit.textContent = '0';
+                            restlaufzeit.textContent = '0';      
+                        }
                         break;   
 
                     default:
