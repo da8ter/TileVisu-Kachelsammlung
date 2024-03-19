@@ -307,6 +307,13 @@
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
                         var statusbalken = statusBalken[index];
+
+                        if (statusBalken === false) {
+                            restlaufzeit.textContent = '0';
+                            programmfortschritt.textContent = '0'; 
+                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+
+                        }
                     
 
                         break;
@@ -325,9 +332,9 @@
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
 
-                        if (statusBalken === false) {
-                            element.textContent = '0';
-                        }
+                       // if (statusBalken === false) {
+                        //    restlaufzeit.textContent = '0';
+                       // }
 
                         break;
                     case 'programmfortschrittvalue':
@@ -344,7 +351,7 @@
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                             if (statusbalken === false) {
-                                element.textContent = '0'; 
+                                programmfortschritt.textContent = '0'; 
                         }
                           
                         }
