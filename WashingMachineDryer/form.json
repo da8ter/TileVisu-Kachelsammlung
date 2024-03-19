@@ -159,7 +159,7 @@
               "edit": {
                 "type": "CheckBox"
               },
-              "visible": false
+              "visible": true
             },
             {
               "caption": "Farbe",
