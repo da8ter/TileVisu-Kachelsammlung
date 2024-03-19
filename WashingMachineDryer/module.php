@@ -307,7 +307,6 @@ class TileVisuWashingMaschine extends IPSModule
             $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
             $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
             $result['balkenschriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
-            $result['statusbalken'] =  $this->ReadPropertyBoolean('StatusBalken');
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
