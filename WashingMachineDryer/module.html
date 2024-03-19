@@ -306,6 +306,12 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
+                        if (statusBalken[index] === false) {
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
+                            programmfortschritt.textContent ='0 %';
+                            restlaufzeit.textContent = '0';      
+                        }
+
 
                         break;
                     case 'programm':
@@ -398,13 +404,6 @@
                     case 'kachelhintergrundfarbe':
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;    
-                    case 'statusbalken':
-                        if (decodedData[parameter] === false) {
-                            root.style.setProperty('--programmfortschrittvalue', '0%');
-                            programmfortschritt.textContent ='0 %';
-                            restlaufzeit.textContent = '0';      
-                        }
-                        break;   
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
