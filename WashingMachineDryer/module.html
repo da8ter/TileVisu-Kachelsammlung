@@ -399,7 +399,9 @@
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;    
                     case 'statusbalken':
-                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
+                            balken_links_text.className = '0';
+                            restlaufzeit.textContent = '0';
                         break;   
 
                     default:
