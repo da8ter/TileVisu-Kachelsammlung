@@ -267,7 +267,7 @@ class TileVisuWashingMaschine extends IPSModule
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var StatusBalken = ' . $statusStatusBalken . ';';
+        $images .= 'var statusBalken = ' . $statusStatusBalken . ';';
         $images .= '</script>';
 
 
