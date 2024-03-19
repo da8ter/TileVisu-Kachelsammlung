@@ -282,7 +282,6 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                let index = 0;
                 switch (parameter2) {
 
                     case 'status':
@@ -292,7 +291,7 @@
                         }
                         break;
                     case 'statusvalue':
-                        let index = decodedData[parameter];
+                        var index = decodedData[parameter];
                         if (!statusImages[index]) {
                             index = 0;
                         }
