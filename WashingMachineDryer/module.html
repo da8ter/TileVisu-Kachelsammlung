@@ -305,6 +305,10 @@
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
+
+                        var statusBalken = statusBalken[index];
+                    
+
                         break;
                     case 'programm':
                         //element.className = 'infolinksasso';
@@ -320,15 +324,16 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
+
+                        if (statusBalken === false) {
+                            element.textContent = '0';
+                        }
+
                         break;
                     case 'programmfortschrittvalue':
-                           
-                        if (statusBalken[index] === false) {
-                            root.style.setProperty('--programmfortschrittvalue', '0%');
-                        }
-                        else
-                        {
-                            root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                        if (statusBalken === false) {
+                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
                         }
 
                         break;
@@ -337,32 +342,19 @@
                         if (decodedData[parameter]) {
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
-
-                            if (statusBalken[index] === false) {
-                                element.textContent = '0';
-                        }
-                        else
-                        {
                             element.textContent = decodedData[parameter];
+                            if (statusBalken === false) {
+                                element.textContent = '0'; 
                         }
-                            
+                          
                         }
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-
-
-
-                        if (statusBalken[index] === false) {
-                            restlaufzeit.textContent = '0';
+                        if (statusBalken === false) {
+                            restlaufzeit.textContent = '0'; 
                         }
-                        else
-                        {
-                            restlaufzeit.textContent = restmin;
-                        }
-
-
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
