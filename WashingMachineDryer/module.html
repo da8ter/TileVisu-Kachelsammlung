@@ -305,14 +305,6 @@
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
-
-                        if (statusBalken[index] === false) {
-                            root.style.setProperty('--programmfortschrittvalue', '0%');
-                            programmfortschritt.textContent ='0 %';
-                            restlaufzeit.textContent = '0';      
-                        }
-
-
                         break;
                     case 'programm':
                         //element.className = 'infolinksasso';
@@ -330,18 +322,47 @@
                         }
                         break;
                     case 'programmfortschrittvalue':
+                           
+                        if (statusBalken[index] === false) {
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
+                        }
+                        else
+                        {
                             root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                        }
+
                         break;
                     case 'programmfortschritt':
-                        element.textContent = decodedData[parameter];
+                        
                         if (decodedData[parameter]) {
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
+
+                            if (statusBalken[index] === false) {
+                                element.textContent = '0';
+                        }
+                        else
+                        {
+                            element.textContent = decodedData[parameter];
+                        }
+                            
                         }
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
+
+
+
+                        if (statusBalken[index] === false) {
+                            restlaufzeit.textContent = '0';
+                        }
+                        else
+                        {
+                            restlaufzeit.textContent = restmin;
+                        }
+
+
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
