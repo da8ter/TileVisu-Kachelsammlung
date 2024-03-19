@@ -399,14 +399,8 @@
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;    
                     case 'statusbalken':
-
-                    if (statusbalken === true) {
-                            root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        }
-                        else
-                        {
-                            root.style.setProperty('--programmfortschrittvalue', '0');    
-                        }                        break;   
+                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+                        break;   
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
