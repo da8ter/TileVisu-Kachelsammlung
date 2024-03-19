@@ -31,7 +31,6 @@ class TileVisuWashingMaschine extends IPSModule
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', -1);
-        $this->RegisterPropertyBoolean('StatusBalken', 1);
 
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
@@ -308,7 +307,6 @@ class TileVisuWashingMaschine extends IPSModule
             $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
             $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
             $result['balkenschriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
-            $result['statusbalken'] =  $this->ReadPropertyBoolean('StatusBalken');
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
