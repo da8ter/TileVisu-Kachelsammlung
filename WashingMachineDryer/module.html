@@ -243,10 +243,13 @@
         .daten_rechts {
             border: 0px solid #000;
         }
-
+        .info {
+            font-size: var(--infoschriftgroesse);
+            margin-top: 10px;
+            padding: 0px 0px 0px 0px;
+        }
 
         .info {
-
             margin-top: 10px;
             padding: 0px 0px 0px 0px;
         }
@@ -367,21 +370,21 @@
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter]) {
                             verbrauch.className = 'info';
-                            info.className = 'info';
+                            infodiv.className = 'infodiv';
                         }
                         break;
                     case 'verbrauchtag':
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter]) {
                             verbrauchtag.className = 'info';
-                            info.className = 'info';
+                            infodiv.className = 'infodiv';
                         }
                         break;
                     case 'kostentag':
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter] != null) {
                             kostentag.className = 'info';
-                            info.className = 'info';
+                            infodiv.className = 'infodiv';
                             kosten.className = 'info';
                         }
                         break;
@@ -461,7 +464,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden" id="info" style="font-size: 1.5em">
+            <div class="hidden" id="infodiv">
                 <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="verbrauch"></span>&nbsp;&nbsp;&nbsp;Tag: <span class="hidden" id="verbrauchtag"></span>
                 <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm"
                         style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span>
