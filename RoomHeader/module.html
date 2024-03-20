@@ -71,9 +71,9 @@
 
 .left-aligned {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+  align-items: flex-end;
   /* Inhalt nach links ausrichten */
   text-align: left;
   /* Text linksbündig */
@@ -81,6 +81,20 @@
   width: 20%;
   height: 100%;
   padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.left-aligned2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  align-items: flex-end;
+  /* Inhalt nach links ausrichten */
+  text-align: left;
+  /* Text linksbündig */
+  padding: 0px 0px 10px 0px;
+
+  padding-right: 20px;
   box-sizing: border-box;
 }
 
@@ -98,10 +112,9 @@
 
 .right-aligned {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-end;
   align-items: flex-end;
-  flex-direction: column;
   /* Inhalt nach rechts ausrichten */
   text-align: right;
   /* Text rechtsbündig */
@@ -111,6 +124,20 @@
   padding-right: 20px;
   box-sizing: border-box;
 }
+
+.right-aligned2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  align-items: flex-end;
+  /* Inhalt nach rechts ausrichten */
+  text-align: right;
+  /* Text rechtsbündig */
+  padding: 0px 0px 10px 0px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
 .menueleiste {
   backdrop-filter: blur(10px) brightness(1);
   -webkit-backdrop-filter: blur(10px) brightness(1);
@@ -220,7 +247,7 @@
             padding-right: 1px;
             padding-left: 1px;
         }
-        .infotrenner, .infotrennerstart {
+        .infotrenner, .infotrennerstart, .infolinkstrenner {
             height: 60%;
             width: 1px;
             background-color: #28CDAB;
@@ -351,6 +378,30 @@
                         infolinksname.textContent = decodedData[parameter];
                         }
                         break; 
+
+                        case 'infolinks2asso':
+                        element.className = 'infolinksasso';
+                        element.textContent = decodedData[parameter];
+                        if (infolinks2name != "" && infolinks2icon == "") infolinks2doppelpunkt.className = 'infolinksasso';
+                        if (!document.getElementById("infolinks2name").classList.contains("hidden")) infolinks2doppelpunkt.className = 'infolinksasso';
+                        break;
+                    case 'infolinks2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconlinks';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'infolinks2name':
+                        element.className = 'infolinksname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'infolinks2altname':
+                        if(decodedData[parameter] != ''){
+                        infolinks2name.className = 'infolinksname';
+                        infolinks2name.textContent = decodedData[parameter];
+                        }
+                        break; 
+
                     case 'inforechtsasso':
                         element.className = 'inforechtsasso';
                         element.textContent = decodedData[parameter];
@@ -373,6 +424,32 @@
                         inforechtsname.textContent = decodedData[parameter];
                         }
                         break; 
+
+                    case 'inforechts2asso':
+                        element.className = 'inforechtsasso';
+                        element.textContent = decodedData[parameter];
+                        if (inforechts2name != "" && inforechts2icon == "") inforechts2doppelpunkt.className = 'inforechtsasso';
+                        if (!document.getElementById("inforechts2name").classList.contains("hidden")) inforechts2doppelpunkt.className = 'inforechtsasso';
+                        break;
+                    case 'inforechts2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconrechts';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'inforechts2name':
+                        element.className = 'inforechtsname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'inforechts2altname':
+                        if(decodedData[parameter] != ''){
+                        inforechtsname.className = 'inforechtsname';
+                        inforechtsname.textContent = decodedData[parameter];
+                        }
+                        break; 
+
+
+
                     case 'schalter1asso':
                         element.className = 'schalter1asso';
                         schalter1.className = 'schalter1';
@@ -694,21 +771,42 @@
 <div class="maindiv1">
     <div class="maindiv2">
       <div class="left-aligned">
+        <div class="left-aligned2" style="align-items: flex-start">
         <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
         <div>
             <p class="hidden" id="infolinksname"></p>
             <p class="hidden" id="infolinksdoppelpunkt">:&nbsp;</p>
             <p class="hidden" id="infolinksasso"></p>
         </div>
+    </div>
+
+    <div class="left-aligned2" style="align-items: center">
+        <div class="iconlinksdiv"><img class="hidden" id="infolinks2icon" src=""></div>
+        <div>
+            <p class="hidden" id="infolinks2name"></p>
+            <p class="hidden" id="infolinks2doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="infolinks2asso">test</p>
+        </div>
+    </div>  
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
       <div class="right-aligned">
-        <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
+        <div  class="right-aligned2" style="align-items: center">
+            <div class="iconrechtsdiv"><img class="hidden" id="inforechts2icon" src=""></div>
+            <div>
+                <p class="hidden" id="inforechts2name"></p>
+                <p class="hidden" id="inforechts2doppelpunkt">:&nbsp;</p>
+                <p class="hidden" id="inforechts2asso">test</p>
+            </div>
+        </div>
+        <div  class="right-aligned2" style="align-items: flex-end">
+            <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
         <div>
             <p class="hidden" id="inforechtsname"></p>
             <p class="hidden" id="inforechtsdoppelpunkt">:&nbsp;</p>
             <p class="hidden" id="inforechtsasso"></p>
         </div>
+        </div>  
       </div>
     </div>
     <div class="hidden" id="menueleiste">
