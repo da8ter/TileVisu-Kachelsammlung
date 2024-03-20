@@ -96,19 +96,19 @@
                         break;
 
 
-                        case 'schalter1icon':
+                        case 'variableicon':
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'schaltericon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         schalter1.className = 'schalter1';
                         }
                         break;
-                    case 'schalter1name':
+                    case 'variablename':
                         element.className = 'schalter1name';
                         schalter1.className = 'schalter1';
                         element.textContent = decodedData[parameter];
                         break;
-                    case 'schalter1altname':
+                    case 'variablealtname':
                         if(decodedData[parameter] != ''){
                         schalter1name.className = 'schalter1name';
                         schalter1.className = 'schalter1';
