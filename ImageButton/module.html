@@ -106,23 +106,23 @@
     </style>
 
 
-    <script>
-        function handleMessage(data) {
-            //console.log('Rohdaten empfangen:', data);
+        <script>
+            function handleMessage(data) {
+                //console.log('Rohdaten empfangen:', data);
 
-            const decodedData = JSON.parse(data);
+                const decodedData = JSON.parse(data);
+                
+                console.log('Decodierte Daten:', decodedData);
 
-            //console.log('Decodierte Daten:', decodedData);
+                for (const parameter in decodedData) {
+                    //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
 
-            for (const parameter in decodedData) {
-                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
-
-                const element = document.getElementById(parameter.toLowerCase());
-                const parameter2 = String(parameter).toLowerCase();
-                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
-                var root = document.documentElement;
-                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                switch (parameter2) {
+                    const element = document.getElementById(parameter.toLowerCase());
+                    const parameter2 = String(parameter).toLowerCase();
+                    console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                    var root = document.documentElement;
+                    // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                    switch (parameter2) {
 
                     case 'variable':
                         element.className = 'variableasso';
