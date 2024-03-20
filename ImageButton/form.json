@@ -74,8 +74,8 @@
                               "items": [
                                   {
                                       "type": "SelectVariable",
-                                      "name": "Schalter1",
-                                      "caption": "Schalter1:",
+                                      "name": "Variable",
+                                      "caption": "Schalter:",
                                       "validVariableTypes": [
                                           0
                                       ]
@@ -88,7 +88,7 @@
                                           "items": [
                                               {
                                                   "type": "NumberSpinner",
-                                                  "name": "Schalter1Breite",
+                                                  "name": "VariableBreite",
                                                   "caption": "Breite",
                                                   "digits": 0,
                                                   "minimum": 10,
@@ -97,27 +97,27 @@
                                               },
                                               {
                                                   "type": "CheckBox",
-                                                  "name": "Schalter1NameSwitch",
+                                                  "name": "VariableNameSwitch",
                                                   "caption": "Variablenname anzeigen"
                                               },
                                               {
                                                   "type": "CheckBox",
-                                                  "name": "Schalter1IconSwitch",
+                                                  "name": "VariableIconSwitch",
                                                   "caption": "Icon anzeigen"
                                               },
                                               {
                                                   "type": "CheckBox",
-                                                  "name": "Schalter1VarIconSwitch",
+                                                  "name": "VariableVarIconSwitch",
                                                   "caption": "Variablenicon verwenden"
                                               },
                                               {
                                                   "type": "CheckBox",
-                                                  "name": "Schalter1AssoSwitch",
+                                                  "name": "VariableAssoSwitch",
                                                   "caption": "Wert anzeigen"
                                               },
                                               {
                                                   "type": "ValidationTextBox",
-                                                  "name": "Schalter1AltName",
+                                                  "name": "VariableAltName",
                                                   "caption": "Variablenname überschreiben:"
                                               }
                                           ]
