@@ -71,6 +71,21 @@
 
 .left-aligned {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  align-items: flex-start;
+  /* Inhalt nach links ausrichten */
+  text-align: left;
+  /* Text linksbündig */
+  padding: 0px 0px 10px 0px;
+  width: 20%;
+  height: 100%;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.left-aligned2 {
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
   align-items: flex-start;
@@ -744,7 +759,7 @@
 <div class="maindiv1">
     <div class="maindiv2">
       <div class="left-aligned">
-        <div>
+        <div class="left-aligned2">
         <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
         <div>
             <p class="hidden" id="infolinksname"></p>
@@ -752,7 +767,7 @@
             <p class="hidden" id="infolinksasso"></p>
         </div>
     </div>
-    <div>
+    <div  class="left-aligned2">
         <div class="iconlinksdiv"><img class="hidden" id="infolinks2icon" src=""></div>
         <div>
             <p class="hidden" id="infolinks2name"></p>
