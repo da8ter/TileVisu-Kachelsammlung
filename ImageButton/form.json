@@ -132,7 +132,7 @@
           },
           {
               "type": "NumberSpinner",
-              "name": "InfoMenueSchriftgroesse",
+              "name": "Schriftgroesse",
               "caption": "Schriftgröße:",
               "digits": 1,
               "minimum": 0.5,
@@ -142,23 +142,8 @@
           {
               "type": "SelectColor",
               "allowTransparent": "false",
-              "name": "InfoMenueSchriftfarbe",
+              "name": "Schriftfarbe",
               "caption": "Schriftfarbe:"
-          },
-          {
-              "type": "NumberSpinner",
-              "name": "InfoMenueTransparenz",
-              "caption": "Hintergrund Transparenz:",
-              "digits": 1,
-              "minimum": 0.1,
-              "maximum": 1,
-              "suffix": "0 bis 1"
-          },
-          {
-              "type": "SelectColor",
-              "allowTransparent": "false",
-              "name": "InfoMenueHintergrundfarbe",
-              "caption": "Hintergrundfarbe:"
           }
       ]
   },

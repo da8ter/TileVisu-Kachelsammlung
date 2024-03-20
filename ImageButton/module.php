@@ -9,7 +9,6 @@ class TileVisuImageButton extends IPSModule
 
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("Variable", 0);
-        $this->RegisterPropertyFloat('VariableSchriftgroesse', 1);
         $this->RegisterPropertyFloat('VariableBreite', 100);
         $this->RegisterPropertyString('VariableAltName', '');
         $this->RegisterPropertyBoolean('VariableNameSwitch', 1);
@@ -17,6 +16,7 @@ class TileVisuImageButton extends IPSModule
         $this->RegisterPropertyBoolean('VariableVarIconSwitch', 0);
         $this->RegisterPropertyBoolean('VariableAssoSwitch', 1);
         $this->RegisterPropertyFloat("Schriftgroesse", 1);
+        $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyInteger("Bildauswahl", 0);
         $this->RegisterPropertyBoolean('BG_Off', 1);
         $this->RegisterPropertyInteger("bgImage", 0);
@@ -149,14 +149,17 @@ class TileVisuImageButton extends IPSModule
     
             //$result['status'] = $this->CheckAndGetValueFormatted('Status');
             if (IPS_VariableExists($this->ReadPropertyInteger('Variable'))) {
-                $result['variable'] = $this->CheckAndGetValueFormatted('Variable');
+                $result['Schalter3'] = $this->CheckAndGetValueFormatted('Variable');
+                $result['variablebreite'] =  $this->ReadPropertyFloat('VariableBreite');
+                $result['variablecolor'] =  $this->GetColor($this->ReadPropertyInteger('Variable'));
                 if ($this->ReadPropertyBoolean('VariableNameSwitch')) $result['variablename'] = IPS_GetName($this->ReadPropertyInteger('Variable'));
                 if ($this->ReadPropertyBoolean('VariableIconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Variable'), $this->ReadPropertyBoolean('VariableVarIconSwitch')) !== "Transparent") {
                     $result['variableicon'] = $this->GetIcon($this->ReadPropertyInteger('Variable'), $this->ReadPropertyBoolean('VariableVarIconSwitch'));
                 }
-                if ($this->ReadPropertyBoolean('VariableAssoSwitch')) $result['variablesasso'] = $this->CheckAndGetValueFormatted('Variable');
+                if ($this->ReadPropertyBoolean('VariableAssoSwitch')) $result['variableasso'] = $this->CheckAndGetValueFormatted('Variable');
             }
             $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
+            $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
             $result['variablealtname'] =  $this->ReadPropertyString('VariableAltName');
