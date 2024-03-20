@@ -1,5 +1,5 @@
 <?php
-class TileVisuWashingMaschine extends IPSModule
+class TileVisuImageButton extends IPSModule
 {
     public function Create()
     {
@@ -8,25 +8,9 @@ class TileVisuWashingMaschine extends IPSModule
 
 
         // Drei Eigenschaften für die dargestellten Zähler
-        $this->RegisterPropertyInteger("Status", 0);
-        $this->RegisterPropertyInteger("Programm", 0);
-        $this->RegisterPropertyInteger("Programmfortschritt", 0);
-        $this->RegisterPropertyInteger("Restlaufzeit", 0);
-        $this->RegisterPropertyInteger("Verbrauch", 0);
-        $this->RegisterPropertyInteger("VerbrauchTag", 0);
-        $this->RegisterPropertyInteger("KostenTag", 0);
+        $this->RegisterPropertyInteger("Variable", 0);
         $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
-        $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
-        $this->RegisterPropertyFloat("InfoSchriftgroesse", 1);
-        $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
-        $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
-        $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 2132596);
         $this->RegisterPropertyInteger("Bildauswahl", 0);
-        //$this->RegisterPropertyInteger("Bild", 0);
-        $this->RegisterPropertyFloat("BildBreite", 20);
-        $this->RegisterPropertyString('ProfilAssoziazionen', '[]');
-        $this->RegisterPropertyInteger("Bild_An", 0);
-        $this->RegisterPropertyInteger("Bild_Aus", 0);
         $this->RegisterPropertyBoolean('BG_Off', 1);
         $this->RegisterPropertyInteger("bgImage", 0);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
@@ -43,13 +27,7 @@ class TileVisuWashingMaschine extends IPSModule
         
         //Referenzen Registrieren
         $ids = [
-            $this->ReadPropertyInteger('Status'),
-            $this->ReadPropertyInteger('Programm'),
-            $this->ReadPropertyInteger('Programmfortschritt'),
-            $this->ReadPropertyInteger('Restlaufzeit'),
-            $this->ReadPropertyInteger('Verbrauch'),
-            $this->ReadPropertyInteger('VerbrauchTag'),
-            $this->ReadPropertyInteger('KostenTag'),
+            $this->ReadPropertyInteger('Variable'),
             $this->ReadPropertyInteger('bgImage')
         ];
         $refs = $this->GetReferenceList();
@@ -74,7 +52,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
+        foreach (['Variable', 'bgImage'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -85,7 +63,7 @@ class TileVisuWashingMaschine extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
+        foreach (['Variable', 'bgImage'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -97,8 +75,25 @@ class TileVisuWashingMaschine extends IPSModule
                         
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
                         $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
-                        $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
-                        break; // Beende die Schleife, da der passende Wert gefunden wurde
+                        
+                        //Icon und Farbe abrufen
+                            //Farbe abrufen
+                            $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
+
+                            if($VariableProperty != 'bgImage')
+                            {
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')) !== "Transparent") {
+                                   $result[$VariableProperty .'icon'] = $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch'));
+                                }
+                                if ($this->ReadPropertyBoolean($VariableProperty . 'AssoSwitch')) $result[$VariableProperty . 'asso'] = $this->CheckAndGetValueFormatted($VariableProperty);
+                                $result[$VariableProperty .'AltName'] =  $this->ReadPropertyString($VariableProperty .'AltName');
+                            }
+
+                            $this->UpdateVisualizationValue(json_encode($result));
+
+                            
+                            break; // Beende die Schleife, da der passende Wert gefunden wurde
 
                 }
             }
@@ -124,154 +119,7 @@ class TileVisuWashingMaschine extends IPSModule
     {
         // Füge ein Skript hinzu, um beim Laden, analog zu Änderungen bei Laufzeit, die Werte zu setzen
         $initialHandling = '<script>handleMessage(' . json_encode($this->GetFullUpdateMessage()) . ')</script>';
-        $bildauswahl = $this->ReadPropertyInteger('Bildauswahl');
-
-
-
-        if($bildauswahl == '0') {
-            $assets = '<script>';
-            $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
-            $assets .= '</script>';
-        }
-        elseif($bildauswahl == '1') {
-            $assets = '<script>';
-            $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_an.webp')) . '";' . PHP_EOL;
-            $assets .= '</script>';
-        }
-        else {
-
-        // Prüfe vorweg, ob ein Bild ausgewählt wurde
-        $imageID_Bild_An = $this->ReadPropertyInteger('Bild_An');
-        if (IPS_MediaExists($imageID_Bild_An)) {
-            $image = IPS_GetMedia($imageID_Bild_An);
-            if ($image['MediaType'] === MEDIATYPE_IMAGE) {
-                $imageFile = explode('.', $image['MediaFile']);
-                $imageContent = '';
-                // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
-                switch (end($imageFile)) {
-                    case 'bmp':
-                        $imageContent = 'data:image/bmp;base64,';
-                        break;
-
-                    case 'jpg':
-                    case 'jpeg':
-                        $imageContent = 'data:image/jpeg;base64,';
-                        break;
-
-                    case 'gif':
-                        $imageContent = 'data:image/gif;base64,';
-                        break;
-
-                    case 'png':
-                        $imageContent = 'data:image/png;base64,';
-                        break;
-
-                    case 'ico':
-                        $imageContent = 'data:image/x-icon;base64,';
-                        break;
-                }
-
-                // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
-                if ($imageContent) {
-                    // Hänge base64-codierten Inhalt des Bildes an
-                    $imageContent .= IPS_GetMediaContent($imageID_Bild_An);
-                }
-
-            }
-        }
-        else {
-            $imageContent = 'data:image/png;base64,';
-
-            $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/transparent.webp'));
-
-            
-        } 
-
-                // Prüfe vorweg, ob ein Bild ausgewählt wurde
-                $imageID_Bild_Aus = $this->ReadPropertyInteger('Bild_Aus');
-                if (IPS_MediaExists($imageID_Bild_Aus)) {
-                    $image2 = IPS_GetMedia($imageID_Bild_Aus);
-                    if ($image2['MediaType'] === MEDIATYPE_IMAGE) {
-                        $imageFile2 = explode('.', $image2['MediaFile']);
-                        $imageContent2 = '';
-                        // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
-                        switch (end($imageFile2)) {
-                            case 'bmp':
-                                $imageContent2 = 'data:image/bmp;base64,';
-                                break;
         
-                            case 'jpg':
-                            case 'jpeg':
-                                $imageContent2 = 'data:image/jpeg;base64,';
-                                break;
-        
-                            case 'gif':
-                                $imageContent2 = 'data:image/gif;base64,';
-                                break;
-        
-                            case 'png':
-                                $imageContent2 = 'data:image/png;base64,';
-                                break;
-        
-                            case 'ico':
-                                $imageContent2 = 'data:image/x-icon;base64,';
-                                break;
-                        }
-        
-                        // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
-                        if ($imageContent2) {
-                            // Hänge base64-codierten Inhalt des Bildes an
-                            $imageContent2 .= IPS_GetMediaContent($imageID_Bild_Aus);
-                        }
-        
-                    }
-                }
-                else {
-                    $imageContent2 = 'data:image/png;base64,';
-
-                    $imageContent2 .= base64_encode(file_get_contents(__DIR__ . '/../imgs/transparent.webp'));
-
-                    
-                }  
-
-            $assets = '<script>';
-            $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "' . $imageContent2 . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "' . $imageContent . '";' . PHP_EOL;
-            $assets .= '</script>';
-        }
-
-
-        // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
-        $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
-        $statusMappingImage = [];
-        $statusMappingColor = [];
-        $statusMappingBalken = [];
-        foreach ($assoziationsArray as $item) {
-            $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
-                      
-            $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
-
-            $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
-
-        }
-
-        $statusImagesJson = json_encode($statusMappingImage);
-        $statusColorJson = json_encode($statusMappingColor);
-        $statusStatusBalken = json_encode($statusMappingBalken);
-        $images = '<script type="text/javascript">';
-        $images .= 'var statusImages = ' . $statusImagesJson . ';';
-        $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusStatusBalken . ';';
-        $images .= '</script>';
-
-
-
-
         // Füge statisches HTML aus Datei hinzu
         $module = file_get_contents(__DIR__ . '/module.html');
 
@@ -293,23 +141,15 @@ class TileVisuWashingMaschine extends IPSModule
         $result = [];
     
             //$result['status'] = $this->CheckAndGetValueFormatted('Status');
-            $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
-            $result['statusvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
-            $result['programm'] = IPS_VariableExists($this->ReadPropertyInteger('Programm')) ? $this->CheckAndGetValueFormatted('Programm') : null;
-            $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
-            $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
-            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
-            $result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-            $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
-            $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
-            $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;
-            $result['statusschriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
-            $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
-            $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
-            $result['balkenschriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
-            $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
-            $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
-            $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
+            if (IPS_VariableExists($this->ReadPropertyInteger('Variable'))) {
+                $result['variable'] = $this->CheckAndGetValueFormatted('Variable');
+                if ($this->ReadPropertyBoolean('VariableNameSwitch')) $result['variablename'] = IPS_GetName($this->ReadPropertyInteger('Variable'));
+                if ($this->ReadPropertyBoolean('VariableIconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Variable'), $this->ReadPropertyBoolean('VariableVarIconSwitch')) !== "Transparent") {
+                    $result['variableicon'] = $this->GetIcon($this->ReadPropertyInteger('Variable'), $this->ReadPropertyBoolean('VariableVarIconSwitch'));
+                }
+                if ($this->ReadPropertyBoolean('VariableAssoSwitch')) $result['variablesasso'] = $this->CheckAndGetValueFormatted('Variable');
+            }
+            $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
 
@@ -369,46 +209,6 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    private function UpdateList($StatusID)
-    {
-        $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
-    
-        $id = $StatusID;
-
-        // Prüfen, ob die übergebene ID einer existierenden Variable entspricht
-        if (IPS_VariableExists($id)) {
-            // Auslesen des Variablenprofils
-            $variable = IPS_GetVariable($id);
-            $profileName = $variable['VariableCustomProfile'] ?: $variable['VariableProfile'];
-            
-            if ($profileName != '') {
-                $profile = IPS_GetVariableProfile($profileName);
-    
-                // Durchlaufen der Profilassoziationen
-                foreach ($profile['Associations'] as $association) {
-                    $listData[] = [
-                        'AssoziationName' => $association['Name'],
-                        'AssoziationValue' => $association['Value'],
-                        'Bildauswahl' => 'wm_aus',
-                        'StatusColor' => '-1'
-                    ];
-                }
-            }
-        } else {
-            IPS_LogMessage("TileVisuWashingMaschine", "Die übergebene ID $id entspricht keiner existierenden Variable.");
-        }
-    
-        // Konvertieren Sie Ihre Liste in JSON und aktualisieren Sie das Konfigurationsformular
-        $jsonListData = json_encode($listData);
-        $this->UpdateFormField('ProfilAssoziazionen', 'values', $jsonListData);
-    }
-    
-    
-
-
-
-
-
     private function CheckAndGetValueFormatted($property) {
         $id = $this->ReadPropertyInteger($property);
         if (IPS_VariableExists($id)) {
@@ -447,7 +247,7 @@ class TileVisuWashingMaschine extends IPSModule
                     $r = hexdec(substr($hexColor, 0, 2));
                     $g = hexdec(substr($hexColor, 2, 2));
                     $b = hexdec(substr($hexColor, 4, 2));
-                    return "rgba($r, $g, $b, $transparenz)";
+                    return "rgba($r, $g, $b, '1')";
                 } else {
                     // Fallback für ungültige Eingaben
                     return $hexColor;
