@@ -9,7 +9,7 @@ class TileVisuImageButton extends IPSModule
 
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("Variable", 0);
-        $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
+        $this->RegisterPropertyFloat("Schriftgroesse", 1);
         $this->RegisterPropertyInteger("Bildauswahl", 0);
         $this->RegisterPropertyBoolean('BG_Off', 1);
         $this->RegisterPropertyInteger("bgImage", 0);
