@@ -96,25 +96,69 @@
                         break;
 
 
-                        case 'variableicon':
+                    case 'variableasso':
+                        element.className = 'variableasso';
+                        schalter4.className = 'variable';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("variablename").classList.contains("hidden")) schalter4doppelpunkt.className = 'variableasso';
+                        break;
+                    case 'variableicon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
+                        element.className = 'variableicon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter1.className = 'schalter1';
+                        schalter4.className = 'variable';
                         }
                         break;
                     case 'variablename':
-                        element.className = 'schalter1name';
-                        schalter1.className = 'schalter1';
+                        element.className = 'variablename';
                         element.textContent = decodedData[parameter];
-                        break;
+                        variable.className = 'variable';
+                        break;  
                     case 'variablealtname':
                         if(decodedData[parameter] != ''){
-                        schalter1name.className = 'schalter1name';
-                        schalter1.className = 'schalter1';
-                        schalter1name.textContent = decodedData[parameter];
+                        variablename.className = 'variablename';
+                        variable.className = 'variable';
+                        variablename.textContent = decodedData[parameter];
                         }
                         break;
+                    case 'variableasso':
+                        element.className = 'variableasso';
+                        variable.className = 'variable';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("variablename").classList.contains("hidden")) schalter5doppelpunkt.className = 'variableasso';
+                        break;
+                    case 'variableicon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'variableicon';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        schalter5.className = 'variable';
+                        }
+                        break;
+                    case 'variablename':
+                        element.className = 'variablename';
+                        variable.className = 'variable';
+                        element.textContent = decodedData[parameter];
+                        break;  
+                    case 'variablealtname':
+                        if(decodedData[parameter] != ''){
+                        variablename.className = 'variablename';
+                        variable.className = 'variable';
+                        variablename.textContent = decodedData[parameter];
+                        }
+                        break;
+
+                        case 'schalterschriftgroesse':
+                        root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
+                        break;    
+                    case 'schalter1breite':
+                        root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
+                        break; 
+
+                        case 'schalter1color':
+                        root.style.setProperty('--schalter1color', decodedData[parameter]);
+                        break;
+
+
 
 
                         
