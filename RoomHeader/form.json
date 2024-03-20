@@ -134,6 +134,51 @@
                                     ]
                                 },
                                 {
+                                    "type": "RowLayout",
+                                    "items": [
+                                        {
+                                            "type": "SelectVariable",
+                                            "name": "InfoLinks2",
+                                            "caption": "Variable links 2:",
+                                            "validVariableTypes": []
+                                        },
+                                        {
+                                            "type": "PopupButton",
+                                            "caption": "Einstellung",
+                                            "popup": {
+                                                "caption": "Einstellung",
+                                                "items": [
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoLinks2NameSwitch",
+                                                        "caption": "Variablenname anzeigen"
+                                                    },
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoLinks2IconSwitch",
+                                                        "caption": "Icon anzeigen"
+                                                    },
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoLinks2VarIconSwitch",
+                                                        "caption": "Variablenicon verwenden"
+                                                    },
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoLinks2AssoSwitch",
+                                                        "caption": "Wert anzeigen"
+                                                    },
+                                                    {
+                                                        "type": "ValidationTextBox",
+                                                        "name": "InfoLinks2AltName",
+                                                        "caption": "Variablenname überschreiben:"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
                                     "type": "NumberSpinner",
                                     "name": "InfoSchriftgroesse",
                                     "caption": "Schriftgröße:",
@@ -190,6 +235,51 @@
                                                     {
                                                         "type": "ValidationTextBox",
                                                         "name": "InfoRechtsAltName",
+                                                        "caption": "Variablenname überschreiben:"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "RowLayout",
+                                    "items": [
+                                        {
+                                            "type": "SelectVariable",
+                                            "name": "InfoRechts2",
+                                            "caption": "Variable rechts:",
+                                            "validVariableTypes": []
+                                        },
+                                        {
+                                            "type": "PopupButton",
+                                            "caption": "Einstellung",
+                                            "popup": {
+                                                "caption": "Einstellung",
+                                                "items": [
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoRechts2NameSwitch",
+                                                        "caption": "Variablenname anzeigen"
+                                                    },
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoRechts2IconSwitch",
+                                                        "caption": "Icon anzeigen"
+                                                    },
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoRechts2VarIconSwitch",
+                                                        "caption": "Variablenicon verwenden"
+                                                    },
+                                                    {
+                                                        "type": "CheckBox",
+                                                        "name": "InfoRechts2AssoSwitch",
+                                                        "caption": "Wert anzeigen"
+                                                    },
+                                                    {
+                                                        "type": "ValidationTextBox",
+                                                        "name": "InfoRechts2AltName",
                                                         "caption": "Variablenname überschreiben:"
                                                     }
                                                 ]
