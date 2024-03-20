@@ -125,7 +125,7 @@ class TileVisuImageButton extends IPSModule
 
         // Gebe alles zurück.
         // Wichtig: $initialHandling nach hinten, da die Funktion handleMessage erst im HTML definiert wird
-        return $module . $assets . $initialHandling;
+        return $module . $initialHandling;
     }
 
 
