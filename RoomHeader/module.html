@@ -398,23 +398,23 @@
                         }
                         break; 
 
-                    case 'inforechts2asso':
+                    case '#inforechts2asso':
                         element.className = 'inforechtsasso';
                         element.textContent = decodedData[parameter];
                         if (inforechts2name != "" && inforechts2icon == "") inforechts2doppelpunkt.className = 'inforechtsasso';
                         if (!document.getElementById("inforechts2name").classList.contains("hidden")) inforechts2doppelpunkt.className = 'inforechtsasso';
                         break;
-                    case 'inforechts2icon':
+                    case '#inforechts2icon':
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'iconrechts';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         }
                         break;
-                    case 'inforechts2name':
+                    case '#inforechts2name':
                         element.className = 'inforechtsname';
                         element.textContent = decodedData[parameter];
                         break;
-                    case 'inforechts2altname':
+                    case '#inforechts2altname':
                         if(decodedData[parameter] != ''){
                         inforechtsname.className = 'inforechtsname';
                         inforechtsname.textContent = decodedData[parameter];
