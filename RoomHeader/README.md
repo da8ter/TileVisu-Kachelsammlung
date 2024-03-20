@@ -1,2 +1,2 @@
-# Bewohnerstatus
+# Raumheader-Kachel
 Beschreibung des Moduls.
