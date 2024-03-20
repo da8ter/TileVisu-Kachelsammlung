@@ -351,6 +351,30 @@
                         infolinksname.textContent = decodedData[parameter];
                         }
                         break; 
+
+                        case 'infolink2sasso':
+                        element.className = 'infolinksasso';
+                        element.textContent = decodedData[parameter];
+                        if (infolinks2name != "" && infolinks2icon == "") infolinks2doppelpunkt.className = 'infolinksasso';
+                        if (!document.getElementById("infolinks2name").classList.contains("hidden")) infolinks2doppelpunkt.className = 'infolinksasso';
+                        break;
+                    case 'infolinks2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconlinks';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'infolinks2name':
+                        element.className = 'infolinksname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'infolinksalt2name':
+                        if(decodedData[parameter] != ''){
+                        infolinks2name.className = 'infolinksname';
+                        infolinks2name.textContent = decodedData[parameter];
+                        }
+                        break; 
+
                     case 'inforechtsasso':
                         element.className = 'inforechtsasso';
                         element.textContent = decodedData[parameter];
@@ -373,6 +397,32 @@
                         inforechtsname.textContent = decodedData[parameter];
                         }
                         break; 
+
+                    case 'inforechts2asso':
+                        element.className = 'inforechtsasso';
+                        element.textContent = decodedData[parameter];
+                        if (inforechts2name != "" && inforechts2icon == "") inforechts2doppelpunkt.className = 'inforechtsasso';
+                        if (!document.getElementById("inforechts2name").classList.contains("hidden")) inforechts2doppelpunkt.className = 'inforechtsasso';
+                        break;
+                    case 'inforechts2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                        element.className = 'iconrechts';
+                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                        }
+                        break;
+                    case 'inforechts2name':
+                        element.className = 'inforechtsname';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'inforechts2altname':
+                        if(decodedData[parameter] != ''){
+                        inforechtsname.className = 'inforechtsname';
+                        inforechtsname.textContent = decodedData[parameter];
+                        }
+                        break; 
+
+
+
                     case 'schalter1asso':
                         element.className = 'schalter1asso';
                         schalter1.className = 'schalter1';
@@ -694,11 +744,19 @@
 <div class="maindiv1">
     <div class="maindiv2">
       <div class="left-aligned">
+        <div>
         <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
         <div>
             <p class="hidden" id="infolinksname"></p>
             <p class="hidden" id="infolinksdoppelpunkt">:&nbsp;</p>
             <p class="hidden" id="infolinksasso"></p>
+        </div>
+        <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
+        <div>
+            <p class="hidden" id="infolinksname"></p>
+            <p class="hidden" id="infolinksdoppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="infolinksasso"></p>
+        </div>
         </div>
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
