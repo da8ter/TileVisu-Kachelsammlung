@@ -1,0 +1,12 @@
+{
+    "id": "{890EBD29-00C8-2146-711C-1BF7C5030AE9}",
+    "name": "TileVisuWashingMaschine",
+    "type": 3,
+    "vendor": "",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "WMA",
+    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/tree/main/ImageVariable"
+}
