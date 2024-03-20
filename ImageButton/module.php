@@ -9,6 +9,13 @@ class TileVisuImageButton extends IPSModule
 
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("Variable", 0);
+        $this->RegisterPropertyFloat('VariableSchriftgroesse', 1);
+        $this->RegisterPropertyFloat('VariableBreite', 100);
+        $this->RegisterPropertyString('VariableAltName', '');
+        $this->RegisterPropertyBoolean('VariableNameSwitch', 1);
+        $this->RegisterPropertyBoolean('VariableIconSwitch', 1);
+        $this->RegisterPropertyBoolean('VariableVarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('VariableAssoSwitch', 1);
         $this->RegisterPropertyFloat("Schriftgroesse", 1);
         $this->RegisterPropertyInteger("Bildauswahl", 0);
         $this->RegisterPropertyBoolean('BG_Off', 1);
@@ -152,6 +159,7 @@ class TileVisuImageButton extends IPSModule
             $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
+            $result['variablealtname'] =  $this->ReadPropertyString('VariableAltName');
 
             $imageID = $this->ReadPropertyInteger('bgImage');
             if (IPS_MediaExists($imageID)) {
