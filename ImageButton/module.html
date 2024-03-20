@@ -28,13 +28,25 @@
             background-color: var(--hintergrundfarbe);
         }
 
+        body:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            box-sizing: border-box;
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+
         body {
-        margin: 0px;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background-color: var(--hintergrundfarbe);
-    }
+        }
 
     .maindiv {
         width: 100%;
