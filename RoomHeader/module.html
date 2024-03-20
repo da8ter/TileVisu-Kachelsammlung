@@ -112,8 +112,8 @@
 
 .right-aligned {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: flex-start;
   align-items: flex-end;
   flex-direction: column;
   /* Inhalt nach rechts ausrichten */
@@ -125,6 +125,21 @@
   padding-right: 20px;
   box-sizing: border-box;
 }
+
+.right-aligned2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  /* Inhalt nach rechts ausrichten */
+  text-align: right;
+  /* Text rechtsbündig */
+  padding: 0px 0px 10px 0px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
 .menueleiste {
   backdrop-filter: blur(10px) brightness(1);
   -webkit-backdrop-filter: blur(10px) brightness(1);
@@ -412,23 +427,23 @@
                         }
                         break; 
 
-                    case '#inforechts2asso':
+                    case 'inforechts2asso':
                         element.className = 'inforechtsasso';
                         element.textContent = decodedData[parameter];
                         if (inforechts2name != "" && inforechts2icon == "") inforechts2doppelpunkt.className = 'inforechtsasso';
                         if (!document.getElementById("inforechts2name").classList.contains("hidden")) inforechts2doppelpunkt.className = 'inforechtsasso';
                         break;
-                    case '#inforechts2icon':
+                    case 'inforechts2icon':
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'iconrechts';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         }
                         break;
-                    case '#inforechts2name':
+                    case 'inforechts2name':
                         element.className = 'inforechtsname';
                         element.textContent = decodedData[parameter];
                         break;
-                    case '#inforechts2altname':
+                    case 'inforechts2altname':
                         if(decodedData[parameter] != ''){
                         inforechtsname.className = 'inforechtsname';
                         inforechtsname.textContent = decodedData[parameter];
@@ -777,6 +792,7 @@
       </div>
       <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
       <div class="right-aligned">
+        <div class="right-aligned2">
         <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
         <div>
             <p class="hidden" id="inforechtsname"></p>
@@ -784,6 +800,7 @@
             <p class="hidden" id="inforechtsasso"></p>
         </div>
       </div>
+    </div>
     </div>
     <div class="hidden" id="menueleiste">
       <div class="menueleistelinks">
