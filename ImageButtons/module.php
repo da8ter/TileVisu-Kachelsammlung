@@ -226,17 +226,10 @@ class TileVisuImageButtons extends IPSModule
             if ($this->ReadPropertyBoolean('Schalter5AssoSwitch')) $result['schalter5asso'] = $this->CheckAndGetValueFormatted('Schalter5');
         }
 
-            $result['infofontsize'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
             $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
-            $result['infoschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoSchriftfarbe'));
             $result['infomenueschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoMenueSchriftfarbe'));
             $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
-            $result['infomenuetransparenz'] =  $this->ReadPropertyFloat('InfoMenueTransparenz');
-            $result['infomenuehintergrundfarbe'] =  $this->GetColorRGB($this->ReadPropertyInteger('InfoMenueHintergrundfarbe'));
             $result['transparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
-            $result['raumname'] =  $this->ReadPropertyString('Raumname');
-            $result['raumnameschriftgroesse'] =  $this->ReadPropertyFloat('RaumnameSchriftgroesse');
-            $result['raumnameschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('RaumnameSchriftfarbe'));
             $result['schalter1altname'] =  $this->ReadPropertyString('Schalter1AltName');
             $result['schalter2altname'] =  $this->ReadPropertyString('Schalter2AltName');
             $result['schalter3altname'] =  $this->ReadPropertyString('Schalter3AltName');
