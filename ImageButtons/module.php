@@ -1,5 +1,5 @@
 <?php
-class TileVisuRoomHeader extends IPSModule
+class TileVisuImageButtons extends IPSModule
 {
     public function Create()
     {
