@@ -179,32 +179,17 @@
                         break;
 
                         case 'schalterschriftgroesse':
-                        root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
+                        root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
                         break;    
-                    case 'schalter1breite':
-                        root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
+                    case 'variablebreite':
+                        root.style.setProperty('--variablebreite', decodedData[parameter] + 'px');
                         break; 
 
-                        case 'schalter1color':
-                        root.style.setProperty('--schalter1color', decodedData[parameter]);
+                        case 'variablecolor':
+                        root.style.setProperty('--variablecolor', decodedData[parameter]);
                         break;
 
 
-
-
-                        
-                    case 'balkenverlauffarbe1':
-                        root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
-                        break;
-                    case 'balkenverlauffarbe2':
-                        root.style.setProperty('--balkenverlauffarbe2', decodedData[parameter]);
-                        break;
-                    case 'statusschriftgroesse':
-                        root.style.setProperty('--statusschriftgroesse', decodedData[parameter] + 'em');
-                        break;
-                    case 'programmschriftgroesse':
-                        root.style.setProperty('--programmschriftgroesse', decodedData[parameter] + 'em');
-                        break;
                     case 'schriftgroesse':
                         root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
                         break;
