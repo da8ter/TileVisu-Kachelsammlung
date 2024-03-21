@@ -157,26 +157,7 @@
                         variablename.textContent = decodedData[parameter];
                         }
                         break;
-                    case 'variableasso':
-                        element.className = 'variableasso';
-                        variable.className = 'variable';
-                        element.textContent = decodedData[parameter];
-                        if (!document.getElementById("variablename").classList.contains("hidden")) variabledoppelpunkt.className = 'variableasso';
-                        break;
-                    case 'variableicon':
-                        if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'variableicon';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        variable.className = 'variable';
-                        }
-                        break;
-                    case 'variablealtname':
-                        if(decodedData[parameter] != ''){
-                        variablename.className = 'variablename';
-                        variable.className = 'variable';
-                        variablename.textContent = decodedData[parameter];
-                        }
-                        break;
+
 
                         case 'schalterschriftgroesse':
                         root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
