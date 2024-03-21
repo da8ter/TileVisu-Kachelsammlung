@@ -134,9 +134,9 @@
 
                     case 'variableasso':
                         element.className = 'variableasso';
-                        schalter4.className = 'variable';
+                        variable.className = 'variable';
                         element.textContent = decodedData[parameter];
-                        if (!document.getElementById("variablename").classList.contains("hidden")) schalter4doppelpunkt.className = 'variableasso';
+                        if (!document.getElementById("variablename").classList.contains("hidden")) variable4doppelpunkt.className = 'variableasso';
                         break;
                     case 'variableicon':
                         if (decodedData[parameter] !== "Transparent") {
@@ -161,13 +161,13 @@
                         element.className = 'variableasso';
                         variable.className = 'variable';
                         element.textContent = decodedData[parameter];
-                        if (!document.getElementById("variablename").classList.contains("hidden")) schalter5doppelpunkt.className = 'variableasso';
+                        if (!document.getElementById("variablename").classList.contains("hidden")) variabledoppelpunkt.className = 'variableasso';
                         break;
                     case 'variableicon':
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'variableicon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        schalter5.className = 'variable';
+                        variable.className = 'variable';
                         }
                         break;
                     case 'variablealtname':
