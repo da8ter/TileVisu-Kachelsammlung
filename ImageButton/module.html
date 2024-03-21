@@ -49,7 +49,7 @@
         /* Zentriert vertikal */
 
     }
-    .variableicon {
+    .schalter1icon {
             color: #ffffff;
             width: 1.3em;
             opacity: 1;
@@ -57,13 +57,13 @@
             padding-left: 1px;
         }
 
-    .variablename {
+    .schalter1name {
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
         }
 
-    .variable {
+    .schalter1 {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -79,14 +79,14 @@
             font-size: var(--schriftgroesse);
             box-sizing: border-box;
             height: 100%;
-            background-color: var(--variablecolor);
-            min-width: var(--variablebreite);
+            background-color: var(--schalter1color);
+            min-width: var(--schalter1breite);
             
         }
 
    
 
-    .variablentext {
+    .schalter1ntext {
         font-size: var(--schriftgroesse);
         color: var(--schriftfarbe);
     }
@@ -111,47 +111,47 @@
                     // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                     switch (parameter2) {
 
-                    case 'variable':
-                        element.className = 'variableasso';
-                        variable.className = 'variable';
+                    case 'schalter1':
+                        element.className = 'schalter1asso';
+                        schalter1.className = 'schalter1';
                         element.textContent = decodedData[parameter];
-                        if (!document.getElementById("variablename").classList.contains("hidden")) variabledoppelpunkt.className = 'variableasso';
+                        if (!document.getElementById("schalter1name").classList.contains("hidden")) schalter1doppelpunkt.className = 'schalter1asso';
                         break;
 
 
-                    case 'variableasso':
-                        element.className = 'variableasso';
-                        variable.className = 'variable';
+                    case 'schalter1asso':
+                        element.className = 'schalter1asso';
+                        schalter1.className = 'schalter1';
                         element.textContent = decodedData[parameter];
-                        if (!document.getElementById("variablename").classList.contains("hidden")) variabledoppelpunkt.className = 'variableasso';
+                        if (!document.getElementById("schalter1name").classList.contains("hidden")) schalter1doppelpunkt.className = 'schalter1asso';
                         break;
-                    case 'variableicon':
+                    case 'schalter1icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'variableicon';
+                        element.className = 'schalter1icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        variable.className = 'variable';
+                        schalter1.className = 'schalter1';
                         }
                         break;
-                    case 'variablename':
-                    variablename.className = 'variablename';
-                    variablename.textContent = decodedData[parameter];
-                        variable.className = 'variable';
+                    case 'schalter1name':
+                        element.className = 'schalter1name';
+                        element.textContent = decodedData[parameter];
+                        schalter1.className = 'schalter1';
                         break;  
-                    case 'variablealtname':
+                    case 'schalter1altname':
                         if(decodedData[parameter] != ''){
-                        variablename.className = 'variablename';
-                        variable.className = 'variable';
-                        variablename.textContent = decodedData[parameter];
+                        schalter1name.className = 'schalter1name';
+                        schalter1.className = 'schalter1';
+                        schalter1name.textContent = decodedData[parameter];
                         }
                         break;
 
 
-                    case 'variablebreite':
-                        root.style.setProperty('--variablebreite', decodedData[parameter] + 'px');
+                    case 'schalter1breite':
+                        root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
                         break; 
 
-                        case 'variablecolor':
-                        root.style.setProperty('--variablecolor', decodedData[parameter]);
+                        case 'schalter1color':
+                        root.style.setProperty('--schalter1color', decodedData[parameter]);
                         break;
 
 
@@ -186,11 +186,11 @@
 
 <body>
     <div class="maindiv">
-        <button id="variable" class="hidden" onclick="requestAction('Variable', 1);">
-            <img class="hidden" id="variableicon" src="">
-            <p class="hidden" id="variablename"></p>
-            <p class="hidden" id="variabledoppelpunkt">:&nbsp;</p>
-            <p class="hidden" id="variableasso"></p>
+        <button id="schalter1" class="hidden" onclick="requestAction('Variable', 1);">
+            <img class="hidden" id="schalter1icon" src="">
+            <p class="hidden" id="schalter1name"></p>
+            <p class="hidden" id="schalter1doppelpunkt">:&nbsp;</p>
+            <p class="hidden" id="schalter1asso"></p>
         </button>
     </div>
 </body>
