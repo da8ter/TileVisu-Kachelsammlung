@@ -73,13 +73,9 @@
         
         {
             "type": "ExpansionPanel",
-            "caption": "Menüleiste",
+            "caption": "Schalter",
             "items": [
-                {
-                    "type": "CheckBox",
-                    "name": "InfoMenueSwitch",
-                    "caption": ""
-                },
+
                 {
                     "type": "RowLayout",
                     "items": [
