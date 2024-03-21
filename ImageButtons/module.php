@@ -35,7 +35,7 @@ class TileVisuImageButtons extends IPSModule
         $this->RegisterPropertyString('InfoRechts2AltName', '');
         $this->RegisterPropertyFloat('InfoSchriftgroesse', 1);
         $this->RegisterPropertyBoolean('InfoMenueSwitch', 1);
-        $this->RegisterPropertyFloat('InfoMenueSchriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schriftgroesse', 1);
         $this->RegisterPropertyFloat('InfoMenueTransparenz', 0.3);
         $this->RegisterPropertyInteger('InfoMenueHintergrundfarbe', 0x000000);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
@@ -381,7 +381,7 @@ class TileVisuImageButtons extends IPSModule
             $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
             $result['infoschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoSchriftfarbe'));
             $result['infomenueschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoMenueSchriftfarbe'));
-            $result['infomenuefontsize'] =  $this->ReadPropertyFloat('InfoMenueSchriftgroesse');
+            $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
             $result['infomenuetransparenz'] =  $this->ReadPropertyFloat('InfoMenueTransparenz');
             $result['infomenuehintergrundfarbe'] =  $this->GetColorRGB($this->ReadPropertyInteger('InfoMenueHintergrundfarbe'));
             $result['transparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');

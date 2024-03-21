@@ -163,7 +163,7 @@
             border-radius: 5px;
             cursor: pointer;
             border-width: 0px;
-            font-size: var(--schalterschriftgroesse);
+            font-size: var(--schriftgroesse);
             box-sizing: border-box;
             white-space: nowrap;
             
@@ -354,8 +354,8 @@
                         schalter5name.textContent = decodedData[parameter];
                         }
                         break;
-                    case 'schalterschriftgroesse':
-                        root.style.setProperty('--schalterschriftgroesse', decodedData[parameter] + 'em');
+                    case 'schriftgroesse':
+                        root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
                         break;    
                     case 'schalter1breite':
                         root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');

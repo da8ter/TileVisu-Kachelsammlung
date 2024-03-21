@@ -602,7 +602,7 @@
                 },
                 {
                     "type": "NumberSpinner",
-                    "name": "InfoMenueSchriftgroesse",
+                    "name": "Schriftgroesse",
                     "caption": "Schriftgröße:",
                     "digits": 1,
                     "minimum": 0.5,
