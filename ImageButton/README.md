@@ -1,2 +1,0 @@
-# Bewohnerstatus
-Beschreibung des Moduls.
