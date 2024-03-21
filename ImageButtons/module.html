@@ -362,98 +362,7 @@
                         menueleiste.className = 'hidden';
                         }
                         break; 
-                    case 'infolinksasso':
-                        element.className = 'infolinksasso';
-                        element.textContent = decodedData[parameter];
-                        if (infolinksname != "" && infolinksicon == "") infolinksdoppelpunkt.className = 'infolinksasso';
-                        if (!document.getElementById("infolinksname").classList.contains("hidden")) infolinksdoppelpunkt.className = 'infolinksasso';
-                        break;
-                    case 'infolinksicon':
-                        if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'iconlinks';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        }
-                        break;
-                    case 'infolinksname':
-                        element.className = 'infolinksname';
-                        element.textContent = decodedData[parameter];
-                        break;
-                    case 'infolinksaltname':
-                        if(decodedData[parameter] != ''){
-                        infolinksname.className = 'infolinksname';
-                        infolinksname.textContent = decodedData[parameter];
-                        }
-                        break; 
-
-                        case 'infolinks2asso':
-                        element.className = 'infolinksasso';
-                        element.textContent = decodedData[parameter];
-                        if (infolinks2name != "" && infolinks2icon == "") infolinks2doppelpunkt.className = 'infolinksasso';
-                        if (!document.getElementById("infolinks2name").classList.contains("hidden")) infolinks2doppelpunkt.className = 'infolinksasso';
-                        break;
-                    case 'infolinks2icon':
-                        if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'iconlinks';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        }
-                        break;
-                    case 'infolinks2name':
-                        element.className = 'infolinksname';
-                        element.textContent = decodedData[parameter];
-                        break;
-                    case 'infolinks2altname':
-                        if(decodedData[parameter] != ''){
-                        infolinks2name.className = 'infolinksname';
-                        infolinks2name.textContent = decodedData[parameter];
-                        }
-                        break; 
-
-                    case 'inforechtsasso':
-                        element.className = 'inforechtsasso';
-                        element.textContent = decodedData[parameter];
-                        if (inforechtsname != "" && inforechtsicon == "") inforechtsdoppelpunkt.className = 'inforechtsasso';
-                        if (!document.getElementById("inforechtsname").classList.contains("hidden")) inforechtsdoppelpunkt.className = 'inforechtsasso';
-                        break;
-                    case 'inforechtsicon':
-                        if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'iconrechts';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        }
-                        break;
-                    case 'inforechtsname':
-                        element.className = 'inforechtsname';
-                        element.textContent = decodedData[parameter];
-                        break;
-                    case 'inforechtsaltname':
-                        if(decodedData[parameter] != ''){
-                        inforechtsname.className = 'inforechtsname';
-                        inforechtsname.textContent = decodedData[parameter];
-                        }
-                        break; 
-
-                    case 'inforechts2asso':
-                        element.className = 'inforechtsasso';
-                        element.textContent = decodedData[parameter];
-                        if (inforechts2name != "" && inforechts2icon == "") inforechts2doppelpunkt.className = 'inforechtsasso';
-                        if (!document.getElementById("inforechts2name").classList.contains("hidden")) inforechts2doppelpunkt.className = 'inforechtsasso';
-                        break;
-                    case 'inforechts2icon':
-                        if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'iconrechts';
-                        element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
-                        }
-                        break;
-                    case 'inforechts2name':
-                        element.className = 'inforechtsname';
-                        element.textContent = decodedData[parameter];
-                        break;
-                    case 'inforechts2altname':
-                        if(decodedData[parameter] != ''){
-                        inforechtsname.className = 'inforechtsname';
-                        inforechtsname.textContent = decodedData[parameter];
-                        }
-                        break; 
-
+ 
 
 
                     case 'schalter1asso':
@@ -637,15 +546,7 @@
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
                         break;
-                    case 'raumname':
-                        element.textContent = decodedData[parameter];
-                        break;
-                    case 'raumnameschriftgroesse':
-                        root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
-                        break;
-                    case 'raumnameschriftfarbe':
-                        root.style.setProperty('--raumnameschriftfarbe', decodedData[parameter]);
-                        break;
+
                     case 'info1asso':
                         element.className = 'info1asso';
                         element.textContent = decodedData[parameter];
