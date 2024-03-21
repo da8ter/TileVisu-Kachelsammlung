@@ -385,22 +385,8 @@
                     "allowTransparent": "false",
                     "name": "InfoMenueSchriftfarbe",
                     "caption": "Schriftfarbe:"
-                },
-                {
-                    "type": "NumberSpinner",
-                    "name": "InfoMenueTransparenz",
-                    "caption": "Hintergrund Transparenz:",
-                    "digits": 1,
-                    "minimum": 0.1,
-                    "maximum": 1,
-                    "suffix": "0 bis 1"
-                },
-                {
-                    "type": "SelectColor",
-                    "allowTransparent": "false",
-                    "name": "InfoMenueHintergrundfarbe",
-                    "caption": "Hintergrundfarbe:"
                 }
+
             ]
         },
         {
