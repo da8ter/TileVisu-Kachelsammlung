@@ -8,13 +8,13 @@ class TileVisuImageButton extends IPSModule
 
 
         // Drei Eigenschaften für die dargestellten Zähler
-        $this->RegisterPropertyInteger("Schalter1", 0);
-        $this->RegisterPropertyFloat('Schalter1Breite', 100);
-        $this->RegisterPropertyString('Schalter1AltName', '');
-        $this->RegisterPropertyBoolean('Schalter1NameSwitch', 1);
-        $this->RegisterPropertyBoolean('Schalter1IconSwitch', 1);
-        $this->RegisterPropertyBoolean('Schalter1VarIconSwitch', 0);
-        $this->RegisterPropertyBoolean('Schalter1AssoSwitch', 1);
+        $this->RegisterPropertyInteger("schalter1", 0);
+        $this->RegisterPropertyFloat('schalter1Breite', 100);
+        $this->RegisterPropertyString('schalter1AltName', '');
+        $this->RegisterPropertyBoolean('schalter1NameSwitch', 1);
+        $this->RegisterPropertyBoolean('schalter1IconSwitch', 1);
+        $this->RegisterPropertyBoolean('schalter1VarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('schalter1AssoSwitch', 1);
         $this->RegisterPropertyFloat("Schriftgroesse", 1);
         $this->RegisterPropertyInteger('Schriftfarbe', 0xFFFFFF);
         $this->RegisterPropertyInteger("Bildauswahl", 0);
@@ -34,7 +34,7 @@ class TileVisuImageButton extends IPSModule
         
         //Referenzen Registrieren
         $ids = [
-            $this->ReadPropertyInteger('Schalter1'),
+            $this->ReadPropertyInteger('schalter1'),
             $this->ReadPropertyInteger('bgImage')
         ];
         $refs = $this->GetReferenceList();
@@ -59,7 +59,7 @@ class TileVisuImageButton extends IPSModule
         }
 
 
-        foreach (['Schalter1', 'bgImage'] as $VariableProperty)        {
+        foreach (['schalter1', 'bgImage'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -70,7 +70,7 @@ class TileVisuImageButton extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Schalter1', 'bgImage'] as $index => $VariableProperty)
+        foreach (['schalter1', 'bgImage'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -148,21 +148,21 @@ class TileVisuImageButton extends IPSModule
         $result = [];
     
             //$result['status'] = $this->CheckAndGetValueFormatted('Status');
-            if (IPS_VariableExists($this->ReadPropertyInteger('Schalter1'))) {
-                $result['Schalter1'] = $this->CheckAndGetValueFormatted('Schalter1');
-                $result['schalter1breite'] =  $this->ReadPropertyFloat('Schalter1Breite');
-                $result['schalter1color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter1'));
-                if ($this->ReadPropertyBoolean('Schalter1NameSwitch')) $result['schalter1name'] = IPS_GetName($this->ReadPropertyInteger('Schalter1'));
-                if ($this->ReadPropertyBoolean('Schalter1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter1'), $this->ReadPropertyBoolean('Schalter1VarIconSwitch')) !== "Transparent") {
-                    $result['schalter1icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter1'), $this->ReadPropertyBoolean('Schalter1VarIconSwitch'));
+            if (IPS_VariableExists($this->ReadPropertyInteger('schalter1'))) {
+                $result['schalter1'] = $this->CheckAndGetValueFormatted('schalter1');
+                $result['schalter1breite'] =  $this->ReadPropertyFloat('schalter1Breite');
+                $result['schalter1color'] =  $this->GetColor($this->ReadPropertyInteger('schalter1'));
+                if ($this->ReadPropertyBoolean('schalter1NameSwitch')) $result['schalter1name'] = IPS_GetName($this->ReadPropertyInteger('schalter1'));
+                if ($this->ReadPropertyBoolean('schalter1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('schalter1'), $this->ReadPropertyBoolean('schalter1VarIconSwitch')) !== "Transparent") {
+                    $result['schalter1icon'] = $this->GetIcon($this->ReadPropertyInteger('schalter1'), $this->ReadPropertyBoolean('schalter1VarIconSwitch'));
                 }
-                if ($this->ReadPropertyBoolean('Schalter1AssoSwitch')) $result['schalter1asso'] = $this->CheckAndGetValueFormatted('Schalter1');
+                if ($this->ReadPropertyBoolean('schalter1AssoSwitch')) $result['schalter1asso'] = $this->CheckAndGetValueFormatted('schalter1');
             }
             $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');
             $result['schriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Schriftfarbe'));
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
-            $result['schalter1altname'] =  $this->ReadPropertyString('Schalter1AltName');
+            $result['schalter1altname'] =  $this->ReadPropertyString('schalter1AltName');
 
             $imageID = $this->ReadPropertyInteger('bgImage');
             if (IPS_MediaExists($imageID)) {
