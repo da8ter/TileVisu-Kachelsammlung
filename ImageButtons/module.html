@@ -69,74 +69,7 @@
   z-index: 1;
 }
 
-.left-aligned {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-  align-items: flex-end;
-  /* Inhalt nach links ausrichten */
-  text-align: left;
-  /* Text linksbündig */
-  padding: 0px 0px 10px 0px;
-  width: 20%;
-  height: 100%;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
 
-.left-aligned2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  align-items: flex-end;
-  /* Inhalt nach links ausrichten */
-  text-align: left;
-  /* Text linksbündig */
-  padding: 0px 0px 10px 0px;
-
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-.center-aligned {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Inhalt zentrieren (horizontal und vertikal) */
-  padding: 0px 0px 0px 0px;
-  width: 60%;
-  height: 100%;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.right-aligned {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  align-items: flex-end;
-  /* Inhalt nach rechts ausrichten */
-  text-align: right;
-  /* Text rechtsbündig */
-  padding: 0px 0px 10px 0px;
-  width: 20%;
-  height: 100%;
-  padding-right: 20px;
-  box-sizing: border-box;
-}
-
-.right-aligned2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  align-items: flex-end;
-  /* Inhalt nach rechts ausrichten */
-  text-align: right;
-  /* Text rechtsbündig */
-  padding: 0px 0px 10px 0px;
-  padding-left: 20px;
-  box-sizing: border-box;
-}
 
 .menueleiste {
   backdrop-filter: blur(10px) brightness(1);
@@ -156,17 +89,7 @@
   border-top: 0px dotted #28cdab;
     
 }
-.menueleistelinks {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  width: 50%;
-  padding: 0px;
-  text-align: left;
-  height: 100%;
-  box-sizing: border-box;
-}
+
 .menueleisterechts {
     display: flex;
     flex-direction: row;
@@ -181,45 +104,6 @@
 
 
 
-        .infolinks, 
-        .inforechts,
-        .infolinksasso,
-        .inforechtsasso,
-        .infolinksname,
-        .inforechtsname {
-            font-size: var(--infofontsize);
-            color: var(--infoschriftfarbe);
-            opacity: 1;
-            white-space: nowrap;
-        }
-
-        .infotext{
-            white-space: nowrap;
-        }
-
-
-        .info1asso, 
-        .info2asso, 
-        .info3asso, 
-        .info4asso, 
-        .info5asso {
-            font-size: 1em;
-            padding-right: 1px;
-            padding-left: 1px;
-            font-size: var(--infomenuefontsize);
-            color: var(--infomenueschriftfarbe);
-        }
-        .info1name, 
-        .info2name, 
-        .info3name, 
-        .info4name, 
-        .info5name {
-            font-size: 1em;
-            padding-right: 1px;
-            padding-left: 1px;
-            font-size: var(--infomenuefontsize);
-            color: var(--infomenueschriftfarbe);
-        }
 
         .schalter1name, 
         .schalter2name, 
@@ -246,30 +130,14 @@
             padding-right: 1px;
             padding-left: 1px;
         }
-        .infoicon, .schaltericon {
+        .schaltericon {
             color: #ffffff;
             width: 1.3em;
             opacity: 1;
             padding-right: 1px;
             padding-left: 1px;
         }
-        .infotrenner, .infotrennerstart, .infolinkstrenner {
-            height: 60%;
-            width: 1px;
-            background-color: #28CDAB;
-            margin-right: 10px;
-            margin-left: 10px;
-            opacity: 0.3;
-        }
-        .infotrennerstart {
-            margin-left: 0px;
-        }
 
-
-        .raumname {
-            font-size: var(--raumnamefontsize);
-            color: var(--raumnameschriftfarbe);
-        }
 
         p {
             margin: 0;
@@ -279,10 +147,6 @@
             color: #ffffff;
             font-size: 3em;
             opacity: 0.5;
-        }
-        .iconlinks, .iconrechts {
-
-            height: calc(var(--infofontsize) * 2.5);;
         }
 
 
