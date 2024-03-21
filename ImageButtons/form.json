@@ -16,60 +16,46 @@
         
         {
             "type": "ExpansionPanel",
-            "caption": "Raumname und Bild",
+            "caption": "Kacheldesign",
             "items": [
+              
                 {
-                    "type": "RowLayout",
-                    "items": [
-                        {
-                            "type": "SelectMedia",
-                            "name": "bgImage",
-                            "caption": "Foto:"
-                        },
-                        {
-                            "type": "NumberSpinner",
-                            "name": "Bildtransparenz",
-                            "caption": "Transparenz Foto (Werte von 0 bis 1)",
-                            "digits": 1,
-                            "minimum": 0.0,
-                            "maximum": 1.0,
-                            "suffix": ""
-                        },
-                        {
-                            "type": "SelectColor",
-                            "allowTransparent": "false",
-                            "name": "Kachelhintergrundfarbe",
-                            "caption": "Kachelhintergrundfarbe"
-                        }
-                    ]
+                  "type": "Label",
+                  "caption": "Kachel",
+                  "bold": true
                 },
                 {
-                    "type": "RowLayout",
-                    "items": [
-                        {
-                            "type": "ValidationTextBox",
-                            "name": "Raumname",
-                            "caption": "Raumname (Text Mitte):"
-                        },
-                        {
-                            "type": "SelectColor",
-                            "allowTransparent": "false",
-                            "name": "RaumnameSchriftfarbe",
-                            "caption": "Schriftfarbe:"
-                        },
-                        {
-                            "type": "NumberSpinner",
-                            "name": "RaumnameSchriftgroesse",
-                            "caption": "Schriftgröße:",
-                            "digits": 1,
-                            "minimum": 0.5,
-                            "maximum": 10.0,
-                            "suffix": "em"
-                        }
-                    ]
-                }
+                  "type": "CheckBox",
+                  "name": "BG_Off",
+                  "caption": "Standart-Hintergrundbild"
+              },
+                {
+                "type": "RowLayout",
+                "items": [
+                  {
+                    "type": "SelectMedia",
+                    "name": "bgImage",
+                    "caption": "Hintergrundbild"
+                  },
+                  {
+                    "type": "NumberSpinner",
+                    "name": "Bildtransparenz",
+                    "caption": "Transparenz Bild (Werte von 0 bis 1)",
+                    "digits": 1,
+                    "minimum": 0.0,
+                    "maximum": 1.0,
+                    "suffix": ""
+                  },
+                  {
+                    "type": "SelectColor",
+                    "allowTransparent": "false",
+                    "name": "Kachelhintergrundfarbe",
+                    "caption": "Kachelhintergrundfarbe"
+                  }
+                ]
+              }
             ]
-        },
+          },
         
         {
             "type": "ExpansionPanel",
