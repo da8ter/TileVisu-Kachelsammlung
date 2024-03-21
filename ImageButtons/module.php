@@ -235,16 +235,6 @@ class TileVisuImageButtons extends IPSModule
             $result['schalter3altname'] =  $this->ReadPropertyString('Schalter3AltName');
             $result['schalter4altname'] =  $this->ReadPropertyString('Schalter4AltName');
             $result['schalter5altname'] =  $this->ReadPropertyString('Schalter5AltName');
-            $result['info1altname'] =  $this->ReadPropertyString('Info1AltName');
-            $result['info2altname'] =  $this->ReadPropertyString('Info2AltName');
-            $result['info3altname'] =  $this->ReadPropertyString('Info3AltName');
-            $result['info4altname'] =  $this->ReadPropertyString('Info4AltName');
-            $result['info5altname'] =  $this->ReadPropertyString('Info5AltName');         
-            $result['infolinksaltname'] =  $this->ReadPropertyString('InfoLinksAltName');
-            $result['inforechtsaltname'] =  $this->ReadPropertyString('InfoRechtsAltName');    
-            $result['infolinks2altname'] =  $this->ReadPropertyString('InfoLinks2AltName');
-            $result['inforechts2altname'] =  $this->ReadPropertyString('InfoRechts2AltName');    
-            $result['infomenueswitch'] =  $this->ReadPropertyBoolean('InfoMenueSwitch');   
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
