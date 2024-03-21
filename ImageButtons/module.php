@@ -9,6 +9,7 @@ class TileVisuImageButtons extends IPSModule
 
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("bgImage", 0);
+        $this->RegisterPropertyBoolean('BG_Off', 1);
         $this->RegisterPropertyFloat('Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
         $this->RegisterPropertyInteger('Kachelhintergrundfarbe', 0x000000);
@@ -238,53 +239,52 @@ class TileVisuImageButtons extends IPSModule
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
-            if (IPS_MediaExists($imageID))
-            {
+            if (IPS_MediaExists($imageID)) {
                 $image = IPS_GetMedia($imageID);
-                if ($image['MediaType'] === MEDIATYPE_IMAGE)
-                {
+                if ($image['MediaType'] === MEDIATYPE_IMAGE) {
                     $imageFile = explode('.', $image['MediaFile']);
                     $imageContent = '';
                     // Falls ja, ermittle den Anfang der src basierend auf dem Dateitypen
-                    switch (end($imageFile))
-                    {
+                    switch (end($imageFile)) {
                         case 'bmp':
                             $imageContent = 'data:image/bmp;base64,';
                             break;
-
+    
                         case 'jpg':
                         case 'jpeg':
                             $imageContent = 'data:image/jpeg;base64,';
                             break;
-
+    
                         case 'gif':
                             $imageContent = 'data:image/gif;base64,';
                             break;
-
+    
                         case 'png':
                             $imageContent = 'data:image/png;base64,';
                             break;
-
+    
                         case 'ico':
                             $imageContent = 'data:image/x-icon;base64,';
                             break;
                     }
 
                     // Nur fortfahren, falls Inhalt gesetzt wurde. Ansonsten ist das Bild kein unterstützter Dateityp
-                    if ($imageContent)
-                    {
+                    if ($imageContent) {
                         // Hänge base64-codierten Inhalt des Bildes an
                         $imageContent .= IPS_GetMediaContent($imageID);
-                        $result['image1'] = $imageContent;
+                        $result['bgimage'] = $imageContent;
                     }
+
                 }
             }
-            else
-            {
+            else{
                 $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
-                $result['image1'] = $imageContent;
-            }
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/kachelhintergrund1.png'));
+
+                if ($this->ReadPropertyBoolean('BG_Off')) {
+                    $result['bgimage'] = $imageContent;
+                }
+            } 
 
 
 
