@@ -133,7 +133,7 @@
         }
 
         .schaltericon {
-            color: #ffffff;
+            color: var(--infomenueschriftfarbe);
             width: 1.3em;
             opacity: 1;
             padding-right: 1px;
@@ -166,7 +166,7 @@
             margin-left: 5px;
             margin-right: 5px;
             padding: 7px;
-            color: white;
+            color: var(--infomenueschriftfarbe);
             border-radius: 5px;
             cursor: pointer;
             border-width: 0px;
@@ -397,6 +397,18 @@
                     case 'hintergrundfarbe':
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
                         break;
+                    case 'infoschriftfarbe':
+                        root.style.setProperty('--infoschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'infomenuefontsize':
+                        root.style.setProperty('--infomenuefontsize', decodedData[parameter] + 'em');
+                        break;
+                    case 'infomenueschriftfarbe':
+                        root.style.setProperty('--infomenueschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'infomenuehintergrundfarbe':
+                        root.style.setProperty('--infomenuehintergrundfarbe', decodedData[parameter]);
+
                         break;
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
