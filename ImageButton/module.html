@@ -10,18 +10,7 @@
 
         :root {
 
-            --balkenverlauffarbe1: #28CDAB;
-            /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
-            --balkenverlauffarbe2: #208A74;
-            /* Ergänzende Farbe setzen */
-            --programmfortschrittvalue: 0%;
-            /* Standardwert setzen */
-            --statusschriftgroesse: 1em;
-            /* Standard Schriftgröße */
-            --programmschriftgroesse: 1em;
-            --infoschriftgroesse: 1em;
-            --balkenschriftgroesse: 1em;
-            --bildbreite: 20%;
+            --schriftgroesse: 1em;
         }
 
         html {
@@ -87,20 +76,20 @@
             border-radius: 5px;
             cursor: pointer;
             border-width: 0px;
-            font-size: var(--schalterschriftgroesse);
+            font-size: var(--schriftgroesse);
             box-sizing: border-box;
             height: 100%;
             
         }
 
         .schalter1 {
-            background-color: var(--schalter1color);
-            min-width: var(--schalter1breite);
+            background-color: var(--variablecolor);
+            min-width: var(--variablebreite);
         }
    
 
     .variablentext {
-        font-size: var(--fontsize);
+        font-size: var(--schriftgroesse);
         color: var(--schriftfarbe);
     }
     </style>
@@ -159,9 +148,6 @@
                         break;
 
 
-                        case 'schalterschriftgroesse':
-                        root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
-                        break;    
                     case 'variablebreite':
                         root.style.setProperty('--variablebreite', decodedData[parameter] + 'px');
                         break; 
