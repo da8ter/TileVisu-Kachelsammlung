@@ -214,7 +214,7 @@
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
-                    case 'image1':
+                    case 'bgimage':
                         const mainDiv = document.querySelector('.maindiv1');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
@@ -397,7 +397,6 @@
                     case 'transparenz':
                         root.style.setProperty('--transparenz', decodedData[parameter]);
                         break;
-
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
