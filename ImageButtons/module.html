@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
+
+        :root {
+
+        }
+
+        body {
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: var(--hintergrundfarbe);
+
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .maindiv2 {
+            width: 100%;
+            height: 90%;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .maindiv1 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: flex-start;
+            box-sizing: border-box;
+            padding: 0px 0px 0px 0px;
+        }
+
+
+        .maindiv1:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: var(--transparenz);
+            background: var(--background-image, none) bottom / cover no-repeat;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .maindiv1>* {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .menueleiste {
+
+            width: 100%;
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-sizing: border-box;
+            border-top: 0px dotted #28cdab;
+            margin-top: 40px;
+
+        }
+
+        .menueleisterechts {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            /* Ermöglicht den Umbruch der Flex-Items */
+
+
+        }
+
+        .schalter1name,
+        .schalter2name,
+        .schalter3name,
+        .schalter4name,
+        .schalter5name,
+        .schalter6name,
+        .schalter7name,
+        .schalter8name,
+        .schalter9name,
+        .schalter10name,
+        .schalter1asso,
+        .schalter2asso,
+        .schalter3asso,
+        .schalter4asso,
+        .schalter5asso,
+        .schalter6asso,
+        .schalter7asso,
+        .schalter8asso,
+        .schalter9asso,
+        .schalter10asso {
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+
+        .schaltericon {
+            color: #ffffff;
+            width: 1.3em;
+            opacity: 1;
+            padding-right: 3px;
+            padding-left: 1px;
+        }
+
+
+        p {
+            margin: 0;
+        }
+
+
+        .schalter1,
+        .schalter2,
+        .schalter3,
+        .schalter4,
+        .schalter5,
+        .schalter6,
+        .schalter7,
+        .schalter8,
+        .schalter9,
+        .schalter10 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            margin-left: 5px;
+            margin-right: 5px;
+            padding: 7px;
+            border-radius: 5px;
+            cursor: pointer;
+            border-width: 0px;
+            color: #ffffff;
+            font-size: var(--schriftgroesse);
+            box-sizing: border-box;
+            white-space: nowrap;
+
+        }
+
+        .schalter1 {
+            background-color: var(--schalter1color);
+            min-width: var(--schalter1breite);
+        }
+
+        .schalter2 {
+            background-color: var(--schalter2color);
+            min-width: var(--schalter2breite);
+        }
+
+        .schalter3 {
+            background-color: var(--schalter3color);
+            min-width: var(--schalter3breite);
+        }
+
+        .schalter4 {
+            background-color: var(--schalter4color);
+            min-width: var(--schalter4breite);
+        }
+
+        .schalter5 {
+            background-color: var(--schalter5color);
+            min-width: var(--schalter5breite);
+        }
+        .schalter6 {
+            background-color: var(--schalter6color);
+            min-width: var(--schalter6breite);
+        }
+
+        .schalter7 {
+            background-color: var(--schalter7color);
+            min-width: var(--schalter7breite);
+        }
+
+        .schalter8 {
+            background-color: var(--schalter8color);
+            min-width: var(--schalter8breite);
+        }
+
+        .schalter9 {
+            background-color: var(--schalter9color);
+            min-width: var(--schalter9breite);
+        }
+
+        .schalter10 {
+            background-color: var(--schalter10color);
+            min-width: var(--schalter10breite);
+        }
+    </style>
+
+
+    <script>
+        function handleMessage(data) {
+            //console.log('Rohdaten empfangen:', data);
+
+            const decodedData = JSON.parse(data);
+
+            console.log('Decodierte Daten:', decodedData);
+
+            for (const parameter in decodedData) {
+                //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
+                const element = document.getElementById(parameter.toLowerCase());
+                const parameter2 = String(parameter).toLowerCase();
+                console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                var root = document.documentElement;
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter2) {
+                    case 'bgimage':
+                        const mainDiv = document.querySelector('.maindiv1');
+                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        break;
+
+                    case 'schalter1asso':
+                        element.className = 'schalter1asso';
+                        schalter1.className = 'schalter1';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter1name").classList.contains("hidden")) schalter1doppelpunkt.className = 'schalter1asso';
+                        break;
+                    case 'schalter1icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter1.className = 'schalter1';
+                        }
+                        break;
+                    case 'schalter1name':
+                        element.className = 'schalter1name';
+                        schalter1.className = 'schalter1';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter1altname':
+                        if (decodedData[parameter] != '') {
+                            schalter1name.className = 'schalter1name';
+                            schalter1.className = 'schalter1';
+                            schalter1name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter2asso':
+                        element.className = 'schalter2asso';
+                        schalter2.className = 'schalter2';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter2name").classList.contains("hidden")) schalter2doppelpunkt.className = 'schalter2asso';
+                        break;
+                    case 'schalter2icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter2.className = 'schalter2';
+                        }
+                        break;
+                    case 'schalter2name':
+                        element.className = 'schalter2name';
+                        element.textContent = decodedData[parameter];
+                        schalter2.className = 'schalter2';
+                        break;
+                    case 'schalter2altname':
+                        if (decodedData[parameter] != '') {
+                            schalter2name.className = 'schalter2name';
+                            schalter2.className = 'schalter2';
+                            schalter2name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter3asso':
+                        element.className = 'schalter3asso';
+                        schalter3.className = 'schalter3';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter3name").classList.contains("hidden")) schalter3doppelpunkt.className = 'schalter3asso';
+                        break;
+                    case 'schalter3icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter3.className = 'schalter3';
+                        }
+                        break;
+                    case 'schalter3name':
+                        element.className = 'schalter3name';
+                        schalter3.className = 'schalter3';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter3altname':
+                        if (decodedData[parameter] != '') {
+                            schalter3name.className = 'schalter3name';
+                            schalter3.className = 'schalter3';
+                            schalter3name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter4asso':
+                        element.className = 'schalter4asso';
+                        schalter4.className = 'schalter4';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter4name").classList.contains("hidden")) schalter4doppelpunkt.className = 'schalter4asso';
+                        break;
+                    case 'schalter4icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter4.className = 'schalter4';
+                        }
+                        break;
+                    case 'schalter4name':
+                        element.className = 'schalter4name';
+                        element.textContent = decodedData[parameter];
+                        schalter4.className = 'schalter4';
+                        break;
+                    case 'schalter4altname':
+                        if (decodedData[parameter] != '') {
+                            schalter4name.className = 'schalter4name';
+                            schalter4.className = 'schalter4';
+                            schalter4name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter5asso':
+                        element.className = 'schalter5asso';
+                        schalter5.className = 'schalter5';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter5name").classList.contains("hidden")) schalter5doppelpunkt.className = 'schalter5asso';
+                        break;
+                    case 'schalter5icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter5.className = 'schalter5';
+                        }
+                        break;
+                    case 'schalter5name':
+                        element.className = 'schalter5name';
+                        schalter5.className = 'schalter5';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter5altname':
+                        if (decodedData[parameter] != '') {
+                            schalter5name.className = 'schalter5name';
+                            schalter5.className = 'schalter5';
+                            schalter5name.textContent = decodedData[parameter];
+                        }
+                        break;
+
+
+
+                    case 'schalter6asso':
+                        element.className = 'schalter6asso';
+                        schalter6.className = 'schalter6';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter6name").classList.contains("hidden")) schalter6doppelpunkt.className = 'schalter6asso';
+                        break;
+                    case 'schalter6icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter6.className = 'schalter6';
+                        }
+                        break;
+                    case 'schalter6name':
+                        element.className = 'schalter6name';
+                        schalter6.className = 'schalter6';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter6altname':
+                        if (decodedData[parameter] != '') {
+                            schalter6name.className = 'schalter6name';
+                            schalter6.className = 'schalter6';
+                            schalter6name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter7asso':
+                        element.className = 'schalter7asso';
+                        schalter7.className = 'schalter7';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter7name").classList.contains("hidden")) schalter7doppelpunkt.className = 'schalter7asso';
+                        break;
+                    case 'schalter7icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter7.className = 'schalter7';
+                        }
+                        break;
+                    case 'schalter7name':
+                        element.className = 'schalter7name';
+                        element.textContent = decodedData[parameter];
+                        schalter7.className = 'schalter7';
+                        break;
+                    case 'schalter7altname':
+                        if (decodedData[parameter] != '') {
+                            schalter7name.className = 'schalter7name';
+                            schalter7.className = 'schalter7';
+                            schalter7name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter8asso':
+                        element.className = 'schalter8asso';
+                        schalter8.className = 'schalter8';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter8name").classList.contains("hidden")) schalter8doppelpunkt.className = 'schalter8asso';
+                        break;
+                    case 'schalter8icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter8.className = 'schalter8';
+                        }
+                        break;
+                    case 'schalter8name':
+                        element.className = 'schalter8name';
+                        schalter8.className = 'schalter8';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter8altname':
+                        if (decodedData[parameter] != '') {
+                            schalter8name.className = 'schalter8name';
+                            schalter8.className = 'schalter8';
+                            schalter8name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter9asso':
+                        element.className = 'schalter9asso';
+                        schalter9.className = 'schalter9';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter9name").classList.contains("hidden")) schalter9doppelpunkt.className = 'schalter9asso';
+                        break;
+                    case 'schalter9icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter9.className = 'schalter9';
+                        }
+                        break;
+                    case 'schalter9name':
+                        element.className = 'schalter9name';
+                        element.textContent = decodedData[parameter];
+                        schalter9.className = 'schalter9';
+                        break;
+                    case 'schalter9altname':
+                        if (decodedData[parameter] != '') {
+                            schalter9name.className = 'schalter9name';
+                            schalter9.className = 'schalter9';
+                            schalter9name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter10asso':
+                        element.className = 'schalter10asso';
+                        schalter10.className = 'schalter10';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter10name").classList.contains("hidden")) schalter10doppelpunkt.className = 'schalter10asso';
+                        break;
+                    case 'schalter10icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter10.className = 'schalter10';
+                        }
+                        break;
+                    case 'schalter10name':
+                        element.className = 'schalter10name';
+                        schalter10.className = 'schalter10';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter10altname':
+                        if (decodedData[parameter] != '') {
+                            schalter10name.className = 'schalter10name';
+                            schalter10.className = 'schalter10';
+                            schalter10name.textContent = decodedData[parameter];
+                        }
+                        break;
+
+
+
+
+
+                    case 'schriftgroesse':
+                        root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'rem');
+                        break;
+                    case 'schalter1breite':
+                        root.style.setProperty('--schalter1breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter2breite':
+                        root.style.setProperty('--schalter2breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter3breite':
+                        root.style.setProperty('--schalter3breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter4breite':
+                        root.style.setProperty('--schalter4breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter5breite':
+                        root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter6breite':
+                        root.style.setProperty('--schalter6breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter7breite':
+                        root.style.setProperty('--schalter7breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter8breite':
+                        root.style.setProperty('--schalter8breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter9breite':
+                        root.style.setProperty('--schalter9breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter10breite':
+                        root.style.setProperty('--schalter10breite', decodedData[parameter] + 'px');
+                        break;
+                    case 'schalter1color':
+                        root.style.setProperty('--schalter1color', decodedData[parameter]);
+                        break;
+                    case 'schalter2color':
+                        root.style.setProperty('--schalter2color', decodedData[parameter]);
+                        break;
+                    case 'schalter3color':
+                        root.style.setProperty('--schalter3color', decodedData[parameter]);
+                        break;
+                    case 'schalter4color':
+                        root.style.setProperty('--schalter4color', decodedData[parameter]);
+                        break;
+                    case 'schalter5color':
+                        root.style.setProperty('--schalter5color', decodedData[parameter]);
+                        break;
+                    case 'schalter6color':
+                        root.style.setProperty('--schalter6color', decodedData[parameter]);
+                        break;
+                    case 'schalter7color':
+                        root.style.setProperty('--schalter7color', decodedData[parameter]);
+                        break;
+                    case 'schalter8color':
+                        root.style.setProperty('--schalter8color', decodedData[parameter]);
+                        break;
+                    case 'schalter9color':
+                        root.style.setProperty('--schalter9color', decodedData[parameter]);
+                        break;
+                    case 'schalter10color':
+                        root.style.setProperty('--schalter10color', decodedData[parameter]);
+                        break;
+                    case 'hintergrundfarbe':
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        break;
+                    case 'infoschriftfarbe':
+                        root.style.setProperty('--infoschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'infomenuefontsize':
+                        root.style.setProperty('--infomenuefontsize', decodedData[parameter] + 'em');
+                        break;
+                    case 'infomenueschriftfarbe':
+                        root.style.setProperty('--infomenueschriftfarbe', decodedData[parameter]);
+                        break;
+                    case 'infomenuehintergrundfarbe':
+                        root.style.setProperty('--infomenuehintergrundfarbe', decodedData[parameter]);
+
+                        break;
+                    case 'transparenz':
+                        root.style.setProperty('--transparenz', decodedData[parameter]);
+                        break;
+
+                    default:
+                        //console.log('Setze innerHTML für', parameter);
+                        // Setze innerHTML nur, wenn das Element gefunden wurde
+                        //element.innerHTML = decodedData[parameter];<i id="temp_icon" class="fa-solid fa-house-chimney-user icon"></i>
+                        break;
+                }
+
+            }
+        }
+    </script>
+
+
+    <div class="maindiv1">
+        <div class="menueleiste" id="menueleiste">
+
+
+            <div class="menueleisterechts">
+
+                <button id="schalter1" class="hidden" onclick="requestAction('Schalter1', 1);">
+                    <img class="hidden" id="schalter1icon" src="">
+                    <p class="hidden" id="schalter1name"></p>
+                    <p class="hidden" id="schalter1doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter1asso"></p>
+                </button>
+
+                <button id="schalter2" class="hidden" onclick="requestAction('Schalter2', 1);">
+                    <img class="hidden" id="schalter2icon" src="">
+                    <p class="hidden" id="schalter2name"></p>
+                    <p class="hidden" id="schalter2doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter2asso"></p>
+                </button>
+
+                <button id="schalter3" class="hidden" onclick="requestAction('Schalter3', 1);">
+                    <img class="hidden" id="schalter3icon" src="">
+                    <p class="hidden" id="schalter3name"></p>
+                    <p class="hidden" id="schalter3doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter3asso"></p>
+                </button>
+
+                <button id="schalter4" class="hidden" onclick="requestAction('Schalter4', 1);">
+                    <img class="hidden" id="schalter4icon" src="">
+                    <p class="hidden" id="schalter4name"></p>
+                    <p class="hidden" id="schalter4doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter4asso"></p>
+                </button>
+
+                <button id="schalter5" class="hidden" onclick="requestAction('Schalter5', 1);">
+                    <img class="hidden" id="schalter5icon" src="">
+                    <p class="hidden" id="schalter5name"></p>
+                    <p class="hidden" id="schalter5doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter5asso"></p>
+                </button>
+
+                <button id="schalter6" class="hidden" onclick="requestAction('Schalter6', 6);">
+                    <img class="hidden" id="schalter6icon" src="">
+                    <p class="hidden" id="schalter6name"></p>
+                    <p class="hidden" id="schalter6doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter6asso"></p>
+                </button>
+
+                <button id="schalter7" class="hidden" onclick="requestAction('Schalter7', 1);">
+                    <img class="hidden" id="schalter7icon" src="">
+                    <p class="hidden" id="schalter7name"></p>
+                    <p class="hidden" id="schalter7doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter7asso"></p>
+                </button>
+
+                <button id="schalter8" class="hidden" onclick="requestAction('Schalter8', 1);">
+                    <img class="hidden" id="schalter8icon" src="">
+                    <p class="hidden" id="schalter8name"></p>
+                    <p class="hidden" id="schalter8doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter8asso"></p>
+                </button>
+
+                <button id="schalter9" class="hidden" onclick="requestAction('Schalter9', 1);">
+                    <img class="hidden" id="schalter9icon" src="">
+                    <p class="hidden" id="schalter9name"></p>
+                    <p class="hidden" id="schalter9doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter9asso"></p>
+                </button>
+
+                <button id="schalter10" class="hidden" onclick="requestAction('Schalter10', 1);">
+                    <img class="hidden" id="schalter10icon" src="">
+                    <p class="hidden" id="schalter10name"></p>
+                    <p class="hidden" id="schalter10doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter10asso"></p>
+                </button>
+            </div>
+        </div>
+    </div>
