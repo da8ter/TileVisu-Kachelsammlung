@@ -144,6 +144,7 @@
                     'Bewohner4' => $Bewohner4Exists,
                     'Bewohner5' => $Bewohner5Exists
                 ];
+                $result['nameswitch'] = $this->ReadPropertyBoolean('NameSwitch');
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
                 $result['eckenradius'] = $this->ReadPropertyFloat('Eckenradius');
                 $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
