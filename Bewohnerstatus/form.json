@@ -184,7 +184,13 @@
             "minimum": 0.0,
             "maximum": 50,
             "suffix": "%"
-    },
+    }
+    ]},
+    ,
+        {
+            "type": "RowLayout",
+            "items": [
+        
     {
         "type": "CheckBox",
         "name": "NameSwitch",
@@ -192,8 +198,8 @@
     },
     {
         "type": "CheckBox",
-        "name": "Bedienung sperren",
-        "caption": "Name anzeigen"
+        "name": "BedienungSwitch",
+        "caption": "Bedienung sperren"
     }
     ]},
 
