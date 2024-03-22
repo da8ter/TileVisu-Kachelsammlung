@@ -1,86 +1,88 @@
 <style>
     /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
 
-  
+
     html {
-            background-color: var(--hintergrundfarbe);
-        }
+        background-color: var(--hintergrundfarbe);
+    }
 
-        body:before {
-            content: '';
-            display: block;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100%;
-            max-width: 100%;
-            z-index: -1;
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-
-            opacity: var(--bildtransparenz);
-            background: var(--background-image, none) center / cover no-repeat;
-        }
-
-        body {
-            position: fixed;
-            width: calc(100vw - var(--body-margin-right) * 2);
-            height: 100%;
-            max-width: 100%;
-
-        }
-
-.hidden {
-    display: none;
-}
-
-.container_anwesenheit {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-grow: 1;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10%;
-}
-
-.Bewohner1, .Bewohner2, .Bewohner3, .Bewohner4, .Bewohner5 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex: 1;  
-
-    min-width: 30px;
-    max-width: 500px;
-}
-
-.name {
-    margin-top: 5px;
-    text-align: center;
-    font-size: 1em;
-}
-
-/* Gemeinsame Stile für .color und .grey */
-.color, .grey {
-    width: 100%;
-    border-radius: 50%;
-}
-
-.color {
-    filter: grayscale(0%);
-}
-
-.grey {
-    filter: grayscale(100%);
-    opacity: 0.5;
-}
- 
+    body:before {
+        content: '';
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100%;
+        max-width: 100%;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-size: cover;
 
 
+        opacity: var(--bildtransparenz);
+        background: var(--background-image, none) center / cover no-repeat;
+    }
+
+    body {
+        position: fixed;
+        width: calc(100vw - var(--body-margin-right) * 2);
+        height: 100%;
+        max-width: 100%;
+
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .container_anwesenheit {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10%;
+    }
+
+    .Bewohner1,
+    .Bewohner2,
+    .Bewohner3,
+    .Bewohner4,
+    .Bewohner5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+
+        min-width: 30px;
+        max-width: 500px;
+    }
+
+    .name {
+        margin-top: 5px;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    /* Gemeinsame Stile für .color und .grey */
+    .color,
+    .grey {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .color {
+        filter: grayscale(0%);
+    }
+
+    .grey {
+        filter: grayscale(100%);
+        opacity: 0.5;
+    }
 </style>
 
 
@@ -96,97 +98,97 @@
 
             const element = document.getElementById(parameter);
             var root = document.documentElement;
-                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                switch (parameter) {
-                    case 'Bewohner1':
-                    case 'Bewohner2':
-                    case 'Bewohner3':
-                    case 'Bewohner4':
-                    case 'Bewohner5':
-                        //console.log('Anpassung der Sichtbarkeit für', parameter);
-                        element.className = decodedData[parameter] ? parameter : 'hidden';
-                        break;
+            // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+            switch (parameter) {
+                case 'Bewohner1':
+                case 'Bewohner2':
+                case 'Bewohner3':
+                case 'Bewohner4':
+                case 'Bewohner5':
+                    //console.log('Anpassung der Sichtbarkeit für', parameter);
+                    element.className = decodedData[parameter] ? parameter : 'hidden';
+                    break;
 
-                    case 'image1':
-                    case 'image2':
-                    case 'image3':
-                    case 'image4':
-                    case 'image5':
+                case 'image1':
+                case 'image2':
+                case 'image3':
+                case 'image4':
+                case 'image5':
                     element.src = decodedData[parameter];
-                        break;
-
-                    case 'value1':
-                            image1.className = decodedData[parameter] ? 'color' : 'grey';
-                        break;
-
-                    case 'value2':
-                            image2.className = decodedData[parameter] ? 'color' : 'grey';
-                        break;
-
-                    case 'value3':
-                            image3.className = decodedData[parameter] ? 'color' : 'grey';
-                        break;
-
-                    case 'value4':
-                        image4.className = decodedData[parameter] ? 'color' : 'grey';
                     break;
 
-                    case 'value5':
-                        image5className = decodedData[parameter] ? 'color' : 'grey';
+                case 'value1':
+                    image1.className = decodedData[parameter] ? 'color' : 'grey';
                     break;
 
-                    case 'name1':
-                    case 'name2':
-                    case 'name3':
-                    case 'name4':
-                    case 'name5':
+                case 'value2':
+                    image2.className = decodedData[parameter] ? 'color' : 'grey';
+                    break;
+
+                case 'value3':
+                    image3.className = decodedData[parameter] ? 'color' : 'grey';
+                    break;
+
+                case 'value4':
+                    image4.className = decodedData[parameter] ? 'color' : 'grey';
+                    break;
+
+                case 'value5':
+                    image5className = decodedData[parameter] ? 'color' : 'grey';
+                    break;
+
+                case 'name1':
+                case 'name2':
+                case 'name3':
+                case 'name4':
+                case 'name5':
                     element.innerHTML = decodedData[parameter];
                     break;
 
-                    case 'nameswitch':
-                   
-                        name1.className = decodedData[parameter] ? 'name' : 'hidden';
-                        name2.className = decodedData[parameter] ? 'name' : 'hidden';
-                        name3.className = decodedData[parameter] ? 'name' : 'hidden';
-                        name4.className = decodedData[parameter] ? 'name' : 'hidden';
-                        name5.className = decodedData[parameter] ? 'name' : 'hidden';
-                   
+                case 'nameswitch':
+
+                    name1.className = decodedData[parameter] ? 'name' : 'hidden';
+                    name2.className = decodedData[parameter] ? 'name' : 'hidden';
+                    name3.className = decodedData[parameter] ? 'name' : 'hidden';
+                    name4.className = decodedData[parameter] ? 'name' : 'hidden';
+                    name5.className = decodedData[parameter] ? 'name' : 'hidden';
+
 
                     break;
 
-                    case 'fontsize':
-                        // Wählen Sie alle Elemente mit der Klasse .name aus
-                        const nameElements = document.querySelectorAll('.name');
+                case 'fontsize':
+                    // Wählen Sie alle Elemente mit der Klasse .name aus
+                    const nameElements = document.querySelectorAll('.name');
 
-                        // Ändern Sie die font-size für jedes ausgewählte Element
-                        nameElements.forEach(element => {
-                            element.style.fontSize = decodedData[parameter]+'em'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
-                        });
-                    case 'eckenradius':
-                        // Wählen Sie alle Elemente mit der Klasse .name aus
-                        const cornerElements = document.querySelectorAll('.color, .grey');
+                    // Ändern Sie die font-size für jedes ausgewählte Element
+                    nameElements.forEach(element => {
+                        element.style.fontSize = decodedData[parameter] + 'em'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
+                    });
+                case 'eckenradius':
+                    // Wählen Sie alle Elemente mit der Klasse .name aus
+                    const cornerElements = document.querySelectorAll('.color, .grey');
 
-                        // Ändern Sie die font-size für jedes ausgewählte Element
-                        cornerElements.forEach(element => {
-                            element.style.borderRadius = decodedData[parameter]+'%'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
-                        });
+                    // Ändern Sie die font-size für jedes ausgewählte Element
+                    cornerElements.forEach(element => {
+                        element.style.borderRadius = decodedData[parameter] + '%'; // Setzen Sie den Wert auf die gewünschte Schriftgröße
+                    });
                     break;
-                    case 'bgimage':
-                        mainDiv = document.querySelector('body');
-                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
-                        break;
-                    case 'bildtransparenz':
-                        root.style.setProperty('--bildtransparenz', decodedData[parameter]);
-                        break;
-                    case 'kachelhintergrundfarbe':
-                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                        break;  
-                    default:
-                        //console.log('Setze innerHTML für', parameter);
-                        // Setze innerHTML nur, wenn das Element gefunden wurde
-                        //element.innerHTML = decodedData[parameter];
-                        break;
-                }
+                case 'bgimage':
+                    mainDiv = document.querySelector('body');
+                    mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                    break;
+                case 'bildtransparenz':
+                    root.style.setProperty('--bildtransparenz', decodedData[parameter]);
+                    break;
+                case 'kachelhintergrundfarbe':
+                    root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                    break;
+                default:
+                    //console.log('Setze innerHTML für', parameter);
+                    // Setze innerHTML nur, wenn das Element gefunden wurde
+                    //element.innerHTML = decodedData[parameter];
+                    break;
+            }
 
         }
     }
@@ -198,12 +200,12 @@
         <img class="color" id="image1" onclick="requestAction('Bewohner1', 1);">
         <div class="hidden" id="name1">1</div>
     </div>
-    
+
     <div class="bewohner_div" id="Bewohner2">
         <img class="color" id="image2" onclick="requestAction('Bewohner2', 1);">
         <div class="hidden" id="name2">2</div>
     </div>
-    
+
     <div class="bewohner_div" id="Bewohner3">
         <img class="color" id="image3" onclick="requestAction('Bewohner3', 1);">
         <div class="hidden" id="name3">3</div>
@@ -217,16 +219,16 @@
     <div class="bewohner_div" id="Bewohner5">
         <img class="color" id="image5" onclick="requestAction('Bewohner5', 1);">
         <div class="hidden" id="name5">5</div>
-    </div>    
+    </div>
 </div>
 
 <script>
     // Schritt 1: Wert auslesen
-const bodyStyle = getComputedStyle(document.body);
-const marginRight = bodyStyle.getPropertyValue('margin-right');
+    const bodyStyle = getComputedStyle(document.body);
+    const marginRight = bodyStyle.getPropertyValue('margin-right');
 
-// Schritt 2: Wert als CSS-Variable setzen
-const root = document.documentElement; // Das :root-Element auswählen
-root.style.setProperty('--body-margin-right', marginRight); // CSS-Variable auf :root setzen
+    // Schritt 2: Wert als CSS-Variable setzen
+    const root = document.documentElement; // Das :root-Element auswählen
+    root.style.setProperty('--body-margin-right', marginRight); // CSS-Variable auf :root setzen
 
 </script>
