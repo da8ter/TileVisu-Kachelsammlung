@@ -650,7 +650,8 @@
                     "type": "SelectColor",
                     "allowTransparent": "false",
                     "name": "InfoMenueSchriftfarbe",
-                    "caption": "Schriftfarbe:"
+                    "caption": "Schriftfarbe:",
+                    "visible": false
                 }
 
             ]
