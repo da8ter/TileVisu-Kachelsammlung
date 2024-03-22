@@ -396,7 +396,7 @@
                                                     },
                                                     {
                                                         "type": "CheckBox",
-                                                        "name": "Schalter1AssoSwitch",
+                                                        "name": "Schalter6AssoSwitch",
                                                         "caption": "Wert anzeigen"
                                                     },
                                                     {
