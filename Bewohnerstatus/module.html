@@ -142,6 +142,18 @@
                     case 'name5':
                     element.innerHTML = decodedData[parameter];
                     break;
+
+                    case 'nameswitch':
+                   
+                        name1.className = decodedData[parameter] ? 'name' : 'hidden';
+                        name2.className = decodedData[parameter] ? 'name' : 'hidden';
+                        name3.className = decodedData[parameter] ? 'name' : 'hidden';
+                        name4.className = decodedData[parameter] ? 'name' : 'hidden';
+                        name5.className = decodedData[parameter] ? 'name' : 'hidden';
+                   
+
+                    break;
+
                     case 'fontsize':
                         // Wählen Sie alle Elemente mit der Klasse .name aus
                         const nameElements = document.querySelectorAll('.name');
