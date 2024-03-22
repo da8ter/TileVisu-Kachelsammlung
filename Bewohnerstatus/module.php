@@ -24,6 +24,8 @@
             $this->RegisterPropertyInteger("bgImage", 0);
             $this->RegisterPropertyFloat('Bildtransparenz', 0.7);
             $this->RegisterPropertyInteger('Kachelhintergrundfarbe', -1);
+            $this->RegisterPropertyBoolean('NameSwitch', 1);
+            $this->RegisterPropertyBoolean('BedienungSwitch', 0);
             // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
             $this->SetVisualizationType(1);
         }
@@ -96,13 +98,17 @@
         public function RequestAction($Ident, $value) {
             // Nachrichten von der HTML-Darstellung schicken immer den Ident passend zur Eigenschaft und im Wert die Differenz, welche auf die Variable gerechnet werden soll
             $variableID = $this->ReadPropertyInteger($Ident);
+            $sperre = $this->ReadPropertyBoolean('BedienungSwitch');
             if (!IPS_VariableExists($variableID)) {
                 $this->SendDebug('Error in RequestAction', 'Variable to be updated does not exist', 0);
                 return;
             }
                 // Umschalten des Werts der Variable
             $currentValue = GetValue($variableID);
-            SetValue($variableID, !$currentValue);
+            if ($sperre == false) {
+                SetValue($variableID, !$currentValue);
+            }
+            
         }
         
         public function GetVisualizationTile() {
