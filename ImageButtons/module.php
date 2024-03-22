@@ -34,26 +34,66 @@ class TileVisuImageButtons extends IPSModule
         $this->RegisterPropertyFloat('Schalter5Schriftgroesse', 1);
         $this->RegisterPropertyFloat('Schalter5Breite', 100);
         $this->RegisterPropertyString('Schalter5AltName', '');
+        $this->RegisterPropertyInteger('Schalter6', 0);
+        $this->RegisterPropertyFloat('Schalter6Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter6Breite', 100);
+        $this->RegisterPropertyString('Schalter6AltName', '');
+        $this->RegisterPropertyInteger('Schalter7', 0);
+        $this->RegisterPropertyFloat('Schalter7Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter7Breite', 100);
+        $this->RegisterPropertyString('Schalter7AltName', '');
+        $this->RegisterPropertyInteger('Schalter8', 0);
+        $this->RegisterPropertyFloat('Schalter8Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter8Breite', 100);
+        $this->RegisterPropertyString('Schalter8AltName', '');
+        $this->RegisterPropertyInteger('Schalter9', 0);
+        $this->RegisterPropertyFloat('Schalter9Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter9Breite', 100);
+        $this->RegisterPropertyString('Schalter9AltName', '');
+        $this->RegisterPropertyInteger('Schalter10', 0);
+        $this->RegisterPropertyFloat('Schalter10Schriftgroesse', 1);
+        $this->RegisterPropertyFloat('Schalter10Breite', 100);
+        $this->RegisterPropertyString('Schalter10AltName', '');
         $this->RegisterPropertyBoolean('Schalter1NameSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter2NameSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter3NameSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter4NameSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter5NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter6NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter7NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter8NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter9NameSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter10NameSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter1IconSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter2IconSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter3IconSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter4IconSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter5IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter6IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter7IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter8IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter9IconSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter10IconSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter1VarIconSwitch', 0);
         $this->RegisterPropertyBoolean('Schalter2VarIconSwitch', 0);
         $this->RegisterPropertyBoolean('Schalter3VarIconSwitch', 0);
         $this->RegisterPropertyBoolean('Schalter4VarIconSwitch', 0);
         $this->RegisterPropertyBoolean('Schalter5VarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('Schalter6VarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('Schalter7VarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('Schalter8VarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('Schalter9VarIconSwitch', 0);
+        $this->RegisterPropertyBoolean('Schalter10VarIconSwitch', 0);
         $this->RegisterPropertyBoolean('Schalter1AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter2AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter3AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter4AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter5AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter6AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter7AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter8AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter9AssoSwitch', 1);
+        $this->RegisterPropertyBoolean('Schalter10AssoSwitch', 1);
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -71,6 +111,11 @@ class TileVisuImageButtons extends IPSModule
             $this->ReadPropertyInteger('Schalter3'),
             $this->ReadPropertyInteger('Schalter4'),
             $this->ReadPropertyInteger('Schalter5'),
+            $this->ReadPropertyInteger('Schalter6'),
+            $this->ReadPropertyInteger('Schalter7'),
+            $this->ReadPropertyInteger('Schalter8'),
+            $this->ReadPropertyInteger('Schalter9'),
+            $this->ReadPropertyInteger('Schalter10'),
         ];
         $refs = $this->GetReferenceList();
             foreach($refs as $ref) {
@@ -93,7 +138,7 @@ class TileVisuImageButtons extends IPSModule
         }
 
 
-        foreach (['bgImage', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $VariableProperty)        {
+        foreach (['bgImage', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Schalter6', 'Schalter7', 'Schalter8', 'Schalter9', 'Schalter10'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -104,7 +149,7 @@ class TileVisuImageButtons extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5'] as $index => $VariableProperty)
+        foreach (['bgImage', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Schalter6', 'Schalter7', 'Schalter8', 'Schalter9', 'Schalter10'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -226,7 +271,56 @@ class TileVisuImageButtons extends IPSModule
             }
             if ($this->ReadPropertyBoolean('Schalter5AssoSwitch')) $result['schalter5asso'] = $this->CheckAndGetValueFormatted('Schalter5');
         }
-
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter6'))) {
+            $result['Schalter6'] = $this->CheckAndGetValueFormatted('Schalter6');
+            $result['schalter6breite'] =  $this->ReadPropertyFloat('Schalter6Breite');
+            $result['schalter6color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter6'));
+            if ($this->ReadPropertyBoolean('Schalter6NameSwitch')) $result['schalter6name'] = IPS_GetName($this->ReadPropertyInteger('Schalter6'));
+            if ($this->ReadPropertyBoolean('Schalter6IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter6'), $this->ReadPropertyBoolean('Schalter6VarIconSwitch')) !== "Transparent") {
+                $result['schalter6icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter6'), $this->ReadPropertyBoolean('Schalter6VarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('Schalter6AssoSwitch')) $result['schalter6asso'] = $this->CheckAndGetValueFormatted('Schalter6');
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter7'))) {
+            $result['Schalter7'] = $this->CheckAndGetValueFormatted('Schalter7');
+            $result['schalter7breite'] =  $this->ReadPropertyFloat('Schalter7Breite');
+            $result['schalter7color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter7'));
+            if ($this->ReadPropertyBoolean('Schalter7NameSwitch')) $result['schalter7name'] = IPS_GetName($this->ReadPropertyInteger('Schalter7'));
+            if ($this->ReadPropertyBoolean('Schalter7IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter7'), $this->ReadPropertyBoolean('Schalter7VarIconSwitch')) !== "Transparent") {
+                $result['schalter7icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter7'), $this->ReadPropertyBoolean('Schalter7VarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('Schalter7AssoSwitch')) $result['schalter6asso'] = $this->CheckAndGetValueFormatted('Schalter7');
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter8'))) {
+            $result['Schalter8'] = $this->CheckAndGetValueFormatted('Schalter8');
+            $result['schalter8breite'] =  $this->ReadPropertyFloat('Schalter8Breite');
+            $result['schalter8color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter8'));
+            if ($this->ReadPropertyBoolean('Schalter8NameSwitch')) $result['schalter8name'] = IPS_GetName($this->ReadPropertyInteger('Schalter8'));
+            if ($this->ReadPropertyBoolean('Schalter8IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter8'), $this->ReadPropertyBoolean('Schalter8VarIconSwitch')) !== "Transparent") {
+                $result['schalter8icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter8'), $this->ReadPropertyBoolean('Schalter8VarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('Schalter8AssoSwitch')) $result['schalter8asso'] = $this->CheckAndGetValueFormatted('Schalter8');
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter9'))) {
+            $result['Schalter9'] = $this->CheckAndGetValueFormatted('Schalter9');
+            $result['schalter9breite'] =  $this->ReadPropertyFloat('Schalter9Breite');
+            $result['schalter9color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter9'));
+            if ($this->ReadPropertyBoolean('Schalter9NameSwitch')) $result['schalter9name'] = IPS_GetName($this->ReadPropertyInteger('Schalter9'));
+            if ($this->ReadPropertyBoolean('Schalter9IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter9'), $this->ReadPropertyBoolean('Schalter9VarIconSwitch')) !== "Transparent") {
+                $result['schalter9icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter9'), $this->ReadPropertyBoolean('Schalter9VarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('Schalter9AssoSwitch')) $result['schalter9asso'] = $this->CheckAndGetValueFormatted('Schalter9');
+        }
+        if (IPS_VariableExists($this->ReadPropertyInteger('Schalter10'))) {
+            $result['Schalter10'] = $this->CheckAndGetValueFormatted('Schalter10');
+            $result['schalter10breite'] =  $this->ReadPropertyFloat('Schalter10Breite');
+            $result['schalter10color'] =  $this->GetColor($this->ReadPropertyInteger('Schalter10'));
+            if ($this->ReadPropertyBoolean('Schalter10NameSwitch')) $result['schalter10name'] = IPS_GetName($this->ReadPropertyInteger('Schalter10'));
+            if ($this->ReadPropertyBoolean('Schalter10IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Schalter10'), $this->ReadPropertyBoolean('Schalter10VarIconSwitch')) !== "Transparent") {
+                $result['schalter10icon'] = $this->GetIcon($this->ReadPropertyInteger('Schalter10'), $this->ReadPropertyBoolean('Schalter10VarIconSwitch'));
+            }
+            if ($this->ReadPropertyBoolean('Schalter10AssoSwitch')) $result['schalter10asso'] = $this->CheckAndGetValueFormatted('Schalter10');
+        }
             $result['hintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
             $result['infomenueschriftfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('InfoMenueSchriftfarbe'));
             $result['schriftgroesse'] =  $this->ReadPropertyFloat('Schriftgroesse');

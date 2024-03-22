@@ -108,11 +108,21 @@
         .schalter3name,
         .schalter4name,
         .schalter5name,
+        .schalter6name,
+        .schalter7name,
+        .schalter8name,
+        .schalter9name,
+        .schalter10name,
         .schalter1asso,
         .schalter2asso,
         .schalter3asso,
         .schalter4asso,
-        .schalter5asso {
+        .schalter5asso,
+        .schalter6asso,
+        .schalter7asso,
+        .schalter8asso,
+        .schalter9asso,
+        .schalter10asso {
             padding-right: 1px;
             padding-left: 1px;
         }
@@ -135,7 +145,12 @@
         .schalter2,
         .schalter3,
         .schalter4,
-        .schalter5 {
+        .schalter5,
+        .schalter6,
+        .schalter7,
+        .schalter8,
+        .schalter9,
+        .schalter10 {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -178,6 +193,30 @@
         .schalter5 {
             background-color: var(--schalter5color);
             min-width: var(--schalter5breite);
+        }
+        .schalter6 {
+            background-color: var(--schalter6color);
+            min-width: var(--schalter6breite);
+        }
+
+        .schalter7 {
+            background-color: var(--schalter7color);
+            min-width: var(--schalter7breite);
+        }
+
+        .schalter8 {
+            background-color: var(--schalter8color);
+            min-width: var(--schalter8breite);
+        }
+
+        .schalter9 {
+            background-color: var(--schalter9color);
+            min-width: var(--schalter9breite);
+        }
+
+        .schalter10 {
+            background-color: var(--schalter10color);
+            min-width: var(--schalter10breite);
         }
     </style>
 
@@ -329,6 +368,139 @@
                             schalter5name.textContent = decodedData[parameter];
                         }
                         break;
+
+
+
+                    case 'schalter6asso':
+                        element.className = 'schalter6asso';
+                        schalter6.className = 'schalter6';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter6name").classList.contains("hidden")) schalter6doppelpunkt.className = 'schalter6asso';
+                        break;
+                    case 'schalter6icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter6.className = 'schalter6';
+                        }
+                        break;
+                    case 'schalter6name':
+                        element.className = 'schalter6name';
+                        schalter6.className = 'schalter6';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter6altname':
+                        if (decodedData[parameter] != '') {
+                            schalter6name.className = 'schalter6name';
+                            schalter6.className = 'schalter6';
+                            schalter6name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter7asso':
+                        element.className = 'schalter7asso';
+                        schalter7.className = 'schalter7';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter7name").classList.contains("hidden")) schalter7doppelpunkt.className = 'schalter7asso';
+                        break;
+                    case 'schalter7icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter7.className = 'schalter7';
+                        }
+                        break;
+                    case 'schalter7name':
+                        element.className = 'schalter7name';
+                        element.textContent = decodedData[parameter];
+                        schalter7.className = 'schalter7';
+                        break;
+                    case 'schalter7altname':
+                        if (decodedData[parameter] != '') {
+                            schalter7name.className = 'schalter7name';
+                            schalter7.className = 'schalter7';
+                            schalter7name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter8asso':
+                        element.className = 'schalter8asso';
+                        schalter8.className = 'schalter8';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter8name").classList.contains("hidden")) schalter8doppelpunkt.className = 'schalter8asso';
+                        break;
+                    case 'schalter8icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter8.className = 'schalter8';
+                        }
+                        break;
+                    case 'schalter8name':
+                        element.className = 'schalter8name';
+                        schalter8.className = 'schalter8';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter8altname':
+                        if (decodedData[parameter] != '') {
+                            schalter8name.className = 'schalter8name';
+                            schalter8.className = 'schalter8';
+                            schalter8name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter9asso':
+                        element.className = 'schalter9asso';
+                        schalter9.className = 'schalter9';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter9name").classList.contains("hidden")) schalter9doppelpunkt.className = 'schalter9asso';
+                        break;
+                    case 'schalter9icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter9.className = 'schalter9';
+                        }
+                        break;
+                    case 'schalter9name':
+                        element.className = 'schalter9name';
+                        element.textContent = decodedData[parameter];
+                        schalter9.className = 'schalter9';
+                        break;
+                    case 'schalter9altname':
+                        if (decodedData[parameter] != '') {
+                            schalter9name.className = 'schalter9name';
+                            schalter9.className = 'schalter9';
+                            schalter9name.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'schalter10asso':
+                        element.className = 'schalter10asso';
+                        schalter10.className = 'schalter10';
+                        element.textContent = decodedData[parameter];
+                        if (!document.getElementById("schalter10name").classList.contains("hidden")) schalter10doppelpunkt.className = 'schalter10asso';
+                        break;
+                    case 'schalter10icon':
+                        if (decodedData[parameter] !== "Transparent") {
+                            element.className = 'schaltericon';
+                            element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                            schalter10.className = 'schalter10';
+                        }
+                        break;
+                    case 'schalter10name':
+                        element.className = 'schalter10name';
+                        schalter10.className = 'schalter10';
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'schalter10altname':
+                        if (decodedData[parameter] != '') {
+                            schalter10name.className = 'schalter10name';
+                            schalter10.className = 'schalter10';
+                            schalter10name.textContent = decodedData[parameter];
+                        }
+                        break;
+
+
+
+
+
                     case 'schriftgroesse':
                         root.style.setProperty('--schriftgroesse', decodedData[parameter] + 'em');
                         break;
@@ -434,6 +606,41 @@
                     <p class="hidden" id="schalter5name"></p>
                     <p class="hidden" id="schalter5doppelpunkt">:&nbsp;</p>
                     <p class="hidden" id="schalter5asso"></p>
+                </button>
+
+                <button id="schalter6" class="hidden" onclick="requestAction('Schalter6', 6);">
+                    <img class="hidden" id="schalter6icon" src="">
+                    <p class="hidden" id="schalter6name"></p>
+                    <p class="hidden" id="schalter6doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter6asso"></p>
+                </button>
+
+                <button id="schalter7" class="hidden" onclick="requestAction('Schalter7', 1);">
+                    <img class="hidden" id="schalter7icon" src="">
+                    <p class="hidden" id="schalter7name"></p>
+                    <p class="hidden" id="schalter7doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter7asso"></p>
+                </button>
+
+                <button id="schalter8" class="hidden" onclick="requestAction('Schalter8', 1);">
+                    <img class="hidden" id="schalter8icon" src="">
+                    <p class="hidden" id="schalter8name"></p>
+                    <p class="hidden" id="schalter8doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter8asso"></p>
+                </button>
+
+                <button id="schalter9" class="hidden" onclick="requestAction('Schalter9', 1);">
+                    <img class="hidden" id="schalter9icon" src="">
+                    <p class="hidden" id="schalter9name"></p>
+                    <p class="hidden" id="schalter9doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter9asso"></p>
+                </button>
+
+                <button id="schalter10" class="hidden" onclick="requestAction('Schalter10', 1);">
+                    <img class="hidden" id="schalter10icon" src="">
+                    <p class="hidden" id="schalter10name"></p>
+                    <p class="hidden" id="schalter10doppelpunkt">:&nbsp;</p>
+                    <p class="hidden" id="schalter10asso"></p>
                 </button>
             </div>
         </div>
