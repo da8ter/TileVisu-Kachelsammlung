@@ -1,5 +1,5 @@
 <?php
-class TileVisuWashingMaschine extends IPSModule
+class TileVisuWallbox extends IPSModule
 {
     public function Create()
     {
