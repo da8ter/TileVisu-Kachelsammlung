@@ -67,12 +67,16 @@
               "caption": "Bildauswahl",
               "options": [
                 {
-                  "caption": "Waschmaschine",
+                  "caption": "Go-e",
                   "value": 0
                 },
                 {
-                  "caption": "Wäschetrockner",
+                  "caption": "Go-e Gemini",
                   "value": 1
+                },
+                {
+                  "caption": "Universal",
+                  "value": 2
                 },
                 {
                   "caption": "Eigene Bilder",
