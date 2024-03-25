@@ -396,9 +396,9 @@
                     case 'ladeleistungvalue':
                         root.style.setProperty('--ladeleistung', decodedData[parameter]); 
                         break;
-                   // case 'socvalue':
-                     //   root.style.setProperty('--socvalue', decodedData[parameter]); 
-                     //   break;
+                   case 'socvalue':
+                     root.style.setProperty('--socvalue', decodedData[parameter]); 
+                     break;
                     case 'soc':
                             element.textContent = decodedData[parameter];
                         break;
@@ -406,7 +406,7 @@
                         root.style.setProperty('--zielsocvalue', decodedData[parameter]); 
                         break;
                     case 'zielsoc':
-                            element.textContent = decodedData[parameter];
+                           // element.textContent = decodedData[parameter];
                         break;
                     case 'maxladeleistung':
                         root.style.setProperty('--maxladeleistung', decodedData[parameter]); 
