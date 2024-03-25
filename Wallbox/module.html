@@ -396,9 +396,9 @@
                     case 'ladeleistungvalue':
                         root.style.setProperty('--ladeleistung', decodedData[parameter]); 
                         break;
-                    case 'socvalue':
-                        root.style.setProperty('--socvalue', decodedData[parameter]); 
-                        break;
+                   // case 'socvalue':
+                     //   root.style.setProperty('--socvalue', decodedData[parameter]); 
+                     //   break;
                     case 'soc':
                             element.textContent = decodedData[parameter];
                         break;
@@ -501,7 +501,7 @@
             <div class="balkendiagramm" id="balkendiagramm">
                 <div class="balken_rechts" id="balken_rechts">
                     <div class="balken_links_leistung" id="balken_links_leistung"> <span class="balken_links_text"><b>Leistung: </b> <span
-                                id="ladeleistung">0</span> KW</span> </div>
+                                id="ladeleistung">0</span></span> </div>
                 </div>
             </div>
             <div class="balkendiagramm_soc">
