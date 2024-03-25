@@ -9,7 +9,7 @@ class TileVisuWallbox extends IPSModule
 
         // Drei Eigenschaften für die dargestellten Zähler
         $this->RegisterPropertyInteger("Status", 0);
-        $this->RegisterPropertyInteger("Programm", 0);
+        $this->RegisterPropertyInteger("Ladeleistung", 0);
         $this->RegisterPropertyInteger("SOC", 0);
         $this->RegisterPropertyInteger("ZielSOC", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
@@ -44,7 +44,7 @@ class TileVisuWallbox extends IPSModule
         //Referenzen Registrieren
         $ids = [
             $this->ReadPropertyInteger('Status'),
-            $this->ReadPropertyInteger('Programm'),
+            $this->ReadPropertyInteger('Ladeleistung'),
             $this->ReadPropertyInteger('SOC'),
             $this->ReadPropertyInteger('ZielSOC'),
             $this->ReadPropertyInteger('Verbrauch'),
@@ -74,7 +74,7 @@ class TileVisuWallbox extends IPSModule
         }
 
 
-        foreach (['Status', 'Programm', 'SOC', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
+        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -85,7 +85,7 @@ class TileVisuWallbox extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Programm', 'SOC', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
+        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -292,7 +292,7 @@ class TileVisuWallbox extends IPSModule
             //$result['status'] = $this->CheckAndGetValueFormatted('Status');
             $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
             $result['statusvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
-            $result['programm'] = IPS_VariableExists($this->ReadPropertyInteger('Programm')) ? $this->CheckAndGetValueFormatted('Programm') : null;
+            $result['ladeleistung'] = IPS_VariableExists($this->ReadPropertyInteger('Ladeleistung')) ? $this->CheckAndGetValueFormatted('Ladeleistung') : null;
             $result['SOC'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? $this->CheckAndGetValueFormatted('SOC') : null;
             $result['SOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? GetValue($this->ReadPropertyInteger('SOC')) : null;
             $result['ZielSOC'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? $this->CheckAndGetValueFormatted('ZielSOC') : null;

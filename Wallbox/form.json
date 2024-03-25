@@ -226,7 +226,7 @@
           "items": [
             {
               "type": "SelectVariable",
-              "name": "Leistung",
+              "name": "Ladeleistung",
               "caption": "Aktuelle Ladeleistung:",
               "validVariableTypes": []
             },
