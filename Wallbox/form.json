@@ -97,12 +97,12 @@
             {
               "type": "SelectMedia",
               "name": "Bild_An",
-              "caption": "Eigenes Bild AN"
+              "caption": "Eigenes Bild: Wallbox lädt"
             },
             {
               "type": "SelectMedia",
               "name": "Bild_Aus",
-              "caption": "Eigenes Bild AUS"
+              "caption": "Eigenes Bild: Wallbox aus"
             }
           ]
         }
