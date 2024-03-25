@@ -11,7 +11,7 @@ class TileVisuWallbox extends IPSModule
         $this->RegisterPropertyInteger("Status", 0);
         $this->RegisterPropertyInteger("Programm", 0);
         $this->RegisterPropertyInteger("Programmfortschritt", 0);
-        $this->RegisterPropertyInteger("Restlaufzeit", 0);
+        $this->RegisterPropertyInteger("ZielSOC", 0);
         $this->RegisterPropertyInteger("Verbrauch", 0);
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
         $this->RegisterPropertyInteger("KostenTag", 0);
@@ -46,7 +46,7 @@ class TileVisuWallbox extends IPSModule
             $this->ReadPropertyInteger('Status'),
             $this->ReadPropertyInteger('Programm'),
             $this->ReadPropertyInteger('Programmfortschritt'),
-            $this->ReadPropertyInteger('Restlaufzeit'),
+            $this->ReadPropertyInteger('ZielSOC'),
             $this->ReadPropertyInteger('Verbrauch'),
             $this->ReadPropertyInteger('VerbrauchTag'),
             $this->ReadPropertyInteger('KostenTag'),
@@ -74,7 +74,7 @@ class TileVisuWallbox extends IPSModule
         }
 
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -85,7 +85,7 @@ class TileVisuWallbox extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -295,8 +295,8 @@ class TileVisuWallbox extends IPSModule
             $result['programm'] = IPS_VariableExists($this->ReadPropertyInteger('Programm')) ? $this->CheckAndGetValueFormatted('Programm') : null;
             $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
             $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
-            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
-            $result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+            $result['ZielSOC'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? $this->CheckAndGetValueFormatted('ZielSOC') : null;
+            $result['ZielSOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? GetValue($this->ReadPropertyInteger('ZielSOC')) : null;
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
             $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;

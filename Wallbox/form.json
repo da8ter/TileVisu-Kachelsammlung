@@ -227,13 +227,13 @@
             {
               "type": "SelectVariable",
               "name": "Programmfortschritt",
-              "caption": "Programmfortschritt (0-100):",
+              "caption": "Aktuelle Ladeleistung:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
-              "name": "Restlaufzeit",
-              "caption": "Restlaufzeit (Sekunden):",
+              "name": "ZielSOC",
+              "caption": "Ziel SOC:",
               "validVariableTypes": []
             },
             {
