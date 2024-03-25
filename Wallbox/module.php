@@ -53,12 +53,12 @@ class TileVisuWallbox extends IPSModule
             $this->ReadPropertyInteger('Ladeleistung'),
             $this->ReadPropertyInteger('SOC'),
             $this->ReadPropertyInteger('ZielSOC'),
-            $this->ReadPropertyInteger('bgImage')
+            $this->ReadPropertyInteger('bgImage'),
             $this->ReadPropertyInteger('Verbrauchgesamt'),
             $this->ReadPropertyInteger('VerbrauchTag'),
             $this->ReadPropertyInteger('KostenTag'),
             $this->ReadPropertyInteger('Fehler'),
-            $this->ReadPropertyInteger('Phasen')
+            $this->ReadPropertyInteger('Phasen'),
             $this->ReadPropertyInteger('MaxLadeleistung'),
             $this->ReadPropertyInteger('Kabel'),
             $this->ReadPropertyInteger('Zugangskontrolle'),
