@@ -411,27 +411,14 @@
                     case 'maxladeleistung':
                         root.style.setProperty('--maxladeleistung', decodedData[parameter]); 
                         break;
-                    case 'verbrauch':
+                    case 'verbrauchgesamt':
                         element.textContent = decodedData[parameter];
-                        if (decodedData[parameter]) {
-                            verbrauch.className = 'info';
-                            infodiv.className = 'infodiv';
-                        }
                         break;
                     case 'verbrauchtag':
-                        element.innerHTML = '&nbsp;&nbsp;&nbsp;Tag: ' + decodedData[parameter];
-                        if (decodedData[parameter]) {
-                            verbrauchtag.className = 'info';
-                            infodiv.className = 'infodiv';
-                        }
+                        element.textContent = decodedData[parameter];
                         break;
                     case 'kostentag':
                         element.textContent = decodedData[parameter];
-                        if (decodedData[parameter] != null) {
-                            kostentag.className = 'info';
-                            infodiv.className = 'infodiv';
-                            kosten.className = 'info';
-                        }
                         break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
@@ -517,7 +504,7 @@
                     <tr>
                         <td><i class="fa-solid fa-bolt fa-sm icon"></i>&nbsp;&nbsp;<br></td>
                         <td style="padding-right: 10px;">Geladen:</td>
-                        <td>Aktuell: <span id="19933"></span> kWh,&nbsp;&nbsp;&nbsp; Gesamt: <span id="51887"></span>
+                        <td>Aktuell: <span id="verbrauchtag"></span> kWh,&nbsp;&nbsp;&nbsp; Gesamt: <span id="verbrauchgesamt"></span>
                             kWh</td>
                     </tr>
                     <tr>
