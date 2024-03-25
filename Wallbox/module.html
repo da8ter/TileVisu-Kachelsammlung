@@ -387,6 +387,7 @@
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
+                        root.style.setProperty('--ladeleistung', decodedData[parameter]); 
                          break;
                     case 'restlaufzeit':
                         element.textContent = decodedData[parameter];
