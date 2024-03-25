@@ -7,7 +7,7 @@
 
     <style>
         :root {
-            --soc: calc(var(--24832) * 1%);
+            --soc: calc(var(--socvalue) * 1%);
             --soc_ziel: calc((100 - var(--13666)) * 1%);
             --max_ladeleistung: var(--17540);
             --kabel: none;
@@ -447,10 +447,8 @@
 
                         break;
                     case 'socvalue':
-                        root.style.setProperty('--socvalue', decodedData[parameter] + '%'); 
-                        if (statusbalken === false) {
-                            root.style.setProperty('--socvalue', '0%'); 
-                        }
+                        root.style.setProperty('--socvalue', decodedData[parameter]); 
+                        
 
                         break;
                     case 'soc':
@@ -558,7 +556,7 @@
                 </div><img id="image" src="" />
             </div>
         </div>
-        <div class="div2"> <b>Status: </b><span class="status" id="status">test</span><br>
+        <div class="div2"> <b>Status: </b><span class="status" id="status"></span><br>
             <div class="balkendiagramm">
                 <div class="balken_rechts">
                     <div class="balken_links_leistung"> <span class="balken_links_text"><b>Leistung: </b> <span
