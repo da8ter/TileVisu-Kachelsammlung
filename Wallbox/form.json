@@ -232,6 +232,12 @@
             },
             {
               "type": "SelectVariable",
+              "name": "SOC",
+              "caption": "SOC:",
+              "validVariableTypes": []
+            },            
+            {
+              "type": "SelectVariable",
               "name": "ZielSOC",
               "caption": "Ziel SOC:",
               "validVariableTypes": []
