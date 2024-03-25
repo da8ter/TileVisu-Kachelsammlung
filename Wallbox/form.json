@@ -156,16 +156,6 @@
               "visible": false
             },
             {
-              "caption": "Statusbalken aktiv",
-              "name": "StatusBalken",
-              "width": "150px",
-              "save": true,
-              "edit": {
-                "type": "CheckBox"
-              },
-              "visible": true
-            },
-            {
               "caption": "Farbe",
               "name": "StatusColor",
               "width": "100px",
