@@ -409,14 +409,14 @@
                         if (!statusImages[index]) {
                             index = 0;
                         }
-                        if (statusImages[index] === 'wm_an') {
-                            document.getElementById('image').src = window.assets.img_wm_an;
+                        if (statusImages[index] === 'goe_an') {
+                            document.getElementById('image').src = window.assets.img_goe_an;
                         }
-                        else if (statusImages[index] === 'wm_aus') {
-                            document.getElementById('image').src = window.assets.img_wm_aus;
+                        else if (statusImages[index] === 'goe_aus') {
+                            document.getElementById('image').src = window.assets.img_goe_aus;
                         }
                         else {
-                            document.getElementById('image').src = window.assets.img_wm_aus;
+                            document.getElementById('image').src = window.assets.img_goe_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
@@ -424,8 +424,8 @@
 
                         if (statusbalken === false) {
                             restlaufzeit.textContent = '0';
-                            programmfortschritt.textContent = '0'; 
-                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+                            soc.textContent = '0'; 
+                            root.style.setProperty('--socvalue', '0%'); 
 
                         }
                     
@@ -451,21 +451,21 @@
                        // }
 
                         break;
-                    case 'programmfortschrittvalue':
-                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                    case 'socvalue':
+                        root.style.setProperty('--socvalue', decodedData[parameter] + '%'); 
                         if (statusbalken === false) {
-                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
+                            root.style.setProperty('--socvalue', '0%'); 
                         }
 
                         break;
-                    case 'programmfortschritt':
+                    case 'soc':
                         
                         if (decodedData[parameter]) {
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                             if (statusbalken === false) {
-                                programmfortschritt.textContent = '0'; 
+                                soc.textContent = '0'; 
                         }
                           
                         }
@@ -568,13 +568,13 @@
             <div class="balkendiagramm">
                 <div class="balken_rechts">
                     <div class="balken_links_leistung"> <span class="balken_links_text"><b>Leistung: </b> <span
-                                id="42106">0</span> KW</span> </div>
+                                id="leistung">0</span> KW</span> </div>
                 </div>
             </div>
             <div class="balkendiagramm_soc">
                 <div class="balken_rechts">
                     <div class="balken_links_soc"> <span class="balken_links_text"><b>SOC: </b> <span
-                                id="24832">0</span> %</span>
+                                id="socvalue">0</span> %</span>
                         <div class="balken_soc_text_rechts"><b>Ladeziel&nbsp;&nbsp;</b></div>
                     </div>
                 </div>
