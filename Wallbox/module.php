@@ -131,8 +131,8 @@ class TileVisuWallbox extends IPSModule
         if($bildauswahl == '0') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/wm_an.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/go_e.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/go_e_kabel.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
         elseif($bildauswahl == '1') {
@@ -240,8 +240,8 @@ class TileVisuWallbox extends IPSModule
 
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "' . $imageContent2 . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "' . $imageContent . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_goe_aus = "' . $imageContent2 . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_goe_an = "' . $imageContent . '";' . PHP_EOL;
             $assets .= '</script>';
         }
 
@@ -256,17 +256,14 @@ class TileVisuWallbox extends IPSModule
                       
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
-            $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
 
         }
 
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
-        $statusStatusBalken = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusStatusBalken . ';';
         $images .= '</script>';
 
 
@@ -395,7 +392,7 @@ class TileVisuWallbox extends IPSModule
                 }
             }
         } else {
-            IPS_LogMessage("TileVisuWashingMaschine", "Die übergebene ID $id entspricht keiner existierenden Variable.");
+            IPS_LogMessage("TileVisuWallbox", "Die übergebene ID $id entspricht keiner existierenden Variable.");
         }
     
         // Konvertieren Sie Ihre Liste in JSON und aktualisieren Sie das Konfigurationsformular

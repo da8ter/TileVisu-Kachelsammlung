@@ -174,12 +174,12 @@
                 "type": "Select",
                 "options": [
                   {
-                    "caption": "An",
-                    "value": "wm_an"
+                    "caption": "Laden",
+                    "value": "goe_an"
                   },
                   {
                     "caption": "Aus",
-                    "value": "wm_aus"
+                    "value": "goe_aus"
                   }
                 ]
               }
