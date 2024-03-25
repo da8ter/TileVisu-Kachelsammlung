@@ -400,9 +400,9 @@
 
                     case 'status':
                         element.textContent = decodedData[parameter];
-                        if (decodedData[parameter]) {
-                            statusdiv.className = 'visible';
-                        }
+                       // if (decodedData[parameter]) {
+                         //   statusdiv.className = 'visible';
+                       // }
                         break;
                     case 'statusvalue':
                         var index = decodedData[parameter];
@@ -432,7 +432,6 @@
 
                         break;
                     case 'ladeleistung':
-                        //element.className = 'infolinksasso';
                         element.textContent = decodedData[parameter];
                          break;
                     case 'restlaufzeit':
