@@ -226,7 +226,7 @@
           "items": [
             {
               "type": "SelectVariable",
-              "name": "Programmfortschritt",
+              "name": "Leistung",
               "caption": "Aktuelle Ladeleistung:",
               "validVariableTypes": []
             },
