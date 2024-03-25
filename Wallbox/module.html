@@ -394,28 +394,18 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
-
-                       // if (statusBalken === false) {
-                        //    restlaufzeit.textContent = '0';
-                       // }
-
                         break;
                     case 'socvalue':
                         root.style.setProperty('--socvalue', decodedData[parameter]); 
-                        
-
+                        break;
+                    case 'zielsoc':
+                           // element.textContent = decodedData[parameter];
+                        break;
+                    case 'zielsocvalue':
+                        root.style.setProperty('--zielsocvalue', decodedData[parameter]); 
                         break;
                     case 'soc':
-                        
                             element.textContent = decodedData[parameter];
-         
-                        break;
-                    case 'restlaufzeitvalue':
-                        restmin = Math.round(decodedData[parameter] / 60);
-                        restlaufzeit.textContent = restmin;
-                        if (statusbalken === false) {
-                            restlaufzeit.textContent = '0'; 
-                        }
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];

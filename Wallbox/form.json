@@ -242,6 +242,48 @@
               "caption": "Ziel SOC:",
               "validVariableTypes": []
             },
+
+            {
+              "type": "SelectVariable",
+              "name": "Fehler",
+              "caption": "Fehler:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "SelectVariable",
+              "name": "Phasen",
+              "caption": "Phasen:",
+              "validVariableTypes": []
+            },            
+            {
+              "type": "SelectVariable",
+              "name": "MaxLadeleistung",
+              "caption": "Maximale Ladeleistung:",
+              "validVariableTypes": []
+            },
+
+            {
+              "type": "SelectVariable",
+              "name": "Kabel",
+              "caption": "Kabel:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "SelectVariable",
+              "name": "Zugangskontrolle",
+              "caption": "Zugangskontrolle:",
+              "validVariableTypes": []
+            },            
+            {
+              "type": "SelectVariable",
+              "name": "Verriegelung",
+              "caption": "Verriegelung:",
+              "validVariableTypes": []
+            },
+
+
+
+
             {
               "type": "NumberSpinner",
               "name": "BalkenSchriftgroesse",
@@ -279,8 +321,8 @@
           "items": [
             {
               "type": "SelectVariable",
-              "name": "Verbrauch",
-              "caption": "Aktuelle Leistungsaufnahme:",
+              "name": "Verbrauchgesamt",
+              "caption": "Verbrauch gesamt:",
               "validVariableTypes": []
             },
             {

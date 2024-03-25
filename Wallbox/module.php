@@ -12,9 +12,15 @@ class TileVisuWallbox extends IPSModule
         $this->RegisterPropertyInteger("Ladeleistung", 0);
         $this->RegisterPropertyInteger("SOC", 0);
         $this->RegisterPropertyInteger("ZielSOC", 0);
-        $this->RegisterPropertyInteger("Verbrauch", 0);
+        $this->RegisterPropertyInteger("Verbrauchgesamt", 0);
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
         $this->RegisterPropertyInteger("KostenTag", 0);
+        $this->RegisterPropertyInteger("Fehler", 0);
+        $this->RegisterPropertyInteger("Phasen", 0);
+        $this->RegisterPropertyInteger("MaxLadeleistung", 0);
+        $this->RegisterPropertyInteger("Kabel", 0);
+        $this->RegisterPropertyInteger("Zugangskontrolle", 0);
+        $this->RegisterPropertyInteger("Verriegelung", 0);
         $this->RegisterPropertyFloat("StatusSchriftgroesse", 1);
         $this->RegisterPropertyFloat("ProgrammSchriftgroesse", 1);
         $this->RegisterPropertyFloat("InfoSchriftgroesse", 1);
@@ -47,10 +53,16 @@ class TileVisuWallbox extends IPSModule
             $this->ReadPropertyInteger('Ladeleistung'),
             $this->ReadPropertyInteger('SOC'),
             $this->ReadPropertyInteger('ZielSOC'),
-            $this->ReadPropertyInteger('Verbrauch'),
+            $this->ReadPropertyInteger('bgImage')
+            $this->ReadPropertyInteger('Verbrauchgesamt'),
             $this->ReadPropertyInteger('VerbrauchTag'),
             $this->ReadPropertyInteger('KostenTag'),
-            $this->ReadPropertyInteger('bgImage')
+            $this->ReadPropertyInteger('Fehler'),
+            $this->ReadPropertyInteger('Phasen')
+            $this->ReadPropertyInteger('MaxLadeleistung'),
+            $this->ReadPropertyInteger('Kabel'),
+            $this->ReadPropertyInteger('Zugangskontrolle'),
+            $this->ReadPropertyInteger('Verriegelung')
         ];
         $refs = $this->GetReferenceList();
             foreach($refs as $ref) {
@@ -74,7 +86,7 @@ class TileVisuWallbox extends IPSModule
         }
 
 
-        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)        {
+        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauchgesamt', 'VerbrauchTag', 'KostenTag', 'Fehler', 'Phasen', 'MaxLadeleistung', 'Kabel', 'Zugangskontrolle', 'Verriegelung'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -85,7 +97,7 @@ class TileVisuWallbox extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
+        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauchgesamt', 'VerbrauchTag', 'KostenTag', 'Fehler', 'Phasen', 'MaxLadeleistung', 'Kabel', 'Zugangskontrolle', 'Verriegelung'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -298,9 +310,19 @@ class TileVisuWallbox extends IPSModule
             $result['SOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? GetValue($this->ReadPropertyInteger('SOC')) : null;
             $result['ZielSOC'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? $this->CheckAndGetValueFormatted('ZielSOC') : null;
             $result['ZielSOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? GetValue($this->ReadPropertyInteger('ZielSOC')) : null;
-            $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
+            $result['Verbrauchgesamt'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauchgesamt')) ? $this->CheckAndGetValueFormatted('Verbrauchgesamt') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
             $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;
+
+            $result['Fehler'] = IPS_VariableExists($this->ReadPropertyInteger('Fehler')) ? $this->CheckAndGetValueFormatted('Fehler') : null;
+            $result['Phasen'] = IPS_VariableExists($this->ReadPropertyInteger('Phasen')) ? GetValue($this->ReadPropertyInteger('Phasen')) : null;            $result['MaxLadeleistung'] = IPS_VariableExists($this->ReadPropertyInteger('MaxLadeleistung')) ? $this->CheckAndGetValueFormatted('MaxLadeleistung') : null;
+            $result['Kabel'] = IPS_VariableExists($this->ReadPropertyInteger('Kabel')) ? $this->CheckAndGetValueFormatted('Kabel') : null;
+            $result['Zugangskontrolle'] = IPS_VariableExists($this->ReadPropertyInteger('Zugangskontrolle')) ? $this->CheckAndGetValueFormatted('Zugangskontrolle') : null;
+            $result['Verriegelung'] = IPS_VariableExists($this->ReadPropertyInteger('Verriegelung')) ? $this->CheckAndGetValueFormatted('Verriegelung') : null;
+           
+            
+            
+            
             $result['statusschriftgroesse'] =  $this->ReadPropertyFloat('StatusSchriftgroesse');
             $result['programmschriftgroesse'] =  $this->ReadPropertyFloat('ProgrammSchriftgroesse');
             $result['infoschriftgroesse'] =  $this->ReadPropertyFloat('InfoSchriftgroesse');
