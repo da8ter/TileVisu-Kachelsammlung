@@ -307,6 +307,20 @@
               "name": "BalkenVerlaufFarbe2",
               "caption": "Farbe 2:",
               "width": "150px"
+            },
+            {
+              "type": "SelectColor",
+              "allowTransparent": false,
+              "name": "BalkenVerlaufSOCFarbe1",
+              "caption": "SOC Farbe 1:",
+              "width": "150px"
+            },
+            {
+              "type": "SelectColor",
+              "allowTransparent": false,
+              "name": "BalkenVerlaufSOCFarbe2",
+              "caption": "SOC Farbe 2:",
+              "width": "150px"
             }
           ]
         }

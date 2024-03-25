@@ -27,6 +27,8 @@ class TileVisuWallbox extends IPSModule
         $this->RegisterPropertyFloat("BalkenSchriftgroesse", 1);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe1", 2674091);
         $this->RegisterPropertyInteger("BalkenVerlaufFarbe2", 2132596);
+        $this->RegisterPropertyInteger("BalkenVerlaufSOCFarbe1", 7257660);
+        $this->RegisterPropertyInteger("BalkenVerlaufSOCFarbe2", 5281320);
         $this->RegisterPropertyInteger("Bildauswahl", 0);
         //$this->RegisterPropertyInteger("Bild", 0);
         $this->RegisterPropertyFloat("BildBreite", 20);
@@ -329,6 +331,8 @@ class TileVisuWallbox extends IPSModule
             $result['balkenschriftgroesse'] =  $this->ReadPropertyFloat('BalkenSchriftgroesse');
             $result['BalkenVerlaufFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe1'));
             $result['BalkenVerlaufFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufFarbe2'));
+            $result['BalkenVerlaufSOCFarbe1'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufSOCFarbe1'));
+            $result['BalkenVerlaufSOCFarbe2'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('BalkenVerlaufSOCFarbe2'));
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));

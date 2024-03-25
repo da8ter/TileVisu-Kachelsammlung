@@ -241,7 +241,7 @@
 
         .balken_links_soc {
             width: var(--soc);
-            background: repeating-linear-gradient(to right, #0054ff 0%, #44a4f5 50%, #0054ff 100%);
+            background: repeating-linear-gradient(to right, var(--balkenverlaufsocfarbe1) 0%, var(--balkenverlaufsocfarbe2) 50%, var(--balkenverlaufsocfarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_leistung 10s infinite;
@@ -428,6 +428,12 @@
                         break;
                     case 'zugangskontrolle':
                         element.textContent = decodedData[parameter];
+                        break;
+                    case 'balkenverlaufsocfarbe1':
+                        root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
+                        break;
+                    case 'balkenverlaufsocfarbe2':
+                        root.style.setProperty('--balkenverlaufsocfarbe2', decodedData[parameter]);
                         break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
