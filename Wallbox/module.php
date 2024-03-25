@@ -366,7 +366,7 @@ class TileVisuWallbox extends IPSModule
 
 
 
-    private function WAL_UpdateList($StatusID)
+    public function UpdateList($StatusID)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
