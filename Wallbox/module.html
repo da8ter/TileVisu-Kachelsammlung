@@ -387,14 +387,9 @@
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
-                        root.style.setProperty('--ladeleistung', decodedData[parameter]); 
                          break;
-                    case 'restlaufzeit':
-                        element.textContent = decodedData[parameter];
-                        if (decodedData[parameter]) {
-                            balkendiagramm.className = 'balkendiagramm';
-                            balken_links_text_finish.className = 'balken_links_text_finish';
-                        }
+                    case 'ladeleistungvalue':
+                        root.style.setProperty('--ladeleistung', decodedData[parameter]); 
                         break;
                     case 'socvalue':
                         root.style.setProperty('--socvalue', decodedData[parameter]); 
