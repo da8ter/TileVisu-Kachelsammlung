@@ -407,12 +407,8 @@
                         break;
                     case 'soc':
                         
-                        if (decodedData[parameter]) {
-                            balkendiagramm.className = 'balkendiagramm';
-                            balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
-                       
-                        }
+         
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
