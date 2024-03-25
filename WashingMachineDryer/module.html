@@ -432,7 +432,14 @@
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
                         break;
                     case 'kachelhintergrundfarbe':
+
+                    if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
+                        root.style.setProperty('--hintergrundfarbe', ''); 
+                    }
+                    else
+                    {
                         root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                    }
                         break;    
 
                     default:
