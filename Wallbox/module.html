@@ -6,112 +6,219 @@
     <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script>
 
     <style>
-        /* Grundlegende Stildefinitionen, keine Änderungen hier */
-
-
-        
         :root {
-
-            --balkenverlauffarbe1: #28CDAB;
-            /* Standardfarbe setzen, um sicherzustellen, dass die Farbe existiert */
-            --balkenverlauffarbe2: #208A74;
-            /* Ergänzende Farbe setzen */
-            --programmfortschrittvalue: 0%;
-            /* Standardwert setzen */
-            --statusschriftgroesse: 1em;
-            /* Standard Schriftgröße */
-            --programmschriftgroesse: 1em;
-            --infoschriftgroesse: 1em;
-            --balkenschriftgroesse: 1em;
-            --bildbreite: 20%;
-        }
-
-        html {
-            background-color: var(--hintergrundfarbe);
-
-            -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-        transform: scale(1);
-        }
-
-        body:before {
-            content: '';
-            display: block;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100%;
-            max-width: 100%;
-            z-index: -1;
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-
-            opacity: var(--bildtransparenz);
-            background: var(--background-image, none) center / cover no-repeat;
+            --soc: calc(var(--24832) * 1%);
+            --soc_ziel: calc((100 - var(--13666)) * 1%);
+            --max_ladeleistung: var(--17540);
+            --kabel: none;
+            --error_animation: none;
+            --error_color: red;
+            --ladeleistung_prozent_round: calc(var(--42106) / var(--max_ladeleistung) * 100%);
+            --led_color: #0fff;
+            /* Werte für Farbverlauf für 1-phasiges Laden */
+            --led_1p_1_position: calc(95% - (var(--42106) * 4%));
+            /* Werte für Farbverlauf für 3-phasiges Laden */
+            --led_3p_1_position: calc(30% - (var(--42106) * 2%));
+            --led_3p_2_position: calc(60% - (var(--42106) * 2%));
+            --led_3p_3_position: calc(95% - (var(--42106) * 2%));
         }
 
         body {
+            margin: 0px;
             position: fixed;
-            width: calc(100vw - var(--body-margin-right) * 2);
+            width: 100%;
             height: 100%;
-            max-width: 100%;
-
         }
 
-        .hidden {
-            display: none;
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        .visible {
-            display: block;
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
         .main_container {
             width: 100%;
-            max-width: 100%;
             display: flex;
             flex-wrap: nowrap;
-            
-            font-size: 1em;
-            justify-content: center; /* Zentriert die Inhalte horizontal */
+            position: relative;
+            font-size: 0.9em;
             box-sizing: border-box;
         }
-
 
         .div1 {
-            width: var(--bildbreite);
+            width: 20%;
+            height: 100%;
             box-sizing: border-box;
-            border-right: 1px dotted #28cdab;
-            padding: 0px 2.5% 5px 0px;
-
+            position: relative;
+            overflow: hidden;
         }
 
-        .div1 img {
+        .image1 {
             width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .image1 img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image2 {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+            z-index: 1;
+            /* Damit image2 über image1 angezeigt wird */
+            display: var(--kabel);
+        }
+
+        .image2 img {
+            width: 100%;
+            /* Bilder in image1 auf 100% Breite von div1 skalieren */
+            height: auto;
+            display: block;
+        }
+
+        .led_animation_centered {
+            width: 70%;
+            aspect-ratio: 1 / 1;
+            position: absolute;
+            top: 73%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -10;
+            display: inline;
+        }
+
+        .led_animation_1p {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-image: conic-gradient(from 0deg, #fff var(--led_1p_1_position), #05d9f5 98%, #fff);
+            background-size: 100% 100%;
+            border-radius: 50%;
+            animation-name: rotate;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        .led_animation_3p {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-image: conic-gradient(from 0deg, #fff var(--led_3p_1_position), #05d9f5 33%, #fff 34%, #fff var(--led_3p_2_position), #05d9f5 63%, #fff 64%, #fff var(--led_3p_3_position), #05d9f5 99%, #fff 100%);
+            background-size: 100% 100%;
+            border-radius: 50%;
+            animation-name: rotate;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .led_animation_error {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: blinker 1s linear infinite;
+        }
+
+        .led_animation_fertig {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #00d43f;
+            border-radius: 50%;
+        }
+
+        .led_animation_warten {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-image: conic-gradient(from 0deg, #fff 0%, #fff var(--led_1p_1_position), #05d9f5 var(--led_1p_1_position), #05d9f5 98%, #fff);
+            background-size: 100% 100%;
+            border-radius: 50%;
+            animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .led_animation_aus {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: white;
+            border-radius: 50%;
         }
 
         .div2 {
-            width: 100%;
+            width: 80%;
+            padding: 5px 5px 5px 2.5%;
+            margin: 0px 0px 0px 2.5%;
             box-sizing: border-box;
-            padding: 0px 5px 5px 2.5%;
-            margin: 0px 0px 0px 0px;
             border-radius: 0px;
-
-
+            border-left: 1px dotted #28cdab;
         }
 
         .balkendiagramm {
             width: 100%;
             display: flex;
             position: relative;
-            margin-bottom: 3%;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            box-sizing: border-box;
         }
 
-        @keyframes gradient_forschritt {
+        .balkendiagramm_soc {
+            width: 100%;
+            display: var(--soc_switch_css);
+            position: relative;
+            margin-bottom: 2%;
+            margin-top: 2%;
+            box-sizing: border-box;
+        }
+
+        .balken_links_leistung,
+        .balken_rechts_leistung,
+        .balken_links_soc,
+        .balken_rechts_soc {
+            height: calc(var(--div-height) + var(--div-height) /5);
+            border-radius: calc(var(--div-height) / 4) 0px 0px calc(var(--div-height) / 4);
+            font-size: 0.9em;
+            transition: width 2s;
+            transition-timing-function: ease;
+        }
+
+        @keyframes gradient_leistung {
             0% {
                 background-position: 0 0;
             }
@@ -121,119 +228,126 @@
             }
         }
 
-        .balken_links_fortschritt {
-            width: var(--programmfortschrittvalue);
-            /* Stellen Sie sicher, dass diese Variable korrekt gesetzt wird */
-            background: repeating-linear-gradient(to right, var(--balkenverlauffarbe1) 0%, var(--balkenverlauffarbe2) 50%, var(--balkenverlauffarbe1) 100%);
+        .balken_links_leistung {
+            width: var(--ladeleistung_prozent_round);
+            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
             background-size: 200% auto;
-            animation: gradient_forschritt 10s infinite;
-            height: 1.8em;
-            transition: width 2s;
+            background-position: 0 100%;
+            animation: gradient_leistung 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
         }
 
+        .balken_links_soc {
+            width: var(--soc);
+            background: repeating-linear-gradient(to right, #0054ff 0%, #44a4f5 50%, #0054ff 100%);
+            background-size: 200% auto;
+            background-position: 0 100%;
+            animation: gradient_leistung 10s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
 
         .balken_links_text {
             position: absolute;
             top: 50%;
             left: 2%;
             transform: translate(-0%, -50%);
-            color: white;
+            color: #fff;
             z-index: 2;
             padding: 3px;
         }
 
-
-        .balkentext {
-            font-size: var(--balkenschriftgroesse);
-        }
-
-
-        .balken_links_text_finish {
+        .balken_soc_text_rechts {
+            display: var(--soc_zielwert_switch_css);
+            justify-content: right;
+            /* Horizontal zentriert */
+            align-items: center;
+            /* Vertikal zentriert */
+            height: 90%;
             position: absolute;
             top: 50%;
-            right: 2%;
+            right: var(--soc_ziel);
             transform: translate(-0%, -50%);
-            color: white;
+            color: #fff;
             z-index: 3;
-            padding: 3px;
+            padding: 0px;
+            border-right: 2px solid black;
         }
+
+        .phasen {}
 
         .balken_rechts {
             width: 100%;
-            border-radius: 6px;
+            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
             background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
-            transition: width 2s;
-            transition-timing-function: ease;
             overflow: hidden;
         }
 
-
-
-        .status {
-            font-size: var(--statusschriftgroesse);
-            display: inline-block;
-            margin: 0;
-        }
-
-        .statustext {
-            font-size: var(--statusschriftgroesse);
-            color: var(--statuscolor);
-            display: inline-block;
-            margin: 0;
-        }
-
-
         .status_0 {
-            color: #000000;
+            color: ;
         }
 
         .status_1 {
-            color: #000000;
+            color: ;
         }
 
-        .status_2 {
-            color: #000000;
+        .status_2,
+        {
+        color: ;
         }
 
         .status_3 {
-            color: #fc9003;
+            color: ;
         }
 
         .status_4 {
-            color: #03a1fc;
+            color: ;
         }
 
         .status_5 {
-            color: #fc9003;
+            color: ;
         }
 
         .status_6 {
-            color: #000000;
+            color: ;
         }
 
         .status_7 {
-            color: #000000;
+            color: ;
         }
 
         .status_8 {
-            color: #000000;
+            color: ;
         }
 
         .status_9 {
-            color: #000000;
+            color: ;
+        }
+
+        .status-error {
+            animation: var(--error_animation);
+            animation-fill-mode: both;
+            color: var(--error_color), currentColor;
+        }
+
+        .error_animation {
+            animation: var(--error_animation);
+            animation-fill-mode: both;
+            color: var(--error_color);
         }
 
         @keyframes blink {
             0% {
-                opacity: 0;
+                opacity: 0
             }
 
             50% {
-                opacity: 1;
+                opacity: 1
             }
 
             100% {
-                opacity: 0;
+                opacity: 0
             }
         }
 
@@ -241,6 +355,7 @@
             display: flex;
             flex-wrap: nowrap;
             width: 100%;
+            font-size: 0.9em;
         }
 
         .daten_links {
@@ -251,27 +366,17 @@
         .daten_rechts {
             border: 0px solid #000;
         }
-        .infodiv {
-            font-size: var(--infoschriftgroesse);
-            margin-top: 10px;
-            padding: 0px 0px 0px 0px;
+
+        .icon {
+            color: #26d4b9;
         }
 
-        .info {
+        th,
+        td {
             padding: 0px 0px 0px 0px;
-        }
-
-        .programm {
-            white-space: nowrap;
-            /* Verhindert den Zeilenumbruch */
-            overflow: hidden;
-            /* Verbirgt den überfließenden Inhalt */
-            text-overflow: ellipsis;
-            /* Fügt "..." am Ende des sichtbaren Inhalts ein */
-
-            font-size: var(--programmschriftgroesse);
-            margin: 0px 0px 5px 0px;
-            padding: 0px 0px 0px 0px;
+            text-align: left;
+            border: none;
+            font-size: 0.9em;
         }
     </style>
 
@@ -452,31 +557,65 @@
 
 <body>
     <div class="main_container">
-        <div id="div1" class="hidden"><img id="image"></div>
-        <div class="div2" id="div2">
-            <div class="hidden" id="statusdiv"><b>
-                    <p class="status">Status:&nbsp;</p>
-                </b><span class="statustext" id="status"></span></div>
-            <div class="hidden" id="programmdiv"><span class="programm"><b>Programm:&nbsp;</b><span
-                        id="programm"></span></span></div>
-            <div class="hidden" id="balkendiagramm">
+        <div id="div1" class="div1">
+            <div class="image1" id="image1">
+                <div class="led_animation_centered">
+                    <div class="" id="led_animation"></div>
+                </div><img id="wb_image" src="/user/img/wallbox/go_e_template.webp" />
+            </div>
+            <div class="image2" id="image2"><img src="/user/img/wallbox/kabel.webp"></div>
+        </div>
+        <div class="div2"> <b>Status: </b><span id="status"></span><br>
+            <div class="balkendiagramm">
                 <div class="balken_rechts">
-                    <div class="balken_links_fortschritt">
-                        <span class="hidden" id="balken_links_text"><i class="fa-regular fa-circle-right fa-sm"
-                                style="color: #ffffff;"></i>&nbsp;&nbsp;<span class="balkentext"
-                                id="programmfortschritt">0</span></span>
-                        <span class="hidden" id="balken_links_text_finish"><i class="fa-regular fa-clock fa-sm"
-                                style="color: #ffffff;"></i>&nbsp;&nbsp;<span class="balkentext"
-                                id="restlaufzeit">0</span>&nbsp;m</span>
+                    <div class="balken_links_leistung"> <span class="balken_links_text"><b>Leistung: </b> <span
+                                id="42106">0</span> KW</span> </div>
+                </div>
+            </div>
+            <div class="balkendiagramm_soc">
+                <div class="balken_rechts">
+                    <div class="balken_links_soc"> <span class="balken_links_text"><b>SOC: </b> <span
+                                id="24832">0</span> %</span>
+                        <div class="balken_soc_text_rechts"><b>Ladeziel&nbsp;&nbsp;</b></div>
                     </div>
                 </div>
             </div>
-            <div class="hidden" id="infodiv">
-                <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="verbrauch"></span><span class="hidden" id="verbrauchtag"></span>
-                <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span>
+            <div class="container_daten">
+                <table>
+                    <tr>
+                        <td><i class="fa-solid fa-bolt fa-sm icon"></i>&nbsp;&nbsp;<br></td>
+                        <td style="padding-right: 10px;">Geladen:</td>
+                        <td>Aktuell: <span id="19933"></span> kWh,&nbsp;&nbsp;&nbsp; Gesamt: <span id="51887"></span>
+                            kWh</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-bars fa-sm icon"></i></td>
+                        <td style="padding-right: 10px;">Phasen:</td>
+                        <td><span class="phasen" id="21006"></span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-lock fa-sm icon"></i></td>
+                        <td style="padding-right: 10px;">Verriegelung:</td>
+                        <td><span id="37832"></span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-plug fa-sm icon"></i></td>
+                        <td style="padding-right: 10px;">Ladekabel:</td>
+                        <td><span id="51984"></span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-key fa-sm icon"></i></td>
+                        <td style="padding-right: 10px;">Zugang:</td>
+                        <td><span id="13581"></span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-triangle-exclamation fa-sm icon"></i></td>
+                        <td style="padding-right: 10px;">Fehler</td>
+                        <td><span class="status-error" id="52997"></span></td>
+                    </tr>
+                </table>
             </div>
-            </div>
-    </div>
+        </div>
 </body>
 
 </html>
