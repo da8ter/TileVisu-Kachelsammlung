@@ -420,6 +420,15 @@
                     case 'kostentag':
                        // element.textContent = decodedData[parameter];
                         break;
+                    case 'verriegelung':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'kabel':
+                        element.textContent = decodedData[parameter];
+                        break;
+                    case 'Zugangskontrolle':
+                        element.textContent = decodedData[parameter];
+                        break;
                     case 'balkenverlauffarbe1':
                         root.style.setProperty('--balkenverlauffarbe1', decodedData[parameter]);
                         break;
@@ -515,22 +524,22 @@
                     <tr>
                         <td><i class="fa-solid fa-lock fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Verriegelung:</td>
-                        <td><span id="37832"></span></td>
+                        <td><span id="verriegelung"></span></td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-plug fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Ladekabel:</td>
-                        <td><span id="51984"></span></td>
+                        <td><span id="kabel"></span></td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-key fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Zugang:</td>
-                        <td><span id="13581"></span></td>
+                        <td><span id="zugangskontrolle"></span></td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-triangle-exclamation fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Fehler</td>
-                        <td><span class="status-error" id="52997"></span></td>
+                        <td><span class="status-error" id="fehler"></span></td>
                     </tr>
                 </table>
             </div>
