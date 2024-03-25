@@ -13,7 +13,7 @@
             --kabel: none;
             --error_animation: none;
             --error_color: red;
-            --ladeleistung_prozent_round: calc(var(--ladeleistung) / var(--maxladeleistung) * 100%);
+            --ladeleistung_prozent_round: calc(var(--ladeleistung) / var(--maxladeleistungvalue) * 100%);
             --led_color: #0fff;
             /* Werte für Farbverlauf für 1-phasiges Laden */
             --led_1p_1_position: calc(95% - (var(--ladeleistung) * 4%));
@@ -408,8 +408,8 @@
                     case 'zielsoc':
                            // element.textContent = decodedData[parameter];
                         break;
-                    case 'maxladeleistung':
-                        root.style.setProperty('--maxladeleistung', decodedData[parameter]); 
+                    case 'maxladeleistungvalue':
+                        root.style.setProperty('--maxladeleistungvalue', decodedData[parameter]); 
                         break;
                     case 'verbrauchgesamt':
                         element.textContent = decodedData[parameter];
