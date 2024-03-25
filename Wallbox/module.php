@@ -293,6 +293,7 @@ class TileVisuWallbox extends IPSModule
             $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
             $result['statusvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
             $result['ladeleistung'] = IPS_VariableExists($this->ReadPropertyInteger('Ladeleistung')) ? $this->CheckAndGetValueFormatted('Ladeleistung') : null;
+            $result['ladeleistungvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Ladeleistung')) ? GetValue($this->ReadPropertyInteger('Ladeleistung')) : null;
             $result['SOC'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? $this->CheckAndGetValueFormatted('SOC') : null;
             $result['SOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? GetValue($this->ReadPropertyInteger('SOC')) : null;
             $result['ZielSOC'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? $this->CheckAndGetValueFormatted('ZielSOC') : null;
