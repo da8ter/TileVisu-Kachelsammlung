@@ -8,19 +8,19 @@
     <style>
         :root {
             --soc: calc(var(--socvalue) * 1%);
-            --soc_ziel: calc((100 - var(--13666)) * 1%);
-            --max_ladeleistung: var(--17540);
+            --soc_ziel: calc((100 - var(--zielsocvalue)) * 1%);
+            --max_ladeleistung: 11;
             --kabel: none;
             --error_animation: none;
             --error_color: red;
-            --ladeleistung_prozent_round: calc(var(--42106) / var(--max_ladeleistung) * 100%);
+            --ladeleistung_prozent_round: calc(var(--ladeleistung) / 11 * 100%);
             --led_color: #0fff;
             /* Werte für Farbverlauf für 1-phasiges Laden */
-            --led_1p_1_position: calc(95% - (var(--42106) * 4%));
+            --led_1p_1_position: calc(95% - (var(--ladeleistung) * 4%));
             /* Werte für Farbverlauf für 3-phasiges Laden */
-            --led_3p_1_position: calc(30% - (var(--42106) * 2%));
-            --led_3p_2_position: calc(60% - (var(--42106) * 2%));
-            --led_3p_3_position: calc(95% - (var(--42106) * 2%));
+            --led_3p_1_position: calc(30% - (var(--ladeleistung) * 2%));
+            --led_3p_2_position: calc(60% - (var(--ladeleistung) * 2%));
+            --led_3p_3_position: calc(95% - (var(--ladeleistung) * 2%));
         }
 
         body {
@@ -199,7 +199,6 @@
 
         .balkendiagramm_soc {
             width: 100%;
-            display: var(--soc_switch_css);
             position: relative;
             margin-bottom: 2%;
             margin-top: 2%;
@@ -210,8 +209,8 @@
         .balken_rechts_leistung,
         .balken_links_soc,
         .balken_rechts_soc {
-            height: calc(var(--div-height) + var(--div-height) /5);
-            border-radius: calc(var(--div-height) / 4) 0px 0px calc(var(--div-height) / 4);
+            height: 50px;
+            border-radius: 5;
             font-size: 0.9em;
             transition: width 2s;
             transition-timing-function: ease;
@@ -278,7 +277,7 @@
 
         .balken_rechts {
             width: 100%;
-            border-radius: calc(var(--div-height) / 4) calc(var(--div-height) / 4);
+            border-radius: 5;
             background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
             overflow: hidden;
         }
@@ -287,43 +286,7 @@
             color: var(--statuscolor);
         }
 
-        .status_1 {
-            color: ;
-        }
-
-        .status_2,
-        {
-        color: ;
-        }
-
-        .status_3 {
-            color: ;
-        }
-
-        .status_4 {
-            color: ;
-        }
-
-        .status_5 {
-            color: ;
-        }
-
-        .status_6 {
-            color: ;
-        }
-
-        .status_7 {
-            color: ;
-        }
-
-        .status_8 {
-            color: ;
-        }
-
-        .status_9 {
-            color: ;
-        }
-
+    
         .status-error {
             animation: var(--error_animation);
             animation-fill-mode: both;
@@ -420,16 +383,6 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
-                        var statusbalken = statusBalken[index];
-
-                        if (statusbalken === false) {
-                            restlaufzeit.textContent = '0';
-                            soc.textContent = '0'; 
-                            root.style.setProperty('--socvalue', '0%'); 
-
-                        }
-                    
-
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
@@ -457,10 +410,7 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
-                            if (statusbalken === false) {
-                                soc.textContent = '0'; 
-                        }
-                          
+                       
                         }
                         break;
                     case 'restlaufzeitvalue':
@@ -557,9 +507,9 @@
             </div>
         </div>
         <div class="div2"> <b>Status: </b><span class="status" id="status"></span><br>
-            <div class="balkendiagramm">
-                <div class="balken_rechts">
-                    <div class="balken_links_leistung"> <span class="balken_links_text"><b>Leistung: </b> <span
+            <div class="balkendiagramm" id="balkendiagramm">
+                <div class="balken_rechts" id="balken_rechts">
+                    <div class="balken_links_leistung" id="balken_links_leistung"> <span class="balken_links_text"><b>Leistung: </b> <span
                                 id="ladeleistung">0</span> KW</span> </div>
                 </div>
             </div>
