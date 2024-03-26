@@ -305,7 +305,7 @@ class TileVisuWashingMaschine extends IPSModule
 
 // Wert der Restlaufzeit abrufen
 //$restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-$restlaufzeitValue = "60";
+$restlaufzeitValue = "01:25:30";
 // Überprüfen, ob der Wert im Format HH:MM:SS vorliegt
 if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
     // Wert ist im Format HH:MM:SS, also konvertieren in Sekunden
