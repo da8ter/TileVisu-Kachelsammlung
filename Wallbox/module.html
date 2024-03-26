@@ -450,12 +450,12 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'phasenvalue':
-                        if (decodedData[parameter] === 1) {
+                        if (decodedData[parameter] == 1) {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                             phase2.className = 'hidden';
                             phase3.className = 'hidden';
                         }
-                        else if (decodedData[parameter] === 2) {
+                        else if (decodedData[parameter] == 2) {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                             phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                             phase3.className = 'hidden';
