@@ -373,9 +373,9 @@
 
                     case 'status':
                         element.textContent = decodedData[parameter];
-                       // if (decodedData[parameter]) {
-                         //   statusdiv.className = 'visible';
-                       // }
+                        // if (decodedData[parameter]) {
+                        //   statusdiv.className = 'visible';
+                        // }
                         break;
                     case 'statusvalue':
                         var index = decodedData[parameter];
@@ -409,24 +409,24 @@
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
-                         break;
-                    case 'ladeleistungvalue':
-                        root.style.setProperty('--ladeleistung', decodedData[parameter]); 
                         break;
-                   case 'socvalue':
-                     root.style.setProperty('--socvalue', decodedData[parameter]); 
-                     break;
+                    case 'ladeleistungvalue':
+                        root.style.setProperty('--ladeleistung', decodedData[parameter]);
+                        break;
+                    case 'socvalue':
+                        root.style.setProperty('--socvalue', decodedData[parameter]);
+                        break;
                     case 'soc':
-                            element.textContent = decodedData[parameter];
+                        element.textContent = decodedData[parameter];
                         break;
                     case 'zielsocvalue':
-                        root.style.setProperty('--zielsocvalue', decodedData[parameter]); 
+                        root.style.setProperty('--zielsocvalue', decodedData[parameter]);
                         break;
                     case 'zielsoc':
-                           // element.textContent = decodedData[parameter];
+                        // element.textContent = decodedData[parameter];
                         break;
                     case 'maxladeleistungvalue':
-                        root.style.setProperty('--maxladeleistungvalue', decodedData[parameter]); 
+                        root.style.setProperty('--maxladeleistungvalue', decodedData[parameter]);
                         break;
                     case 'verbrauchgesamt':
                         element.textContent = decodedData[parameter];
@@ -435,7 +435,7 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'kostentag':
-                       // element.textContent = decodedData[parameter];
+                        // element.textContent = decodedData[parameter];
                         break;
                     case 'verriegelung':
                         element.textContent = decodedData[parameter];
@@ -450,14 +450,18 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'phasen':
-                        if (decodedData[parameter] === true) {
+                        if (decodedData[parameter] === 1) {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                         }
-                        else
-                        {
+                        else if (decodedData[parameter] === 2) {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                             phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
-                            phase3.className = 'fa-solid fa-circle fa-sm icon fa-fw';                        }
+                        }
+                        else {
+                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                            phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                            phase3.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                        }
                         break;
                     case 'balkenverlaufsocfarbe1':
                         root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
@@ -487,13 +491,13 @@
                         root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
                         if (decodedData[parameter] !== 0) {
                             div1.className = 'div1';
-                        }      
-                        else{
+                        }
+                        else {
                             div1.className = 'hidden';
                             div2.style.padding = '0px 5px 5px 0px';
-                            div2.style.margin = '0px 0px 0px 0px';                 
+                            div2.style.margin = '0px 0px 0px 0px';
                         }
-                            break;
+                        break;
                     case 'image1':
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
@@ -502,15 +506,14 @@
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
                         break;
                     case 'kachelhintergrundfarbe':
-                        
-                    if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
-                        root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)'); 
-                    }
-                    else
-                    {
-                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                    }
-                        break;    
+
+                        if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
+                            root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)');
+                        }
+                        else {
+                            root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        }
+                        break;
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
