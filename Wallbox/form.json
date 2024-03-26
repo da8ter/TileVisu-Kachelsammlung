@@ -156,28 +156,31 @@
               "visible": false
             },
             {
-              "type": "Select",
-              "name": "Bildauswahl",
-              "caption": "Bildauswahl",
-              "options": [
-                {
-                  "caption": "laden",
-                  "value": 0
-                },
-                {
-                  "caption": "fertig",
-                  "value": 1
-                },
-                {
-                  "caption": "Error",
-                  "value": 2
-                },
-                {
-                  "caption": "standby",
-                  "value": 3
-                }
-              ],
-              "visible": false
+              "caption": "Animation",
+              "name": "Animation",
+              "width": "200px",
+              "save": true,
+              "edit": {
+                "type": "Select",
+                "options": [
+                  {
+                    "caption": "Laden",
+                    "value": "laden_animation"
+                  },
+                  {
+                    "caption": "Standby",
+                    "value": "standby_animation"
+                  },
+                  {
+                    "caption": "Error",
+                    "value": "error_animation"
+                  },
+                  {
+                    "caption": "Fertig",
+                    "value": "fertig_animation"
+                  }
+                ]
+              }
             },
             {
               "caption": "Farbe",
