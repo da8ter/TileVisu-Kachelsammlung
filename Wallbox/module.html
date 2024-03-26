@@ -389,6 +389,19 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
+                        if (statusAnimation[index] === 'standby_animation') {
+                            led_animation.className = 'led_animation_aus';
+                        }
+                        else if (statusImages[index] === 'laden_animation') {
+                            led_animation.className = 'led_animation_1p';
+                        }
+                        else if (statusImages[index] === 'fertig_animation') {
+                            led_animation.className = 'led_animation_fertig';
+                        }
+                        else if (statusImages[index] === 'error_animation') {
+                            led_animation.className = 'led_animation_error';
+                        }
+
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
