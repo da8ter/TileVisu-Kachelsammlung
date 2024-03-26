@@ -452,10 +452,13 @@
                     case 'phasen':
                         if (decodedData[parameter] === 1) {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                            phase2.className = 'hidden';
+                            phase3.className = 'hidden';
                         }
                         else if (decodedData[parameter] === 2) {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                             phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                            phase3.className = 'hidden';
                         }
                         else {
                             phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
