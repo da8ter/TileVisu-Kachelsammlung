@@ -577,7 +577,13 @@
                         root.style.setProperty('--infomenueschriftfarbe', decodedData[parameter]);
                         break;
                     case 'infomenuehintergrundfarbe':
-                        root.style.setProperty('--infomenuehintergrundfarbe', decodedData[parameter]);
+                                            if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
+                        root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)'); 
+                    }
+                    else
+                    {
+                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                    }
 
                         break;
                     case 'transparenz':
