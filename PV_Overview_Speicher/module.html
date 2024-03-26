@@ -313,7 +313,13 @@
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
                         break;
                     case 'kachelhintergrundfarbe':
-                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
+                        root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)'); 
+                        }
+                        else
+                        {
+                            root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        }
                         break;
                     case 'schriftfarbebalken':
                         root.style.setProperty('--schriftfarbebalken', decodedData[parameter]);
