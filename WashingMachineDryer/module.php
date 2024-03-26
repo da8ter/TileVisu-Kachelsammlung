@@ -115,7 +115,7 @@ class TileVisuWashingMaschine extends IPSModule
                             $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
                         }
         
-                        break; // Beende die Schleife, da der passende Wert gefunden wurde
+                       
                 }
             }
         }
