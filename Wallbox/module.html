@@ -450,27 +450,47 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'phasenvalue':
-                        if (decodedData[parameter] == 1) {
-                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
-                            phase2.className = 'hidden';
-                            phase3.className = 'hidden';
+                        if (decodedData[parameter] === 1) {
+                            phase1.classList.remove('fa-regular');
+                            phase1.classList.add('fa-solid');
+                            phase2.classList.add('fa-regular');
+                            phase2.classList.remove('fa-solid');
+                            phase3.classList.add('fa-regular');
+                            phase3.classList.remove('fa-solid');
                         }
-                        else if (decodedData[parameter] == 2) {
-                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
-                            phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
-                            phase3.className = 'hidden';
+                        else if (decodedData[parameter] === 2) {
+                            phase1.classList.remove('fa-regular');
+                            phase1.classList.add('fa-solid');
+                            phase2.classList.remove('fa-regular');
+                            phase2.classList.add('fa-solid');
+                            phase3.classList.add('fa-regular');
+                            phase3.classList.remove('fa-solid');
                         }
-                        else if (decodedData[parameter] == 3) {
-                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
-                            phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
-                            phase3.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                        else if (decodedData[parameter] === 3) {
+                            phase1.classList.remove('fa-regular');
+                            phase1.classList.add('fa-solid');
+                            phase2.classList.remove('fa-regular');
+                            phase2.classList.add('fa-solid');
+                            phase3.classList.remove('fa-regular');
+                            phase3.classList.add('fa-solid');
 
                         }
                         else {
-                            phase1.className = 'hidden';
-                            phase2.className = 'hidden';
-                            phase3.className = 'hidden';
+
                         }
+
+
+                        divElement.classList.remove('hidden');
+                        if (data.Value) {
+                            divElement.classList.remove('fa-regular');
+                            divElement.classList.add('fa-solid');
+                        }
+                        else {
+                            divElement.classList.remove('fa-solid');
+                            divElement.classList.add('fa-regular');
+                        }
+
+
                         break;
                     case 'balkenverlaufsocfarbe1':
                         root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
@@ -575,9 +595,9 @@
                         <td><i class="fa-solid fa-bars fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Phasen:</td>
                         <td><span class="phasen" id="phasen">
-                            <i id="phase1" class="hidden"></i>
-                            <i id="phase2" class="hidden"></i>
-                            <i id="phase3" class="hidden"></i>
+                            <i id="phase1" class="fa-solid fa-circle fa-sm icon fa-fw"></i>
+                            <i id="phase2" class="fa-solid fa-circle fa-sm icon fa-fw"></i>
+                            <i id="phase3" class="fa-solid fa-circle fa-sm icon fa-fw"></i>
                         </span></td>
                     </tr>
                     <tr>
