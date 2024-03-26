@@ -107,8 +107,12 @@ class TileVisuWashingMaschine extends IPSModule
                                 $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
                                 
                                 // Aktualisiere die Visualisierung oder verarbeite den Wert weiter, falls nötig
-                                $this->UpdateVisualizationValue(json_encode(['Restlaufzeitvalue' => $restlaufzeitInSeconds]));
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
                             }
+                            else {
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
+                            }
+                            
                         }
                         else {
                             $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
