@@ -123,6 +123,16 @@
               "validVariableTypes": []
             },
             {
+              "caption": "Animation",
+              "name": "Animation",
+              "width": "150px",
+              "save": true,
+              "edit": {
+                "type": "CheckBox"
+              },
+              "visible": true
+            },
+            {
               "type": "NumberSpinner",
               "name": "StatusSchriftgroesse",
               "caption": "Schriftgröße:",
