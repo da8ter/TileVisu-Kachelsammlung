@@ -281,16 +281,6 @@
               "validVariableTypes": []
             },
             {
-              "type": "SelectVariable",
-              "name": "Phasen",
-              "caption": "Phasen:",
-              "validVariableTypes": []
-            },
-
-
-
-
-            {
               "type": "NumberSpinner",
               "name": "BalkenSchriftgroesse",
               "caption": "Schriftgröße:",
