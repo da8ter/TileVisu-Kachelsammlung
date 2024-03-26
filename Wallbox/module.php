@@ -264,9 +264,10 @@ class TileVisuWallbox extends IPSModule
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
         $statusMappingColor = [];
-        $statusMappingBalken = [];
+        $statusMappingAnimation = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
+            $statusMappingAnimation[$item['AssoziationValue']] = $item['Animation'];
                       
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
@@ -275,9 +276,11 @@ class TileVisuWallbox extends IPSModule
 
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
+        $statusAnimationJson = json_encode($statusMappingAnimation);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
+        $images .= 'var statusAnimation = ' . $statusAnimationJson . ';';
         $images .= '</script>';
 
 
@@ -318,7 +321,8 @@ class TileVisuWallbox extends IPSModule
             $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;
 
             $result['Fehler'] = IPS_VariableExists($this->ReadPropertyInteger('Fehler')) ? $this->CheckAndGetValueFormatted('Fehler') : null;
-            $result['Phasen'] = IPS_VariableExists($this->ReadPropertyInteger('Phasen')) ? GetValue($this->ReadPropertyInteger('Phasen')) : null;            $result['MaxLadeleistung'] = IPS_VariableExists($this->ReadPropertyInteger('MaxLadeleistung')) ? $this->CheckAndGetValueFormatted('MaxLadeleistung') : null;
+            $result['Phasen'] = IPS_VariableExists($this->ReadPropertyInteger('Phasen')) ? GetValue($this->ReadPropertyInteger('Phasen')) : null;            
+            $result['MaxLadeleistung'] = IPS_VariableExists($this->ReadPropertyInteger('MaxLadeleistung')) ? $this->CheckAndGetValueFormatted('MaxLadeleistung') : null;
             $result['Kabel'] = IPS_VariableExists($this->ReadPropertyInteger('Kabel')) ? $this->CheckAndGetValueFormatted('Kabel') : null;
             $result['Zugangskontrolle'] = IPS_VariableExists($this->ReadPropertyInteger('Zugangskontrolle')) ? $this->CheckAndGetValueFormatted('Zugangskontrolle') : null;
             $result['Verriegelung'] = IPS_VariableExists($this->ReadPropertyInteger('Verriegelung')) ? $this->CheckAndGetValueFormatted('Verriegelung') : null;
