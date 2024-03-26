@@ -451,13 +451,13 @@
                         break;
                     case 'phasen':
                         if (decodedData[parameter] === true) {
-                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';
+                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
                         }
                         else
                         {
-                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';
-                            phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';
-                            phase3.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';                        }
+                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                            phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw';
+                            phase3.className = 'fa-solid fa-circle fa-sm icon fa-fw';                        }
                         break;
                     case 'balkenverlaufsocfarbe1':
                         root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
