@@ -28,7 +28,9 @@
             width: 100%;
             height: 100%;
         }
-
+        .hidden {
+            display: none;
+        }
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -444,8 +446,18 @@
                     case 'zugangskontrolle':
                         element.textContent = decodedData[parameter];
                         break;
-                        case 'fehler':
+                    case 'fehler':
                         element.textContent = decodedData[parameter];
+                        break;
+                    case 'phasen':
+                        if (decodedData[parameter] === true) {
+                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';
+                        }
+                        else
+                        {
+                            phase1.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';
+                            phase2.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';
+                            phase3.className = 'fa-solid fa-circle fa-sm icon fa-fw hidden';                        }
                         break;
                     case 'balkenverlaufsocfarbe1':
                         root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
@@ -550,9 +562,11 @@
                     <tr>
                         <td><i class="fa-solid fa-bars fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Phasen:</td>
-                        <td><span class="phasen" id="21006">                            <i id="heaterrodphase1" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
-                            <i id="heaterrodphase2" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i>
-                            <i id="heaterrodphase3" class="fa-solid fa-circle fa-sm icon fa-fw hidden"></i></span></td>
+                        <td><span class="phasen" id="phasen">
+                            <i id="phase1" class="hidden"></i>
+                            <i id="phase2" class="hidden"></i>
+                            <i id="phase3" class="hidden"></i>
+                        </span></td>
                     </tr>
                     <tr>
                         <td><i class="fa-solid fa-lock fa-sm icon"></i></td>
