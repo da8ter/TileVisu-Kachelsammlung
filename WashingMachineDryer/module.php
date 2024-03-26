@@ -89,37 +89,21 @@ class TileVisuWashingMaschine extends IPSModule
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
+                
+
                 switch ($Message)
                 {
                     case VM_UPDATE:
+                        
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-       
-                        // Zusätzliche if-Abfrage für Restlaufzeit
-                        if ($VariableProperty === 'Restlaufzeit') {
-                            $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
-        
-                            // Führe hier die spezifische Logik für Restlaufzeit aus
-                            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
-                            if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
-                                $hours = (int)$matches[1];
-                                $minutes = (int)$matches[2];
-                                $seconds = (int)$matches[3];
-                                $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
-                                
-                                // Aktualisiere die Visualisierung oder verarbeite den Wert weiter, falls nötig
-                                $this->UpdateVisualizationValue(json_encode(['RestlaufzeitInSeconds' => $restlaufzeitInSeconds]));
-                            }
-                        }
-                        else {
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
-                        }
-        
-                       
+                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                        $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
+                        break; // Beende die Schleife, da der passende Wert gefunden wurde
+
                 }
             }
         }
-        
+    }
 
 
     public function RequestAction($Ident, $value) {
