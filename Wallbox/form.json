@@ -158,7 +158,7 @@
             {
               "caption": "Animation",
               "name": "Animation",
-              "width": "200px",
+              "width": "100px",
               "save": true,
               "edit": {
                 "type": "Select",
