@@ -156,14 +156,27 @@
               "visible": false
             },
             {
-              "caption": "Animation",
-              "name": "Animation",
-              "width": "150px",
-              "save": true,
-              "edit": {
-                "type": "CheckBox"
-              },
-              "visible": true
+              "type": "Select",
+              "name": "Bildauswahl",
+              "caption": "Bildauswahl",
+              "options": [
+                {
+                  "caption": "laden",
+                  "value": 0
+                },
+                {
+                  "caption": "fertig",
+                  "value": 1
+                },
+                {
+                  "caption": "Error",
+                  "value": 2
+                },
+                {
+                  "caption": "standby",
+                  "value": 2
+                }
+              ]
             },
             {
               "caption": "Farbe",
