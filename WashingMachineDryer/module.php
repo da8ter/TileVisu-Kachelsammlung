@@ -119,7 +119,7 @@ class TileVisuWashingMaschine extends IPSModule
                 }
             }
         }
-        
+    }
 
 
     public function RequestAction($Ident, $value) {
