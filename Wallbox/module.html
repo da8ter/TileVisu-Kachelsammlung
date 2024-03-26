@@ -393,7 +393,7 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
                         
-                        let phaseid = ReadPropertyInteger('Phasen');
+                        let phaseid = $this->ReadPropertyInteger('Phasen');
                         let phasecount = GetValue(phaseid);
                         console.log('Phasencount:', phasecount);
                         if (statusAnimation[index] === 'standby_animation') {
