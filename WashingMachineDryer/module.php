@@ -89,17 +89,37 @@ class TileVisuWashingMaschine extends IPSModule
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
-                
-
                 switch ($Message)
                 {
                     case VM_UPDATE:
-                        
                         // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-                        $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
-                        $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
-                        break; // Beende die Schleife, da der passende Wert gefunden wurde
-
+       
+                        // Zusätzliche if-Abfrage für Restlaufzeit
+                        if ($VariableProperty === 'Restlaufzeit') {
+                            $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
+        
+                            // Führe hier die spezifische Logik für Restlaufzeit aus
+                            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
+                            if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
+                                $hours = (int)$matches[1];
+                                $minutes = (int)$matches[2];
+                                $seconds = (int)$matches[3];
+                                $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+                                
+                                // Aktualisiere die Visualisierung oder verarbeite den Wert weiter, falls nötig
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
+                            }
+                            else {
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
+                            }
+                            
+                        }
+                        else {
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
+                        }
+        
+                       
                 }
             }
         }
@@ -299,7 +319,30 @@ class TileVisuWashingMaschine extends IPSModule
             $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
             $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
             $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
-            $result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+            //$result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+            
+
+
+            // Wert der Restlaufzeit abrufen
+            $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+
+            // Überprüfen, ob der Wert im Format HH:MM:SS vorliegt
+            if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
+                // Wert ist im Format HH:MM:SS, also konvertieren in Sekunden
+                $hours = (int)$matches[1];
+                $minutes = (int)$matches[2];
+                $seconds = (int)$matches[3];
+                $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+            } else {
+                // Wert ist bereits in Sekunden oder nicht im erwarteten Format
+                $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
+            }
+
+            // Ergebnis setzen
+            $result['restlaufzeitvalue'] = $restlaufzeitValueInSeconds;
+
+
+            
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
             $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;
@@ -369,7 +412,7 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 
-    public function UpdateList($StatusID)
+    private function UpdateList($StatusID)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
