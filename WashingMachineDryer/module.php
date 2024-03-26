@@ -254,7 +254,7 @@ class TileVisuWashingMaschine extends IPSModule
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
                       
-            $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "test" : sprintf('%06X', $item['StatusColor']);
+            $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
             $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
 
