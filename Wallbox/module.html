@@ -542,22 +542,25 @@
                             if (statusAnimation[wallboxstatus] === 'laden_animation') {
                             led_animation.className = 'led_animation_3p';
                             }
-                            
                         }
                         else {
-                            
                         }
-                                              
                         break;
                     case 'socschaltervalue':
                         if (decodedData[parameter] === true) {
                             socdiv.className = 'balkendiagramm_soc';
-                            console.log(decodedData[parameter]);
                         }
                         else {
                             socdiv.className = 'hidden';
                          }
-                         console.log(decodedData[parameter]);
+                        break;
+                    case 'zielsocschaltervalue':
+                        if (decodedData[parameter] === true) {
+                            zielsocdiv.className = 'balken_soc_text_rechts';
+                        }
+                        else {
+                            zielsocdiv.className = 'hidden';
+                         }
                         break;
                     case 'balkenverlaufsocfarbe1':
                         root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
@@ -646,7 +649,7 @@
                 <div class="balken_rechts">
                     <div class="balken_links_soc"> <span class="balken_links_text"><b>SOC: </b> <span
                                 id="soc">0</span></span>
-                        <div class="balken_soc_text_rechts"><b>Ladeziel&nbsp;&nbsp;</b></div>
+                        <div class="balken_soc_text_rechts" id="zielsocdiv"><b>Ladeziel&nbsp;&nbsp;</b></div>
                     </div>
                 </div>
             </div>
