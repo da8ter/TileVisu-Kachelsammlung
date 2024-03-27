@@ -44,3 +44,5 @@ Dient der Visualisierung von PV-Produktion, Export, Import, Eigenverbrauch etc.
 
 Die Header-Kachel ermöglicht es ein Bild und einen Rumnamen abzubilden. Links und Rechts kann jeweils eine Variable eingeblendet werden (z.B. die Rsumtemperatur) Im unteren Bereich können links 5 Informationen und rechts 5 Button eingeblendet werden. (z.B. Zentral AUS oder Lichtszene starten)
 
+![Button Kachel](https://github.com/da8ter/images/blob/main/button%20kachel.jpg)
+Kann bis zu 10 Button (Toggle-Button) abbilden. Inhalt der Button ist frei konfigurierbar: Icon, Variablenwert, Variablenname, freier Text. 
