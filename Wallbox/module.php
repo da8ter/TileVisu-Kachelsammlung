@@ -12,6 +12,8 @@ class TileVisuWallbox extends IPSModule
         $this->RegisterPropertyInteger("Ladeleistung", 0);
         $this->RegisterPropertyInteger("SOC", 0);
         $this->RegisterPropertyInteger("ZielSOC", 0);
+        $this->RegisterPropertyInteger("SOCschalter", 0);
+        $this->RegisterPropertyInteger("ZielSOCschalter", 0);
         $this->RegisterPropertyInteger("Verbrauchgesamt", 0);
         $this->RegisterPropertyInteger("VerbrauchTag", 0);
         $this->RegisterPropertyInteger("KostenTag", 0);
@@ -54,7 +56,10 @@ class TileVisuWallbox extends IPSModule
             $this->ReadPropertyInteger('Status'),
             $this->ReadPropertyInteger('Ladeleistung'),
             $this->ReadPropertyInteger('SOC'),
+            $this->ReadPropertyInteger("SOCschalter"),
             $this->ReadPropertyInteger('ZielSOC'),
+            $this->ReadPropertyInteger("ZielSOCschalter"),
+            $this->ReadPropertyInteger("Verbrauchgesamt"),
             $this->ReadPropertyInteger('bgImage'),
             $this->ReadPropertyInteger('Verbrauchgesamt'),
             $this->ReadPropertyInteger('VerbrauchTag'),
@@ -88,7 +93,7 @@ class TileVisuWallbox extends IPSModule
         }
 
 
-        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauchgesamt', 'VerbrauchTag', 'KostenTag', 'Fehler', 'Phasen', 'MaxLadeleistung', 'Kabel', 'Zugangskontrolle', 'Verriegelung'] as $VariableProperty)        {
+        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'SOCschalter', 'ZielSOCschalter', 'Verbrauchgesamt', 'VerbrauchTag', 'KostenTag', 'Fehler', 'Phasen', 'MaxLadeleistung', 'Kabel', 'Zugangskontrolle', 'Verriegelung'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -99,7 +104,7 @@ class TileVisuWallbox extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'Verbrauchgesamt', 'VerbrauchTag', 'KostenTag', 'Fehler', 'Phasen', 'MaxLadeleistung', 'Kabel', 'Zugangskontrolle', 'Verriegelung'] as $index => $VariableProperty)
+        foreach (['Status', 'Ladeleistung', 'SOC', 'ZielSOC', 'SOCschalter', 'ZielSOCschalter', 'Verbrauchgesamt', 'VerbrauchTag', 'KostenTag', 'Fehler', 'Phasen', 'MaxLadeleistung', 'Kabel', 'Zugangskontrolle', 'Verriegelung'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -316,7 +321,9 @@ class TileVisuWallbox extends IPSModule
             $result['maxladeleistungvalue'] = IPS_VariableExists($this->ReadPropertyInteger('MaxLadeleistung')) ? GetValue($this->ReadPropertyInteger('MaxLadeleistung')) : null;
             $result['SOC'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? $this->CheckAndGetValueFormatted('SOC') : null;
             $result['SOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? GetValue($this->ReadPropertyInteger('SOC')) : null;
+            $result['SOCschalter'] = IPS_VariableExists($this->ReadPropertyInteger('SOCschalter')) ? GetValue($this->ReadPropertyInteger('SOCschalter')) : null;
             $result['ZielSOC'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? $this->CheckAndGetValueFormatted('ZielSOC') : null;
+            $result['ZielSOCschalter'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOCschalter')) ? GetValue($this->ReadPropertyInteger('ZielSOCschalter')) : null;
             $result['ZielSOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? GetValue($this->ReadPropertyInteger('ZielSOC')) : null;
             $result['Verbrauchgesamt'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauchgesamt')) ? $this->CheckAndGetValueFormatted('Verbrauchgesamt') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
