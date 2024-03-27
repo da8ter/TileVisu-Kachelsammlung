@@ -171,11 +171,7 @@
                     "caption": "Aus",
                     "value": "standby_animation"
                   },
-                  {
-                    "caption": "Error",
-                    "value": "error_animation"
-                  },
-                  {
+                   {
                     "caption": "Fertig",
                     "value": "fertig_animation"
                   },
