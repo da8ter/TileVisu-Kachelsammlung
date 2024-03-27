@@ -13,7 +13,7 @@ Beschreibung des Moduls.
 
 ### 1. Funktionsumfang
 
-*
+* Bildet den Anwesenheitsstatus von bis zu 5 Bewohnern ab. Der Status eines Bewohners wird über eine Bool-Variable gesteuert. Ein umschalten des Status kann zusätzlich über das Bild erfolgen (kann in der Konfiguration deaktiviert werden) Wenn ein Bewohner anwesend ist wird das Bild in Farbe abgebildet, bei Abwesenheit in Graustufen. Es kann je Bewohner ein eigenes Bild verwendet werden. 
 
 ### 2. Voraussetzungen
 
