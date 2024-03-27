@@ -460,6 +460,7 @@
                         element.textContent = decodedData[parameter];
                         break;
                     case 'phasen':
+                        console.log(wallboxstatus);
                         if (decodedData[parameter] === 1) {
                             phase1.classList.remove('fa-regular');
                             phase1.classList.add('fa-solid');
