@@ -8,7 +8,7 @@ Zusammenstellung von HTML-Kacheln für die Tile-Visualisierung von IPSymcon. Gru
 
 Diese Kachel zeigt den Anwesenheitsstatus von bis zu 5 Bewohnern mit Foto und Namen an. Der Status kann auch durch Klicken auf das Bild geändert werden.
 
-- Wärmepumpe-Kachel:
+- Wärmepumpen-Kachel:
 
 ![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/waermepumpe.jpg)
 
@@ -26,7 +26,7 @@ Diese Kachel dient der Anzeige eines Fotos.
 
 Diese Kachel dient der Anzeige eines Fotos und einer Variable.
 
-- Fortschritt/Stautus Kachel (Waschmaschine, Wäschetrockner etc.):
+- Fortschritt/Status Kachel (Waschmaschine, Wäschetrockner, Spülmaschine etc.):
 
 ![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/waschmaschine.jpg)
 
