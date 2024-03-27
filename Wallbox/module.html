@@ -415,8 +415,7 @@
                         else if (statusAnimation[index] === 'error_animation') {
                             led_animation.className = 'led_animation_error';
                         }
-                        console.log('phasecount:', phasecount);
-
+                        
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
@@ -468,7 +467,15 @@
                             phase2.classList.add('fa-regular');
                             phase3.classList.remove('fa-solid');
                             phase3.classList.add('fa-regular');
-                            
+
+                            var index = wallboxstatus ;
+                            if (!statusAnimation[index]) {
+                            index = 0;
+                            }
+                        
+                            if (statusAnimation[index] === 'laden_animation') {
+                            led_animation.className = 'led_animation_1p';
+                            }
                         }
                         else if (decodedData[parameter] === 2) {
                             phase1.classList.remove('fa-regular');
@@ -477,7 +484,14 @@
                             phase2.classList.add('fa-solid');
                             phase3.classList.remove('fa-solid');
                             phase3.classList.add('fa-regular');
-                            
+                            var index = wallboxstatus ;
+                            if (!statusAnimation[index]) {
+                            index = 0;
+                            }
+                        
+                            if (statusAnimation[index] === 'laden_animation') {
+                            led_animation.className = 'led_animation_3p';
+                            }
                         }
                         else if (decodedData[parameter] === 3) {
                             phase1.classList.remove('fa-regular');
@@ -486,6 +500,14 @@
                             phase2.classList.add('fa-solid');
                             phase3.classList.remove('fa-regular');
                             phase3.classList.add('fa-solid');
+                            var index = wallboxstatus ;
+                            if (!statusAnimation[index]) {
+                            index = 0;
+                            }
+                        
+                            if (statusAnimation[index] === 'laden_animation') {
+                            led_animation.className = 'led_animation_3p';
+                            }
                             
                         }
                         else {
