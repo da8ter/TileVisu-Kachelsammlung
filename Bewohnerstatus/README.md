@@ -38,6 +38,16 @@ Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
 Hintergrundbild|Hier kann ein eigenes Medienobjekt als Hintergrundbild ausgewählt werden.
 Transparenz Bild|Tranzparenz des Hintergrundbildes. Ermöglicht zusammen mit "Kachelhintergrundfarbe" das Bild abzudunkeln oder einen farbigen Touch zu geben. 
 Kachelhintergrundfarbe|Hintergrundfarbe der Kachel (Nur sichtbar wenn Bildtransparenz eingestellt ist).
+Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
+
+Name     | Beschreibung
+-------- | ------------------
+Bewohner 1
+Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
+Hintergrundbild|Hier kann ein eigenes Medienobjekt als Hintergrundbild ausgewählt werden.
+Transparenz Bild|Tranzparenz des Hintergrundbildes. Ermöglicht zusammen mit "Kachelhintergrundfarbe" das Bild abzudunkeln oder einen farbigen Touch zu geben. 
+Kachelhintergrundfarbe|Hintergrundfarbe der Kachel (Nur sichtbar wenn Bildtransparenz eingestellt ist).
+Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
 
 
 ### 5. Statusvariablen und Profile
