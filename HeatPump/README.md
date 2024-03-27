@@ -26,7 +26,7 @@ https://github.com/da8ter/TileVisu-Kachelsammlung.git
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
- Unter 'Instanz hinzufügen' kann das 'TileVisuHeatPump'-Modul mithilfe des Schnellfilters gefunden werden.  
+ Unter 'Instanz hinzufügen' kann die Wärempumpenkachel mithilfe des Schnellfilters gefunden werden. (Suchbegriff: TileVisuHeatPump)
 	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
 
 __Konfigurationsseite__:
@@ -49,34 +49,4 @@ Modus: (wie Status nur ohne Bilder)
 
 Die Werte Leistung, Kompressor, Lüfter und Durchfluss werden in einem Balken dargestellt. Diese 4 Variablen benötigen in ihrem Variablenprofil zwingend einen Min- und Maximalwert für die Berechnung der prozentualen Balkendarstellung.
 ![Variablenprofil für den Status](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
-
-
-### 5. Statusvariablen und Profile
-
-Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
-
-#### Statusvariablen
-
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-       |         |
-       |         |
-
-#### Profile
-
-Name   | Typ
------- | -------
-       |
-       |
-
-### 6. WebFront
-
-Die Funktionalität, die das Modul im WebFront bietet.
-
-### 7. PHP-Befehlsreferenz
-
-`boolean BWO_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
-
-Beispiel:
 `BWO_BeispielFunktion(12345);`
