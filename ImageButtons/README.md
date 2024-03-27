@@ -1,2 +1,2 @@
-# Raumheader-Kachel
-Beschreibung des Moduls.
+# Bildkachel mit Button
+Dokumentation folgt...
