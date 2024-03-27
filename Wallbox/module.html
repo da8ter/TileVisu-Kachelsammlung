@@ -456,7 +456,10 @@
                         break;
                     case 'ladeleistungvalue':
                         root.style.setProperty('--ladeleistung', decodedData[parameter]);
-                        leistungdiv.className = 'balkendiagramm';
+                        if (decodedData[parameter]) {
+                            leistungdiv.className = 'balkendiagramm';
+                        }
+                        
 
                         break;
                     case 'socvalue':
