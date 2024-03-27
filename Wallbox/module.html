@@ -22,6 +22,15 @@
             --led_3p_2_position: calc(60% - (var(--ladeleistung) * 2%));
             --led_3p_3_position: calc(95% - (var(--ladeleistung) * 2%));
         }
+        html {
+            background-color: var(--hintergrundfarbe);
+
+            -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        }
 
         body {
              position: fixed;
