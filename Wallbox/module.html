@@ -468,12 +468,12 @@
                             phase3.classList.remove('fa-solid');
                             phase3.classList.add('fa-regular');
 
-                            var index = wallboxstatus ;
-                            if (!statusAnimation[index]) {
+                            
+                            if (!statusAnimation[wallboxstatus]) {
                             index = 0;
                             }
                         
-                            if (statusAnimation[index] === 'laden_animation') {
+                            if (statusAnimation[wallboxstatus] === 'laden_animation') {
                             led_animation.className = 'led_animation_1p';
                             }
                         }
@@ -484,12 +484,11 @@
                             phase2.classList.add('fa-solid');
                             phase3.classList.remove('fa-solid');
                             phase3.classList.add('fa-regular');
-                            var index = wallboxstatus ;
-                            if (!statusAnimation[index]) {
+                            if (!statusAnimation[wallboxstatus]) {
                             index = 0;
                             }
                         
-                            if (statusAnimation[index] === 'laden_animation') {
+                            if (statusAnimation[wallboxstatus] === 'laden_animation') {
                             led_animation.className = 'led_animation_3p';
                             }
                         }
@@ -500,12 +499,11 @@
                             phase2.classList.add('fa-solid');
                             phase3.classList.remove('fa-regular');
                             phase3.classList.add('fa-solid');
-                            var index = wallboxstatus ;
-                            if (!statusAnimation[index]) {
+                            if (!statusAnimation[wallboxstatus]) {
                             index = 0;
                             }
                         
-                            if (statusAnimation[index] === 'laden_animation') {
+                            if (statusAnimation[wallboxstatus] === 'laden_animation') {
                             led_animation.className = 'led_animation_3p';
                             }
                             
