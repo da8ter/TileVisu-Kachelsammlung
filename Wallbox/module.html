@@ -162,7 +162,15 @@
         .led_animation_warten {
             width: 100%;
             aspect-ratio: 1 / 1;
-            background-image: conic-gradient(from 0deg, #fff 0%, #fff var(--led_1p_1_position), #05d9f5 var(--led_1p_1_position), #05d9f5 98%, #fff);
+            background-image: conic-gradient(from 0deg, #eaff00 0%, #eaff00 var(--led_1p_1_position), #eaff00 var(--led_1p_1_position), #eaff00 98%, #fff);
+            background-size: 100% 100%;
+            border-radius: 50%;
+            animation: blinker 1s linear infinite;
+        }
+        .led_animation_aus {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-image: conic-gradient(from 0deg, #fff 0%, #fff var(--led_1p_1_position), #fff var(--led_1p_1_position), #fff 98%, #fff);
             background-size: 100% 100%;
             border-radius: 50%;
             animation: blinker 1s linear infinite;
@@ -393,6 +401,8 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
                         
+
+
                         if (statusAnimation[index] === 'standby_animation') {
                             led_animation.className = 'led_animation_aus';
                         }
@@ -406,8 +416,6 @@
                                 } else {
                                     led_animation.className = 'led_animation_1p';
                                 }
-
-                          
                         }
                         else if (statusAnimation[index] === 'fertig_animation') {
                             led_animation.className = 'led_animation_fertig';

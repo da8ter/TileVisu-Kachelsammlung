@@ -178,6 +178,10 @@
                   {
                     "caption": "Fertig",
                     "value": "fertig_animation"
+                  },
+                  {
+                    "caption": "Warten",
+                    "value": "warten_animation"
                   }
                 ]
               }
