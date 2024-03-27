@@ -316,7 +316,7 @@
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufSOCFarbe2",
-              "caption": "SOC Farbverlauf 2:",
+              "caption": "SOC Farbverlauf Farbe 2:",
               "width": "150px"
             }
           ]
