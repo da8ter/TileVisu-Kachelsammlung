@@ -110,7 +110,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Gerätestatus",
+      "caption": "Wallbox-Status",
       "items": [
         {
           "type": "RowLayout",
@@ -137,7 +137,7 @@
         {
           "type": "List",
           "name": "ProfilAssoziazionen",
-          "caption": "Bild <=> Status Zuordnung und Textfarbe",
+          "caption": "Zuordnung von Bild, Farbe und LED-Animation zum jeweiligen Status",
           "rowCount": 10,
           "add": false,
           "delete": false,
