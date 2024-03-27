@@ -562,8 +562,8 @@
                         }
                         break;
                     case 'image1':
-                        mainDiv = document.querySelector('body');
-                        mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
+                        
+                        body.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
                     case 'bildtransparenz':
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
