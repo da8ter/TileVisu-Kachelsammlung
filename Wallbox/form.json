@@ -291,7 +291,12 @@
               "name": "SOCschalter",
               "caption": "SOC Schalter:",
               "validVariableTypes": []
-            },
+            }
+          ]
+        },
+        {
+          "type": "RowLayout",
+          "items": [
             {
               "type": "SelectVariable",
               "name": "ZielSOC",
