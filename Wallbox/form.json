@@ -274,6 +274,10 @@
       "caption": "SOC-Anzeige",
       "items": [
         {
+          "type": "Label",
+          "caption": "SOC (Ladestand) und Ziel-SOC (Ladeziel) werden leider nicht von Typ2 Wallboxen zur Verfügung gestellt. Wer diese Anzeige nutzen möchte muss sich die Werte anderweitig besorgen (API-Anbindung an das Auto etc.). Der User muss eine eigene Logik implementieren um die Anzeige des SOC und Ziel-SOC zu steuern. Zum ein- und ausblenden kann eine Bool-Variable ausgewählt werden. Bei false wird der SOC bzw. das Ladeziel ausgeblendet, bei true eingeblendet. Der Ziel-SOC wird nur angezeigt wenn auch der SOC angezeigt wird."
+        },
+        {
           "type": "RowLayout",
           "items": [
             {
