@@ -34,7 +34,7 @@ __Konfigurationsseite__:
 
 Name     | Beschreibung
 -------- | ------------------
-         |
+Standard-Hintergrundbild |Schaltet das Standard-Hintergrundbild aus oder an.
          |
 
 ### 5. Statusvariablen und Profile
