@@ -49,4 +49,3 @@ Modus: (wie Status nur ohne Bilder)
 
 Die Werte Leistung, Kompressor, Lüfter und Durchfluss werden in einem Balken dargestellt. Diese 4 Variablen benötigen in ihrem Variablenprofil zwingend einen Min- und Maximalwert für die Berechnung der prozentualen Balkendarstellung.
 ![Variablenprofil für den Status](https://github.com/da8ter/images/blob/main/heatpump_balken_profil.png)
-`BWO_BeispielFunktion(12345);`
