@@ -235,7 +235,12 @@
               "name": "MaxLadeleistung",
               "caption": "Maximale Ladeleistung:",
               "validVariableTypes": []
-            },
+            }
+          ]
+        }
+        {
+          "type": "RowLayout",
+          "items": [
             {
               "type": "NumberSpinner",
               "name": "BalkenSchriftgroesse",
@@ -250,14 +255,14 @@
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufFarbe1",
-              "caption": "Farbe 1:",
+              "caption": "Farbe Farbverlauf 1:",
               "width": "150px"
             },
             {
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufFarbe2",
-              "caption": "Farbe 2:",
+              "caption": "Farbe Farbverlauf 2:",
               "width": "150px"
             }
           ]
