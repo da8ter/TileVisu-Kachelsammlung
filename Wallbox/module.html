@@ -26,10 +26,30 @@
             background-color: var(--hintergrundfarbe);
         }
 
-        body {
-             position: fixed;
-            width: 100%;
+        body:before {
+            content: '';
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
             height: 100%;
+            max-width: 100%;
+            z-index: -1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+
+            opacity: var(--bildtransparenz);
+            background: var(--background-image, none) center / cover no-repeat;
+        }
+
+        body {
+            position: fixed;
+            width: calc(100vw - var(--body-margin-right) * 2);
+            height: 100%;
+            max-width: 100%;
+
         }
         .hidden {
             display: none;
