@@ -17,16 +17,17 @@
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 7.0
+- IP-Symcon ab Version 7.1
 
 ### 3. Software-Installation
 
-* Über den Module Store das 'Bewohnerstatus'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
+* Über das Module Control folgende URL hinzufügen
+https://github.com/da8ter/TileVisu-Kachelsammlung.git
+
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
- Unter 'Instanz hinzufügen' kann das 'Bewohnerstatus'-Modul mithilfe des Schnellfilters gefunden werden.  
+ Unter 'Instanz hinzufügen' kann das 'Bewohnerstatus'-Kachel mithilfe des Schnellfilters gefunden werden. (TileVisuBewohnerstatus)  
 	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
 
 __Konfigurationsseite__:
