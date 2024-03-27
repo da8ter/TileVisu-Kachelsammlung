@@ -42,40 +42,15 @@ Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
 
 Name     | Beschreibung
 -------- | ------------------
-Bewohner 1
-Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
-Hintergrundbild|Hier kann ein eigenes Medienobjekt als Hintergrundbild ausgewählt werden.
-Transparenz Bild|Tranzparenz des Hintergrundbildes. Ermöglicht zusammen mit "Kachelhintergrundfarbe" das Bild abzudunkeln oder einen farbigen Touch zu geben. 
-Kachelhintergrundfarbe|Hintergrundfarbe der Kachel (Nur sichtbar wenn Bildtransparenz eingestellt ist).
-Standard-Hintergrundbild|Schaltet das Standard-Hintergrundbild aus oder an.
+Bewohner 1-5
+Status|Erwartet eine Bool-Variable. true = anwesend, false = abwesend.
+Foto|Auswahl eines eigenen Bildes als Medienobjekt.
 
+Name     | Beschreibung
+-------- | ------------------
+Pptionen
+Schriftgröße|Schriftgröße Bewohnername
+Eckenradius|Eckenradius Bildanzeige. 50% = rundes Foto.
+Name nazeigen|Name aus- oder einblenden
+Bedienung sperren|Verhindet manuelles steuern des Bewohnerstatus über die Kachel
 
-### 5. Statusvariablen und Profile
-
-Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
-
-#### Statusvariablen
-
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-       |         |
-       |         |
-
-#### Profile
-
-Name   | Typ
------- | -------
-       |
-       |
-
-### 6. WebFront
-
-Die Funktionalität, die das Modul im WebFront bietet.
-
-### 7. PHP-Befehlsreferenz
-
-`boolean BWO_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
-
-Beispiel:
-`BWO_BeispielFunktion(12345);`
