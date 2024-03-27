@@ -299,7 +299,12 @@
               "name": "ZielSOCschalter",
               "caption": "Ziel SOC Schalter:",
               "validVariableTypes": []
-            },
+            }
+          ]
+        },
+        {
+          "type": "RowLayout",
+          "items": [
             {
               "type": "SelectColor",
               "allowTransparent": false,
