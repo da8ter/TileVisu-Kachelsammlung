@@ -281,6 +281,7 @@ class TileVisuWallbox extends IPSModule
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
         $images .= 'var statusAnimation = ' . $statusAnimationJson . ';';
+        $images .= 'var phasecount = ' . GetValue($this->ReadPropertyInteger('Phasen')) . ';';
         $images .= '</script>';
 
 
