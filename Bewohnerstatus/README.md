@@ -1,5 +1,5 @@
 # Bewohnerstatus
-Beschreibung des Moduls.
+![Bewohnerstatus-Kachel](https://github.com/da8ter/images/blob/main/bewohner_status.jpg)
 
 ### Inhaltsverzeichnis
 
