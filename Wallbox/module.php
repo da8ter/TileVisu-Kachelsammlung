@@ -321,9 +321,9 @@ class TileVisuWallbox extends IPSModule
             $result['maxladeleistungvalue'] = IPS_VariableExists($this->ReadPropertyInteger('MaxLadeleistung')) ? GetValue($this->ReadPropertyInteger('MaxLadeleistung')) : null;
             $result['SOC'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? $this->CheckAndGetValueFormatted('SOC') : null;
             $result['SOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('SOC')) ? GetValue($this->ReadPropertyInteger('SOC')) : null;
-            $result['SOCschalter'] = IPS_VariableExists($this->ReadPropertyInteger('SOCschalter')) ? GetValue($this->ReadPropertyInteger('SOCschalter')) : null;
+            $result['SOCschaltervalue'] = IPS_VariableExists($this->ReadPropertyInteger('SOCschalter')) ? GetValue($this->ReadPropertyInteger('SOCschalter')) : null;
             $result['ZielSOC'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? $this->CheckAndGetValueFormatted('ZielSOC') : null;
-            $result['ZielSOCschalter'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOCschalter')) ? GetValue($this->ReadPropertyInteger('ZielSOCschalter')) : null;
+            $result['ZielSOCschaltervalue'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOCschalter')) ? GetValue($this->ReadPropertyInteger('ZielSOCschalter')) : null;
             $result['ZielSOCvalue'] = IPS_VariableExists($this->ReadPropertyInteger('ZielSOC')) ? GetValue($this->ReadPropertyInteger('ZielSOC')) : null;
             $result['Verbrauchgesamt'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauchgesamt')) ? $this->CheckAndGetValueFormatted('Verbrauchgesamt') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
