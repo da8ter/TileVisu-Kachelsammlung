@@ -171,7 +171,7 @@
                     "caption": "Aus",
                     "value": "standby_animation"
                   },
-                   {
+                  {
                     "caption": "Fertig",
                     "value": "fertig_animation"
                   },
@@ -217,9 +217,9 @@
         }
       ]
     },
-        {
+    {
       "type": "ExpansionPanel",
-      "caption": "Fortschrittsbalken",
+      "caption": "Ladeleistung-Anzeige",
       "items": [
         {
           "type": "RowLayout",
@@ -232,19 +232,6 @@
             },
             {
               "type": "SelectVariable",
-              "name": "SOC",
-              "caption": "SOC:",
-              "validVariableTypes": []
-            },            
-            {
-              "type": "SelectVariable",
-              "name": "ZielSOC",
-              "caption": "Ziel SOC:",
-              "validVariableTypes": []
-            },
-
-            {
-              "type": "SelectVariable",
               "name": "Fehler",
               "caption": "Fehler:",
               "validVariableTypes": []
@@ -254,14 +241,13 @@
               "name": "Phasen",
               "caption": "Phasen:",
               "validVariableTypes": []
-            },            
+            },
             {
               "type": "SelectVariable",
               "name": "MaxLadeleistung",
               "caption": "Maximale Ladeleistung:",
               "validVariableTypes": []
             },
-
             {
               "type": "SelectVariable",
               "name": "Kabel",
@@ -273,7 +259,7 @@
               "name": "Zugangskontrolle",
               "caption": "Zugangskontrolle:",
               "validVariableTypes": []
-            },            
+            },
             {
               "type": "SelectVariable",
               "name": "Verriegelung",
@@ -303,6 +289,41 @@
               "name": "BalkenVerlaufFarbe2",
               "caption": "Farbe 2:",
               "width": "150px"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ExpansionPanel",
+      "caption": "SOC-Anzeige",
+      "items": [
+        {
+          "type": "RowLayout",
+          "items": [
+            {
+              "type": "SelectVariable",
+              "name": "SOC",
+              "caption": "SOC:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "SelectVariable",
+              "name": "SOCschalter",
+              "caption": "SOC Schalter:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "SelectVariable",
+              "name": "ZielSOC",
+              "caption": "Ziel SOC:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "SelectVariable",
+              "name": "ZielSOCschalter",
+              "caption": "Ziel SOC Schalter:",
+              "validVariableTypes": []
             },
             {
               "type": "SelectColor",
