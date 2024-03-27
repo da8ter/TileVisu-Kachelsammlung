@@ -1,2 +1,2 @@
-# Bewohnerstatus
-Beschreibung des Moduls.
+# Geräte-Status Kachel (Waschmaschine, Trocker, Spülmaschine etc.)
+Dokumentation folgt
