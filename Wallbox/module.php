@@ -157,8 +157,15 @@ class TileVisuWallbox extends IPSModule
         elseif($bildauswahl == '1') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_aus.webp')) . '";' . PHP_EOL;
-            $assets .= 'window.assets.img_wm_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/trockner_an.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_goe_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/go_e_gemini.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_goe_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/go_e_gemini_kabel.webp')) . '";' . PHP_EOL;
+            $assets .= '</script>';
+        }
+        elseif($bildauswahl == '3') {
+            $assets = '<script>';
+            $assets .= 'window.assets = {};' . PHP_EOL;
+            $assets .= 'window.assets.img_goe_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/legacy.webp')) . '";' . PHP_EOL;
+            $assets .= 'window.assets.img_goe_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/legacy_kabel.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
         else {
