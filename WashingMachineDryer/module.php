@@ -282,11 +282,11 @@ class TileVisuWashingMaschine extends IPSModule
 
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
-        $statusStatusBalken = json_encode($statusMappingBalken);
+        $statusStatusBalkenJson = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusStatusBalken . ';';
+        $images .= 'var statusBalken = ' . $statusStatusBalkenJson . ';';
         $images .= '</script>';
 
 
