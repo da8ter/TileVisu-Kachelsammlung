@@ -324,22 +324,24 @@ class TileVisuWashingMaschine extends IPSModule
 
 
             // Wert der Restlaufzeit abrufen
-            $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-            $restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
+            $restlaufzeitValue = ZeitInSekunden(IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null);
+
+
+            //$restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
             // Führe hier die spezifische Logik für Restlaufzeit aus
             // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
-            if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
-                $hours = (int)$matches[1];
-                $minutes = (int)$matches[2];
-                $seconds = (int)$matches[3];
-                $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+            //if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
+             //   $hours = (int)$matches[1];
+             //   $minutes = (int)$matches[2];
+             //   $seconds = (int)$matches[3];
+             //   $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
 
-            }
-            else {
-                $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
-            }
+            //}
+            //else {
+            //    $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
+            //}
 
-            $result['restlaufzeitvalue'] = $restlaufzeitValueInSeconds;
+            $result['restlaufzeitvalue'] = $restlaufzeitValue;
                         
             
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
@@ -447,7 +449,33 @@ class TileVisuWashingMaschine extends IPSModule
     
     
 
-
+    private function ZeitInSekunden($restlaufzeitValue) {
+        // Entferne Anführungszeichen aus dem Eingabewert
+        $restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
+    
+        // Initialisiere die Variable für das Ergebnis
+        $restlaufzeitValueInSeconds = 0;
+    
+        // Prüfe, ob der Wert im Format HH:MM:SS ist und rechne ihn um
+        if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
+            $hours = (int)$matches[1];
+            $minutes = (int)$matches[2];
+            $seconds = (int)$matches[3];
+            $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+        } else {
+            // Versuche, den Eingabewert direkt in einen Integer umzuwandeln
+            $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
+        }
+    
+        // Gib den umgerechneten Wert in Sekunden zurück
+        return $restlaufzeitValueInSeconds;
+    }
+    
+    // Beispiel für die Nutzung der Funktion
+    $result = [];
+    $result['restlaufzeitvalue'] = umrechneRestlaufzeitInSekunden('2:15:30');
+    // Jetzt enthält $result['restlaufzeitvalue'] den Wert in Sekunden
+    
 
 
 
