@@ -326,21 +326,26 @@ class TileVisuWashingMaschine extends IPSModule
             // Wert der Restlaufzeit abrufen
             $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
 
-            // Überprüfen, ob der Wert im Format HH:MM:SS vorliegt
-            if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
-                // Wert ist im Format HH:MM:SS, also konvertieren in Sekunden
-                $hours = (int)$matches[1];
-                $minutes = (int)$matches[2];
-                $seconds = (int)$matches[3];
-                $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
-            } else {
-                // Wert ist bereits in Sekunden oder nicht im erwarteten Format
-                $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
-            }
 
-            // Ergebnis setzen
-            $result['restlaufzeitvalue'] = $restlaufzeitValueInSeconds;
 
+                        // Zusätzliche if-Abfrage für Restlaufzeit
+                        if ($VariableProperty === 'Restlaufzeit') {
+                            $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
+                            $restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
+                            // Führe hier die spezifische Logik für Restlaufzeit aus
+                            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
+                            if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
+                                $hours = (int)$matches[1];
+                                $minutes = (int)$matches[2];
+                                $seconds = (int)$matches[3];
+                                $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+
+                            }
+                            else {
+                                $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
+                            }
+
+                            $result['restlaufzeitvalue'] = $restlaufzeitValueInSeconds;
 
             
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
