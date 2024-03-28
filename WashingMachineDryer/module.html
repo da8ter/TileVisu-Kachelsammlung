@@ -313,13 +313,15 @@
                         var statusbalken = statusBalken[index];
 
 
-                        if (statusbalken === false) {
+                        if (statusbalken === true) {
+ 
+                        }
+                    else{
                             restlaufzeit.textContent = '0';
                             programmfortschritt.textContent = '0'; 
                             root.style.setProperty('--programmfortschrittvalue', '0%'); 
 
                         }
-                    
 
                         break;
                     case 'programm':
@@ -345,7 +347,7 @@
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
                         if (statusbalken === false) {
-                            consol.log('Programmfortschritt null');
+                            
                             root.style.setProperty('--programmfortschrittvalue', '0%'); 
                         }
 
