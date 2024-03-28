@@ -341,7 +341,7 @@ class TileVisuWashingMaschine extends IPSModule
             //    $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
             //}
 
-            $result['restlaufzeitvalue'] = ZeitInSekunden($restlaufzeitValue);
+            $result['restlaufzeitvalue'] = $this->ZeitInSekunden($restlaufzeitValue);
                         
             
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
