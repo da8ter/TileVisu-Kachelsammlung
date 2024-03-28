@@ -478,10 +478,18 @@
                         root.style.setProperty('--maxladeleistungvalue', decodedData[parameter]);
                         break;
                     case 'verbrauchgesamt':
-                        element.textContent = decodedData[parameter];
+
+                    if (decodedData[parameter]) {
+                            verbrauch.classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
+                        
                         break;
                     case 'verbrauchtag':
-                        element.textContent = decodedData[parameter];
+                        if (decodedData[parameter]) {
+                            verbrauchtag.classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'kostentag':
                         // element.textContent = decodedData[parameter];
@@ -660,10 +668,10 @@
             </div>
             <div class="container_daten">
                 <table style="width: 100%;">
-                    <tr>
+                    <tr class="hidden" id="verbrauch">
                         <td><i class="fa-solid fa-bolt fa-sm icon"></i>&nbsp;&nbsp;<br></td>
                         <td style="padding-right: 10px;">Geladen:</td>
-                        <td>Aktuell: <span id="verbrauchtag"></span>,&nbsp;&nbsp;&nbsp; Gesamt: <span id="verbrauchgesamt"></span>
+                        <td><span class="hidden" id="verbrauchtag">Aktuell: </span><span class="hidden" id="verbrauchtag"></span>,&nbsp;&nbsp;&nbsp; Gesamt: <span id="verbrauchgesamt"></span>
                         </td>
                     </tr>
                     <tr>
