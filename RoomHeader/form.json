@@ -94,7 +94,7 @@
                                         {
                                             "type": "SelectVariable",
                                             "name": "InfoLinks",
-                                            "caption": "Variable links:",
+                                            "caption": "Variable links 1:",
                                             "validVariableTypes": []
                                         },
                                         {
@@ -203,7 +203,7 @@
                                         {
                                             "type": "SelectVariable",
                                             "name": "InfoRechts",
-                                            "caption": "Variable rechts:",
+                                            "caption": "Variable rechts 1:",
                                             "validVariableTypes": []
                                         },
                                         {
@@ -248,7 +248,7 @@
                                         {
                                             "type": "SelectVariable",
                                             "name": "InfoRechts2",
-                                            "caption": "Variable rechts:",
+                                            "caption": "Variable rechts 2:",
                                             "validVariableTypes": []
                                         },
                                         {
