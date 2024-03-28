@@ -324,7 +324,11 @@ class TileVisuWashingMaschine extends IPSModule
 
 
             // Wert der Restlaufzeit abrufen
-            $restlaufzeitValue = ZeitInSekunden(IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null);
+            $restlaufzeitValue = ZeitInSekunden(
+                IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) 
+                ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) 
+                : null
+            );
 
 
             //$restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
