@@ -475,10 +475,6 @@ class TileVisuWashingMaschine extends IPSModule
         return $restlaufzeitValueInSeconds;
     }
     
-    // Beispiel für die Nutzung der Funktion
-    $result = [];
-    $result['restlaufzeitvalue'] = umrechneRestlaufzeitInSekunden('2:15:30');
-    // Jetzt enthält $result['restlaufzeitvalue'] den Wert in Sekunden
     
 
 
