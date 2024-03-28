@@ -512,7 +512,11 @@
                         break;
                     case 'phasenvalue':
                     case 'phasen':
-                        
+                    if (decodedData[parameter]) {
+                            document.getElementById("trphasen").classList.remove("hidden");
+                            
+                        }
+
                         if (decodedData[parameter] === 1) {
                             phase1.classList.remove('fa-regular');
                             phase1.classList.add('fa-solid');
@@ -678,7 +682,7 @@
                         <td><span class="hidden" id="verbrauchtaghead">Aktuell: </span><span class="hidden" style="padding-right: 5px;" id="verbrauchtag"></span><span class="hidden" id="verbrauchgesamthead">Gesamt: </span><span class="hidden" id="verbrauchgesamt"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="hidden" id="trphasen">
                         <td><i class="fa-solid fa-bars fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Phasen:</td>
                         <td><span class="phasen" id="phasen">
