@@ -190,12 +190,6 @@
             border-radius: 50%;
 
         }
-        
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
-        }
         .led_animation_aus {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -205,6 +199,18 @@
             
         }
 
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .led_animation_aus {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: white;
+            border-radius: 50%;
+        }
 
         .div2 {
             width: 80%;
@@ -418,7 +424,7 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
                         
-                        led_animation.className = 'led_animation_aus';
+
 
                         if (statusAnimation[index] === 'standby_animation') {
                             led_animation.className = 'led_animation_aus';
@@ -661,7 +667,7 @@
         <div id="div1" class="div1">
             <div class="image1" id="image1">
                 <div class="led_animation_centered">
-                    <div class="led_animation_aus" id="led_animation"></div>
+                    <div class="" id="led_animation"></div>
                 </div><img id="image" src="" />
             </div>
         </div>
