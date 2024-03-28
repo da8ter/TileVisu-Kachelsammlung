@@ -488,6 +488,7 @@
                     case 'verbrauchtag':
                         if (decodedData[parameter]) {
                             verbrauchtag.classList.remove("hidden");
+                            verbrauch.classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
                         break;
