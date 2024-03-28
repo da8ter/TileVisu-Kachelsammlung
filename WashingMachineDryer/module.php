@@ -332,7 +332,7 @@ class TileVisuWashingMaschine extends IPSModule
                 $hours = (int)$matches[1];
                 $minutes = (int)$matches[2];
                 $seconds = (int)$matches[3];
-                $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+                $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
 
             }
             else {
