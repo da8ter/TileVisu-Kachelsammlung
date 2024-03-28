@@ -499,16 +499,28 @@
                         // element.textContent = decodedData[parameter];
                         break;
                     case 'verriegelung':
-                        element.textContent = decodedData[parameter];
+                        if (decodedData[parameter]) {
+                            document.getElementById("trverriegelung").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'kabel':
-                        element.textContent = decodedData[parameter];
+                        if (decodedData[parameter]) {
+                            document.getElementById("trkabel").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'zugangskontrolle':
-                        element.textContent = decodedData[parameter];
+                    if (decodedData[parameter]) {
+                            document.getElementById("trzugang").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'fehler':
-                        element.textContent = decodedData[parameter];
+                    if (decodedData[parameter]) {
+                            document.getElementById("trfehler").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'phasenvalue':
                     case 'phasen':
@@ -691,22 +703,22 @@
                             <i id="phase3" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
                         </span></td>
                     </tr>
-                    <tr>
+                    <tr class="hidden" id="trverriegelung">
                         <td><i class="fa-solid fa-lock fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Verriegelung:</td>
                         <td><span id="verriegelung"></span></td>
                     </tr>
-                    <tr>
+                    <tr class="hidden" id="trkabel">
                         <td><i class="fa-solid fa-plug fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Ladekabel:</td>
                         <td><span id="kabel"></span></td>
                     </tr>
-                    <tr>
+                    <tr class="hidden" id="trzugang">
                         <td><i class="fa-solid fa-key fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Zugang:</td>
                         <td><span id="zugangskontrolle"></span></td>
                     </tr>
-                    <tr>
+                    <tr class="hidden" id="trfehler">
                         <td><i class="fa-solid fa-triangle-exclamation fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Fehler:</td>
                         <td><span class="status-error" id="fehler"></span></td>
