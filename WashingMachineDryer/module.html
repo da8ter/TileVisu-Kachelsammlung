@@ -8,6 +8,8 @@
     <style>
         /* Grundlegende Stildefinitionen, keine Änderungen hier */
 
+
+        
         :root {
 
             --balkenverlauffarbe1: #28CDAB;
@@ -310,18 +312,13 @@
 
                         var statusbalken = statusBalken[index];
 
-                        if (statusbalken === true) {
 
-
-                        }
-                        else
-                            {
+                        if (!statusbalken) {
                             restlaufzeit.textContent = '0';
-                            programmfortschritt.textContent = '0'; 
-                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
-
+                            programmfortschritt.textContent = '0%';
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
                         }
-                    
+                       
 
                         break;
                     case 'programm':
@@ -338,18 +335,9 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
-
-                       // if (statusBalken === false) {
-                        //    restlaufzeit.textContent = '0';
-                       // }
-
-                        break;
+                         break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        if (statusbalken === false) {
-                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
-                        }
-
                         break;
                     case 'programmfortschritt':
                         
@@ -357,18 +345,13 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
-                            if (statusbalken === false) {
-                                programmfortschritt.textContent = '0'; 
-                        }
-                          
+                            
+                        
                         }
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-                        if (statusbalken === false) {
-                            restlaufzeit.textContent = '0'; 
-                        }
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
@@ -429,6 +412,7 @@
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
                         break;
                     case 'kachelhintergrundfarbe':
+
                     if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
                         root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)'); 
                     }
