@@ -487,7 +487,7 @@
                         break;
                     case 'verbrauchtag':
                         if (decodedData[parameter]) {
-                            element.classList.remove("hidden");
+                            document.getElementById("verbrauchtag").classList.remove("hidden");
                             document.getElementById("verbrauch").classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
