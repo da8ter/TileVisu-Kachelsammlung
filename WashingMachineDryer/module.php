@@ -110,7 +110,7 @@ class TileVisuWashingMaschine extends IPSModule
                                 $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
                             }
                             else {
-                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitString]));
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
                             }
                             
                         }
