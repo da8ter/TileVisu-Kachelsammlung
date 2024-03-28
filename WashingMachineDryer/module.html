@@ -314,7 +314,7 @@
 
 
                         if (statusbalken === true) {
- 
+
                         }
                     else{
                             restlaufzeit.textContent = '0';
@@ -339,18 +339,9 @@
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
 
-                       // if (statusBalken === false) {
-                        //    restlaufzeit.textContent = '0';
-                       // }
-
                         break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        if (statusbalken === false) {
-                            
-                            root.style.setProperty('--programmfortschrittvalue', '0%'); 
-                        }
-
                         break;
                     case 'programmfortschritt':
                         
@@ -359,18 +350,13 @@
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                             
-                            if (statusbalken === false) {
-                                programmfortschritt.textContent = '0'; 
-                              }
-                          
+                        
                         }
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-                        if (statusbalken === false) {
-                            restlaufzeit.textContent = '0'; 
-                        }
+
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
