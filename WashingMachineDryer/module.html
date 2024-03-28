@@ -338,27 +338,9 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
-                        if (statusbalken === true) {
-
-}
-else{
-    restlaufzeit.textContent = '0';
-    programmfortschritt.textContent = '0'; 
-    root.style.setProperty('--programmfortschrittvalue', '0%'); 
-
-}
-                        break;
+                         break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        if (statusbalken === true) {
-
-}
-else{
-    restlaufzeit.textContent = '0';
-    programmfortschritt.textContent = '0'; 
-    root.style.setProperty('--programmfortschrittvalue', '0%'); 
-
-}
                         break;
                     case 'programmfortschritt':
                         
@@ -369,29 +351,10 @@ else{
                             
                         
                         }
-                        if (statusbalken === true) {
-
-}
-else{
-    restlaufzeit.textContent = '0';
-    programmfortschritt.textContent = '0'; 
-    root.style.setProperty('--programmfortschrittvalue', '0%'); 
-
-}
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-                        if (statusbalken === true) {
-
-}
-else{
-    restlaufzeit.textContent = '0';
-    programmfortschritt.textContent = '0'; 
-    root.style.setProperty('--programmfortschrittvalue', '0%'); 
-
-}
-
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
