@@ -97,21 +97,9 @@ class TileVisuWashingMaschine extends IPSModule
                         // Zusätzliche if-Abfrage für Restlaufzeit
                         if ($VariableProperty === 'Restlaufzeit') {
                             $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
-                            $restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
-                            // Führe hier die spezifische Logik für Restlaufzeit aus
-                            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
-                            if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
-                                $hours = (int)$matches[1];
-                                $minutes = (int)$matches[2];
-                                $seconds = (int)$matches[3];
-                                $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
-                                
-                                // Aktualisiere die Visualisierung oder verarbeite den Wert weiter, falls nötig
-                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
-                            }
-                            else {
+                            $restlaufzeitValue] = $this->ZeitInSekunden($restlaufzeitValue);
                                 $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
-                            }
+                            
                             
                         }
                         else {
@@ -319,28 +307,7 @@ class TileVisuWashingMaschine extends IPSModule
             $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
             $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
             $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
-            //$result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-            
-
-
-            // Wert der Restlaufzeit abrufen
             $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-
-
-            //$restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
-            // Führe hier die spezifische Logik für Restlaufzeit aus
-            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
-            //if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
-             //   $hours = (int)$matches[1];
-             //   $minutes = (int)$matches[2];
-             //   $seconds = (int)$matches[3];
-             //   $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
-
-            //}
-            //else {
-            //    $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
-            //}
-
             $result['restlaufzeitvalue'] = $this->ZeitInSekunden($restlaufzeitValue);
                         
             
