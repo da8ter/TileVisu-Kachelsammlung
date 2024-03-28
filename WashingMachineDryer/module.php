@@ -100,7 +100,7 @@ class TileVisuWashingMaschine extends IPSModule
                             $restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
                             // Führe hier die spezifische Logik für Restlaufzeit aus
                             // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
-                            if (is_string($restlaufzeitValue) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitValue, $matches)) {
+                            if (is_string(restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', restlaufzeitString, $matches)) {
                                 $hours = (int)$matches[1];
                                 $minutes = (int)$matches[2];
                                 $seconds = (int)$matches[3];
@@ -110,7 +110,7 @@ class TileVisuWashingMaschine extends IPSModule
                                 $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
                             }
                             else {
-                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitString]));
                             }
                             
                         }
