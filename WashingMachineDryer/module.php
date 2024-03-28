@@ -97,10 +97,9 @@ class TileVisuWashingMaschine extends IPSModule
                         // Zusätzliche if-Abfrage für Restlaufzeit
                         if ($VariableProperty === 'Restlaufzeit') {
                             $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
-                            $restlaufzeitValue] = $this->ZeitInSekunden($restlaufzeitValue);
-                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
-                            
-                            
+                            $restlaufzeitValue = $this->ZeitInSekunden($restlaufzeitValue);
+                            $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
+                                                        
                         }
                         else {
                             $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
