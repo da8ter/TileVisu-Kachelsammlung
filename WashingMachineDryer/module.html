@@ -312,6 +312,7 @@
 
                         var statusbalken = statusBalken[index];
 
+
                         if (statusbalken === false) {
                             restlaufzeit.textContent = '0';
                             programmfortschritt.textContent = '0'; 
@@ -344,6 +345,7 @@
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
                         if (statusbalken === false) {
+                            consol.log('Programmfortschritt null');
                             root.style.setProperty('--programmfortschrittvalue', '0%'); 
                         }
 
@@ -354,9 +356,10 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
+                            
                             if (statusbalken === false) {
                                 programmfortschritt.textContent = '0'; 
-                        }
+                              }
                           
                         }
                         break;
