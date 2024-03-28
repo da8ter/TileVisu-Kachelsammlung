@@ -161,7 +161,7 @@ class TileVisuWallbox extends IPSModule
             $assets .= 'window.assets.img_goe_an = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/go_e_gemini_kabel.webp')) . '";' . PHP_EOL;
             $assets .= '</script>';
         }
-        elseif($bildauswahl == '3') {
+        elseif($bildauswahl == '2') {
             $assets = '<script>';
             $assets .= 'window.assets = {};' . PHP_EOL;
             $assets .= 'window.assets.img_goe_aus = "data:image/webp;base64,' . base64_encode(file_get_contents(__DIR__ . '/assets/legacy.webp')) . '";' . PHP_EOL;
