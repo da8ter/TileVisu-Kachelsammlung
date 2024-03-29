@@ -338,7 +338,7 @@ class TileVisuWallbox extends IPSModule
             $result['Verbrauchgesamt'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauchgesamt')) ? $this->CheckAndGetValueFormatted('Verbrauchgesamt') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
             $result['kostentag'] = IPS_VariableExists($this->ReadPropertyInteger('KostenTag')) ? $this->CheckAndGetValueFormatted('KostenTag') : null;
-            $result['kostengesamt'] = IPS_VariableExists($this->ReadPropertyInteger('KostenGesamt')) ? $this->CheckAndGetValueFormatted('KosteGesamt') : null;
+            $result['kostengesamt'] = IPS_VariableExists($this->ReadPropertyInteger('KostenGesamt')) ? $this->CheckAndGetValueFormatted('KostenGesamt') : null;
             $result['Fehler'] = IPS_VariableExists($this->ReadPropertyInteger('Fehler')) ? $this->CheckAndGetValueFormatted('Fehler') : null;
             $result['Phasen'] = IPS_VariableExists($this->ReadPropertyInteger('Phasen')) ? GetValue($this->ReadPropertyInteger('Phasen')) : null;            
             $result['MaxLadeleistung'] = IPS_VariableExists($this->ReadPropertyInteger('MaxLadeleistung')) ? $this->CheckAndGetValueFormatted('MaxLadeleistung') : null;
