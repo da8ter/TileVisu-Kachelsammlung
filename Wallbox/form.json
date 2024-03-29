@@ -411,7 +411,7 @@
               "minimum": 0.5,
               "maximum": 10.0,
               "suffix": "em",
-              "width": "150px"
+              "width": "300px"
             },
     {
       "type": "Label",
