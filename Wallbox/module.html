@@ -517,7 +517,12 @@
                         }
                         break;
                     case 'kostentag':
-                        // element.textContent = decodedData[parameter];
+                    if (decodedData[parameter]) {
+                            document.getElementById("kostentagtag").classList.remove("hidden");
+                            document.getElementById("kostentaghead").classList.remove("hidden");
+                            document.getElementById("verbrauch").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'verriegelung':
                         if (decodedData[parameter]) {
@@ -710,7 +715,7 @@
                     <tr class="hidden" id="verbrauch">
                         <td><i class="fa-solid fa-bolt fa-sm icon"></i>&nbsp;&nbsp;<br></td>
                         <td style="padding-right: 10px;">Geladen:</td>
-                        <td><span class="hidden" id="verbrauchtaghead">Aktuell: </span><span class="hidden" style="padding-right: 5px;" id="verbrauchtag"></span><span class="hidden" id="verbrauchgesamthead">Gesamt: </span><span class="hidden" id="verbrauchgesamt"></span>
+                        <td><span class="hidden" id="verbrauchtaghead">Aktuell: </span><span class="hidden" style="padding-right: 5px;" id="verbrauchtag"></span><span class="hidden" id="verbrauchgesamthead">Gesamt: </span><span class="hidden" id="verbrauchgesamt"></span><span class="hidden" id="kostentaghead">Kosten Tag: </span><span class="hidden" id="kostentag"></span>
                         </td>
                     </tr>
                     <tr class="hidden" id="trphasen">
