@@ -99,6 +99,7 @@ class TileVisuWallbox extends IPSModule
 
         // Schicke eine komplette Update-Nachricht an die Darstellung, da sich ja Parameter geändert haben können
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
+        $this->GetVisualizationTile();
     }
 
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
