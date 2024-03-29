@@ -354,7 +354,13 @@
             {
               "type": "SelectVariable",
               "name": "KostenTag",
-              "caption": "Kosten Heute:",
+              "caption": "Kosten aktueller Ladevorgang:",
+              "validVariableTypes": []
+            },
+            {
+              "type": "SelectVariable",
+              "name": "KostenGesamt",
+              "caption": "Kosten gesamt:",
               "validVariableTypes": []
             }
           ]
