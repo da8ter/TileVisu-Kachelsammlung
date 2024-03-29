@@ -406,7 +406,7 @@
            {
               "type": "NumberSpinner",
               "name": "InfoSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Schriftgröße Infos (Phasen, Geladen, Verriegelung etc):",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
