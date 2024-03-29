@@ -292,7 +292,7 @@
             color: #fff;
             z-index: 2;
             padding: 3px;
-            font-size: var(--balkenschriftgroesse) rem;
+            font-size: var(--balkenschriftgroesse);
         }
 
         .balken_soc_text_rechts {
@@ -612,16 +612,16 @@
                         root.style.setProperty('--balkenverlauffarbe2', decodedData[parameter]);
                         break;
                     case 'statusschriftgroesse':
-                        root.style.setProperty('--statusschriftgroesse', decodedData[parameter] + 'em');
+                        root.style.setProperty('--statusschriftgroesse', decodedData[parameter] + 'rem');
                         break;
                     case 'programmschriftgroesse':
-                        root.style.setProperty('--programmschriftgroesse', decodedData[parameter] + 'em');
+                        root.style.setProperty('--programmschriftgroesse', decodedData[parameter] + 'rem');
                         break;
                     case 'infoschriftgroesse':
-                        root.style.setProperty('--infoschriftgroesse', decodedData[parameter] + 'em');
+                        root.style.setProperty('--infoschriftgroesse', decodedData[parameter] + 'rem');
                         break;
                     case 'balkenschriftgroesse':
-                        root.style.setProperty('--balkenschriftgroesse', decodedData[parameter] + 'em');
+                        root.style.setProperty('--balkenschriftgroesse', decodedData[parameter] + 'rem');
                         break;
                     case 'bildbreite':
                         root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
