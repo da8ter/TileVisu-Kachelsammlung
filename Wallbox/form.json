@@ -342,13 +342,13 @@
             {
               "type": "SelectVariable",
               "name": "Verbrauchgesamt",
-              "caption": "Verbrauch gesamt:",
+              "caption": "Geladen gesamt:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "VerbrauchTag",
-              "caption": "Verbrauch Heute:",
+              "caption": "Geladen Ladevorgang:",
               "validVariableTypes": []
             },
             {
