@@ -523,11 +523,12 @@
                             document.getElementById("kostentaghead").classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
+                        break;
                     case 'kostengesamt':
                     if (decodedData[parameter]) {
                             document.getElementById("trkosten").classList.remove("hidden");
                             document.getElementById("kostengesamt").classList.remove("hidden");
-                            document.getElementById("blabla").classList.remove("hidden");
+                            document.getElementById("kostengesamthead").classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
                         break;
@@ -728,7 +729,7 @@
                     <tr class="hidden" id="trkosten">
                         <td><i class="fa-solid fa-coins fa-sm icon"></i>&nbsp;&nbsp;<br></td>
                         <td style="padding-right: 10px;">Kosten:</td>
-                        <td><span class="hidden" id="kostentaghead">Aktuell: </span><span class="hidden" style="padding-right:10px;" id="kostentag"></span><span class="hidden" id="blabla">Gesamt: </span><span class="hidden" id="kostengesamt"></span>
+                        <td><span class="hidden" id="kostentaghead">Aktuell: </span><span class="hidden" style="padding-right:10px;" id="kostentag"></span><span class="hidden" id="kostengesamthead">Gesamt: </span><span class="hidden" id="kostengesamt"></span>
                         </td>
                     </tr>
                     <tr class="hidden" id="trphasen">
