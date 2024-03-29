@@ -262,16 +262,19 @@
         }
 
         .balken_links_leistung {
-            width: var(--ladeleistung_prozent_round);
-            background: repeating-linear-gradient(to right, var(--balkenverlauffarbe1) 0%, var(--balkenverlauffarbe2) 50%, var(--balkenverlauffarbe1) 100%);
-            background-size: 200% auto;
-            background-position: 0 100%;
-            animation: gradient_leistung 10s infinite;
-            animation-fill-mode: forwards;
-            animation-timing-function: linear;
-            border-radius: 0px 0px 0px 0px;
+    display: flex; /* Macht dies zu einem Flex-Container */
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    justify-content: flex-start; /* Ausrichtung des Inhalts links */
+    width: var(--ladeleistung_prozent_round);
+    background: repeating-linear-gradient(to right, var(--balkenverlauffarbe1) 0%, var(--balkenverlauffarbe2) 50%, var(--balkenverlauffarbe1) 100%);
+    background-size: 200% auto;
+    background-position: 0 100%;
+    animation: gradient_leistung 10s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    border-radius: 0px 0px 0px 0px;
+}
 
-        }
 
         .balken_links_soc {
             width: var(--soc);
