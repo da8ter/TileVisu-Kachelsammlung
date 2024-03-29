@@ -21,6 +21,7 @@
             --led_3p_2_position: calc(60% - (var(--ladeleistung) * 2%));
             --led_3p_3_position: calc(95% - (var(--ladeleistung) * 2%));
         }
+
         html {
             background-color: var(--hintergrundfarbe);
         }
@@ -37,7 +38,7 @@
             z-index: -1;
             background-repeat: no-repeat;
             background-size: cover;
-            
+
 
             opacity: var(--bildtransparenz);
             background: var(--background-image, none) center / cover no-repeat;
@@ -50,9 +51,11 @@
             max-width: 100%;
 
         }
+
         .hidden {
             display: none;
         }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -91,13 +94,14 @@
             width: 100%;
             box-sizing: border-box;
             position: relative;
+            z-index: 2;
         }
 
         .image1 img {
             width: 100%;
             height: auto;
             display: block;
-            
+
         }
 
         .image2 {
@@ -125,7 +129,7 @@
             top: 59%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: -1;
+            z-index: 100;
             display: inline;
         }
 
@@ -141,12 +145,13 @@
             animation-direction: normal;
             animation-timing-function: linear;
             animation-fill-mode: forwards;
+            z-index: 100;
         }
 
         .led_animation_3p {
             width: 100%;
             aspect-ratio: 1 / 1;
-            background: conic-gradient(from 0deg, #fff var(--led_3p_1_position), #05d9f5 33%, #fff 34%, #fff var(--led_3p_2_position), #05d9f5 63%, #fff 64%, #fff var(--led_3p_3_position), #05d9f5 99%, #fff 100%), #FFFFFF;
+            background-image: conic-gradient(from 0deg, #fff var(--led_3p_1_position), #05d9f5 33%, #fff 34%, #fff var(--led_3p_2_position), #05d9f5 63%, #fff 64%, #fff var(--led_3p_3_position), #05d9f5 99%, #fff 100%), #FFFFFF;
             background-size: 100% 100%;
             border-radius: 50%;
             animation-name: rotate;
@@ -155,6 +160,7 @@
             animation-direction: normal;
             animation-timing-function: linear;
             animation-fill-mode: forwards;
+            z-index: 100;
         }
 
 
@@ -191,13 +197,14 @@
             border-radius: 50%;
 
         }
+
         .led_animation_aus {
             width: 100%;
             aspect-ratio: 1 / 1;
             background: #fff;
             background-size: 100% 100%;
             border-radius: 50%;
-            
+
         }
 
         @keyframes blinker {
@@ -229,7 +236,7 @@
             margin-bottom: 2%;
             margin-top: 2%;
             box-sizing: border-box;
-            
+
         }
 
         .balkendiagramm_soc {
@@ -332,7 +339,7 @@
         .phasen {}
 
         .balken_rechts {
-            width: 100% ;
+            width: 100%;
             border-radius: 5;
             background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
             overflow: hidden;
@@ -343,7 +350,7 @@
             color: var(--statuscolor);
         }
 
-    
+
         .status-error {
             animation: var(--error_animation);
             animation-fill-mode: both;
@@ -396,6 +403,7 @@
             text-align: left;
             border: none;
             border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            font-size: var(--infoschriftgroesse);
 
 
         }
@@ -441,7 +449,7 @@
                             document.getElementById('image').src = window.assets.img_goe_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
-                        
+
 
 
                         if (statusAnimation[index] === 'standby_animation') {
@@ -449,14 +457,14 @@
                         }
                         else if (statusAnimation[index] === 'laden_animation') {
 
-                                if (phasecount === 1) {
-                                    led_animation.className = 'led_animation_1p';
-                                }
-                                if (phasecount === 2 || phasecount === 3) {
-                                    led_animation.className = 'led_animation_3p';
-                                } else {
-                                    led_animation.className = 'led_animation_1p';
-                                }
+                            if (phasecount === 1) {
+                                led_animation.className = 'led_animation_1p';
+                            }
+                            if (phasecount === 2 || phasecount === 3) {
+                                led_animation.className = 'led_animation_3p';
+                            } else {
+                                led_animation.className = 'led_animation_1p';
+                            }
                         }
                         else if (statusAnimation[index] === 'fertig_animation') {
                             led_animation.className = 'led_animation_fertig';
@@ -467,7 +475,7 @@
                         else if (statusAnimation[index] === 'warten_animation') {
                             led_animation.className = 'led_animation_warten';
                         }
-                        
+
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
@@ -480,7 +488,7 @@
                         if (decodedData[parameter]) {
                             leistungdiv.className = 'balkendiagramm';
                         }
-                        
+
 
                         break;
                     case 'socvalue':
@@ -500,13 +508,13 @@
                         break;
                     case 'verbrauchgesamt':
 
-                    if (decodedData[parameter]) {
+                        if (decodedData[parameter]) {
                             document.getElementById("verbrauchgesamt").classList.remove("hidden");
                             document.getElementById("verbrauchgesamthead").classList.remove("hidden");
                             document.getElementById("verbrauch").classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
-                        
+
                         break;
                     case 'verbrauchtag':
                         if (decodedData[parameter]) {
@@ -517,7 +525,20 @@
                         }
                         break;
                     case 'kostentag':
-                        // element.textContent = decodedData[parameter];
+                        if (decodedData[parameter]) {
+                            document.getElementById("trkosten").classList.remove("hidden");
+                            document.getElementById("kostentag").classList.remove("hidden");
+                            document.getElementById("kostentaghead").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
+                        break;
+                    case 'kostengesamt':
+                        if (decodedData[parameter]) {
+                            document.getElementById("trkosten").classList.remove("hidden");
+                            document.getElementById("kostengesamt").classList.remove("hidden");
+                            document.getElementById("kostengesamthead").classList.remove("hidden");
+                            element.textContent = decodedData[parameter];
+                        }
                         break;
                     case 'verriegelung':
                         if (decodedData[parameter]) {
@@ -532,22 +553,22 @@
                         }
                         break;
                     case 'zugangskontrolle':
-                    if (decodedData[parameter]) {
+                        if (decodedData[parameter]) {
                             document.getElementById("trzugang").classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
                         break;
                     case 'fehler':
-                    if (decodedData[parameter]) {
+                        if (decodedData[parameter]) {
                             document.getElementById("trfehler").classList.remove("hidden");
                             element.textContent = decodedData[parameter];
                         }
                         break;
                     case 'phasenvalue':
                     case 'phasen':
-                    if (decodedData[parameter]) {
+                        if (decodedData[parameter]) {
                             document.getElementById("trphasen").classList.remove("hidden");
-                            
+
                         }
 
                         if (decodedData[parameter] === 1) {
@@ -558,13 +579,13 @@
                             phase3.classList.remove('fa-solid');
                             phase3.classList.add('fa-regular');
 
-                            
+
                             if (!statusAnimation[wallboxstatus]) {
-                            index = 0;
+                                index = 0;
                             }
-                        
+
                             if (statusAnimation[wallboxstatus] === 'laden_animation') {
-                            led_animation.className = 'led_animation_1p';
+                                led_animation.className = 'led_animation_1p';
                             }
                         }
                         else if (decodedData[parameter] === 2) {
@@ -575,11 +596,11 @@
                             phase3.classList.remove('fa-solid');
                             phase3.classList.add('fa-regular');
                             if (!statusAnimation[wallboxstatus]) {
-                            index = 0;
+                                index = 0;
                             }
-                        
+
                             if (statusAnimation[wallboxstatus] === 'laden_animation') {
-                            led_animation.className = 'led_animation_3p';
+                                led_animation.className = 'led_animation_3p';
                             }
                         }
                         else if (decodedData[parameter] === 3) {
@@ -590,11 +611,11 @@
                             phase3.classList.remove('fa-regular');
                             phase3.classList.add('fa-solid');
                             if (!statusAnimation[wallboxstatus]) {
-                            index = 0;
+                                index = 0;
                             }
-                        
+
                             if (statusAnimation[wallboxstatus] === 'laden_animation') {
-                            led_animation.className = 'led_animation_3p';
+                                led_animation.className = 'led_animation_3p';
                             }
                         }
                         else {
@@ -606,7 +627,7 @@
                         }
                         else {
                             socdiv.className = 'hidden';
-                         }
+                        }
                         break;
                     case 'zielsocschaltervalue':
                         if (decodedData[parameter] === true) {
@@ -614,7 +635,7 @@
                         }
                         else {
                             zielsocdiv.className = 'hidden';
-                         }
+                        }
                         break;
                     case 'balkenverlaufsocfarbe1':
                         root.style.setProperty('--balkenverlaufsocfarbe1', decodedData[parameter]);
@@ -695,12 +716,15 @@
         <div class="div2"> <b>Status: </b><span class="status" id="status"></span><br>
             <div class="hidden" id="leistungdiv">
                 <div class="balken_rechts" id="balken_rechts">
-                    <div class="balken_links_leistung" id="balken_links_leistung"> <span class="balken_links_text_label"><b>Leistung: </b> <span id="ladeleistung">0</span></span> </div>
+                    <div class="balken_links_leistung" id="balken_links_leistung"> <span
+                            class="balken_links_text_label"><b>Leistung: </b> <span id="ladeleistung">0</span></span>
+                    </div>
                 </div>
             </div>
             <div class="hidden" id="socdiv">
                 <div class="balken_rechts">
-                    <div class="balken_links_soc"> <span class="balken_links_text_label"><b>SOC: </b> <span id="soc">0</span></span>
+                    <div class="balken_links_soc"> <span class="balken_links_text_label"><b>SOC: </b> <span
+                                id="soc">0</span></span>
                         <div class="balken_soc_text_rechts" id="zielsocdiv"><b>Ladeziel&nbsp;&nbsp;</b></div>
                     </div>
                 </div>
@@ -710,17 +734,28 @@
                     <tr class="hidden" id="verbrauch">
                         <td><i class="fa-solid fa-bolt fa-sm icon"></i>&nbsp;&nbsp;<br></td>
                         <td style="padding-right: 10px;">Geladen:</td>
-                        <td><span class="hidden" id="verbrauchtaghead">Aktuell: </span><span class="hidden" style="padding-right: 5px;" id="verbrauchtag"></span><span class="hidden" id="verbrauchgesamthead">Gesamt: </span><span class="hidden" id="verbrauchgesamt"></span>
+                        <td><span class="hidden" id="verbrauchtaghead">Aktuell: </span><span class="hidden"
+                                style="padding-right: 10px;" id="verbrauchtag"></span><span class="hidden"
+                                id="verbrauchgesamthead">Gesamt: </span><span class="hidden"
+                                id="verbrauchgesamt"></span>
+                        </td>
+                    </tr>
+                    <tr class="hidden" id="trkosten">
+                        <td><i class="fa-solid fa-coins fa-sm icon"></i>&nbsp;&nbsp;<br></td>
+                        <td style="padding-right: 10px;">Kosten:</td>
+                        <td><span class="hidden" id="kostentaghead">Aktuell: </span><span class="hidden"
+                                style="padding-right:10px;" id="kostentag"></span><span class="hidden"
+                                id="kostengesamthead">Gesamt: </span><span class="hidden" id="kostengesamt"></span>
                         </td>
                     </tr>
                     <tr class="hidden" id="trphasen">
                         <td><i class="fa-solid fa-bars fa-sm icon"></i></td>
                         <td style="padding-right: 10px;">Phasen:</td>
                         <td><span class="phasen" id="phasen">
-                            <i id="phase1" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
-                            <i id="phase2" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
-                            <i id="phase3" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
-                        </span></td>
+                                <i id="phase1" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
+                                <i id="phase2" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
+                                <i id="phase3" class="fa-regular fa-circle fa-sm icon fa-fw"></i>
+                            </span></td>
                     </tr>
                     <tr class="hidden" id="trverriegelung">
                         <td><i class="fa-solid fa-lock fa-sm icon"></i></td>
@@ -750,7 +785,7 @@
 </html>
 
 <script>
-            // Schritt 1: Wert auslesen
+    // Schritt 1: Wert auslesen
     const bodyStyle = getComputedStyle(document.body);
     const marginRight = bodyStyle.getPropertyValue('margin-right');
 
