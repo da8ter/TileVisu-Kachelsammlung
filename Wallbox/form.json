@@ -356,16 +356,6 @@
               "name": "KostenTag",
               "caption": "Kosten Heute:",
               "validVariableTypes": []
-            },
-            {
-              "type": "NumberSpinner",
-              "name": "InfoSchriftgroesse",
-              "caption": "Schriftgröße:",
-              "digits": 1,
-              "minimum": 0.5,
-              "maximum": 10.0,
-              "suffix": "em",
-              "width": "150px"
             }
           ]
         }
@@ -412,6 +402,17 @@
         }
       ]
     },
+    
+           {
+              "type": "NumberSpinner",
+              "name": "InfoSchriftgroesse",
+              "caption": "Schriftgröße:",
+              "digits": 1,
+              "minimum": 0.5,
+              "maximum": 10.0,
+              "suffix": "em",
+              "width": "150px"
+            },
     {
       "type": "Label",
       "caption": ""
