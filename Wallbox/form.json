@@ -334,7 +334,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Energieverbrauch",
+      "caption": "Energieverbrauch/Kosten",
       "items": [
         {
           "type": "RowLayout",
