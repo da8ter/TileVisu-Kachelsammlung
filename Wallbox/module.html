@@ -375,6 +375,7 @@
             flex-wrap: nowrap;
             width: 100%;
             font-size: 0.9em;
+            overflow-x: auto;
         }
 
         .daten_links {
@@ -390,15 +391,27 @@
             color: #26d4b9;
         }
 
-        th,
-        td {
+           .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+        }
+        th, td {
             padding: 2;
             text-align: left;
             border: none;
             border-bottom: 1px solid rgba(128, 128, 128, 0.2);
             font-size: var(--infoschriftgroesse);
-
-
+        }
+        th:nth-child(1), th:nth-child(2), td:nth-child(1), td:nth-child(2) {
+            width: auto;
+            white-space: nowrap;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 100%;
         }
     </style>
 
