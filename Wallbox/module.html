@@ -21,7 +21,6 @@
             --led_3p_2_position: calc(60% - (var(--ladeleistung) * 2%));
             --led_3p_3_position: calc(95% - (var(--ladeleistung) * 2%));
         }
-
         html {
             background-color: var(--hintergrundfarbe);
         }
@@ -38,7 +37,7 @@
             z-index: -1;
             background-repeat: no-repeat;
             background-size: cover;
-
+            
 
             opacity: var(--bildtransparenz);
             background: var(--background-image, none) center / cover no-repeat;
@@ -51,11 +50,9 @@
             max-width: 100%;
 
         }
-
         .hidden {
             display: none;
         }
-
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -94,14 +91,13 @@
             width: 100%;
             box-sizing: border-box;
             position: relative;
-            z-index: 2;
         }
 
         .image1 img {
             width: 100%;
             height: auto;
             display: block;
-
+            
         }
 
         .image2 {
@@ -195,14 +191,13 @@
             border-radius: 50%;
 
         }
-
         .led_animation_aus {
             width: 100%;
             aspect-ratio: 1 / 1;
             background: #fff;
             background-size: 100% 100%;
             border-radius: 50%;
-
+            
         }
 
         @keyframes blinker {
@@ -234,7 +229,7 @@
             margin-bottom: 2%;
             margin-top: 2%;
             box-sizing: border-box;
-
+            
         }
 
         .balkendiagramm_soc {
@@ -290,32 +285,15 @@
 
         }
 
-        .balken_links_text_label {
+        .balken_links_text {
             position: absolute;
             top: 50%;
-
-            transform: translate(-0%, -50%);
-            color: #fff;
-            z-index: 2;
-            padding-left: 7px;
-            font-size: var(--balkenschriftgroesse);
-            white-space: nowrap;
-        }
-
-        .balken_links_text_value {
-            position: absolute;
-            top: 50%;
-
+            left: 2%;
             transform: translate(-0%, -50%);
             color: #fff;
             z-index: 2;
             padding: 3px;
-            font-size: var(--balkenschriftgroesse);
-            white-space: nowrap;
         }
-
-
-
 
         .balken_soc_text_rechts {
             display: flex;
@@ -337,7 +315,7 @@
         .phasen {}
 
         .balken_rechts {
-            width: 100%;
+            width: 100% ;
             border-radius: 5;
             background: linear-gradient(to right, rgba(135, 135, 135, 0.6) 0%, rgba(135, 135, 135, 0.2) 100%);
             overflow: hidden;
@@ -348,7 +326,7 @@
             color: var(--statuscolor);
         }
 
-
+    
         .status-error {
             animation: var(--error_animation);
             animation-fill-mode: both;
@@ -401,7 +379,6 @@
             text-align: left;
             border: none;
             border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-            font-size: var(--infoschriftgroesse);
 
 
         }
