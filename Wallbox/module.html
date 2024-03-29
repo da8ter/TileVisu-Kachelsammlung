@@ -454,6 +454,9 @@
                         break;
                     case 'ladeleistung':
                         element.textContent = decodedData[parameter];
+                        if (decodedData[parameter]) {
+                            leistungdiv.className = 'balkendiagramm';
+                        }
                         break;
                     case 'ladeleistungvalue':
                         root.style.setProperty('--ladeleistung', decodedData[parameter]);
