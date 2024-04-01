@@ -82,35 +82,37 @@ class TileVisuWashingMaschine extends IPSModule
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
     }
 
+
+    
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
-
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
+        $Statusbalkentest = IPS_VariableExists($this->ReadPropertyInteger('BalkenStatus')) ? GetValue($this->ReadPropertyInteger('Balkenstatus')) : null;
+    
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
                 switch ($Message)
                 {
                     case VM_UPDATE:
-                        // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-       
-                        // Zusätzliche if-Abfrage für Restlaufzeit
-                        if ($VariableProperty === 'Restlaufzeit') {
-                            $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
-                            $restlaufzeitValue = $this->ZeitInSekunden($restlaufzeitValue);
-                            $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
-                                                        
+                        // Bestimme den zu übermittelnden Wert abhängig vom $Statusbalkentest
+                        if ($Statusbalkentest === 0 && in_array($VariableProperty, ['Programmfortschritt', 'Restlaufzeit'])) {
+                            // Setze die Werte auf 0, wenn $Statusbalkentest 0 ist
+                            $value = 0;
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => $value]));
+                        } else {
+                            // Normales Verhalten, wenn $Statusbalkentest nicht 0 ist oder das Property nicht Programmfortschritt oder Restlaufzeit ist
+                            $valueFormatted = GetValueFormatted($this->ReadPropertyInteger($VariableProperty));
+                            $value = GetValue($this->ReadPropertyInteger($VariableProperty));
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => $valueFormatted]));
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => $value]));
                         }
-                        else {
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
-                        }
-        
-                       
+                        break;
                 }
             }
         }
     }
+    
 
 
     public function RequestAction($Ident, $value) {
@@ -295,8 +297,7 @@ class TileVisuWashingMaschine extends IPSModule
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusBalkenWert . ';';
-        $images .= '</script>';
+        $images .= '</script><script type="text/javascript">var statusBalken = ' . $statusBalkenWert . ';</script>';
 
 
 
