@@ -278,7 +278,7 @@ class TileVisuWashingMaschine extends IPSModule
             if (isset($statusMappingBalken[$statustemp])) {
                 // Zugriff auf den Wert von StatusBalken, der dem statusvalue entspricht
                 $statusBalkenWert = $statusMappingBalken[$statustemp];
-var_dump($statusBalkenWert);
+var_dump($statustemp);
             }
 
 
