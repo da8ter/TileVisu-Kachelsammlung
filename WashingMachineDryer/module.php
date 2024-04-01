@@ -275,10 +275,11 @@ class TileVisuWashingMaschine extends IPSModule
             //Abfragen ob beim aktuellen Staus der Statusbalken aktiv sein soll
             $statustemp = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
 
-            if (array_key_exists($statustemp, $statusMappingBalken)) {
-                $gefundenerBalkenStatus = $statusMappingBalken[$statustemp];
-                var_dump($gefundenerBalkenStatus);
-            } 
+            if (isset($statusMappingBalken[$statustemp])) {
+                // Zugriff auf den Wert von StatusBalken, der dem statusvalue entspricht
+                $statusBalkenWert = $statusMappingBalken[$statustemp];
+var_dump($statusBalkenWert);
+            }
 
 
         $statusImagesJson = json_encode($statusMappingImage);
