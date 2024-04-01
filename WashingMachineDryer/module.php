@@ -276,9 +276,16 @@ class TileVisuWashingMaschine extends IPSModule
             $statustemp = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
 
             if (isset($statusMappingBalken[$statustemp])) {
-                // Zugriff auf den Wert von StatusBalken, der dem statusvalue entspricht
+                // Zugriff auf den Wert von StatusBalken, der dem statustemp entspricht
                 $statusBalkenWert = $statusMappingBalken[$statustemp];
-var_dump($statustemp);
+                
+                // Überprüfen, ob $statusBalkenWert leer ist. Wenn ja, auf false setzen.
+                if (empty($statusBalkenWert)) {
+                    $statusBalkenWert = false;
+                }
+            } else {
+                // Setzt $statusBalkenWert auf false, falls kein entsprechender Eintrag existiert
+                $statusBalkenWert = false;
             }
 
 
