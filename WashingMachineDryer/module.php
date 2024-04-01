@@ -281,11 +281,11 @@ class TileVisuWashingMaschine extends IPSModule
                 
                 // Überprüfen, ob $statusBalkenWert leer ist. Wenn ja, auf false setzen.
                 if (empty($statusBalkenWert)) {
-                    $statusBalkenWert = false;
+                    $statusBalkenWert = 0;
                 }
             } else {
                 // Setzt $statusBalkenWert auf false, falls kein entsprechender Eintrag existiert
-                $statusBalkenWert = false;
+                $statusBalkenWert = 0;
             }
 
 
