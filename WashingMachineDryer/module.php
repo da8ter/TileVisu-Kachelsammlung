@@ -253,6 +253,9 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
+
+
+
         // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
@@ -267,13 +270,23 @@ class TileVisuWashingMaschine extends IPSModule
 
         }
 
+
+
+            //Abfragen ob beim aktuellen Staus der Statusbalken aktiv sein soll
+            $statustemp = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
+
+            if (array_key_exists($statustemp, $statusMappingBalken)) {
+                $gefundenerBalkenStatus = $statusMappingBalken[$statusvalue];
+            } 
+
+
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
         $statusStatusBalken = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusStatusBalken . ';';
+        $images .= 'var statusBalken = ' . $gefundenerBalkenStatus . ';';
         $images .= '</script>';
 
 
