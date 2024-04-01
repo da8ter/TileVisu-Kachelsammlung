@@ -288,7 +288,7 @@ var_dump($statusBalkenWert);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $gefundenerBalkenStatus . ';';
+        $images .= 'var statusBalken = ' . $statusBalkenWert . ';';
         $images .= '</script>';
 
 
