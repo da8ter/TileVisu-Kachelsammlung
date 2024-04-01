@@ -341,6 +341,10 @@
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+
+                        if (statusBalken === 0) {
+                            root.style.setProperty('--programmfortschrittvalue', 0 + '%');
+                        }
                         break;
                     case 'programmfortschritt':
                         
