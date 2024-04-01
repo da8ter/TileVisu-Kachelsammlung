@@ -313,14 +313,6 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
-
-                        if (statusBalken === 0) {
-                            restlaufzeit.textContent = '0';
-                            programmfortschritt.textContent = '0 %';
-                            root.style.setProperty('--programmfortschrittvalue', '0%');
-                        }
-                       
-
                         break;
                     case 'programm':
                         //element.className = 'infolinksasso';
@@ -336,16 +328,9 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
-                        if (statusBalken === 0) {
-                            element.textContent = '0';
-                        }
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-
-                        if (statusBalken === 0) {
-                            root.style.setProperty('--programmfortschrittvalue', 0 + '%');
-                        }
                         break;
                     case 'programmfortschritt':
                         
@@ -354,16 +339,12 @@
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                         }
-                        if (statusBalken === 0) {
-                            element.textContent = '0 %';
-                        }
+
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-                        if (statusBalken === 0) {
-                            restlaufzeit.textContent = '0';
-                        }
+
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
