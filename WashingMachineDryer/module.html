@@ -343,7 +343,7 @@
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
 
                         if (statusBalken === 0) {
-                            root.style.setProperty('--programmfortschrittvalue', '0' + '%');
+                            root.style.setProperty('--programmfortschrittvalue', 0 + '%');
                         }
                         break;
                     case 'programmfortschritt':
@@ -354,7 +354,7 @@
                             element.textContent = decodedData[parameter];
                         }
                         if (statusBalken === 0) {
-                            element.textContent = '0';
+                            element.textContent = '0%';
                         }
                         break;
                     case 'restlaufzeitvalue':
