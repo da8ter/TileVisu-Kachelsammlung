@@ -86,7 +86,7 @@ class TileVisuWashingMaschine extends IPSModule
     
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
-        $Statusbalkentest = IPS_VariableExists($this->ReadPropertyInteger('BalkenStatus')) ? GetValue($this->ReadPropertyInteger('Balkenstatus')) : null;
+        $Statusbalken = IPS_VariableExists($this->ReadPropertyInteger('BalkenStatus')) ? GetValue($this->ReadPropertyInteger('Balkenstatus')) : null;
     
         foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)
         {
@@ -96,7 +96,7 @@ class TileVisuWashingMaschine extends IPSModule
                 {
                     case VM_UPDATE:
                         // Bestimme den zu übermittelnden Wert abhängig vom $Statusbalkentest
-                        if ($Statusbalkentest === 0 && in_array($VariableProperty, ['Programmfortschritt', 'Restlaufzeit'])) {
+                        if ($Statusbalken === 0 && in_array($VariableProperty, ['Programmfortschritt', 'Restlaufzeit'])) {
                             // Setze die Werte auf 0, wenn $Statusbalkentest 0 ist
                             $value = 0;
                             $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => $value]));
@@ -326,11 +326,30 @@ class TileVisuWashingMaschine extends IPSModule
             $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
             $result['statusvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
             $result['programm'] = IPS_VariableExists($this->ReadPropertyInteger('Programm')) ? $this->CheckAndGetValueFormatted('Programm') : null;
-            $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
-            $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
-            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
-            $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-            $result['restlaufzeitvalue'] = $this->ZeitInSekunden($restlaufzeitValue);
+// Überprüfe den Balkenstatus und lese den Wert aus, wenn die Variable existiert
+$Statusbalken = IPS_VariableExists($this->ReadPropertyInteger('BalkenStatus')) ? GetValue($this->ReadPropertyInteger('BalkenStatus')) : null;
+
+// Initialisiere das Ergebnis-Array
+$result = [];
+
+// Prüfe, ob der Balkenstatus 0 ist
+if ($Statusbalken === 0) {
+    // Setze alle relevanten Werte auf 0
+    $result['programmfortschritt'] = 0;
+    $result['programmfortschrittvalue'] = 0;
+    $result['restlaufzeit'] = 0;
+    $result['restlaufzeitvalue'] = 0;
+} else {
+    // Wenn der Balkenstatus nicht 0 ist, fülle das Ergebnis-Array wie gewohnt
+    $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
+    $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
+    $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
+    $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+    $result['restlaufzeitvalue'] = $this->ZeitInSekunden($restlaufzeitValue);
+}
+
+// Weiterverarbeitung von $result nach Bedarf...
+
                         
             
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
