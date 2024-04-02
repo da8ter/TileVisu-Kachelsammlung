@@ -320,6 +320,7 @@
                             programmfortschritt.textContent = '0%';
                             root.style.setProperty('--programmfortschrittvalue', '0%');
                         }
+                        console.log('status balken', balken);
                   
                         break;
                     case 'programm':
@@ -339,8 +340,9 @@
                         
                         if (balken === false) {
                             restlaufzeit.textContent = '0';
-                                                       
+                                                                                   
                         }
+                        console.log('restlaufzeit balken', balken);
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
@@ -348,6 +350,7 @@
                               root.style.setProperty('--programmfortschrittvalue', '0%');
                               console.log('Balken Programm', balken);
                         }
+                        console.log('programmfortschrittvalue balken', balken);
                         break;
                     case 'programmfortschritt':
                         
@@ -359,6 +362,7 @@
                         if (balken === false) {
                             programmfortschritt.textContent = '0%';
                         }
+                        console.log('programmfortschritt balken', balken);
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
@@ -367,6 +371,7 @@
                         if (balken === false) {
                             restlaufzeit.textContent = '0';
                         }
+                        console.log('restlaufzeitvalue balken', balken);
 
                         break;
                     case 'verbrauch':
