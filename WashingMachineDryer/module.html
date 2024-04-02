@@ -311,7 +311,7 @@
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
                         var statusindex = decodedData[parameter];
-                        var balken = statusBalken[index];
+                        var balken = statusBalken[statusindex];
 
                         if (!balken) {
                             restlaufzeit.textContent = '0';
@@ -337,7 +337,6 @@
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
                         
-                        var balken = statusBalken[statusindex];
                         if (!balken) {
                             restlaufzeit.textContent = '0';
                             programmfortschritt.textContent = '0%';
@@ -346,7 +345,6 @@
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        var balken = statusBalken[statusindex];
                         if (!balken) {
                               root.style.setProperty('--programmfortschrittvalue', '0%');
                         }
@@ -358,7 +356,6 @@
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                         }
-                        var balken = statusBalken[statusindex];
                         if (!balken) {
                             programmfortschritt.textContent = '0%';
                         }
@@ -367,7 +364,6 @@
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
 
-                        var balken = statusBalken[statusindex];
                         if (!balken) {
                             restlaufzeit.textContent = '0';
                         }
