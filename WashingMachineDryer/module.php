@@ -306,7 +306,7 @@ class TileVisuWashingMaschine extends IPSModule
        $assoziationsArray = json_decode($profilAssoziationen, true);
 
        // Ziel-AssoziationValue
-       $targetAssoziationValue = "BSH.Common.EnumType.OperationState.Run";
+       $targetAssoziationValue = GetValue($this->ReadPropertyInteger('Status'));
        
        // Suche nach dem gewünschten AssoziationValue und extrahiere den Wert von StatusBalken
        $statusBalkenWert = null;
