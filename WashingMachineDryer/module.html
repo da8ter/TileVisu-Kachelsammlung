@@ -293,7 +293,6 @@
                         if (decodedData[parameter]) {
                             statusdiv.className = 'visible';
                         }
-
                         break;
                     case 'statusvalue':
                         var index = decodedData[parameter];
@@ -310,6 +309,16 @@
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
+
+                        var statusbalken = statusBalken[index];
+
+
+                        if (!statusbalken) {
+                            restlaufzeit.textContent = '0';
+                            programmfortschritt.textContent = '0%';
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
+                        }
+                       
 
                         break;
                     case 'programm':
@@ -336,13 +345,13 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
+                            
+                        
                         }
-
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
