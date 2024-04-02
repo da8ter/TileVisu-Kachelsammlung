@@ -338,7 +338,7 @@ class TileVisuWashingMaschine extends IPSModule
 
 
 $result = [];
-if ($statusBalkenWert = true) {
+if ($statusBalkenWert == true) {
 
     $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
     $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
