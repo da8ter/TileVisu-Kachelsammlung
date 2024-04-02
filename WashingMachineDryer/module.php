@@ -102,6 +102,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
     }
 
+
     foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty) {
         if ($SenderID === $this->ReadPropertyInteger($VariableProperty)) {
             switch ($Message) {
@@ -368,12 +369,12 @@ if ($statusBalkenWert = true) {
 else {
     
     $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? '0' : null;
-            $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? '0' : null;
-            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? '0' : null;
-            $result['restlaufzeitvalue'] = '0';
+    $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? '0' : null;
+    $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? '0' : null;
+    $result['restlaufzeitvalue'] = '0';
 }
 
-
+var_dump($statusBalkenWert);
 
 
 
