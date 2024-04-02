@@ -313,7 +313,7 @@
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
                         var statusindex = decodedData[parameter];
-                        balken = statusBalken[statusindex] !== false; // Setzt balken basierend auf dem statusindex, default true wenn nicht explizit false
+                        balken = statusBalken[statusindex]; // Setzt balken basierend auf dem statusindex, default true wenn nicht explizit false
 
                         if (!balken) {
                             restlaufzeit.textContent = '0';
