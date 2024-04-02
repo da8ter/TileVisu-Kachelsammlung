@@ -318,7 +318,7 @@
                         }
                         balken = statusBalken[statusindex]; // Setzt balken basierend auf dem statusindex, default true wenn nicht explizit false
 
-                        if (balken === false) {
+                        if (!balken) {
                             restlaufzeit.textContent = '0';
                             programmfortschritt.textContent = '0%';
                             root.style.setProperty('--programmfortschrittvalue', '0%');
@@ -341,7 +341,7 @@
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
                         
-                        if (balken === false) {
+                        if (!balken) {
                             restlaufzeit.textContent = '0';
                                                                                    
                         }
@@ -349,7 +349,7 @@
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        if (balken === false) {
+                        if (!balken) {
                               root.style.setProperty('--programmfortschrittvalue', '0%');
                               console.log('Balken Programm', balken);
                         }
@@ -362,7 +362,7 @@
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                         }
-                        if (balken === false) {
+                        if (!balken) {
                             programmfortschritt.textContent = '0%';
                         }
                         console.log('programmfortschritt balken', balken);
@@ -371,7 +371,7 @@
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
 
-                        if (balken === false) {
+                        if (!balken) {
                             restlaufzeit.textContent = '0';
                         }
                         console.log('restlaufzeitvalue balken', balken);
