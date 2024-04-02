@@ -373,7 +373,7 @@ else {
     $result['restlaufzeitvalue'] = '0';
 }
 
-var_dump($statusBalkenWert);
+//var_dump($statusBalkenWert);
 
 
 
