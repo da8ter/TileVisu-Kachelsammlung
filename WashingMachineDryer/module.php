@@ -82,48 +82,67 @@ class TileVisuWashingMaschine extends IPSModule
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
     }
 
-    public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
-    {
 
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
-        {
-            if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
-            {
-                switch ($Message)
-                {
-                    case VM_UPDATE:
-                        // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
-       
-                        // Zusätzliche if-Abfrage für Restlaufzeit
-                        if ($VariableProperty === 'Restlaufzeit') {
-                            $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
-        
-                            // Führe hier die spezifische Logik für Restlaufzeit aus
-                            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
+
+
+    public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
+{
+    $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
+    $assoziationsArray = json_decode($profilAssoziationen, true);
+    
+    // Ziel-AssoziationValue
+    $targetAssoziationValue = GetValue($this->ReadPropertyInteger('Status'));
+    
+    // Suche nach dem gewünschten AssoziationValue und extrahiere den Wert von StatusBalken
+    $statusBalkenWert = false; // Standardwert auf false setzen
+    foreach ($assoziationsArray as $item) {
+        if ($item['AssoziationValue'] === $targetAssoziationValue) {
+            $statusBalkenWert = filter_var($item['StatusBalken'], FILTER_VALIDATE_BOOLEAN);
+            break; // Stoppt die Schleife, sobald der Wert gefunden wurde
+        }
+    }
+
+    foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty) {
+        if ($SenderID === $this->ReadPropertyInteger($VariableProperty)) {
+            switch ($Message) {
+                case VM_UPDATE:
+                    // Spezielle Behandlung für Restlaufzeit
+                    if ($VariableProperty === 'Restlaufzeit') {
+                        $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
+                        
+                        if ($statusBalkenWert) {
+                            // Wenn $statusBalkenWert true ist, setze Restlaufzeit auf 0
+                            $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => 0]));
+                        } else {
+                            // Normale Verarbeitung der Restlaufzeit
                             if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
                                 $hours = (int)$matches[1];
                                 $minutes = (int)$matches[2];
                                 $seconds = (int)$matches[3];
                                 $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
-                                
-                                // Aktualisiere die Visualisierung oder verarbeite den Wert weiter, falls nötig
                                 $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
-                            }
-                            else {
+                            } else {
                                 $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
                             }
-                            
                         }
-                        else {
+                    } else {
+                        // Behandlung aller anderen Variablen
+                        if ($statusBalkenWert && ($VariableProperty === 'Programmfortschritt')) {
+                            // Wenn $statusBalkenWert true ist, setze Programmfortschritt auf 0
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => 0]));
+                        } else {
+                            // Normale Aktualisierung für alle anderen Fälle
                             $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
                             $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
                         }
-        
-                       
-                }
+                    }
+                    break;
             }
         }
     }
+}
+
+    
 
 
     public function RequestAction($Ident, $value) {
