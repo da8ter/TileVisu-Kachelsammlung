@@ -303,8 +303,24 @@ class TileVisuWashingMaschine extends IPSModule
 
        $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
 
-        // Ausgabe des Wertes zur Debugging-Zwecken
-       var_dump($profilAssoziationen);
+       $assoziationsArray = json_decode($profilAssoziationen, true);
+
+       // Ziel-AssoziationValue
+       $targetAssoziationValue = "BSH.Common.EnumType.OperationState.Run";
+       
+       // Suche nach dem gewünschten AssoziationValue und extrahiere den Wert von StatusBalken
+       $statusBalkenWert = null;
+       foreach ($assoziationsArray as $item) {
+           if ($item['AssoziationValue'] === $targetAssoziationValue) {
+               $statusBalkenWert = $item['StatusBalken'];
+               break; // Stoppt die Schleife, sobald der Wert gefunden wurde
+           }
+       }
+       
+       // Ausgabe des Wertes von StatusBalken
+       echo "Der Wert von StatusBalken für '$targetAssoziationValue' ist: ";
+       var_dump($statusBalkenWert); // Verwendung von var_dump(), um den Datentyp und Wert anzuzeigen
+       
 
 
         $result = [];
