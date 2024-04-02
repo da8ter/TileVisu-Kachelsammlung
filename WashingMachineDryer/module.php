@@ -301,25 +301,27 @@ class TileVisuWashingMaschine extends IPSModule
     // Generiere eine Nachricht, die alle Elemente in der HTML-Darstellung aktualisiert
     private function GetFullUpdateMessage() {
 
-       $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
+        $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
 
-       $assoziationsArray = json_decode($profilAssoziationen, true);
-
-       // Ziel-AssoziationValue
-       $targetAssoziationValue = GetValue($this->ReadPropertyInteger('Status'));
-       
-       // Suche nach dem gewünschten AssoziationValue und extrahiere den Wert von StatusBalken
-       $statusBalkenWert = null;
-       foreach ($assoziationsArray as $item) {
-           if ($item['AssoziationValue'] === $targetAssoziationValue) {
-               $statusBalkenWert = $item['StatusBalken'];
-               break; // Stoppt die Schleife, sobald der Wert gefunden wurde
-           }
-       }
-       
-       // Ausgabe des Wertes von StatusBalken
-       echo "Der Wert von StatusBalken für '$targetAssoziationValue' ist: ";
-       var_dump($statusBalkenWert); // Verwendung von var_dump(), um den Datentyp und Wert anzuzeigen
+        $assoziationsArray = json_decode($profilAssoziationen, true);
+        
+        // Ziel-AssoziationValue
+        $targetAssoziationValue = GetValue($this->ReadPropertyInteger('Status'));
+        
+        // Suche nach dem gewünschten AssoziationValue und extrahiere den Wert von StatusBalken
+        $statusBalkenWert = false; // Standardwert auf false setzen
+        foreach ($assoziationsArray as $item) {
+            if ($item['AssoziationValue'] === $targetAssoziationValue) {
+                // Überprüfen, ob StatusBalken 'true' ist oder einem wahren Wert entspricht
+                $statusBalkenWert = filter_var($item['StatusBalken'], FILTER_VALIDATE_BOOLEAN);
+                break; // Stoppt die Schleife, sobald der Wert gefunden wurde
+            }
+        }
+        
+        // Ausgabe des Wertes von StatusBalken
+        echo "Der Wert von StatusBalken für '$targetAssoziationValue' ist: ";
+        var_dump($statusBalkenWert); // Verwendung von var_dump(), um den Datentyp und Wert anzuzeigen
+        
        
 
 
