@@ -286,7 +286,7 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                var balken = false;
+                
                 switch (parameter2) {
                     
                     case 'status':
@@ -321,8 +321,10 @@
                             root.style.setProperty('--programmfortschrittvalue', '0%');
 
                         }
+                        else{
+                        var balken = false;
                         console.log('Statusbalken', balken);
-
+                    }
                         break;
                     case 'programm':
                         //element.className = 'infolinksasso';
