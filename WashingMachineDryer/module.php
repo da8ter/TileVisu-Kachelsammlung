@@ -82,37 +82,48 @@ class TileVisuWashingMaschine extends IPSModule
         $this->UpdateVisualizationValue($this->GetFullUpdateMessage());
     }
 
-
-    
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
-        $Statusbalken = IPS_VariableExists($this->ReadPropertyInteger('BalkenStatus')) ? GetValue($this->ReadPropertyInteger('Balkenstatus')) : null;
-    
-        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $VariableProperty)
+
+        foreach (['Status', 'Programm', 'Programmfortschritt', 'Restlaufzeit', 'Verbrauch', 'VerbrauchTag', 'KostenTag'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
                 switch ($Message)
                 {
                     case VM_UPDATE:
-                        // Bestimme den zu übermittelnden Wert abhängig vom $Statusbalkentest
-                        if ($Statusbalken === 0 && in_array($VariableProperty, ['Programmfortschritt', 'Restlaufzeit'])) {
-                            // Setze die Werte auf 0, wenn $Statusbalkentest 0 ist
-                            $value = 0;
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => $value]));
-                        } else {
-                            // Normales Verhalten, wenn $Statusbalkentest nicht 0 ist oder das Property nicht Programmfortschritt oder Restlaufzeit ist
-                            $valueFormatted = GetValueFormatted($this->ReadPropertyInteger($VariableProperty));
-                            $value = GetValue($this->ReadPropertyInteger($VariableProperty));
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => $valueFormatted]));
-                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => $value]));
+                        // Teile der HTML-Darstellung den neuen Wert mit. Damit dieser korrekt formatiert ist, holen wir uns den von der Variablen via GetValueFormatted
+       
+                        // Zusätzliche if-Abfrage für Restlaufzeit
+                        if ($VariableProperty === 'Restlaufzeit') {
+                            $restlaufzeitValue = GetValue($this->ReadPropertyInteger('Restlaufzeit'));
+        
+                            // Führe hier die spezifische Logik für Restlaufzeit aus
+                            // Zum Beispiel eine Umwandlung von HH:MM:SS in Sekunden
+                            if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
+                                $hours = (int)$matches[1];
+                                $minutes = (int)$matches[2];
+                                $seconds = (int)$matches[3];
+                                $restlaufzeitInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+                                
+                                // Aktualisiere die Visualisierung oder verarbeite den Wert weiter, falls nötig
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitInSeconds]));
+                            }
+                            else {
+                                $this->UpdateVisualizationValue(json_encode(['restlaufzeitvalue' => $restlaufzeitValue]));
+                            }
+                            
                         }
-                        break;
+                        else {
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty => GetValueFormatted($this->ReadPropertyInteger($VariableProperty))]));
+                            $this->UpdateVisualizationValue(json_encode([$VariableProperty . 'Value' => GetValue($this->ReadPropertyInteger($VariableProperty))]));
+                        }
+        
+                       
                 }
             }
         }
     }
-    
 
 
     public function RequestAction($Ident, $value) {
@@ -255,9 +266,6 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-
-
-
         // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
@@ -272,32 +280,14 @@ class TileVisuWashingMaschine extends IPSModule
 
         }
 
-
-
-            //Abfragen ob beim aktuellen Staus der Statusbalken aktiv sein soll
-            $statustemp = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
-
-            if (isset($statusMappingBalken[$statustemp])) {
-                // Zugriff auf den Wert von StatusBalken, der dem statustemp entspricht
-                $statusBalkenWert = $statusMappingBalken[$statustemp];
-                
-                // Überprüfen, ob $statusBalkenWert leer ist. Wenn ja, auf false setzen.
-                if (empty($statusBalkenWert)) {
-                    $statusBalkenWert = 0;
-                }
-            } else {
-                // Setzt $statusBalkenWert auf false, falls kein entsprechender Eintrag existiert
-                $statusBalkenWert = 0;
-            }
-
-
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
-        $statusStatusBalken = json_encode($statusMappingBalken);
+        $statusStatusBalkenJson = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= '</script><script type="text/javascript">var statusBalken = ' . $statusBalkenWert . ';</script>';
+        $images .= 'var statusBalken = ' . $statusStatusBalkenJson . ';';
+        $images .= '</script>';
 
 
 
@@ -326,31 +316,32 @@ class TileVisuWashingMaschine extends IPSModule
             $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
             $result['statusvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? GetValue($this->ReadPropertyInteger('Status')) : null;
             $result['programm'] = IPS_VariableExists($this->ReadPropertyInteger('Programm')) ? $this->CheckAndGetValueFormatted('Programm') : null;
-// Überprüfe den Balkenstatus und lese den Wert aus, wenn die Variable existiert
-$Statusbalken = IPS_VariableExists($this->ReadPropertyInteger('StatusBalken')) ? GetValue($this->ReadPropertyInteger('StatusBalken')) : null;
+            $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
+            $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
+            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
+            //$result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+            
 
-// Initialisiere das Ergebnis-Array
-$result = [];
 
-// Prüfe, ob der Balkenstatus 0 ist
-if ($Statusbalken === 0) {
-    // Setze alle relevanten Werte auf 0
-    $result['programmfortschritt'] = 0;
-    $result['programmfortschrittvalue'] = 0;
-    $result['restlaufzeit'] = 0;
-    $result['restlaufzeitvalue'] = 0;
-} else {
-    // Wenn der Balkenstatus nicht 0 ist, fülle das Ergebnis-Array wie gewohnt
-    $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
-    $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
-    $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
-    $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
-    $result['restlaufzeitvalue'] = $this->ZeitInSekunden($restlaufzeitValue);
-}
+            // Wert der Restlaufzeit abrufen
+            $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
 
-// Weiterverarbeitung von $result nach Bedarf...
+            // Überprüfen, ob der Wert im Format HH:MM:SS vorliegt
+            if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
+                // Wert ist im Format HH:MM:SS, also konvertieren in Sekunden
+                $hours = (int)$matches[1];
+                $minutes = (int)$matches[2];
+                $seconds = (int)$matches[3];
+                $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+            } else {
+                // Wert ist bereits in Sekunden oder nicht im erwarteten Format
+                $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
+            }
 
-                        
+            // Ergebnis setzen
+            $result['restlaufzeitvalue'] = $restlaufzeitValueInSeconds;
+
+
             
             $result['verbrauch'] = IPS_VariableExists($this->ReadPropertyInteger('Verbrauch')) ? $this->CheckAndGetValueFormatted('Verbrauch') : null;
             $result['verbrauchtag'] = IPS_VariableExists($this->ReadPropertyInteger('VerbrauchTag')) ? $this->CheckAndGetValueFormatted('VerbrauchTag') : null;
@@ -421,7 +412,7 @@ if ($Statusbalken === 0) {
 
 
 
-    private function UpdateList($StatusID)
+    public function UpdateList($StatusID)
     {
         $listData = []; // Hier sammeln Sie die Daten für Ihre Liste
     
@@ -457,29 +448,7 @@ if ($Statusbalken === 0) {
     
     
 
-    private function ZeitInSekunden($restlaufzeitValue) {
-        // Entferne Anführungszeichen aus dem Eingabewert
-        $restlaufzeitString = str_replace('"', '', $restlaufzeitValue);
-    
-        // Initialisiere die Variable für das Ergebnis
-        $restlaufzeitValueInSeconds = 0;
-    
-        // Prüfe, ob der Wert im Format HH:MM:SS ist und rechne ihn um
-        if (is_string($restlaufzeitString) && preg_match('/^(\d{1,2}):(\d{1,2}):(\d{1,2})$/', $restlaufzeitString, $matches)) {
-            $hours = (int)$matches[1];
-            $minutes = (int)$matches[2];
-            $seconds = (int)$matches[3];
-            $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
-        } else {
-            // Versuche, den Eingabewert direkt in einen Integer umzuwandeln
-            $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
-        }
-    
-        // Gib den umgerechneten Wert in Sekunden zurück
-        return $restlaufzeitValueInSeconds;
-    }
-    
-    
+
 
 
 
