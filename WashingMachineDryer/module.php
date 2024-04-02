@@ -316,6 +316,9 @@ class TileVisuWashingMaschine extends IPSModule
                 break; // Stoppt die Schleife, sobald der Wert gefunden wurde
             }
         }
+
+
+$result = [];
 if ($statusBalkenWert = true) {
 
     $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
@@ -356,7 +359,7 @@ else {
 
 
 
-        $result = [];
+        
     
             //$result['status'] = $this->CheckAndGetValueFormatted('Status');
             $result['status'] = IPS_VariableExists($this->ReadPropertyInteger('Status')) ? $this->CheckAndGetValueFormatted('Status') : null;
