@@ -302,7 +302,6 @@ class TileVisuWashingMaschine extends IPSModule
     private function GetFullUpdateMessage() {
 
         $profilAssoziationen = $this->ReadPropertyString('ProfilAssoziazionen');
-
         $assoziationsArray = json_decode($profilAssoziationen, true);
         
         // Ziel-AssoziationValue
@@ -317,12 +316,44 @@ class TileVisuWashingMaschine extends IPSModule
                 break; // Stoppt die Schleife, sobald der Wert gefunden wurde
             }
         }
-        
-        // Ausgabe des Wertes von StatusBalken
-        echo "Der Wert von StatusBalken für '$targetAssoziationValue' ist: ";
-        var_dump($statusBalkenWert); // Verwendung von var_dump(), um den Datentyp und Wert anzuzeigen
-        
-       
+if ($statusBalkenWert = true) {
+
+    $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? $this->CheckAndGetValueFormatted('Programmfortschritt') : null;
+    $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? GetValue($this->ReadPropertyInteger('Programmfortschritt')) : null;
+    $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? $this->CheckAndGetValueFormatted('Restlaufzeit') : null;
+    //$result['restlaufzeitvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+    
+
+
+    // Wert der Restlaufzeit abrufen
+    $restlaufzeitValue = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? GetValue($this->ReadPropertyInteger('Restlaufzeit')) : null;
+
+    // Überprüfen, ob der Wert im Format HH:MM:SS vorliegt
+    if (is_string($restlaufzeitValue) && preg_match('/^(\d{2}):(\d{2}):(\d{2})$/', $restlaufzeitValue, $matches)) {
+        // Wert ist im Format HH:MM:SS, also konvertieren in Sekunden
+        $hours = (int)$matches[1];
+        $minutes = (int)$matches[2];
+        $seconds = (int)$matches[3];
+        $restlaufzeitValueInSeconds = $hours * 3600 + $minutes * 60 + $seconds;
+    } else {
+        // Wert ist bereits in Sekunden oder nicht im erwarteten Format
+        $restlaufzeitValueInSeconds = (int)$restlaufzeitValue;
+    }
+
+    // Ergebnis setzen
+    $result['restlaufzeitvalue'] = $restlaufzeitValueInSeconds;
+}
+else {
+    
+    $result['programmfortschritt'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? '0' : null;
+            $result['programmfortschrittvalue'] = IPS_VariableExists($this->ReadPropertyInteger('Programmfortschritt')) ? '0' : null;
+            $result['restlaufzeit'] = IPS_VariableExists($this->ReadPropertyInteger('Restlaufzeit')) ? '0' : null;
+            $result['restlaufzeitvalue'] = '0';
+}
+
+
+
+
 
 
         $result = [];
