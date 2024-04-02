@@ -297,7 +297,7 @@ class TileVisuWashingMaschine extends IPSModule
 
         // Gebe alles zurück.
         // Wichtig: $initialHandling nach hinten, da die Funktion handleMessage erst im HTML definiert wird
-        return $module . $images . $assets . $initialHandling;
+        return $images . $module . $assets . $initialHandling;
     }
 
 
