@@ -338,7 +338,6 @@
                         }
                         
                         var balken = statusBalken[statusindex];
-
                         if (!balken) {
                             restlaufzeit.textContent = '0';
                             programmfortschritt.textContent = '0%';
@@ -347,6 +346,10 @@
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                        var balken = statusBalken[statusindex];
+                        if (!balken) {
+                              root.style.setProperty('--programmfortschrittvalue', '0%');
+                        }
                         break;
                     case 'programmfortschritt':
                         
@@ -354,13 +357,21 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
-                            
-                        
+                        }
+                        var balken = statusBalken[statusindex];
+                        if (!balken) {
+                            programmfortschritt.textContent = '0%';
                         }
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
+
+                        var balken = statusBalken[statusindex];
+                        if (!balken) {
+                            restlaufzeit.textContent = '0';
+                        }
+
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
