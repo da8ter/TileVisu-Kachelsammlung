@@ -276,18 +276,14 @@ class TileVisuWashingMaschine extends IPSModule
                       
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
-            $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
-
         }
 
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
-        $statusStatusBalkenJson = json_encode($statusMappingBalken);
         $images = '<script type="text/javascript">';
         $images .= 'var statusImages = ' . $statusImagesJson . ';';
         $images .= 'var statusColor = ' . $statusColorJson . ';';
-        $images .= 'var statusBalken = ' . $statusStatusBalkenJson . ';';
-        $images .= '</script>';
+               $images .= '</script>';
 
 
 
@@ -297,7 +293,7 @@ class TileVisuWashingMaschine extends IPSModule
 
         // Gebe alles zurück.
         // Wichtig: $initialHandling nach hinten, da die Funktion handleMessage erst im HTML definiert wird
-        return $images . $module . $assets . $initialHandling;
+        return $module . $images . $assets . $initialHandling;
     }
 
 

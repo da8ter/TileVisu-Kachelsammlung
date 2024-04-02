@@ -286,7 +286,6 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                var balken = false; // Standardmäßig true, wird aktualisiert basierend auf statusvalue
 
                 switch (parameter2) {
                     
@@ -311,19 +310,6 @@
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
-
-                        var statusindex = decodedData[parameter];
-                        if (!statusBalken[statusindex]) {
-                            statusindex = 0;
-                        }
-                        balken = statusBalken[statusindex]; // Setzt balken basierend auf dem statusindex, default true wenn nicht explizit false
-
-                        if (!balken) {
-                            restlaufzeit.textContent = '0';
-                            programmfortschritt.textContent = '0%';
-                            root.style.setProperty('--programmfortschrittvalue', '0%');
-                        }
-                        console.log('status balken', balken);
                   
                         break;
                     case 'programm':
@@ -340,20 +326,9 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
-                        
-                        if (!balken) {
-                            restlaufzeit.textContent = '0';
-                                                                                   
-                        }
-                        console.log('restlaufzeit balken', balken);
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
-                        if (!balken) {
-                              root.style.setProperty('--programmfortschrittvalue', '0%');
-                              console.log('Balken Programm', balken);
-                        }
-                        console.log('programmfortschrittvalue balken', balken);
                         break;
                     case 'programmfortschritt':
                         
@@ -362,20 +337,10 @@
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
                         }
-                        if (!balken) {
-                            programmfortschritt.textContent = '0%';
-                        }
-                        console.log('programmfortschritt balken', balken);
                         break;
                     case 'restlaufzeitvalue':
                         restmin = Math.round(decodedData[parameter] / 60);
                         restlaufzeit.textContent = restmin;
-
-                        if (!balken) {
-                            restlaufzeit.textContent = '0';
-                        }
-                        console.log('restlaufzeitvalue balken', balken);
-
                         break;
                     case 'verbrauch':
                         element.textContent = decodedData[parameter];
