@@ -396,6 +396,8 @@ else {
             $result['BildBreite'] =  $this->ReadPropertyFloat('BildBreite');
             $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
             $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
+            $result['statusbalken123'] =  $statusBalkenWert;
+
 
             $imageID = $this->ReadPropertyInteger('bgImage');
             if (IPS_MediaExists($imageID)) {
