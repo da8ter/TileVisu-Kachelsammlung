@@ -285,6 +285,7 @@
                 const parameter2 = String(parameter).toLowerCase();
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
+                var statusindex = '';
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
 
@@ -310,8 +311,8 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
+                        var statusindex = decodedData[parameter];
                         var balken = statusBalken[index];
-
 
                         if (!balken) {
                             restlaufzeit.textContent = '0';
@@ -334,6 +335,14 @@
                         if (decodedData[parameter]) {
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
+                        }
+                        
+                        var balken = statusBalken[statusindex];
+
+                        if (!balken) {
+                            restlaufzeit.textContent = '0';
+                            programmfortschritt.textContent = '0%';
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
                         }
                          break;
                     case 'programmfortschrittvalue':
