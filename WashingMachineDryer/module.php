@@ -331,7 +331,7 @@ class TileVisuWashingMaschine extends IPSModule
         foreach ($assoziationsArray as $item) {
             if ($item['AssoziationValue'] === $targetAssoziationValue) {
                 // Überprüfen, ob StatusBalken 'true' ist oder einem wahren Wert entspricht
-                $statusBalkenWert = $item['StatusBalken'];
+                $statusBalkenWert = filter_var($item['StatusBalken'], FILTER_VALIDATE_BOOLEAN);
                 break; // Stoppt die Schleife, sobald der Wert gefunden wurde
             }
         }
