@@ -287,7 +287,7 @@
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
                 switch (parameter2) {
-
+                    var balken = false;
                     case 'status':
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter]) {
@@ -311,7 +311,7 @@
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
                         var statusindex = decodedData[parameter];
-                        var balken = false;
+                        
                         var balken = statusBalken[statusindex];
 
                         if (!balken) {
