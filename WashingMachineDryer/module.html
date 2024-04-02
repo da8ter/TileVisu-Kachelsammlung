@@ -339,15 +339,14 @@
                         
                         if (!balken) {
                             restlaufzeit.textContent = '0';
-                            programmfortschritt.textContent = '0%';
-                            root.style.setProperty('--programmfortschrittvalue', '0%');
+                                                       
                         }
                          break;
                     case 'programmfortschrittvalue':
                         root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
                         if (!balken) {
                               root.style.setProperty('--programmfortschrittvalue', '0%');
-                              console.log('Balken Programmd', balken);
+                              console.log('Balken Programm', balken);
                         }
                         break;
                     case 'programmfortschritt':
