@@ -239,7 +239,7 @@
             {
               "type": "SelectVariable",
               "name": "Restlaufzeit",
-              "caption": "Restlaufzeit (Sekunden oder HH:MM:SS):",
+              "caption": "Restlaufzeit (Sekunden):",
               "validVariableTypes": []
             },
             {
