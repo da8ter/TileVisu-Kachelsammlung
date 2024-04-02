@@ -290,7 +290,6 @@ class TileVisuWashingMaschine extends IPSModule
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
         $statusMappingColor = [];
-        $statusMappingBalken = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
                       
@@ -332,7 +331,7 @@ class TileVisuWashingMaschine extends IPSModule
         foreach ($assoziationsArray as $item) {
             if ($item['AssoziationValue'] === $targetAssoziationValue) {
                 // Überprüfen, ob StatusBalken 'true' ist oder einem wahren Wert entspricht
-                $statusBalkenWert = filter_var($item['StatusBalken'], FILTER_VALIDATE_BOOLEAN);
+                $statusBalkenWert = $item['StatusBalken'];
                 break; // Stoppt die Schleife, sobald der Wert gefunden wurde
             }
         }
