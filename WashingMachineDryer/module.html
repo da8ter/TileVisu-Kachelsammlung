@@ -286,7 +286,8 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                
+                var balken = true; // Standardmäßig true, wird aktualisiert basierend auf statusvalue
+
                 switch (parameter2) {
                     
                     case 'status':
@@ -312,17 +313,13 @@
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
                         var statusindex = decodedData[parameter];
-                        
-                        var balken = statusBalken[statusindex];
+                        balken = statusBalken[statusindex] !== false; // Setzt balken basierend auf dem statusindex, default true wenn nicht explizit false
 
                         if (!balken) {
                             restlaufzeit.textContent = '0';
                             programmfortschritt.textContent = '0%';
                             root.style.setProperty('--programmfortschrittvalue', '0%');
-                            var balken = false;
                         }
-                                               
-                        console.log('Statusbalken', balken);
                   
                         break;
                     case 'programm':
