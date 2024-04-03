@@ -271,7 +271,7 @@
             //console.log('Rohdaten empfangen:', data);
 
             const decodedData = JSON.parse(data);
-
+            var statusbalken = false;
 
             //console.log('Decodierte Daten:', decodedData);
 
@@ -283,7 +283,7 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                var statusbalken = false;
+                
                 
                 switch (parameter2) {
 
