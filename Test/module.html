@@ -1,62 +1,29 @@
-<style>
-    /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gelbe Seite mit rotem Div</title>
+    <style>
+        /* Setzt den Hintergrund der ganzen Seite auf Gelb */
+        body {
+            background-color: yellow;
+        }
 
-  
-    body {
-            margin: 0px;
-            position: fixed;
+        /* Erstellt ein div, das die ganze Seite ausfüllt mit rotem Hintergrund */
+        .full-screen-div {
+            background-color: red;
             width: 100%;
-            height: 100%;
+            height: 100%; /* 100% der Viewport-Höhe */
+            position: absolute; /* Damit es den gesamten verfügbaren Raum einnimmt */
+            top: 0;
+            left: 0;
         }
+    </style>
+</head>
+<body>
 
-.image {
-    width: 100%;
-    height: 100%;
-    position: relative; /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
-}
-.bgimage {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Sorgt dafür, dass das Bild den Container ausfüllt */
-        object-position: center; /* Zentriert das Bild innerhalb des Containers */
-    }
+<div class="full-screen-div">
+    <!-- Du kannst hier weiteren Inhalt hinzufügen, wenn du möchtest -->
+</div>
 
-
-
-</style>
-
-
-<script>
-    function handleMessage(data) {
-        //console.log('Rohdaten empfangen:', data);
-
-        const decodedData = JSON.parse(data);
-        //console.log('Decodierte Daten:', decodedData);
-
-        for (const parameter in decodedData) {
-            //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
-
-            const element = document.getElementById(parameter);
-
-                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                switch (parameter) {
-                    case 'image1':
-                    element.src = decodedData[parameter];
-                    //document.body.style.backgroundImage = decodedData[parameter];
-                //console.log('Setze innerHTML für', parameter);
-                        break;
-                  
-
-                    default:
-                        //console.log('Setze innerHTML für', parameter);
-                        // Setze innerHTML nur, wenn das Element gefunden wurde
-                        element.innerHTML = decodedData[parameter];
-                        break;
-                }
-
-        }
-    }
-</script>
-
-
-<div class="image" id="text"><img class="bgimage" id="image1"></div>
+</body>
+</html>

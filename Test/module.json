@@ -1,12 +1,12 @@
 {
-    "id": "{25B9B388-8DD7-2C26-E4B5-02F7FDDDEA11}",
-    "name": "TileVisuImage",
+    "id": "{6740313B-54D9-85D5-BBB8-17972AAB3457}",
+    "name": "TileVisuTest",
     "type": 3,
     "vendor": "",
     "aliases": [],
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
-    "prefix": "IMG",
+    "prefix": "TEST",
     "url": ""
 }
