@@ -272,6 +272,7 @@
 
             const decodedData = JSON.parse(data);
 
+
             //console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
@@ -282,6 +283,7 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                var index = false;
                 switch (parameter2) {
 
                     case 'status':
