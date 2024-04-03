@@ -286,9 +286,8 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-
                 switch (parameter2) {
-                    
+
                     case 'status':
                         element.textContent = decodedData[parameter];
                         if (decodedData[parameter]) {
@@ -310,7 +309,17 @@
                             document.getElementById('image').src = window.assets.img_wm_aus;
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
-                  
+
+                        var statusbalken = statusBalken[index];
+
+
+                        if (!statusbalken) {
+                            restlaufzeit.textContent = '0';
+                            programmfortschritt.textContent = '0%';
+                            root.style.setProperty('--programmfortschrittvalue', '0%');
+                        }
+                       
+
                         break;
                     case 'programm':
                         //element.className = 'infolinksasso';
@@ -336,6 +345,8 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
+                            
+                        
                         }
                         break;
                     case 'restlaufzeitvalue':
