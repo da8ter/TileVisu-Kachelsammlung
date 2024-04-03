@@ -1,0 +1,12 @@
+{
+    "id": "{25B9B388-8DD7-2C26-E4B5-02F7FDDDEA11}",
+    "name": "TileVisuImage",
+    "type": 3,
+    "vendor": "",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "IMG",
+    "url": ""
+}

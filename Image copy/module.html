@@ -1,0 +1,62 @@
+<style>
+    /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
+
+  
+    body {
+            margin: 0px;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+.image {
+    width: 100%;
+    height: 100%;
+    position: relative; /* Wichtig, falls Sie Positionierung innerhalb des Divs benötigen */
+}
+.bgimage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Sorgt dafür, dass das Bild den Container ausfüllt */
+        object-position: center; /* Zentriert das Bild innerhalb des Containers */
+    }
+
+
+
+</style>
+
+
+<script>
+    function handleMessage(data) {
+        //console.log('Rohdaten empfangen:', data);
+
+        const decodedData = JSON.parse(data);
+        //console.log('Decodierte Daten:', decodedData);
+
+        for (const parameter in decodedData) {
+            //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
+            const element = document.getElementById(parameter);
+
+                // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
+                switch (parameter) {
+                    case 'image1':
+                    element.src = decodedData[parameter];
+                    //document.body.style.backgroundImage = decodedData[parameter];
+                //console.log('Setze innerHTML für', parameter);
+                        break;
+                  
+
+                    default:
+                        //console.log('Setze innerHTML für', parameter);
+                        // Setze innerHTML nur, wenn das Element gefunden wurde
+                        element.innerHTML = decodedData[parameter];
+                        break;
+                }
+
+        }
+    }
+</script>
+
+
+<div class="image" id="text"><img class="bgimage" id="image1"></div>
