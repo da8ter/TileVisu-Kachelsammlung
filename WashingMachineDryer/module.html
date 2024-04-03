@@ -309,7 +309,8 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
-                        var statusbalken = statusBalken[index];
+                        var statusbalken = statusBalken[index] || false;
+
 
 
                         if (!statusbalken) {
