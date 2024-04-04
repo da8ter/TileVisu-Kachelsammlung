@@ -35,7 +35,7 @@
         body:before {
             content: '';
             display: block;
-            position: absolute;
+            position: fixed;
             left: 0;
             top: 0;
             width: 100%;
@@ -43,14 +43,13 @@
             z-index: -1;
             background-repeat: no-repeat;
             background-size: cover;
-            
-            box-sizing: border-box;
+
+
             opacity: var(--bildtransparenz);
             background: var(--background-image, none) center / cover no-repeat;
         }
 
-        body {
-        }
+        body {}
 
 
         .hidden {
@@ -164,9 +163,12 @@
             height: 1.8em;
             border-radius: 0px 0px 0px 0px;
             background-image: var(--image_speicher, none);
-            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
-            background-position: left bottom; /* Positioniert das Bild unten links */
-            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+            background-repeat: no-repeat;
+            /* Verhindert die Wiederholung des Bildes */
+            background-position: left bottom;
+            /* Positioniert das Bild unten links */
+            background-size: auto;
+            /* Behält die ursprüngliche Größe des Bildes bei */
         }
 
         .balken_links_eigenproduktion_pv {
@@ -176,9 +178,12 @@
             height: 1.8em;
             border-radius: 0px 0px 0px 0px;
             background-image: var(--image_pv, none);
-            background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
-            background-position: right bottom; /* Positioniert das Bild unten links */
-            background-size: auto; /* Behält die ursprüngliche Größe des Bildes bei */
+            background-repeat: no-repeat;
+            /* Verhindert die Wiederholung des Bildes */
+            background-position: right bottom;
+            /* Positioniert das Bild unten links */
+            background-size: auto;
+            /* Behält die ursprüngliche Größe des Bildes bei */
             margin-right: 3px;
         }
 
@@ -316,14 +321,13 @@
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
                         break;
                     case 'kachelhintergrundfarbe':
-                        
-                    if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
-                        root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)'); 
-                    }
-                    else
-                    {
-                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                    }
+
+                        if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
+                            root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)');
+                        }
+                        else {
+                            root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        }
                         break;
                     case 'schriftfarbebalken':
                         root.style.setProperty('--schriftfarbebalken', decodedData[parameter]);
@@ -348,18 +352,18 @@
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
                         break;
                     case 'image_speicher':
-                        root.style.setProperty('--image_speicher',  'url(' + decodedData[parameter] + ')');
+                        root.style.setProperty('--image_speicher', 'url(' + decodedData[parameter] + ')');
                         break;
                     case 'image_pv':
 
-                        root.style.setProperty('--image_pv',  'url(' + decodedData[parameter] + ')');
+                        root.style.setProperty('--image_pv', 'url(' + decodedData[parameter] + ')');
                         break;
                     case 'eckenradius':
                         root.style.setProperty('--eckenradius', decodedData[parameter] + 'px');
                         break;
                     default:
                         if (element) {
-                        element.textContent = decodedData[parameter];
+                            element.textContent = decodedData[parameter];
                         }
                         break;
                 }
@@ -408,10 +412,11 @@
                     </div>
                     <span class="balken_links_text"><span id="eigenproduktion_prozent"></span></span>
                     <span class="balken_links_text_finish"><span id="import_prozent"></span></span>
-                    <div class="hidden" id="balken_links_eigenproduktion_pv"></div><div class="hidden" id="balken_links_eigenproduktion_speicher"></div>
+                    <div class="hidden" id="balken_links_eigenproduktion_pv"></div>
+                    <div class="hidden" id="balken_links_eigenproduktion_speicher"></div>
 
                 </div>
-                
+
             </div>
         </div>
         <div class="container2">
