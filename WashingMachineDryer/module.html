@@ -9,7 +9,7 @@
         /* Grundlegende Stildefinitionen, keine Änderungen hier */
 
 
-        
+
         :root {
 
             --balkenverlauffarbe1: #28CDAB;
@@ -42,15 +42,13 @@
             z-index: -1;
             background-repeat: no-repeat;
             background-size: cover;
-            
+
 
             opacity: var(--bildtransparenz);
             background: var(--background-image, none) center / cover no-repeat;
         }
 
-        body {
-
-        }
+        body {}
 
         .hidden {
             display: none;
@@ -65,9 +63,10 @@
             max-width: 100%;
             display: flex;
             flex-wrap: nowrap;
-            
+
             font-size: 1em;
-            justify-content: center; /* Zentriert die Inhalte horizontal */
+            justify-content: center;
+            /* Zentriert die Inhalte horizontal */
             box-sizing: border-box;
         }
 
@@ -241,6 +240,7 @@
         .daten_rechts {
             border: 0px solid #000;
         }
+
         .infodiv {
             font-size: var(--infoschriftgroesse);
             margin-top: 10px;
@@ -265,13 +265,13 @@
         }
     </style>
 
-<script> var statusbalken = false;</script>
+    <script> var statusbalken = false;</script>
     <script>
         function handleMessage(data) {
             //console.log('Rohdaten empfangen:', data);
 
             const decodedData = JSON.parse(data);
-            
+
 
             //console.log('Decodierte Daten:', decodedData);
 
@@ -283,8 +283,8 @@
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
                 var root = document.documentElement;
                 // Abhängig vom Parameter werden allerdings verschiedene Werte angepasst
-                
-                
+
+
                 switch (parameter2) {
 
                     case 'status':
@@ -316,7 +316,7 @@
                             programmfortschritt.textContent = '0%';
                             root.style.setProperty('--programmfortschrittvalue', '0%');
                         }
-                       
+
 
                         break;
                     case 'programm':
@@ -333,23 +333,23 @@
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text_finish.className = 'balken_links_text_finish';
                         }
-                         break;
+                        break;
                     case 'programmfortschrittvalue':
-                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%'); 
+                        root.style.setProperty('--programmfortschrittvalue', decodedData[parameter] + '%');
                         if (statusbalken === false) {
                             root.style.setProperty('--programmfortschrittvalue', '0%');
                         }
                         break;
                     case 'programmfortschritt':
-                                   
+
                         if (decodedData[parameter]) {
                             balkendiagramm.className = 'balkendiagramm';
                             balken_links_text.className = 'balken_links_text';
                             element.textContent = decodedData[parameter];
 
                             if (statusbalken === false) {
-                            programmfortschritt.textContent = '0%';
-                        }
+                                programmfortschritt.textContent = '0%';
+                            }
                         }
                         break;
                     case 'restlaufzeitvalue':
@@ -358,8 +358,7 @@
                         if (statusbalken === false) {
                             restlaufzeit.textContent = '0';
                         }
-                        else
-                        {
+                        else {
                             restlaufzeit.textContent = restmin;
                         }
 
@@ -408,13 +407,13 @@
                         root.style.setProperty('--bildbreite', decodedData[parameter] + '%');
                         if (decodedData[parameter] !== 0) {
                             div1.className = 'div1';
-                        }      
-                        else{
+                        }
+                        else {
                             div1.className = 'hidden';
                             div2.style.padding = '0px 5px 5px 0px';
-                            div2.style.margin = '0px 0px 0px 0px';                 
+                            div2.style.margin = '0px 0px 0px 0px';
                         }
-                            break;
+                        break;
                     case 'image1':
                         mainDiv = document.querySelector('body');
                         mainDiv.style.setProperty('--background-image', 'url(' + decodedData[parameter] + ')');
@@ -424,14 +423,13 @@
                         break;
                     case 'kachelhintergrundfarbe':
 
-                    if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
-                        root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)'); 
-                    }
-                    else
-                    {
-                        root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
-                    }
-                        break;    
+                        if (decodedData[parameter] === '#FFFFFFFFFFFFFFFF') {
+                            root.style.setProperty('--hintergrundfarbe', 'rgba(0, 0, 0, 0)');
+                        }
+                        else {
+                            root.style.setProperty('--hintergrundfarbe', decodedData[parameter]);
+                        }
+                        break;
 
                     default:
                         //console.log('Setze innerHTML für', parameter);
@@ -442,7 +440,7 @@
                 //console.log('Index:', statusbalken);
             }
         }
-        
+
     </script>
 
 
@@ -470,17 +468,19 @@
                 </div>
             </div>
             <div class="hidden" id="infodiv">
-                <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="verbrauch"></span><span class="hidden" id="verbrauchtag"></span>
-                <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span>
+                <i class="fa-solid fa-bolt fa-sm" style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden"
+                    id="verbrauch"></span><span class="hidden" id="verbrauchtag"></span>
+                <span class="hidden" id="kosten">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-coins fa-sm"
+                        style="color: #28cdab;"></i>&nbsp;&nbsp;<span class="hidden" id="kostentag"></span></span>
             </div>
-            </div>
+        </div>
     </div>
 </body>
 
 </html>
 
 <script>
-            // Schritt 1: Wert auslesen
+    // Schritt 1: Wert auslesen
     const bodyStyle = getComputedStyle(document.body);
     const marginRight = bodyStyle.getPropertyValue('margin-right');
 
