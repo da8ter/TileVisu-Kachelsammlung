@@ -20,6 +20,7 @@
             --led_3p_1_position: calc(30% - (var(--ladeleistung) * 2%));
             --led_3p_2_position: calc(60% - (var(--ladeleistung) * 2%));
             --led_3p_3_position: calc(95% - (var(--ladeleistung) * 2%));
+
         }
 
         html {
@@ -76,7 +77,7 @@
         }
 
         .div1 {
-            width: 20%;
+            width: var(--bildbreite);
             height: 100%;
             box-sizing: border-box;
             position: relative;
