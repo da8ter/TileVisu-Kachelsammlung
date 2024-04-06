@@ -6,13 +6,13 @@
             "bold": true
         },
         {   "type": "Label", 
-            "caption": "Es können bis zu 5 Bewohner konfiguriert werden. Nicht konfigurierte Bewohner werden ausgeblendet. (Optional) Fotos müssen als MedienObjekt angelegt werden. Fotos sollten ein Seitenverhältnis von 1:1 haben. Ist ein Bewohner abwesend wird das Foto in SW abgebildet. Anwesende Bewohner in Farbe."
+            "caption": "Up to 5 residents can be configured. Non-configured residents will be hidden. (Optional) Photos must be created as media objects. Photos should have an aspect ratio of 1:1. If a resident is absent, the photo will be displayed in grayscale. Present residents in color."
         },
         {   "type": "Label", 
-            "caption": "Je Bewohner wird eine Bool-Variable benötigt. true = anwesend, false = abwesend"
+            "caption": "A Bool variable is needed for each resident. true = present, false = absent"
         },
         {   "type": "Label", 
-            "caption": "Beispiel einer konfigurierten Kachel" 
+            "caption": "Example of a configured tile" 
         },
         {
             "type": "Image",
@@ -20,18 +20,18 @@
         },
         {
             "type": "ExpansionPanel",
-            "caption": "Kacheldesign",
+            "caption": "Tile design",
             "items": [
               
                 {
                   "type": "Label",
-                  "caption": "Kachel",
+                  "caption": "Tile",
                   "bold": true
                 },
                 {
                   "type": "CheckBox",
                   "name": "BG_Off",
-                  "caption": "Standard-Hintergrundbild"
+                  "caption": "Standard background image"
               },
                 {
                 "type": "RowLayout",
@@ -39,12 +39,12 @@
                   {
                     "type": "SelectMedia",
                     "name": "bgImage",
-                    "caption": "Hintergrundbild"
+                    "caption": "Background image"
                   },
                   {
                     "type": "NumberSpinner",
                     "name": "Bildtransparenz",
-                    "caption": "Transparenz Bild (Werte von 0 bis 1)",
+                    "caption": "Transparency value for the image (values from 0 to 1)",
                     "digits": 1,
                     "minimum": 0.0,
                     "maximum": 1.0,
@@ -54,7 +54,7 @@
                     "type": "SelectColor",
                     "allowTransparent": "false",
                     "name": "Kachelhintergrundfarbe",
-                    "caption": "Kachelhintergrundfarbe"
+                    "caption": "Tile background color"
                   }
                 ]
               }
@@ -62,7 +62,7 @@
           },
 
         {   "type": "Label", 
-            "caption": "Bewohner 1",
+            "caption": "Resident 1",
             "bold": true
         },
         {
@@ -77,13 +77,13 @@
         { 
             "type": "SelectMedia", 
             "name": "Bewohner1Image", 
-            "caption": "Foto"
+            "caption": "Photo"
         }]},
 
 
 
         {   "type": "Label", 
-            "caption": "Bewohner 2",
+            "caption": "Resident 2",
             "bold": true
         },
         {
@@ -98,13 +98,13 @@
         { 
             "type": "SelectMedia", 
             "name": "Bewohner2Image", 
-            "caption": "Foto"
+            "caption": "Photo"
         }]},
 
 
 
         {   "type": "Label", 
-            "caption": "Bewohner 3",
+            "caption": "Resident 3",
             "bold": true
         },
         {
@@ -119,13 +119,13 @@
         { 
             "type": "SelectMedia", 
             "name": "Bewohner3Image", 
-            "caption": "Foto"
+            "caption": "Photo"
         }]},
 
 
 
         {   "type": "Label", 
-            "caption": "Bewohner 4",
+            "caption": "Resident 4",
             "bold": true
         },
         {
@@ -140,11 +140,11 @@
         { 
             "type": "SelectMedia", 
             "name": "Bewohner4Image", 
-            "caption": "Foto"
+            "caption": "Photo"
         }]},
         {   
             "type": "Label", 
-            "caption": "Bewohner 5",
+            "caption": "Resident 5",
             "bold": true
         },
         {
@@ -159,7 +159,7 @@
         { 
             "type": "SelectMedia", 
             "name": "Bewohner5Image", 
-            "caption": "Foto"
+            "caption": "Photo"
         }]},
         {   
             "type": "Label", 
@@ -171,7 +171,7 @@
             "items": [
         {   "type": "NumberSpinner",
             "name": "Schriftgroesse", 
-            "caption": "Schriftgröße in em", 
+            "caption": "Font size in em", 
             "digits": 1,
             "minimum": 0.5,
             "maximum": 2.0,
@@ -179,7 +179,7 @@
         },
         {   "type": "NumberSpinner",
             "name": "Eckenradius", 
-            "caption": "Eckenradius in %", 
+            "caption": "Corner radius in %", 
             "digits": 1,
             "minimum": 0.0,
             "maximum": 50,
@@ -194,12 +194,12 @@
     {
         "type": "CheckBox",
         "name": "NameSwitch",
-        "caption": "Name anzeigen"
+        "caption": "Display name"
     },
     {
         "type": "CheckBox",
         "name": "BedienungSwitch",
-        "caption": "Bedienung sperren"
+        "caption": "Lock operation"
     }
     ]},
 
@@ -210,11 +210,11 @@
   },
     {
       "type": "Label",
-      "caption": "Spenden / Schenkung"
+      "caption": "Donations / Gifts"
   },
   {
       "type": "Label",
-      "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:    "
+      "caption": "Say thank you and support the developer of this module:"
   },
     {
       "type": "RowLayout",
