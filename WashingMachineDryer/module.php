@@ -266,8 +266,7 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        $status123 = '';
-        // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
+         // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
         $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
         $statusMappingColor = [];
@@ -277,13 +276,7 @@ class TileVisuWashingMaschine extends IPSModule
                       
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
 
-
-                // Wenn $status123 leer ist, setze alle StatusBalken auf true
-   // if($status123 === '') {
-     //   $statusMappingBalken[$item['AssoziationValue']] = true;
-   // } else {
         $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
-   // }
 
         }
 
