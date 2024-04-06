@@ -9,7 +9,7 @@
             "caption": "Up to 5 residents can be configured. Non-configured residents will be hidden. (Optional) Photos must be created as media objects. Photos should have an aspect ratio of 1:1. If a resident is absent, the photo will be displayed in grayscale. Present residents in color."
         },
         {   "type": "Label", 
-            "caption": "A Bool variable is needed for each resident. true = present, false = absent"
+            "caption": "Je Bewohner wird eine Bool-Variable benötigt. (true = anwesend, false = abwesend)"
         },
         {   "type": "Label", 
             "caption": "Example of a configured tile" 
