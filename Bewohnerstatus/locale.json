@@ -2,6 +2,7 @@
     "translations": {
         "de": {
             "Tile configuration:": "Kachelkonfiguration:",
+            "The Resident Status Tile graphically represents the presence status of up to 5 residents.": "Die Bewohner-Status Kachel stellt den Anwesenheitsstatus von bis zu 5 Bewohnern grafisch dar.",
             "Up to 5 residents can be configured. Non-configured residents will be hidden. (Optional) Photos must be created as media objects. Photos should have an aspect ratio of 1:1. If a resident is absent, the photo will be displayed in grayscale. Present residents in color.": "Es können bis zu 5 Bewohner konfiguriert werden. Nicht konfigurierte Bewohner werden ausgeblendet. (Optional) Fotos müssen als MedienObjekt angelegt werden. Fotos sollten ein Seitenverhältnis von 1:1 haben. Ist ein Bewohner abwesend wird das Foto in Graustufen abgebildet. Anwesende Bewohner in Farbe.",
             "A Bool variable is needed for each resident. (true = present, false = absent)": "Je Bewohner wird eine Bool-Variable benötigt. (true = anwesend, false = abwesend)",
             "Example of a configured tile": "Beispiel einer konfigurierten Kachel",
