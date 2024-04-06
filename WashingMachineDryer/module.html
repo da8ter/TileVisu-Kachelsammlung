@@ -310,7 +310,17 @@
                         }
                         root.style.setProperty('--statuscolor', statusColor[index]);
 
-                        statusbalken = statusBalken[index] || false;
+
+                        if (!statusBalken[index]) {
+                            statusbalken = true;
+                        }
+                        else
+                        {
+                            statusbalken = statusBalken[index] || false;
+                        }
+
+
+                        
 
                         if (statusbalken === false) {
                             restlaufzeit.textContent = '0';

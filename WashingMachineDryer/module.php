@@ -279,11 +279,11 @@ class TileVisuWashingMaschine extends IPSModule
 
 
                 // Wenn $status123 leer ist, setze alle StatusBalken auf true
-    if($status123 === '') {
-        $statusMappingBalken[$item['AssoziationValue']] = true;
-    } else {
+   // if($status123 === '') {
+     //   $statusMappingBalken[$item['AssoziationValue']] = true;
+   // } else {
         $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
-    }
+   // }
 
         }
 
