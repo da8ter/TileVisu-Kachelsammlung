@@ -266,25 +266,27 @@ class TileVisuWashingMaschine extends IPSModule
         }
 
 
-        $status123 = ''; // Beispielwert, setzen Sie hier die tatsächliche Variable
+        $status123 = '';
         // Formulardaten lesen und Statusmapping Array für Bild und Farbe erstellen
-        $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziationen'), true);
+        $assoziationsArray = json_decode($this->ReadPropertyString('ProfilAssoziazionen'), true);
         $statusMappingImage = [];
         $statusMappingColor = [];
         $statusMappingBalken = [];
         foreach ($assoziationsArray as $item) {
             $statusMappingImage[$item['AssoziationValue']] = $item['Bildauswahl'];
-            
+                      
             $statusMappingColor[$item['AssoziationValue']] = $item['StatusColor'] === -1 ? "" : sprintf('%06X', $item['StatusColor']);
-        
-            // Wenn $status123 leer ist, setze alle StatusBalken auf false
-            if($status123 === '') {
-                $statusMappingBalken[$item['AssoziationValue']] = true;
-            } else {
-                $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
-            }
+
+
+                // Wenn $status123 leer ist, setze alle StatusBalken auf true
+    if($status123 === '') {
+        $statusMappingBalken[$item['AssoziationValue']] = false;
+    } else {
+        $statusMappingBalken[$item['AssoziationValue']] = $item['StatusBalken'];
+    }
+
         }
-        
+
         $statusImagesJson = json_encode($statusMappingImage);
         $statusColorJson = json_encode($statusMappingColor);
         $statusStatusBalkenJson = json_encode($statusMappingBalken);
@@ -293,7 +295,6 @@ class TileVisuWashingMaschine extends IPSModule
         $images .= 'var statusColor = ' . $statusColorJson . ';';
         $images .= 'var statusBalken = ' . $statusStatusBalkenJson . ';';
         $images .= '</script>';
-        
 
 
 
