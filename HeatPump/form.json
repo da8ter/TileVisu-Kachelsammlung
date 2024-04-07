@@ -7,7 +7,7 @@
         },
         {
             "type": "Label",
-            "caption": "Beispiel einer voll konfigurierten Kachel"
+            "caption": "Example of a configured tile"
         },
         {
             "type": "Image",
@@ -15,17 +15,17 @@
         },
         {
             "type": "ExpansionPanel",
-            "caption": "Kacheldesign",
+            "caption": "Tile design",
             "items": [
                 {
                     "type": "Label",
-                    "caption": "Kachel",
+                    "caption": "Tile",
                     "bold": true
                 },
                 {
                     "type": "CheckBox",
                     "name": "BG_Off",
-                    "caption": "Standard-Hintergrundbild"
+                    "caption": "Standard background image"
                 },
                 {
                     "type": "RowLayout",
@@ -33,12 +33,12 @@
                         {
                             "type": "SelectMedia",
                             "name": "bgImage",
-                            "caption": "Hintergrundbild"
+                            "caption": "Background image"
                         },
                         {
                             "type": "NumberSpinner",
                             "name": "Bildtransparenz",
-                            "caption": "Transparenz Bild (Werte von 0 bis 1)",
+                            "caption": "Transparency value for the image (values from 0 to 1)",
                             "digits": 1,
                             "minimum": 0.0,
                             "maximum": 1.0,
@@ -48,7 +48,7 @@
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "Kachelhintergrundfarbe",
-                            "caption": "Kachelhintergrundfarbe"
+                            "caption": "Tile background color"
                         }
                     ]
                 }
@@ -74,7 +74,7 @@
                     "type": "PopupButton",
                     "caption": "Assign images",
                     "popup": {
-                        "caption": "Bilder zum Wärmepumpenstatus zuordnen",
+                        "caption": "Assign images to heat pump status",
                         "items": [
                             {
                                 "type": "Select",
@@ -551,7 +551,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "SchriftgroesseStatus",
-                            "caption": "Schriftgröße Status/Modus",
+                            "caption": "Font size Status/Modus",
                             "digits": 1,
                             "minimum": 0.5,
                             "maximum": 2.0,
@@ -560,7 +560,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "SchriftgroesseBalken",
-                            "caption": "Schriftgröße Balken",
+                            "caption": "Font size Balken",
                             "digits": 1,
                             "minimum": 0.5,
                             "maximum": 2.0,
@@ -569,7 +569,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "SchriftgroesseDetails",
-                            "caption": "Schriftgröße JAZ, Temp., Verbrauch etc. in em",
+                            "caption": "Font size JAZ, Temp., Verbrauch etc. in em",
                             "digits": 1,
                             "minimum": 0.5,
                             "maximum": 2.0,
@@ -579,12 +579,12 @@
                 },
                 {
                     "type": "Label",
-                    "caption": "Balkenfarben",
+                    "caption": "Bar colors",
                     "bold": true
                 },
                 {
                     "type": "Label",
-                    "caption": "Leistung:",
+                    "caption": "Power:",
                     "bold": false
                 },
                 {
@@ -594,19 +594,19 @@
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "powerbalkenfarbe1",
-                            "caption": "Farbe 1"
+                            "caption": "Color 1"
                         },
                         {
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "powerbalkenfarbe2",
-                            "caption": "Farbe 2"
+                            "caption": "Color 2"
                         }
                     ]
                 },
                 {
                     "type": "Label",
-                    "caption": "Kompressor:",
+                    "caption": "Compressor:",
                     "bold": false
                 },
                 {
@@ -616,13 +616,13 @@
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "kompressorbalkenfarbe1",
-                            "caption": "Farbe 1"
+                            "caption": "Color 1"
                         },
                         {
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "kompressorbalkenfarbe2",
-                            "caption": "Farbe 2"
+                            "caption": "Color 2"
                         }
                     ]
                 },
@@ -638,13 +638,13 @@
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "durchflussbalkenfarbe1",
-                            "caption": "Farbe 1"
+                            "caption": "Color 1"
                         },
                         {
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "durchflussbalkenfarbe2",
-                            "caption": "Farbe 2"
+                            "caption": "Color 2"
                         }
                     ]
                 },
@@ -660,13 +660,13 @@
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "luefterbalkenfarbe1",
-                            "caption": "Farbe 1"
+                            "caption": "Color 1"
                         },
                         {
                             "type": "SelectColor",
                             "allowTransparent": "false",
                             "name": "luefterbalkenfarbe2",
-                            "caption": "Farbe 2"
+                            "caption": "Color 2"
                         }
                     ]
                 }
@@ -678,11 +678,11 @@
         },
         {
             "type": "Label",
-            "caption": "Spenden / Schenkung"
+            "caption": "Donations / Gifts"
         },
         {
             "type": "Label",
-            "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:    "
+            "caption": "Say thank you and support the developer of this module:"
         },
         {
             "type": "RowLayout",
