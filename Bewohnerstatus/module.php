@@ -149,13 +149,22 @@
                     'Bewohner4' => $Bewohner4Exists,
                     'Bewohner5' => $Bewohner5Exists
                 ];
+                $result['bewohner1altname'] =  $this->ReadPropertyString('Bewohner1AltName');
+                $result['bewohner2altname'] =  $this->ReadPropertyString('Bewohner2AltName');
+                $result['bewohner3altname'] =  $this->ReadPropertyString('Bewohner3AltName');
+                $result['bewohner4altname'] =  $this->ReadPropertyString('Bewohner4AltName');
+                $result['bewohner5altname'] =  $this->ReadPropertyString('Bewohner5AltName');
                 $result['nameswitch'] = $this->ReadPropertyBoolean('NameSwitch');
                 $result['fontsize'] = $this->ReadPropertyFloat('Schriftgroesse');
                 $result['eckenradius'] = $this->ReadPropertyFloat('Eckenradius');
                 $result['bildtransparenz'] =  $this->ReadPropertyFloat('Bildtransparenz');
                 $result['kachelhintergrundfarbe'] =  '#' . sprintf('%06X', $this->ReadPropertyInteger('Kachelhintergrundfarbe'));
                 if ($Bewohner1Exists) {
-                    $result['name1'] = IPS_GetName($Bewohner1ID);
+                    if (!empty($result['bewohner1altname'])) {
+                        $result['name1'] = $result['bewohner1altname'];
+                    } else {
+                        $result['name1'] = IPS_GetName($Bewohner1ID);
+                    }
                     $result['value1'] = GetValueBoolean($Bewohner1ID);
 
                     //Hintergrundbild
