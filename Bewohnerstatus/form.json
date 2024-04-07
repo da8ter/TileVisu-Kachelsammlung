@@ -77,10 +77,8 @@
                 {
                     "type": "SelectObject",
                     "name": "Bewohner1",
-                    "caption": "Status",
-                    "validVariableTypes": [
-                        0
-                    ]
+                    "caption": "Status"
+
                 },
                 {
                     "type": "SelectMedia",
