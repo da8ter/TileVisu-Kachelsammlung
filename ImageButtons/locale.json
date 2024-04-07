@@ -25,14 +25,13 @@
             "Switch10:": "Schalter10",
             "Setting": "Einstellung",
             "Font size": "Schriftgröße",
-            "Variablenname überschreiben": "Overwrite variable name",
-            "Wert anzeigen": "Display value",
-            "Variablenicon verwenden": "Use variable icon",
-            "Icon anzeigen": "Display icon",
-            "Variablenname anzeigen": "Display variable name",
-            "Breite": "Width",
-            "Einstellung": "Setting",
-            "Switch6": "Schalter6"
+            "Overwrite variable name": "Variablenname überschreiben",
+            "Display value": "Wert anzeigen",
+            "Use variable icon": "Variablenicon verwenden",
+            "Display icon": "Icon anzeigen",
+            "Display variable name": "Variablenname anzeigen",
+            "Width": "Breite",
+            "Setting": "Einstellung"
         }
     }
 }
