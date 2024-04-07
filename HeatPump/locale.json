@@ -9,7 +9,7 @@
             "Background image": "Hintergrundbild",
             "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
             "Tile background color": "Kachel-Hintergrundfarbe",
-            "Heat pump status and modes": "Wärmepumpe Status und Modus",
+            "Heat pump status and modes:": "Wärmepumpe Status und Modus",
             "Status:": "Status:",
             "Assign images to heat pump status": "Bilder dem Wärmepumpenstatus zuordnen",
             "OFF": "AUS",
