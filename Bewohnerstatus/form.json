@@ -77,7 +77,8 @@
                 {
                     "type": "SelectObject",
                     "name": "Bewohner1",
-                    "caption": "Status"
+                    "caption": "Status",
+                    "value": ""
 
                 },
                 {
