@@ -440,7 +440,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "ConsumptionToday",
-                    "caption": "Consumption today:",
+                    "caption": "Consumption Today:",
                     "validVariableTypes": [
                         1,
                         2
@@ -513,7 +513,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodPhase1",
-                    "caption": "Heating rod 1 status:",
+                    "caption": "HWT Heating rod 1 status:",
                     "validVariableTypes": [
                         0
                     ]
@@ -521,7 +521,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodPhase2",
-                    "caption": "Heating rod 2 status:",
+                    "caption": "HWT Heating rod 2 status:",
                     "validVariableTypes": [
                         0
                     ]
@@ -529,7 +529,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodPhase3",
-                    "caption": "Heating rod 3 status:",
+                    "caption": "HWT Heating rod 3 status:",
                     "validVariableTypes": [
                         0
                     ]
