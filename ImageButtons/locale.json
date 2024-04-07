@@ -25,7 +25,7 @@
             "Switch10:": "Schalter10",
             "Setting": "Einstellung",
             "Font size": "Schriftgröße",
-            "Overwrite variable name": "Variablenname überschreiben",
+            "Overwrite variable name:": "Variablenname überschreiben",
             "Display value": "Wert anzeigen",
             "Use variable icon": "Variablenicon verwenden",
             "Display icon": "Icon anzeigen",
