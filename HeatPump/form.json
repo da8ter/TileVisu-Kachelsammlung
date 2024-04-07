@@ -7,7 +7,7 @@
         },
         {
             "type": "Label",
-            "caption": "Example of a configured tile"
+            "caption": "Example of a fully configured tile"
         },
         {
             "type": "Image",
@@ -38,7 +38,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "Bildtransparenz",
-                            "caption": "Transparency value for the image (values from 0 to 1)",
+                            "caption": "Image transparency (values from 0 to 1)",
                             "digits": 1,
                             "minimum": 0.0,
                             "maximum": 1.0,
@@ -339,7 +339,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "Flow",
-                    "caption": "Flow:",
+                    "caption": "Flow rate:",
                     "validVariableTypes": [
                         1,
                         2
@@ -348,7 +348,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "FanRotations",
-                    "caption": "Fan rotations:",
+                    "caption": "Fan speed:",
                     "validVariableTypes": [
                         1,
                         2
@@ -505,7 +505,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodBackupStatus",
-                    "caption": "Backup Heater Status:",
+                    "caption": "Backup Heater status:",
                     "validVariableTypes": [
                         0
                     ]
@@ -513,7 +513,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodPhase1",
-                    "caption": "Heating rod Status Phase1:",
+                    "caption": "Heating rod 1 status:",
                     "validVariableTypes": [
                         0
                     ]
@@ -521,7 +521,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodPhase2",
-                    "caption": "Heating rod Status Phase2:",
+                    "caption": "Heating rod 2 status:",
                     "validVariableTypes": [
                         0
                     ]
@@ -529,7 +529,7 @@
                 {
                     "type": "SelectVariable",
                     "name": "HeaterRodPhase3",
-                    "caption": "Heating rod Status Phase3:",
+                    "caption": "Heating rod 3 status:",
                     "validVariableTypes": [
                         0
                     ]
@@ -551,7 +551,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "SchriftgroesseStatus",
-                            "caption": "Font size Status/Modus",
+                            "caption": "Font size for status/mode",
                             "digits": 1,
                             "minimum": 0.5,
                             "maximum": 2.0,
@@ -560,7 +560,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "SchriftgroesseBalken",
-                            "caption": "Font size Balken",
+                            "caption": "Font size for bars",
                             "digits": 1,
                             "minimum": 0.5,
                             "maximum": 2.0,
@@ -569,7 +569,7 @@
                         {
                             "type": "NumberSpinner",
                             "name": "SchriftgroesseDetails",
-                            "caption": "Font size JAZ, Temp., Verbrauch etc. in em",
+                            "caption": "Font size for SPF, Temp., consumption, etc.",
                             "digits": 1,
                             "minimum": 0.5,
                             "maximum": 2.0,
@@ -650,7 +650,7 @@
                 },
                 {
                     "type": "Label",
-                    "caption": "Fan rotations:",
+                    "caption": "Fan speed:",
                     "bold": false
                 },
                 {
