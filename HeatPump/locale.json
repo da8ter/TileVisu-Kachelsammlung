@@ -1,9 +1,59 @@
 {
     "translations": {
-        "de": { 
-            "Tile configuration:": "Kachelkonfiguration:"
-
-
+        "de": {
+            "Tile configuration:": "Tile configuration:",
+            "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
+            "Tile design": "Kacheldesign",
+            "Tile": "Kachel",
+            "Standard background image": "Standard-Hintergrundbild",
+            "Background image": "Hintergrundbild",
+            "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
+            "Status and mode": "Status und Modus",
+            "Status:": "Status:",
+            "Assign images to heat pump status": "Bilder dem Wärmepumpenstatus zuordnen",
+            "OFF": "AUS",
+            "HEATING": "HEIZEN",
+            "HOT WATER": "WARMWASSER",
+            "COOLING": "KÜHLEN",
+            "Mode:": "Modus:",
+            "Current performance values:": "Aktuelle Leistungswerte:",
+            "Power:": "Leistung:",
+            "Flow rate:": "Durchfluss:",
+            "Fan speed:": "Lüfterdrehzahl:",
+            "Compressor:": "Kompressor:",
+            "Efficiency values:": "Effizienzwerte:",
+            "COP:": "COP:",
+            "SPF:": "JAZ:",
+            "SPF heating:": "JAZ heizen:",
+            "SPF cooling:": "JAZ kühlen:",
+            "SPF hot water:": "JAZ Warmwasser:",
+            "Energy consumption:": "Energieverbrauch:",
+            "Consumption:": "Verbrauch:",
+            "Consumption Today:": "Verbrauch Heute:",
+            "Temperatures:": "Temperaturen:",
+            "Outdoor temperature:": "Außentemperatur:",
+            "Hot water temperature:": "Warmwassertemperatur:",
+            "Flow temperature:": "Vorlauftemperatur:",
+            "Return temperature:": "Rücklauftemperatur:",
+            "Heating rods:": "Heizstäbe:",
+            "Heat pump heating rod:": "Heizstab Wärmepumpe:",
+            "Hot water heating rod 1:": "Heizstab Warmwasser 1:",
+            "Hot water heating rod 2:": "Heizstab Warmwasser 2:",
+            "Hot water heating rod 3:": "Heizstab Warmwasser 3:",
+            "Layout settings": "Layouteinstellungen",
+            "Font sizes": "Schriftgrößen",
+            "Font size for status/mode": "Schriftgröße Status/Modus",
+            "Font size for bars": "Schriftgröße Balken",
+            "Font size for SPF, Temp., consumption, etc.": "Schriftgröße JAZ, Temp., Verbraucher etc.",
+            "Bar colors": "Balkenfarben",
+            "Color 1": "Farbe 1",
+            "Color 2": "Farbe 2",
+            "Today:": "Heute:",
+            "Temp:": "Temp:",
+            "HP:": "WP:",
+            "HWT:": "WW-Speicher:"
+            "Donations / Gifts": "Spenden / Schenkungen",
+            "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
         }
     }
 }
