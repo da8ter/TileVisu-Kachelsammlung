@@ -7,7 +7,7 @@
         },
         {
             "type": "Label",
-            "caption": "Die Bewohner-Status Kachel stellt den Anwesenheitsstatus von bis zu 5 Bewohnern grafisch dar."
+            "caption": "The Resident Status Tile graphically represents the presence status of up to 5 residents."
         },
         {
             "type": "Label",
