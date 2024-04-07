@@ -89,7 +89,7 @@
                 },
                 {
                     "type": "ValidationTextBox",
-                    "name": "Schalter2AltName",
+                    "name": "Bewohner1AltName",
                     "caption": "Overwrite variable name:"
                 }
             ]
@@ -114,6 +114,11 @@
                     "type": "SelectMedia",
                     "name": "Bewohner2Image",
                     "caption": "Photo"
+                },
+                {
+                    "type": "ValidationTextBox",
+                    "name": "Bewohner2AltName",
+                    "caption": "Overwrite variable name:"
                 }
             ]
         },
@@ -137,6 +142,11 @@
                     "type": "SelectMedia",
                     "name": "Bewohner3Image",
                     "caption": "Photo"
+                },
+                {
+                    "type": "ValidationTextBox",
+                    "name": "Bewohner3AltName",
+                    "caption": "Overwrite variable name:"
                 }
             ]
         },
@@ -160,6 +170,11 @@
                     "type": "SelectMedia",
                     "name": "Bewohner4Image",
                     "caption": "Photo"
+                },
+                {
+                    "type": "ValidationTextBox",
+                    "name": "Bewohner4AltName",
+                    "caption": "Overwrite variable name:"
                 }
             ]
         },
@@ -183,6 +198,11 @@
                     "type": "SelectMedia",
                     "name": "Bewohner5Image",
                     "caption": "Photo"
+                },
+                {
+                    "type": "ValidationTextBox",
+                    "name": "Bewohner5AltName",
+                    "caption": "Overwrite variable name:"
                 }
             ]
         },
