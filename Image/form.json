@@ -2,17 +2,17 @@
     "elements": [
         {
             "type": "Label",
-            "caption": "Kachel-Konfiguration:",
+            "caption": "Tile configuration:",
             "bold": true
         },
         {
             "type": "Label",
-            "caption": "Die Kachel Photovoltaik Übersicht bietet einen schnellen Überblick über die Verwendung der erzeugten PV-Energie, Verbrauch, Import und Export. Alle Quellvariablen benötigen ein aktives Logging. Erwartete Werte: kWh. Der Tagesverbrauch kann optional durch das Modul berechnet werden. Ein Batteriespeicher wird optional unterstützt."
+            "caption": "The image tile offers the possibility to display a photo."
         },
         {
             "type": "SelectMedia",
             "name": "bgImage",
-            "caption": "Foto"
+            "caption": "Photo"
         },
         {
             "type": "Label",
@@ -20,11 +20,11 @@
         },
         {
             "type": "Label",
-            "caption": "Spenden / Schenkung"
+            "caption": "Donations / Gifts"
         },
         {
             "type": "Label",
-            "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:    "
+            "caption": "Say thank you and support the developer of this module:"
         },
         {
             "type": "RowLayout",
