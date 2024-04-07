@@ -268,7 +268,12 @@
                 
                 
                 if ($Bewohner2Exists) {
-                    $result['name2'] = IPS_GetName($Bewohner2ID);
+                    if (!empty($result['bewohner2altname'])) {
+                        $result['name2'] = $result['bewohner2altname'];
+                    } else {
+                        $result['name2'] = IPS_GetName($Bewohner2ID);
+                    }
+                    
                     $result['value2'] = GetValueBoolean($Bewohner2ID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
@@ -321,7 +326,11 @@
 
 
                 if ($Bewohner3Exists) {
-                    $result['name3'] = IPS_GetName($Bewohner3ID);
+                    if (!empty($result['bewohner3altname'])) {
+                        $result['name3'] = $result['bewohner3altname'];
+                    } else {
+                        $result['name3'] = IPS_GetName($Bewohner3ID);
+                    }
                     $result['value3'] = GetValueBoolean($Bewohner3ID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
@@ -373,7 +382,11 @@
                 }
 
                 if ($Bewohner4Exists) {
-                    $result['name4'] = IPS_GetName($Bewohner4ID);
+                    if (!empty($result['bewohner4altname'])) {
+                        $result['name4'] = $result['bewohner4altname'];
+                    } else {
+                        $result['name4'] = IPS_GetName($Bewohner4ID);
+                    }
                     $result['value4'] = GetValueBoolean($Bewohner4ID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
@@ -424,7 +437,11 @@
 
                 }
                 if ($Bewohner5Exists) {
-                    $result['name5'] = IPS_GetName($Bewohner5ID);
+                    if (!empty($result['bewohner5altname'])) {
+                        $result['name5'] = $result['bewohner5altname'];
+                    } else {
+                        $result['name5'] = IPS_GetName($Bewohner5ID);
+                    }
                     $result['value5'] = GetValueBoolean($Bewohner5ID);
 
                     // Prüfe vorweg, ob ein Bild ausgewählt wurde
