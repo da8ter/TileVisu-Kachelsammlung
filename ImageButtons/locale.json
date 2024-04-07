@@ -1,8 +1,37 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "Tile configuration:": "Kachelkonfiguration:",
+            "Tile design": "Kacheldesign",
+            "Tile": "Kachel",
+            "Standard background image": "Standard-Hintergrundbild",
+            "Background image": "Hintergrundbild",
+            "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
+            "Tile background color": "Kachel-Hintergrundfarbe",
+            "Donations / Gifts": "Spenden / Schenkungen",
+            "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:",
+            "Switch": "Schalter",
+            "Switch:": "Schalter:",
+            "Switch1": "Schalter1",
+            "Switch2": "Schalter2",
+            "Switch3": "Schalter3",
+            "Switch4": "Schalter4",
+            "Switch5": "Schalter5",
+            "Switch6": "Schalter6",
+            "Switch7": "Schalter7",
+            "Switch8": "Schalter8",
+            "Switch9": "Schalter9",
+            "Switch10": "Schalter10",
+            "Setting": "Einstellung",
+            "Font size": "Schriftgröße",
+            "Variablenname überschreiben": "Overwrite variable name",
+            "Wert anzeigen": "Display value",
+            "Variablenicon verwenden": "Use variable icon",
+            "Icon anzeigen": "Display icon",
+            "Variablenname anzeigen": "Display variable name",
+            "Breite": "Width",
+            "Einstellung": "Setting",
+            "Switch6": "Schalter6"
         }
     }
 }
