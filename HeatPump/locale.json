@@ -1,43 +1,8 @@
 {
     "translations": {
         "de": { 
-            "Tile configuration:": "Kachelkonfiguration:",
-            "Heat pump status and modes:": "Wärmepumpenstatus und Modus:",
-            "Status:": "Status:",
-            "Image assignment depending on status": "Status-Bildzuordnung",
-            "OFF": "AUS",
-            "HEATING": "HEIZEN",
-            "HOT WATER": "WARMWASSER",
-            "COOLING": "KÜHLEN",
-            "Mode:": "Modus:",
-            "Temperatures": "Temperaturen",
-            "Outdoor temperature:": "Außentemperatur:",
-            "Hot water temperature:": "Warmwassertemperatur:",
-            "Flow temperature:": "Vorlauftemperatur:",
-            "Return temperature:": "Rücklauftemperatur:",
-            "Heating rods": "Heizstäbe:",
-            "Heater Rods:": "Heizstäbe:",
-            "Backup Heater Status:": "Heizstab Wärmepumpe:",
-            "Heating rod Status Phase1:": "Heizstab Warmwasser 1:",
-            "Heating rod Status Phase2:": "Heizstab Warmwasser 2:",
-            "Heating rod Status Phase3:": "Heizstab Warmwasser 3:",
-            "Current performance:": "Aktuelle Leistungswerte:",
-            "Power:": "Leistung:",
-            "Compressor power:": "Kompressor:",
-            "Compressor:": "Kompressor:",
-            "Flow:": "Durchfluss:",
-            "Fan rotations:": "Lüfterdrehzahl:",
-            "Efficiency values:": "Effizienzwerte:",
-            "SPF:": "JAZ:",
-            "SPF heating:": "JAZ heizen:",
-            "SPF cooling:": "JAZ kühlen:",
-            "SPF hot water:": "JAZ Warmwasser:",
-            "COP:": "COP:",
-            "Power consumption": "Energieverbrauch",
-            "Consumption:": "Verbrauch:",
-            "Consumption today:": "Verbrauch Heute:",
-            "Assign images": "Bilder zuordnen",
-            "Assign images to the heat pump status": "Bilder zum Wärmepumpenstatus zuordnen"
+            "Tile configuration:": "Kachelkonfiguration:"
+
 
         }
     }
