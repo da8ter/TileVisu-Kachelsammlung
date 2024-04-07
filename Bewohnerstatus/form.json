@@ -75,11 +75,12 @@
             "type": "RowLayout",
             "items": [
                 {
-                    "type": "SelectObject",
+                    "type": "SelectVariable",
                     "name": "Bewohner1",
                     "caption": "Status",
-                    "value": ""
-
+                    "validVariableTypes": [
+                        0
+                    ]
                 },
                 {
                     "type": "SelectMedia",
