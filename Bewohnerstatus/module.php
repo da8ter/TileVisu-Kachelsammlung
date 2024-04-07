@@ -18,11 +18,11 @@
             $this->RegisterPropertyInteger('Bewohner3Image', 0);
             $this->RegisterPropertyInteger('Bewohner4Image', 0);
             $this->RegisterPropertyInteger('Bewohner5Image', 0);
-            $this->RegisterPropertyString("Bewohner1AltName", 0);
-            $this->RegisterPropertyString('Bewohner2AltName', 0);
-            $this->RegisterPropertyString('Bewohner3AltName', 0);
-            $this->RegisterPropertyString('Bewohner4AltName', 0);
-            $this->RegisterPropertyString('Bewohner5AltName', 0);
+            $this->RegisterPropertyString("Bewohner1AltName", '');
+            $this->RegisterPropertyString('Bewohner2AltName', '');
+            $this->RegisterPropertyString('Bewohner3AltName', '');
+            $this->RegisterPropertyString('Bewohner4AltName', '');
+            $this->RegisterPropertyString('Bewohner5AltName', '');
             $this->RegisterPropertyFloat('Schriftgroesse', 1);
             $this->RegisterPropertyFloat('Eckenradius', 50);
             $this->RegisterPropertyBoolean('BG_Off', 1);
