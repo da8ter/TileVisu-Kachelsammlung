@@ -2,6 +2,7 @@
     "translations": {
         "de": {
             "Tile configuration:": "Kachelkonfiguration:",
+            "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
             "Tile design": "Kacheldesign",
             "Tile": "Kachel",
             "Standard background image": "Standard-Hintergrundbild",
