@@ -75,7 +75,7 @@
             "type": "RowLayout",
             "items": [
                 {
-                    "type": "SelectVariable",
+                    "type": "SelectObject",
                     "name": "Bewohner1",
                     "caption": "Status",
                     "validVariableTypes": [
