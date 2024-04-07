@@ -1,7 +1,7 @@
 {
     "translations": {
         "de": {
-            "Tile configuration:": "Tile configuration:",
+            "Tile configuration:": "Kachelkonfiguration:",
             "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
             "Tile design": "Kacheldesign",
             "Tile": "Kachel",
@@ -9,7 +9,7 @@
             "Background image": "Hintergrundbild",
             "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
             "Tile background color": "Kachel-Hintergrundfarbe",
-            "Heatpump status and mode": "Wärmepumpe Status und Modus",
+            "Heat pump status and modes": "Wärmepumpe Status und Modus",
             "Status:": "Status:",
             "Assign images to heat pump status": "Bilder dem Wärmepumpenstatus zuordnen",
             "OFF": "AUS",
@@ -21,7 +21,7 @@
             "Power:": "Leistung:",
             "Flow rate:": "Durchfluss:",
             "Fan speed:": "Lüfterdrehzahl:",
-            "Compressor power:": "Kompressor:",
+            "Compressor:": "Kompressor:",
             "Power consumption": "Effizienzwerte:",
             "COP:": "COP:",
             "SPF:": "JAZ:",
