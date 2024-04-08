@@ -12,7 +12,7 @@
         {
             "type": "SelectMedia",
             "name": "bgImage",
-            "caption": "Photo"
+            "caption": "Image"
         },
         {
             "type": "Label",

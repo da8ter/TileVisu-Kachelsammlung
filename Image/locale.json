@@ -1,6 +1,7 @@
 {
     "translations": {
         "de": {
+            "TileVisu Image": "TileVisu Bild",
             "Tile configuration:": "Kachelkonfiguration:",
             "The image tile offers the possibility to display a photo.": "Die Bild-Kachel bietet die Möglichkeit ein vollflächiges Foto abzubilden",
             "Photo": "Foto",
