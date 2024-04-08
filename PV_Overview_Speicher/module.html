@@ -30,6 +30,7 @@
 
         html {
             background-color: var(--hintergrundfarbe);
+            overflow: hidden;
         }
 
         body:before {
@@ -126,7 +127,7 @@
         .balken_links_eigenverbrauch {
             width: var(--eigenverbrauch_prozent);
             background: repeating-linear-gradient(to right, var(--eigenverbrauchverlauffarbe1) 0%, var(--eigenverbrauchverlauffarbe2) 50%, var(--eigenverbrauchverlauffarbe1) 100%);
-            background-size: 200% auto;
+            background-size: 200vw auto;
             background-position: 0 100%;
             animation: gradient_forschritt 10s infinite;
             animation-fill-mode: forwards;
