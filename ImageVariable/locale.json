@@ -1,8 +1,14 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "Variable": "Variable",
+            "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
+            "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
+            "Font size": "Schriftgröße",
+            "Font color": "Schriftfarbe",
+            "Donations / Gifts": "Spenden / Schenkungen",
+            "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
+
         }
     }
 }

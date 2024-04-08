@@ -9,12 +9,12 @@
         {
             "type": "SelectMedia",
             "name": "bgImage",
-            "caption": "Fotos"
+            "caption": "Photo:"
         },
         {
             "type": "NumberSpinner",
             "name": "Bildtransparenz",
-            "caption": "Transparenz Bild (Werte von 0 bis 1",
+            "caption": "Image transparency (values from 0 to 1)",
             "digits": 1,
             "minimum": 0.0,
             "maximum": 1.0,
@@ -23,7 +23,7 @@
         {
             "type": "NumberSpinner",
             "name": "Schriftgroesse",
-            "caption": "Schriftgröße",
+            "caption": "Font size",
             "digits": 1,
             "minimum": 0.5,
             "maximum": 10.0,
@@ -33,13 +33,13 @@
             "type": "SelectColor",
             "allowTransparent": "false",
             "name": "Kachelhintergrundfarbe",
-            "caption": "Kachelhintergrundfarbe"
+            "caption": "Tile background color"
         },
         {
             "type": "SelectColor",
             "allowTransparent": "false",
             "name": "Schriftfarbe",
-            "caption": "Schriftfarbe"
+            "caption": "Font color"
         },
         {
             "type": "Label",
@@ -47,11 +47,11 @@
         },
         {
             "type": "Label",
-            "caption": "Spenden / Schenkung"
+            "caption": "Donations / Gifts"
         },
         {
             "type": "Label",
-            "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:    "
+            "caption": "Say thank you and support the developer of this module:"
         },
         {
             "type": "RowLayout",
