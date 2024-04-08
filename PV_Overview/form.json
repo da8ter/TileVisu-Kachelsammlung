@@ -2,16 +2,16 @@
   "elements": [
     {
       "type": "Label",
-      "caption": "Kachel-Konfiguration:",
+      "caption": "Tile configuration:",
       "bold": true
     },
     {
       "type": "Label",
-      "caption": "Die Kachel Photovoltaik Übersicht bietet einen schnellen Überblick über die Verwendung der erzeugten PV-Energie, Verbrauch, Import und Export. Alle Quellvariablen benötigen ein aktives Logging. Erwartete Werte: kWh. Der Tagesverbrauch kann optional durch das Modul berechnet werden. Ein Batteriespeicher wird optional unterstützt."
+      "caption": "The Solar Panel Overview tile provides a quick overview of the usage of produced PV energy, consumption, import, and export. All source variables require active logging. Expected values: kWh. Daily consumption can optionally be calculated by the module. A battery storage is optionally supported."
     },
     {
       "type": "Label",
-      "caption": "Beispiel einer voll konfigurierten Kachel"
+      "caption": "Example of a fully configured tile"
     },
     {
       "type": "Image",
@@ -19,82 +19,82 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Produktion, Verbrauch, Export, Import",
+      "caption": "Production, consumption, export, import",
       "items": [
         {
           "type": "Label",
-          "caption": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh."
+          "caption": "All variables must have active logging. The tile reads the values of the current day from the archive. Unit = kWh."
         },
-        { "type": "CheckBox", "name": "VerbrauchBerechnen", "caption": "Verbrauch berechnen (berechnet den Tagesverbrauch aus Produktion, Strombezug etc.)", "value": "false", "onChange": "PVO_UpdateVisible($id, $VerbrauchBerechnen);" },
+        { "type": "CheckBox", "name": "VerbrauchBerechnen", "caption": "Calculate consumption (calculates the daily consumption from production, electricity purchase, etc.)", "value": "false", "onChange": "PVO_UpdateVisible($id, $VerbrauchBerechnen);" },
         {
           "type": "RowLayout",
           "items": [
             {
               "type": "SelectVariable",
               "name": "ProduktionWert",
-              "caption": "Produktion/Erzeugung:",
+              "caption": "Production/Generation:",
               "validVariableTypes": []
             },
             {
               "type": "ValidationTextBox",
               "name": "ProduktionLabel",
-              "caption": "Label Produktion/Erzeugung:"
+              "caption": "Label Production/Generation:"
             },
             {
               "type": "SelectVariable",
               "name": "SpeicherEntladungWert",
-              "caption": "Entladung Speicher:",
+              "caption": "Discharge Battery:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "SpeicherBeladungWert",
-              "caption": "Beladung Speicher:",
+              "caption": "Charge Battery:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "VerbrauchWert",
-              "caption": "Verbrauch:",
+              "caption": "Consumption:",
               "validVariableTypes": [],
               "visible": ""
             },
             {
               "type": "ValidationTextBox",
               "name": "VerbrauchLabel",
-              "caption": "Label Verbrauch:"
+              "caption": "Label Consumption:"
           },
             {
               "type": "SelectVariable",
               "name": "ImportWert",
-              "caption": "Import/Bezug:",
+              "caption": "Import/Purchase:",
               "validVariableTypes": []
             },
             {
               "type": "ValidationTextBox",
               "name": "ImportLabel",
-              "caption": "Label Import/Bezug:"
+              "caption": "Label Import/Purchase:"
           },
             {
               "type": "SelectVariable",
               "name": "ExportWert",
-              "caption": "Export/Einspeisung:",
+              "caption": "Export/Feed-in:",
               "validVariableTypes": []
             },
             {
               "type": "ValidationTextBox",
               "name": "ExportLabel",
-              "caption": "Label Export/Einspeisung:"
+              "caption": "Label Export/Feed-in:"
           },
           {
             "type": "ValidationTextBox",
             "name": "EigenproduktionLabel",
-            "caption": "Label Eigenproduktion:"
+            "caption": "Label Self-production:"
         },
         {
           "type": "ValidationTextBox",
           "name": "EigenverbrauchLabel",
-          "caption": "Label Eigenverbrauch:"
+          "caption": "Label Self-consumption:"
       }
           ]
         }
@@ -102,18 +102,18 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Kacheldesign",
+      "caption": "Tile design",
       "items": [
         
           {
             "type": "Label",
-            "caption": "Kachel",
+            "caption": "Tile",
             "bold": true
           },
           {
             "type": "CheckBox",
             "name": "BG_Off",
-            "caption": "Standard-Hintergrundbild"
+            "caption": "Standard background image"
         },
           {
           "type": "RowLayout",
@@ -121,12 +121,12 @@
             {
               "type": "SelectMedia",
               "name": "bgImage",
-              "caption": "Hintergrundbild"
+              "caption": "Background image"
             },
             {
               "type": "NumberSpinner",
               "name": "Bildtransparenz",
-              "caption": "Transparenz Bild (Werte von 0 bis 1)",
+              "caption": "Image transparency (values from 0 to 1)",
               "digits": 1,
               "minimum": 0.0,
               "maximum": 1.0,
@@ -136,12 +136,12 @@
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "Kachelhintergrundfarbe",
-              "caption": "Kachelhintergrundfarbe"
+              "caption": "Tile background color"
             },
             {
               "type": "NumberSpinner",
               "name": "Eckenradius",
-              "caption": "Eckenradius",
+              "caption": "Corner radius",
               "digits": 0,
               "minimum": 0,
               "maximum": 50,
@@ -151,7 +151,7 @@
         },
         {
           "type": "Label",
-          "caption": "Balkendesign",
+          "caption": "Bar design",
           "bold": true
         },
         {
@@ -162,55 +162,55 @@
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "SchriftfarbeBalken",
-              "caption": "Schriftfarbe Balken"
+              "caption": "Bar font color"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "SchriftfarbeSub",
-              "caption": "Schriftfarbe Zusatzinfos"
+              "caption": "Additional info font color"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EinspeisungFarbe",
-              "caption": "Farbe Export"
+              "caption": "Export color"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "ZukaufFarbe",
-              "caption": "Farbe Import"
+              "caption": "Import color"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenverbrauchVerlaufFarbe1",
-              "caption": "Farbe 1 Balken Eigenverbrauch"
+              "caption": "Self-consumption bar color 1"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenverbrauchVerlaufFarbe2",
-              "caption": "Farbe 2 Balken Eigenverbrauch"
+              "caption": "Self-consumption bar color 2"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenproduktionVerlaufFarbe1",
-              "caption": "Farbe 1 Balken Eigenproduktion"
+              "caption": "Self-production bar color 1"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenproduktionVerlaufFarbe2",
-              "caption": "Farbe 2 Balken Eigenproduktion"
+              "caption": "Self-production bar color 2"
             }
           ]
         },
         {
           "type": "Label",
-          "caption": "Schriftgrößen",
+          "caption": "Font sizes",
           "bold": true
         },
         {
@@ -219,7 +219,7 @@
             {
               "type": "NumberSpinner",
               "name": "SchriftgroesseBalken",
-              "caption": "Balken",
+              "caption": "Bars",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -228,7 +228,7 @@
             {
               "type": "NumberSpinner",
               "name": "SchriftgroesseSub",
-              "caption": "Zusatzinfos",
+              "caption": "Additional info",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -244,11 +244,11 @@
   },
     {
       "type": "Label",
-      "caption": "Spenden / Schenkung"
+      "caption": "Donations / Gifts"
   },
   {
       "type": "Label",
-      "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
+      "caption": "Say thank you and support the developer of this module:"
   },
     {
       "type": "RowLayout",
