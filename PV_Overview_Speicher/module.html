@@ -125,7 +125,7 @@
 
         .balken_links_eigenverbrauch {
             width: var(--eigenverbrauch_prozent);
-            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background: repeating-linear-gradient(to right, var(--eigenverbrauchverlauffarbe1) 0%, var(--eigenverbrauchverlauffarbe2) 50%, var(--eigenverbrauchverlauffarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_forschritt 10s infinite;
@@ -141,7 +141,7 @@
             display: flex;
             justify-content: right;
             width: var(--eigenproduktion_prozent);
-            background: repeating-linear-gradient(to right, #28cdab 0%, #208a74 50%, #28cdab 100%);
+            background: repeating-linear-gradient(to right, var(--eigenproduktionverlauffarbe1) 0%, var(--eigenproduktionverlauffarbe2) 50%, var(--eigenproduktionverlauffarbe1) 100%);
             background-size: 200% auto;
             background-position: 0 100%;
             animation: gradient_forschritt 10s infinite;
@@ -308,10 +308,10 @@
                         root.style.setProperty('--eigenverbrauchverlauffarbe2', decodedData[parameter]);
                         break;
                     case 'eigenproduktionverlauffarbe1':
-                        root.style.setProperty('--eigenverbrauchverlauffarbe1', decodedData[parameter]);
+                        root.style.setProperty('--eigenproduktionverlauffarbe1', decodedData[parameter]);
                         break;
                     case 'eigenproduktionverlauffarbe2':
-                        root.style.setProperty('--eigenverbrauchverlauffarbe2', decodedData[parameter]);
+                        root.style.setProperty('--eigenproduktionverlauffarbe2', decodedData[parameter]);
                         break;
                     case 'bildtransparenz':
                         root.style.setProperty('--bildtransparenz', decodedData[parameter]);
