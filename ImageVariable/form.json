@@ -3,13 +3,13 @@
         {
             "type": "SelectVariable",
             "name": "Variable",
-            "caption": "Variable:",
+            "caption": "Variable",
             "validVariableTypes": []
         },
         {
             "type": "SelectMedia",
             "name": "bgImage",
-            "caption": "Photo:"
+            "caption": "Photo"
         },
         {
             "type": "NumberSpinner",
