@@ -1,8 +1,45 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "Translation 1": "Kachel-Konfiguration:",
+            "Translation 2": "Die Kachel Photovoltaik Übersicht bietet einen schnellen Überblick über die Verwendung der erzeugten PV-Energie, Verbrauch, Import und Export. Alle Quellvariablen benötigen ein aktives Logging. Erwartete Werte: kWh. Der Tagesverbrauch kann optional durch das Modul berechnet werden. Ein Batteriespeicher wird optional unterstützt.",
+            "Translation 2": "Beispiel einer voll konfigurierten Kachel",
+            "Translation 2": "Produktion, Verbrauch, Export, Import",
+            "Translation 2": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh.",
+            "Translation 2": "Verbrauch berechnen (berechnet den Tagesverbrauch aus Produktion, Strombezug etc.)",
+            "Translation 2": "Produktion/Erzeugung:",
+            "Translation 2": "Label Produktion/Erzeugung:",
+            "Translation 2": "Entladung Speicher:",
+            "Translation 2": "Beladung Speicher:",
+            "Translation 2": "Verbrauch:",
+            "Translation 2": "Label Verbrauch:",
+            "Translation 2": "Import/Bezug:",
+            "Translation 2": "Label Import/Bezug:",
+            "Translation 2": "Export/Einspeisung:",
+            "Translation 2": "Label Export/Einspeisung:",
+            "Translation 2": "Label Eigenproduktion:",
+            "Translation 2": "Label Eigenverbrauch:",
+            "Translation 2": "Kacheldesign",
+            "Translation 2": "Kachel",
+            "Translation 2": "Standard-Hintergrundbild",
+            "Translation 2": "Hintergrundbild",
+            "Translation 2": "Transparenz Bild (Werte von 0 bis 1)",
+            "Translation 2": "Kachelhintergrundfarbe",
+            "Translation 2": "Eckenradius",
+            "Translation 2": "Balkendesign",
+            "Translation 2": "Schriftfarbe Balken",
+            "Translation 2": "Schriftfarbe Zusatzinfos",
+            "Translation 2": "Farbe Export",
+            "Translation 2": "Farbe Import",
+            "Translation 2": "Farbe 1 Balken Eigenverbrauch",
+            "Translation 2": "Farbe 2 Balken Eigenverbrauch",
+            "Translation 2": "Farbe 1 Balken Eigenproduktion",
+            "Translation 2": "Farbe 2 Balken Eigenproduktion",
+            "Translation 2": "Schriftgrößen",
+            "Translation 2": "Balken",
+            "Translation 2": "Zusatzinfos",
+            "Translation 2": "Spenden / Schenkung",
+            "Translation 2": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
         }
     }
 }

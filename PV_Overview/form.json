@@ -23,7 +23,7 @@
       "items": [
         {
           "type": "Label",
-          "caption": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh. "
+          "caption": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh."
         },
         { "type": "CheckBox", "name": "VerbrauchBerechnen", "caption": "Verbrauch berechnen (berechnet den Tagesverbrauch aus Produktion, Strombezug etc.)", "value": "false", "onChange": "PVO_UpdateVisible($id, $VerbrauchBerechnen);" },
         {
@@ -38,7 +38,7 @@
             {
               "type": "ValidationTextBox",
               "name": "ProduktionLabel",
-              "caption": "Label Produktion/Erzeugung"
+              "caption": "Label Produktion/Erzeugung:"
             },
             {
               "type": "SelectVariable",
@@ -62,7 +62,7 @@
             {
               "type": "ValidationTextBox",
               "name": "VerbrauchLabel",
-              "caption": "Label Verbrauch"
+              "caption": "Label Verbrauch:"
           },
             {
               "type": "SelectVariable",
@@ -73,7 +73,7 @@
             {
               "type": "ValidationTextBox",
               "name": "ImportLabel",
-              "caption": "Label Import/Bezug"
+              "caption": "Label Import/Bezug:"
           },
             {
               "type": "SelectVariable",
@@ -84,17 +84,17 @@
             {
               "type": "ValidationTextBox",
               "name": "ExportLabel",
-              "caption": "Label Export/Einspeisung"
+              "caption": "Label Export/Einspeisung:"
           },
           {
             "type": "ValidationTextBox",
             "name": "EigenproduktionLabel",
-            "caption": "Label Eigenproduktion"
+            "caption": "Label Eigenproduktion:"
         },
         {
           "type": "ValidationTextBox",
           "name": "EigenverbrauchLabel",
-          "caption": "Label Eigenverbrauch"
+          "caption": "Label Eigenverbrauch:"
       }
           ]
         }
@@ -186,25 +186,25 @@
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenverbrauchVerlaufFarbe1",
-              "caption": "Farbe Balken Eigenverbrauch 1"
+              "caption": "Farbe 1 Balken Eigenverbrauch"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenverbrauchVerlaufFarbe2",
-              "caption": "Farbe Balken Eigenverbrauch 2"
+              "caption": "Farbe 2 Balken Eigenverbrauch"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenproduktionVerlaufFarbe1",
-              "caption": "Farbe Balken Eigenproduktion 1"
+              "caption": "Farbe 1 Balken Eigenproduktion"
             },
             {
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "EigenproduktionVerlaufFarbe2",
-              "caption": "Farbe Balken Eigenproduktion 2"
+              "caption": "Farbe 2 Balken Eigenproduktion"
             }
           ]
         },
@@ -248,7 +248,7 @@
   },
   {
       "type": "Label",
-      "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:    "
+      "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
   },
     {
       "type": "RowLayout",
