@@ -1,6 +1,7 @@
 {
     "translations": {
         "de": {
+            "TileVisu PV Overview": "TileVisu PV Übersicht",
             "Tile configuration:": "Kachel-Konfiguration:",
             "The Solar Panel Overview tile provides a quick overview of the usage of produced PV energy, consumption, import, and export. All source variables require active logging. Expected values: kWh. Daily consumption can optionally be calculated by the module. A battery storage is optionally supported.": "Die Kachel Photovoltaik Übersicht bietet einen schnellen Überblick über die Verwendung der erzeugten PV-Energie, Verbrauch, Import und Export. Alle Quellvariablen benötigen ein aktives Logging. Erwartete Werte: kWh. Der Tagesverbrauch kann optional durch das Modul berechnet werden. Ein Batteriespeicher wird optional unterstützt.",
             "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",

@@ -1,6 +1,6 @@
 {
     "id": "{019038F6-CE03-5CB4-8EC4-6CBE15F54A70}",
-    "name": "Tile Visu PV Overview",
+    "name": "TileVisu PV Overview",
     "type": 3,
     "vendor": "",
     "aliases": [],
@@ -8,5 +8,5 @@
     "childRequirements": [],
     "implemented": [],
     "prefix": "PVO",
-    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/tree/main/PV_Overview"
+    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/blob/8ceec6dafbb6580a01720cfa7fc5e9506d931f2a/PV_Overview/README.md"
 }
