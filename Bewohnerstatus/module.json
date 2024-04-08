@@ -1,6 +1,6 @@
 {
     "id": "{CAB3C88D-F6A5-987A-B0C2-6BEB6286A634}",
-    "name": "TileVisu Bewohnerstatus",
+    "name": "TileVisu residency status",
     "type": 3,
     "vendor": "",
     "aliases": [],
@@ -8,5 +8,5 @@
     "childRequirements": [],
     "implemented": [],
     "prefix": "BWO",
-    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/blob/main/Bewohnerstatus/README.md"
+    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/blob/8ceec6dafbb6580a01720cfa7fc5e9506d931f2a/Bewohnerstatus/README.md"
 }

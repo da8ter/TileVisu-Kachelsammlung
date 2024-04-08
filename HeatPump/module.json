@@ -1,12 +1,12 @@
 {
 	"id": "{47031933-4E8B-206D-D42F-F408667AB3C3}",
-	"name": "TileVisuHeatPump",
+	"name": "TileVisu HeatPump",
 	"type": 3,
 	"vendor": "",
 	"aliases": 
 	[],
 	"parentRequirements": [],
-	"url": "https://github.com/da8ter/TileVisu-Kachelsammlung/tree/main/HeatPump",
+	"url": "https://github.com/da8ter/TileVisu-Kachelsammlung/blob/8ceec6dafbb6580a01720cfa7fc5e9506d931f2a/HeatPump/README.md",
 	"childRequirements": [],
 	"implemented": [],
 	"prefix": "HV"
