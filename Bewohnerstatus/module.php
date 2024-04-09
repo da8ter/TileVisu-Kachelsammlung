@@ -1,6 +1,6 @@
 <?php
 
-    class TileVisuBewohnerstatus extends IPSModule
+    class TileVisuresidencystatus extends IPSModule
     {
         
         public function Create() {
