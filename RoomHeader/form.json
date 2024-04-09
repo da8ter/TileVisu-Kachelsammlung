@@ -851,7 +851,7 @@
                     "type": "SelectColor",
                     "allowTransparent": "false",
                     "name": "InfoMenueSchriftfarbe",
-                    "caption": "Font color"
+                    "caption": "Font color:"
                 },
                 {
                     "type": "NumberSpinner",
