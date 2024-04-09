@@ -60,11 +60,11 @@
         "Costs:": "Kosten:",
         "Phases:": "Phasen:",
         "Locking:": "Verriegelung:",
-        "Charging cable:": "Ladekabel:",
+        "Cable:": "Ladekabel:",
         "Access:": "Zugang:",
         "Error:": "Fehler:",
-        "Total:": "Gesamt:",
-        "Current:": "Aktuell:",
+        "Total:&nbsp;": "Gesamt:&nbsp;",
+        "Current:&nbsp;": "Aktuell:&nbsp;",
         "Target SOC&nbsp;&nbsp;": "Ladeziel&nbsp;&nbsp;"
       }
     }
