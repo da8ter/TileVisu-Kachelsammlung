@@ -1,6 +1,6 @@
 {
     "id": "{A82DCB56-D742-C8AB-CFCE-F2B2F2CCFE7C}",
-    "name": "TileVisuRoomHeader",
+    "name": "TileVisu RoomHeader",
     "type": 3,
     "vendor": "",
     "aliases": [],
@@ -8,5 +8,5 @@
     "childRequirements": [],
     "implemented": [],
     "prefix": "RMH",
-    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/tree/main/ImageVariable"
+    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/blob/8ceec6dafbb6580a01720cfa7fc5e9506d931f2a/RoomHeader/README.md"
 }
