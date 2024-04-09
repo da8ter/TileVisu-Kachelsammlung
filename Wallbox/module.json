@@ -1,6 +1,6 @@
 {
     "id": "{2C3405FC-B2A7-7F73-F2B0-CB0E86C0BE93}",
-    "name": "TileVisuWallbox",
+    "name": "TileVisu Wallbox",
     "type": 3,
     "vendor": "",
     "aliases": [],
@@ -8,5 +8,5 @@
     "childRequirements": [],
     "implemented": [],
     "prefix": "WAL",
-    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/tree/main"
+    "url": "https://github.com/da8ter/TileVisu-Kachelsammlung/blob/8ceec6dafbb6580a01720cfa7fc5e9506d931f2a/Wallbox/README.md"
 }
