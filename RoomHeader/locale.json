@@ -1,8 +1,45 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "TileVisu RoomHeader": "TileVisu Raum-Titelkachel",
+            "Tile configuration:": "Kachelkonfiguration:",
+            "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
+            "Room name and picture": "Raumname und Bild",
+            "Photo:": "Foto:",
+            "Photo transparency (values from 0 to 1)": "Transparenz Foto (Werte von 0 bis 1)",
+            "Tile background color": "Kachelhintergrundfarbe",
+            "Room name (text center):": "Raumname (Text Mitte):",
+            "Font color:": "Schriftfarbe:",
+            "Font size:": "Schriftgröße:",
+            "Info area": "Infobereich",
+            "Left:": "Links:",
+            "Variable left 1:": "Variable links 1:",
+            "Setting": "Einstellung",
+            "Display variable name": "Variablenname anzeigen",
+            "Display icon": "Icon anzeigen",
+            "Use variable icon": "Variablenicon verwenden",
+            "Display value": "Wert anzeigen",
+            "Overwrite variable name:": "Variablenname überschreiben:",
+            "Variable left 2:": "Variable links 2:",
+            "Variable right 1:": "Variable rechts 1:",
+            "Variable right 2:": "Variable rechts 2:",
+            "Menu bar": "Menüleiste",
+            "Info1:": "Info1:",
+            "Info2:": "Info2:",
+            "Info3:": "Info3:",
+            "Info4:": "Info4:",
+            "Info5:": "Info5:",
+            "Right:": "Rechts:",
+            "Switch1:": "Schalter1:",
+            "Switch2:": "Schalter2:",
+            "Switch3:": "Schalter3:",
+            "Switch4:": "Schalter4:",
+            "Switch5:": "Schalter5:",
+            "Width": "Breite",
+            "Background transparency:": "Hintergrund Transparenz:",
+            "Background color:": "Hintergrundfarbe:",
+            "Donations / Gifts": "Spenden / Schenkung",
+            "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
         }
     }
 }
