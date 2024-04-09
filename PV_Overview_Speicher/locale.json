@@ -1,8 +1,46 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "TileVisu PV Overview": "TileVisu PV Übersicht",
+            "Tile configuration:": "Kachel-Konfiguration:",
+            "The Solar Panel Overview tile provides a quick overview of the usage of produced PV energy, consumption, import, and export. All source variables require active logging. Expected values: kWh. Daily consumption can optionally be calculated by the module. A battery storage is optionally supported.": "Die Kachel Photovoltaik Übersicht bietet einen schnellen Überblick über die Verwendung der erzeugten PV-Energie, Verbrauch, Import und Export. Alle Quellvariablen benötigen ein aktives Logging. Erwartete Werte: kWh. Der Tagesverbrauch kann optional durch das Modul berechnet werden. Ein Batteriespeicher wird optional unterstützt.",
+            "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
+            "Production, consumption, export, import": "Produktion, Verbrauch, Export, Import",
+            "All variables must have active logging. The tile reads the values of the current day from the archive. Unit = kWh.": "Alle Variablen müssen ein aktives Logging haben. Die Kachel liest die Werte des aktuellen Tages aus dem Archiv. Einheit = kWh.",
+            "Calculate consumption (calculates the daily consumption from production, electricity purchase, etc.)": "Verbrauch berechnen (berechnet den Tagesverbrauch aus Produktion, Strombezug etc.)",
+            "Production/Generation:": "Produktion/Erzeugung:",
+            "Label Production/Generation:": "Label Produktion/Erzeugung:",
+            "Discharge Battery:": "Entladung Speicher:",
+            "Charge Battery:": "Beladung Speicher:",
+            "Consumption:": "Verbrauch:",
+            "Label Consumption:": "Label Verbrauch:",
+            "Import/Purchase:": "Import/Bezug:",
+            "Label Import/Purchase:": "Label Import/Bezug:",
+            "Export/Feed-in:": "Export/Einspeisung:",
+            "Label Export/Feed-in:": "Label Export/Einspeisung:",
+            "Label Self-production:": "Label Eigenproduktion:",
+            "Label Self-consumption:": "Label Eigenverbrauch:",
+            "Tile design": "Kacheldesign",
+            "Tile": "Kachel",
+            "Standard background image": "Standard-Hintergrundbild",
+            "Background image": "Hintergrundbild",
+            "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
+            "Tile background color": "Kachelhintergrundfarbe",
+            "Corner radius": "Eckenradius",
+            "Bar design": "Balkendesign",
+            "Bar font color": "Schriftfarbe Balken",
+            "Additional info font color": "Schriftfarbe Zusatzinfos",
+            "Export color": "Farbe Export",
+            "Import color": "Farbe Import",
+            "Self-consumption bar color 1": "Farbe 1 Balken Eigenverbrauch",
+            "Self-consumption bar color 2": "Farbe 2 Balken Eigenverbrauch",
+            "Self-production bar color 1": "Farbe 1 Balken Eigenproduktion",
+            "Self-production bar color 2": "Farbe 2 Balken Eigenproduktion",
+            "Font sizes": "Schriftgrößen",
+            "Bars": "Balken",
+            "Additional info": "Zusatzinfos",
+            "Donations / Gifts": "Spenden / Schenkung",
+            "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:"
         }
     }
 }
