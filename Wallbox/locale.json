@@ -55,7 +55,7 @@
         "Font size for info (phases, charged, locking, etc.):": "Schriftgröße Infos (Phasen, Geladen, Verriegelung etc.):",
         "Donations / Gifts": "Spenden / Schenkung",
         "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:",
-        "Power:": "Leistung:",
+        "Power:&nbsp;": "Leistung:&nbsp",
         "Charged:": "Geladen:",
         "Costs:": "Kosten:",
         "Phases:": "Phasen:",
@@ -65,7 +65,7 @@
         "Error:": "Fehler:",
         "Total:": "Gesamt:",
         "Current:": "Aktuell:",
-        "Target SOC": "Ladeziel"
+        "Target SOC&nbsp;&nbsp;": "Ladeziel&nbsp;&nbsp;"
       }
     }
   }
