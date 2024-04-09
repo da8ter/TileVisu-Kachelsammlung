@@ -181,7 +181,7 @@
                                 {
                                     "type": "NumberSpinner",
                                     "name": "InfoSchriftgroesse",
-                                    "caption": "Font size",
+                                    "caption": "Font size:",
                                     "digits": 1,
                                     "minimum": 0.5,
                                     "maximum": 10.0,
