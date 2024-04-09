@@ -63,9 +63,9 @@
         "Cable:": "Ladekabel:",
         "Access:": "Zugang:",
         "Error:": "Fehler:",
-        "Total:&nbsp;": "Gesamt:&nbsp;",
-        "Current:&nbsp;": "Aktuell:&nbsp;",
-        "Target SOC&nbsp;&nbsp;": "Ladeziel&nbsp;&nbsp;"
+        "Total:": "Gesamt",
+        "Current:": "Aktuell:",
+        "Target SOC": "Ladeziel"
       }
     }
   }
