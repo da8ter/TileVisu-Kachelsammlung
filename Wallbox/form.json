@@ -2,12 +2,12 @@
   "elements": [
     {
       "type": "Label",
-      "caption": "Tile configuration:",
+      "caption": "Tile configuration",
       "bold": true
     },
     {
       "type": "Label",
-      "caption": "Beispiel einer voll konfigurierten Kachel"
+      "caption": "Example of a fully configured tile"
     },
     {
       "type": "Image",
@@ -15,17 +15,17 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Kacheldesign",
+      "caption": "Tile design",
       "items": [
         {
           "type": "Label",
-          "caption": "Kachel",
+          "caption": "Tile",
           "bold": true
         },
         {
           "type": "CheckBox",
           "name": "BG_Off",
-          "caption": "Standard-Hintergrundbild"
+          "caption": "Standard background image"
         },
         {
           "type": "RowLayout",
@@ -33,12 +33,12 @@
             {
               "type": "SelectMedia",
               "name": "bgImage",
-              "caption": "Hintergrundbild"
+              "caption": "Background image"
             },
             {
               "type": "NumberSpinner",
               "name": "Bildtransparenz",
-              "caption": "Transparenz Bild (Werte von 0 bis 1)",
+              "caption": "Image transparency (values from 0 to 1)",
               "digits": 1,
               "minimum": 0.0,
               "maximum": 1.0,
@@ -48,7 +48,7 @@
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "Kachelhintergrundfarbe",
-              "caption": "Kachelhintergrundfarbe"
+              "caption": "Tile background color"
             }
           ]
         }
@@ -56,7 +56,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Bild",
+      "caption": "Image",
       "items": [
         {
           "type": "RowLayout",
@@ -64,7 +64,7 @@
             {
               "type": "Select",
               "name": "Bildauswahl",
-              "caption": "Bildauswahl",
+              "caption": "Image selection",
               "options": [
                 {
                   "caption": "Go-e",
@@ -79,7 +79,7 @@
                   "value": 2
                 },
                 {
-                  "caption": "Eigene Bilder",
+                  "caption": "Custom images",
                   "value": 3
                 }
               ]
@@ -87,7 +87,7 @@
             {
               "type": "NumberSpinner",
               "name": "BildBreite",
-              "caption": "Bild Breite:",
+              "caption": "Image width:",
               "digits": 0,
               "minimum": 0.0,
               "maximum": 50.0,
@@ -97,12 +97,12 @@
             {
               "type": "SelectMedia",
               "name": "Bild_An",
-              "caption": "Eigenes Bild: Wallbox lädt"
+              "caption": "Custom image: Wallbox charging"
             },
             {
               "type": "SelectMedia",
               "name": "Bild_Aus",
-              "caption": "Eigenes Bild: Wallbox aus"
+              "caption": "Custom image: Wallbox off"
             }
           ]
         }
@@ -110,7 +110,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Wallbox-Status",
+      "caption": "Wallbox status",
       "items": [
         {
           "type": "RowLayout",
@@ -118,14 +118,14 @@
             {
               "type": "SelectVariable",
               "name": "Status",
-              "caption": "Statusvariable:",
+              "caption": "Status variable:",
               "onChange": "WAL_UpdateList($id, $Status);",
               "validVariableTypes": []
             },
             {
               "type": "NumberSpinner",
               "name": "StatusSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Font size:",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -137,7 +137,7 @@
         {
           "type": "List",
           "name": "ProfilAssoziazionen",
-          "caption": "Zuordnung von Bild, Farbe und LED-Animation zum jeweiligen Status",
+          "caption": "Mapping of image, color, and LED animation to respective status",
           "rowCount": 10,
           "add": false,
           "delete": false,
@@ -149,7 +149,7 @@
               "save": true
             },
             {
-              "caption": "Assoziation Wert",
+              "caption": "Association value",
               "name": "AssoziationValue",
               "width": "400px",
               "save": true,
@@ -164,26 +164,26 @@
                 "type": "Select",
                 "options": [
                   {
-                    "caption": "Laden",
+                    "caption": "Charging",
                     "value": "laden_animation"
                   },
                   {
-                    "caption": "Aus",
+                    "caption": "Off",
                     "value": "standby_animation"
                   },
                   {
-                    "caption": "Fertig",
+                    "caption": "Complete",
                     "value": "fertig_animation"
                   },
                   {
-                    "caption": "Warten",
+                    "caption": "Waiting",
                     "value": "warten_animation"
                   }
                 ]
               }
             },
             {
-              "caption": "Farbe",
+              "caption": "Color",
               "name": "StatusColor",
               "width": "100px",
               "save": true,
@@ -193,7 +193,7 @@
               }
             },
             {
-              "caption": "Bild",
+              "caption": "Image",
               "name": "Bildauswahl",
               "width": "200px",
               "save": true,
@@ -201,11 +201,11 @@
                 "type": "Select",
                 "options": [
                   {
-                    "caption": "Laden",
+                    "caption": "Charging",
                     "value": "goe_an"
                   },
                   {
-                    "caption": "Aus",
+                    "caption": "Off",
                     "value": "goe_aus"
                   }
                 ]
@@ -219,7 +219,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Ladeleistung-Anzeige",
+      "caption": "Charging power display",
       "items": [
         {
           "type": "RowLayout",
@@ -227,13 +227,13 @@
             {
               "type": "SelectVariable",
               "name": "Ladeleistung",
-              "caption": "Aktuelle Ladeleistung:",
+              "caption": "Current charging power:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "MaxLadeleistung",
-              "caption": "Maximale Ladeleistung:",
+              "caption": "Maximum charging power:",
               "validVariableTypes": []
             }
           ]
@@ -244,7 +244,7 @@
             {
               "type": "NumberSpinner",
               "name": "BalkenSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Font size:",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -255,14 +255,14 @@
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufFarbe1",
-              "caption": "Farbe 1 Farbverlauf:",
+              "caption": "Color 1 gradient:",
               "width": "150px"
             },
             {
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufFarbe2",
-              "caption": "Farbe 2 Farbverlauf:",
+              "caption": "Color 2 gradient:",
               "width": "150px"
             }
           ]
@@ -271,11 +271,11 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "SOC-Anzeige",
+      "caption": "SOC display",
       "items": [
         {
           "type": "Label",
-          "caption": "SOC (Ladestand) und Ziel-SOC (Ladeziel) werden leider nicht von Typ2 Wallboxen zur Verfügung gestellt. Wer diese Anzeige nutzen möchte muss sich die Werte anderweitig besorgen (API-Anbindung an das Auto etc.). Der User muss eine eigene Logik implementieren um die Anzeige des SOC und Ziel-SOC zu steuern. Zum ein- und ausblenden kann eine Bool-Variable ausgewählt werden. Bei false wird der SOC bzw. das Ladeziel ausgeblendet, bei true eingeblendet. Der Ziel-SOC wird nur angezeigt wenn auch der SOC angezeigt wird."
+          "caption": "SOC (State of Charge) and target SOC are unfortunately not provided by Type 2 wallboxes. Those who want to use this display must obtain the values elsewhere (API connection to the car, etc.). The user must implement their own logic to control the display of SOC and target SOC. A Boolean variable can be selected for showing or hiding. If false, the SOC or the charging target is hidden; if true, it is shown. The target SOC is only displayed when the SOC is also displayed."
         },
         {
           "type": "RowLayout",
@@ -289,7 +289,7 @@
             {
               "type": "SelectVariable",
               "name": "SOCschalter",
-              "caption": "SOC Schalter:",
+              "caption": "SOC switch:",
               "validVariableTypes": []
             }
           ]
@@ -300,13 +300,13 @@
             {
               "type": "SelectVariable",
               "name": "ZielSOC",
-              "caption": "Ziel SOC:",
+              "caption": "Target SOC:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "ZielSOCschalter",
-              "caption": "Ziel SOC Schalter:",
+              "caption": "Target SOC switch:",
               "validVariableTypes": []
             }
           ]
@@ -318,14 +318,14 @@
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufSOCFarbe1",
-              "caption": "Farbe 1 Farbverlauf::",
+              "caption": "Color 1 gradient:",
               "width": "150px"
             },
             {
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufSOCFarbe2",
-              "caption": "Farbe 2 Farbverlauf::",
+              "caption": "Color 2 gradient:",
               "width": "150px"
             }
           ]
@@ -334,7 +334,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Energieverbrauch/Kosten",
+      "caption": "Energy consumption/costs",
       "items": [
         {
           "type": "RowLayout",
@@ -342,25 +342,25 @@
             {
               "type": "SelectVariable",
               "name": "Verbrauchgesamt",
-              "caption": "Geladen gesamt:",
+              "caption": "Total charged:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "VerbrauchTag",
-              "caption": "Geladen Ladevorgang:",
+              "caption": "Charged this session:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "KostenTag",
-              "caption": "Kosten aktueller Ladevorgang:",
+              "caption": "Cost of current charging session:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "KostenGesamt",
-              "caption": "Kosten gesamt:",
+              "caption": "Total cost:",
               "validVariableTypes": []
             }
           ]
@@ -369,7 +369,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Sonstiges",
+      "caption": "Miscellaneous",
       "items": [
         {
           "type": "RowLayout",
@@ -377,31 +377,31 @@
             {
               "type": "SelectVariable",
               "name": "Fehler",
-              "caption": "Fehler:",
+              "caption": "Error:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "Phasen",
-              "caption": "Phasen:",
+              "caption": "Phases:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "Kabel",
-              "caption": "Kabel:",
+              "caption": "Cable:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "Zugangskontrolle",
-              "caption": "Zugangskontrolle:",
+              "caption": "Access control:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "Verriegelung",
-              "caption": "Verriegelung:",
+              "caption": "Lock:",
               "validVariableTypes": []
             }            
           ]
@@ -412,7 +412,7 @@
            {
               "type": "NumberSpinner",
               "name": "InfoSchriftgroesse",
-              "caption": "Schriftgröße Infos (Phasen, Geladen, Verriegelung etc):",
+              "caption": "Font size for info (phases, charged, locking, etc.):",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -425,11 +425,11 @@
     },
     {
       "type": "Label",
-      "caption": "Spenden / Schenkung"
+      "caption": "Donations / Gifts"
     },
     {
       "type": "Label",
-      "caption": "Sag Danke und unterstütze den Entwickler dieses Moduls:    "
+      "caption": "Say thank you and support the developer of this module:"
     },
     {
       "type": "RowLayout",
