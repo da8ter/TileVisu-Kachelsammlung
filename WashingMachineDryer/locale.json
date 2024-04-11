@@ -1,6 +1,7 @@
 {
     "translations": {
       "de": {
+        "TileVisu Device Status": "TileVisu Geräte-Status",
         "Tile configuration": "Kachelkonfiguration",
         "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
         "Tile design": "Kacheldesign",
