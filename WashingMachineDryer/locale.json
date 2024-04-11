@@ -1,8 +1,47 @@
 {
     "translations": {
-        "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
-        }
+      "de": {
+        "Tile configuration": "Kachelkonfiguration",
+        "Example of a fully configured tile": "Beispiel einer voll konfigurierten Kachel",
+        "Tile design": "Kacheldesign",
+        "Tile": "Kachel",
+        "Standard background image": "Standard-Hintergrundbild",
+        "Background image": "Hintergrundbild",
+        "Image transparency (values from 0 to 1)": "Transparenz Bild (Werte von 0 bis 1)",
+        "Tile background color": "Kachelhintergrundfarbe",
+        "Donations / Gifts": "Spenden / Schenkung",
+        "Say thank you and support the developer of this module:": "Sag Danke und unterstütze den Entwickler dieses Moduls:",
+        "Image selection": "Bildauswahl",
+        "Washing machine": "Waschmaschine",
+        "Clothes dryer": "Wäschetrockner",
+        "Custom images": "Eigene Bilder",
+        "Image width:": "Bild Breite:",
+        "Custom image ON": "Eigenes Bild AN",
+        "Custom image OFF": "Eigenes Bild AUS",
+        "Appliance status": "Gerätestatus",
+        "Status variable:": "Statusvariable:",
+        "Font size:": "Schriftgröße:",
+        "Image <=> Status mapping and text color": "Bild <=> Status Zuordnung und Textfarbe",
+        "Status": "Status",
+        "Association value": "Assoziation Wert",
+        "Status bar active": "Statusbalken aktiv",
+        "Color": "Farbe",
+        "Image": "Bild",
+        "On": "An",
+        "Off": "Aus",
+        "Program": "Programm",
+        "Program variable:": "Programmvariable:",
+        "Progress bar": "Fortschrittsbalken",
+        "Program progress (0-100):": "Programmfortschritt (0-100):",
+        "Remaining time (seconds):": "Restlaufzeit (Sekunden):",
+        "Color 1:": "Farbe 1:",
+        "Color 2:": "Farbe 2:",
+        "Energy consumption": "Energieverbrauch",
+        "Current power consumption:": "Aktuelle Leistungsaufnahme:",
+        "Consumption today:": "Verbrauch Heute:",
+        "Costs today:": "Kosten Heute:",
+        "Program:": "Programm:"
+      }
     }
-}
+  }
+  

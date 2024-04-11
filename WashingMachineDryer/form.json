@@ -2,12 +2,12 @@
   "elements": [
     {
       "type": "Label",
-      "caption": "Tile configuration:",
+      "caption": "Tile configuration",
       "bold": true
     },
     {
       "type": "Label",
-      "caption": "Beispiel einer voll konfigurierten Kachel"
+      "caption": "Example of a fully configured tile"
     },
     {
       "type": "Image",
@@ -15,17 +15,17 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Kacheldesign",
+      "caption": "Tile design",
       "items": [
         {
           "type": "Label",
-          "caption": "Kachel",
+          "caption": "Tile",
           "bold": true
         },
         {
           "type": "CheckBox",
           "name": "BG_Off",
-          "caption": "Standart-Hintergrundbild"
+          "caption": "Standard background image"
         },
         {
           "type": "RowLayout",
@@ -33,12 +33,12 @@
             {
               "type": "SelectMedia",
               "name": "bgImage",
-              "caption": "Hintergrundbild"
+              "caption": "Background image"
             },
             {
               "type": "NumberSpinner",
               "name": "Bildtransparenz",
-              "caption": "Transparenz Bild (Werte von 0 bis 1)",
+              "caption": "Image transparency (values from 0 to 1)",
               "digits": 1,
               "minimum": 0.0,
               "maximum": 1.0,
@@ -48,7 +48,7 @@
               "type": "SelectColor",
               "allowTransparent": "false",
               "name": "Kachelhintergrundfarbe",
-              "caption": "Kachelhintergrundfarbe"
+              "caption": "Tile background color"
             }
           ]
         }
@@ -64,18 +64,18 @@
             {
               "type": "Select",
               "name": "Bildauswahl",
-              "caption": "Bildauswahl",
+              "caption": "Image selection",
               "options": [
                 {
-                  "caption": "Waschmaschine",
+                  "caption": "Washing machine",
                   "value": 0
                 },
                 {
-                  "caption": "Wäschetrockner",
+                  "caption": "Clothes dryer",
                   "value": 1
                 },
                 {
-                  "caption": "Eigene Bilder",
+                  "caption": "Custom images",
                   "value": 2
                 }
               ]
@@ -83,7 +83,7 @@
             {
               "type": "NumberSpinner",
               "name": "BildBreite",
-              "caption": "Bild Breite:",
+              "caption": "Image width:",
               "digits": 0,
               "minimum": 0.0,
               "maximum": 50.0,
@@ -93,12 +93,12 @@
             {
               "type": "SelectMedia",
               "name": "Bild_An",
-              "caption": "Eigenes Bild AN"
+              "caption": "Custom image ON"
             },
             {
               "type": "SelectMedia",
               "name": "Bild_Aus",
-              "caption": "Eigenes Bild AUS"
+              "caption": "Custom image OFF"
             }
           ]
         }
@@ -106,7 +106,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Gerätestatus",
+      "caption": "Appliance status",
       "items": [
         {
           "type": "RowLayout",
@@ -114,14 +114,14 @@
             {
               "type": "SelectVariable",
               "name": "Status",
-              "caption": "Statusvariable:",
+              "caption": "Status variable:",
               "onChange": "WMA_UpdateList($id, $Status);",
               "validVariableTypes": []
             },
             {
               "type": "NumberSpinner",
               "name": "StatusSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Font size:",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -133,7 +133,7 @@
         {
           "type": "List",
           "name": "ProfilAssoziazionen",
-          "caption": "Bild <=> Status Zuordnung und Textfarbe",
+          "caption": "Image <=> Status mapping and text color",
           "rowCount": 10,
           "add": false,
           "delete": false,
@@ -145,14 +145,14 @@
               "save": true
             },
             {
-              "caption": "Assoziation Wert",
+              "caption": "Association value",
               "name": "AssoziationValue",
               "width": "400px",
               "save": true,
               "visible": false
             },
             {
-              "caption": "Statusbalken aktiv",
+              "caption": "Status bar active",
               "name": "StatusBalken",
               "width": "150px",
               "save": true,
@@ -162,7 +162,7 @@
               "visible": true
             },
             {
-              "caption": "Farbe",
+              "caption": "Color",
               "name": "StatusColor",
               "width": "100px",
               "save": true,
@@ -172,7 +172,7 @@
               }
             },
             {
-              "caption": "Bild",
+              "caption": "Image",
               "name": "Bildauswahl",
               "width": "200px",
               "save": true,
@@ -180,11 +180,11 @@
                 "type": "Select",
                 "options": [
                   {
-                    "caption": "An",
+                    "caption": "On",
                     "value": "wm_an"
                   },
                   {
-                    "caption": "Aus",
+                    "caption": "Off",
                     "value": "wm_aus"
                   }
                 ]
@@ -198,21 +198,21 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Programm",
+      "caption": "Program",
       "items": [
         {
           "type": "RowLayout",
           "items": [
             {
               "type": "SelectVariable",
-              "name": "Programm",
-              "caption": "Programmvariable:",
+              "name": "Program",
+              "caption": "Program variable:",
               "validVariableTypes": []
             },
             {
               "type": "NumberSpinner",
               "name": "ProgrammSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Font size:",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -225,7 +225,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Fortschrittsbalken",
+      "caption": "Progress bar",
       "items": [
         {
           "type": "RowLayout",
@@ -233,19 +233,19 @@
             {
               "type": "SelectVariable",
               "name": "Programmfortschritt",
-              "caption": "Programmfortschritt (0-100):",
+              "caption": "Program progress (0-100):",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "Restlaufzeit",
-              "caption": "Restlaufzeit (Sekunden):",
+              "caption": "Remaining time (seconds):",
               "validVariableTypes": []
             },
             {
               "type": "NumberSpinner",
               "name": "BalkenSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Font size:",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
@@ -256,14 +256,14 @@
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufFarbe1",
-              "caption": "Farbe 1:",
+              "caption": "Color 1:",
               "width": "150px"
             },
             {
               "type": "SelectColor",
               "allowTransparent": false,
               "name": "BalkenVerlaufFarbe2",
-              "caption": "Farbe 2:",
+              "caption": "Color 2:",
               "width": "150px"
             }
           ]
@@ -272,7 +272,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Energieverbruch",
+      "caption": "Energy consumption",
       "items": [
         {
           "type": "RowLayout",
@@ -280,25 +280,25 @@
             {
               "type": "SelectVariable",
               "name": "Verbrauch",
-              "caption": "Aktuelle Leistungsaufnahme:",
+              "caption": "Current power consumption:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "VerbrauchTag",
-              "caption": "Verbrauch Heute:",
+              "caption": "Consumption today:",
               "validVariableTypes": []
             },
             {
               "type": "SelectVariable",
               "name": "KostenTag",
-              "caption": "Kosten Heute:",
+              "caption": "Costs today:",
               "validVariableTypes": []
             },
             {
               "type": "NumberSpinner",
               "name": "InfoSchriftgroesse",
-              "caption": "Schriftgröße:",
+              "caption": "Font size:",
               "digits": 1,
               "minimum": 0.5,
               "maximum": 10.0,
