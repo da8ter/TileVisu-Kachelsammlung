@@ -106,7 +106,7 @@
     },
     {
       "type": "ExpansionPanel",
-      "caption": "Appliance status",
+      "caption": "Device status",
       "items": [
         {
           "type": "RowLayout",
