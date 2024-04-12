@@ -1,5 +1,5 @@
 <?php
-class TileVisuTileVisuDeviceStatus extends IPSModule
+class TileVisuDeviceStatus extends IPSModule
 {
     public function Create()
     {
