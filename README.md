@@ -1,3 +1,7 @@
+# Alle Kacheln sind ab sofort im IP Symcon Module Store als einzelne Module verfügbar. Die Kachelsammlung wird nicht weiter gepflegt. 
+Alternativ zum Module Store können auch die einzelnen Kachelmodule aus Github verwendet werden. https://github.com/da8ter?tab=repositories
+
+
 # TileVisu-HTML-Kachelsammlung
 
 Zusammenstellung von HTML-Kacheln für die Tile-Visualisierung von IPSymcon. Grundsätzlich werden in allen Kacheln Links und andere Objekte, die unterhalb der Instanz platziert sind, in der vergrößerten Ansicht der Kachel als Listenansicht dargestellt.
